@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-d919191c-6232-4ce6-93d2-95796318e33a",
+  "object": "chat.completion",
+  "created": 1794969470,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"id\":\"C1\",\"level\":\"Accomplished\",\"mark\":9,\"evidence\":[{\"where\":\"1 Introduction\",\"quote\":\"The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution\"},{\"where\":\"1 Introduction\",\"quote\":\"The operator is the Australian Institute of Marine Science (AIMS)\"}],\"reasoning\":\"All required items addressed: primary mission, rationale with cited context, single-spacecraft justification, operator and multiple customers. Detailed and well referenced; only slightly brief on funding/rationale depth.\"},{\"id\":\"C2\",\"level\":\"Accomplished\",\"mark\":9,\"evidence\":[{\"where\":\"2.2 Launch\",\"quote\":\"The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025\"},{\"where\":\"2.3 Orbit\",\"quote\":\"cos i = −(1.991 × 10⁻⁷) / (1.5 × 1.0826 × 10⁻³ × 0.8354 × 1.0831 × 10⁻³) = −0.1355, so i = 97.79°\"},{\"where\":\"2.4 Ground Control & Communications\",\"quote\":\"There are six passes each day, three in the evening and three in the morning (UTC)\"}],\"reasoning\":\"Launch, orbit (with correct J2 sun-sync hand calc verified), elements, manoeuvres, ground station, access frequency, duration and EOL all covered with STK screenshots, access tables, hand calculations and references. Link budget admittedly missing, a minor gap.\"},{\"id\":\"C3\",\"level\":\"Accomplished\",\"mark\":8,\"evidence\":[{\"where\":\"3 Conclusion\",\"quote\":\"A 600 km sun-synchronous orbit at 97.79° inclination gives the same morning lighting on every pass\"},{\"where\":\"3 Conclusion\",\"quote\":\"The design has four limitations.\"}],\"reasoning\":\"Conclusions follow directly from the evidence and honestly identify limitations and further work; specific and useful, though brief.\"},{\"id\":\"C4\",\"level\":\"Accomplished\",\"mark\":9,\"evidence\":[{\"where\":\"Executive Summary\",\"quote\":\"This report presents the design of ZYZZsat (Z-axis/Y-axis Zeroed Zoning Satellite), a single Earth observation microsatellite\"},{\"where\":\"2.3 Orbit\",\"quote\":\"Figure 2: Inclination required for a sun-synchronous orbit as a function of altitude.\"}],\"reasoning\":\"Clear structure, executive summary, numbered/labelled figures and tables, consistent IEEE-style citations matching the bibliography, good grammar. Minor: some references (e.g. [15]) are vague.\"}],\"requirements\":[{\"id\":\"R1\",\"met\":\"yes\",\"where\":\"1 Introduction\"},{\"id\":\"R2\",\"met\":\"yes\",\"where\":\"1 Introduction (Number of spacecraft)\"},{\"id\":\"R3\",\"met\":\"yes\",\"where\":\"1 Introduction (Users)\"},{\"id\":\"R4\",\"met\":\"yes\",\"where\":\"2.2 Launch\"},{\"id\":\"R5\",\"met\":\"yes\",\"where\":\"2.3 Orbit, Table 4\"},{\"id\":\"R6\",\"met\":\"yes\",\"where\":\"2.3 Orbit (Manoeuvres)\"},{\"id\":\"R7\",\"met\":\"yes\",\"where\":\"2.4 Ground Control & Communications, Table 5\"},{\"id\":\"R8\",\"met\":\"yes\",\"where\":\"2.5 Mission Duration & EOL\"},{\"id\":\"R9\",\"met\":\"yes\",\"where\":\"2.3/2.4 STK use plus hand calculations\"},{\"id\":\"R10\",\"met\":\"yes\",\"where\":\"Figures 1–4, Appendix A (ZYZZsat_STK.zip file list)\"},{\"id\":\"R11\",\"met\":\"yes\",\"where\":\"Whole report; Bibliography\"}],\"technical_issues\":[{\"where\":\"2.4 Ground Control & Communications\",\"issue\":\"Accesses computed with no elevation constraint; usable-time estimate above 10° is approximated rather than re-run in STK.\"},{\"where\":\"2.4 Ground Control & Communications\",\"issue\":\"No X-band link budget, acknowledged by the author.\"},{\"where\":\"2.5 Mission Duration & EOL\",\"issue\":\"Decay analysis uses a single mean density; solar-cycle variation only discussed qualitatively.\"},{\"where\":\"2.2 Launch\",\"issue\":\"Vega C flight record stated as of 2020; by a 2025 launch the comparison would need updating (minor).\"}],\"overall\":\"An excellent, technically sound mission design report. Correct hand calculations (sun-sync inclination, azimuth, period, decay, data budget) verified, well supported by STK evidence, clearly written and properly referenced. Minor gaps: link budget and elevation-constrained access analysis.\"}",
+        "refusal": null,
+        "reasoning": "Strong report. Check calculations quickly: sun-sync inclination at 600 km ~97.79° correct. Launch azimuth: sinβ = cos i / cos φ = cos97.79/cos5.2 = -0.1355/0.9959 = -0.136, β=-7.8°, correct. Period 5801 s correct. Ground track spacing: 2π·6378·5801/86164 ≈ 2698 km correct. Decay: Δa = 2π·(Cd A/m)·ρ·a² = 2π·(2.2·0.3/50)·1e-13·(6.978e6)² ≈ 2π·0.0132·1e-13·4.87e13 ≈ 0.40 m, correct. Sail: ×14.3 → 5.8 m, correct. Data budget: 60,000 km² × 40,000 px/km² (5m GSD → 40,000 px per km²) ×4×12 = 1.152e14 bits = 115 Gbit, correct. Access table plausible. Minor issues: eclipse 34 min claim, \"Mount Pleasant\" is actually in Tasmania? Mount Pleasant Radio Observatory is in Tasmania near Hobart — yes correct. Minor: no link budget, acknowledged. Minor: Vega C first flight 2021 vs 2025 launch fine. Minor: \"latitude lower than 180° minus inclination\" odd phrasing but fine. Minor: eclipse duration at 600 km with 97.8° inclination ~35 min, fine.\n\nC1: Accomplished, 9. C2: Accomplished, 9 (minor: no link budget, no coverage analysis of station mask beyond elevation 0). C3: Accomplished, 8. C4: Accomplished, 9."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 10717,
+    "completion_tokens": 1389,
+    "total_tokens": 12106,
+    "reasoning_tokens": 411,
+    "completion_tokens_details": {
+      "reasoning_tokens": 411,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 10717,
+    "cost": 0.0014884,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_124b1d8e-8f72-441f-9be0-c53d02f8a8a1",
+  "x_nanogpt_pricing": {
+    "amount": 0.0014884,
+    "currency": "USD",
+    "cost": 0.0014884,
+    "inputTokens": 10717,
+    "outputTokens": 1389,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_1c8a8312-9e1b-4b55-b22f-ec27219988dc",
+    "costUsd": 0.0014884,
+    "usdCost": 0.0014884,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

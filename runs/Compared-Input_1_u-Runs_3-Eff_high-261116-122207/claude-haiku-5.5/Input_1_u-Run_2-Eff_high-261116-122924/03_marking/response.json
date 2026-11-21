@@ -1,0 +1,4006 @@
+{
+  "id": "chatcmpl-a6859718-c923-49b0-89fd-915557ab108b",
+  "object": "chat.completion",
+  "created": 1794792567,
+  "model": "anthropic/claude-haiku-5.5",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"id\":\"C1\",\"level\":\"Accomplished\",\"mark\":8,\"evidence\":[{\"where\":\"Mission Concept & Rationale\",\"quote\":\"Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef\"},{\"where\":\"Mission Concept & Rationale\",\"quote\":\"Objectives 1 and 3 come directly from the managers' need to react within days\"}],\"reasoning\":\"Goals, four quantified objectives and named users (GBRMPA, CSIRO/universities, BoM, AIMS operator) are clear, and objectives are traced to user needs. Literature is referenced throughout. Weaknesses: the acidification-causes-bleaching link is technically muddled, and some citations do not support the stated user needs, so the rationale is not fully robust.\"},{\"id\":\"C2\",\"level\":\"Accomplished\",\"mark\":9,\"evidence\":[{\"where\":\"Project Plan\",\"quote\":\"the imaging requirements (objectives 1 and 2) fix the orbit altitude and local time, so orbit work comes before ground control\"},{\"where\":\"Project Plan\",\"quote\":\"Plan fits within the narrative: Contingencies. Week 10 is float as well as editing time\"}],\"reasoning\":\"The Gantt chart, task descriptions and ordering are logically tied to the mission chain. A risk/trigger/response table provides real contingencies, and information sources are listed. Minor detail gap: the Gantt chart shows Launch Specifics without a clear launch-vehicle decision point, and colour coding is slightly inconsistent with the text.\"},{\"id\":\"C3\",\"level\":\"Accomplished\",\"mark\":8,\"evidence\":[{\"where\":\"Preliminary Progress\",\"quote\":\"Swath at 10 m sampling | 10 m × 6,000 pixels across track | 60 km\"},{\"where\":\"Preliminary Progress\",\"quote\":\"A first STK scenario with this orbit has been set up, and its period agrees with the hand calculation.\"}],\"reasoning\":\"Hand calculations for period, orbits per day, sun-synchronous inclination and ground-track shift are correct and interpreted against the mission objectives, honestly flagging the coverage trade-off. The STK scenario is only described, with no output shown, and one interpretive claim is unsourced, so progress is strong but not fully evidenced.\"},{\"id\":\"C4\",\"level\":\"Accomplished\",\"mark\":8,\"evidence\":[{\"where\":\"Project Plan\",\"quote\":\"Table 2 lists the sources I plan to use and what each is for.\"},{\"where\":\"Figure 1\",\"quote\":\"Figure 1: Project Gantt chart, Weeks 2 to 10 (gold = completed, blue = planned, red lines = report deadlines).\"}],\"reasoning\":\"Clear logical structure with headings, labelled figures and tables, and a consistent, professional style. References are numbered in order of first citation. Some citations are attributed to sources that do not support the claim (BoM claim cited to a NOAA page), and the length may exceed the 2-3 page guideline.\"}],\"requirements\":[{\"id\":\"R1\",\"met\":\"yes\",\"where\":\"Mission Concept & Rationale\"},{\"id\":\"R2\",\"met\":\"partial\",\"where\":\"Preliminary Progress\"},{\"id\":\"R3\",\"met\":\"yes\",\"where\":\"Project Plan\"},{\"id\":\"R4\",\"met\":\"yes\",\"where\":\"Project Plan\"},{\"id\":\"R5\",\"met\":\"yes\",\"where\":\"Project Plan\"},{\"id\":\"R6\",\"met\":\"yes\",\"where\":\"Preliminary Progress\"}],\"technical_issues\":[{\"where\":\"Mission Concept & Rationale\",\"issue\":\"Attributes coral bleaching to ocean acidification, whereas bleaching is primarily driven by thermal stress; this contradicts the later paragraph stating high temperatures cause bleaching.\"},{\"where\":\"Preliminary Progress\",\"issue\":\"Claim that the reef is up to about 250 km wide is unsourced and drives the swath-count conclusion.\"},{\"where\":\"Preliminary Progress\",\"issue\":\"The 2,700 km spacing is along-track between successive orbits; cross-track coverage of a 250 km width requires a repeat-cycle or offset-track analysis, so the five-pass argument is conflated and not properly derived.\"},{\"where\":\"Mission Concept & Rationale\",\"issue\":\"GBRMPA reef facts page [5] is cited for the claim that managers need bleaching maps, which the source does not support.\"},{\"where\":\"Mission Concept & Rationale\",\"issue\":\"Bureau of Meteorology capability is cited to a US NOAA page [6], which does not support the Australian agency claim.\"},{\"where\":\"Preliminary Progress\",\"issue\":\"Hand-calculation section does not show the sun-synchronous inclination derivation (only the precession rate), and no STK output is shown to support the claimed agreement.\"}],\"overall\":\"A well-organised, largely accomplished preliminary report with a clear mission, a logical Gantt-based plan with contingencies, and correct orbital hand calculations. Main weaknesses are a causal error on bleaching, unsourced or mis-cited claims, and a muddled cross-track coverage argument. Marks use the 0-10 descriptor scale.\"}",
+        "refusal": null,
+        "reasoning": "I'm checking the numbers: the orbital period works out to about 96.7 minutes, and the roughly 14.9 orbits per day also checks out.\n\nI'm verifying the sun-synchronous inclination and the nodal precession rate, both of which check out. The ground-track shift per orbit comes to roughly 2,700 km, and the swath of about 60 km from 6000 pixels at 10 m also looks right.\n\nI'm going through the remaining checks: the orbit timing, the Gantt chart week labels and the final report date all hold up, and the contingency week is noted as float.\n\nI'm checking the Gantt chart colours against the text, since Background Research shows as planned while the text calls it ongoing. The Mission Concept stage is gold only in Weeks 2 and 3, and I'm also confirming that the STK Design and Simulations timing lines up.\n\nI'm going through the rest of the requirement checks: the launch aspect isn't really worked through, so that one only partly holds, while the information sources, the preliminary technical content with its hand calculation and STK setup, the Gantt chart and the mission concept all look met. I'm also noting that Table 3's inclination column gives a rate rather than a calculation, which is minor.\n\nI'm noting that the acidification claim is loosely phrased but acceptable as a commonly cited figure, while the bleaching link is the real problem, since bleaching is driven mainly by temperature rather than acidification. The causal statement that acidification leads to coral bleaching doesn't hold up and would need correcting.\n\nI'm checking the remaining factual claims, such as the 2016 and 2017 bleaching percentages and the 100-metre pixel resolution, which look plausible though the sources could be verified further. I'm also confirming the monitoring method and the STK access arrangement, and the week-6 orbit trade deadline seems fine.\n\nI'm noting that the reef-width figure of about 250 km is unreferenced and may need checking, and that a few sources, like the ResearchGate and WWF citations, are weaker than the rest. The STK tutorial timing also looks inconsistent, since the Gantt chart has the STK design stage starting in Week 7.\n\nI'm noting that the Bureau of Meteorology sea surface temperature claim is cited to a NOAA source, which is a mismatch, though a minor one. I'm also seeing that the GBRMPA reef-facts citation doesn't actually support the need for bleaching maps, so that evidence is weak.\n\nI'm reading through the presentation now: the headings look consistent, and the references appear in roughly the right order. The document is quite long, probably around four pages with the Gantt chart, when two or three would be better.\n\nI'm settling on a grade for the presentation and mission concept now: the objectives, requirements and users are clearly set out and tied to the literature, but the causal claim that acidification drives bleaching is a real weakness. That points to around 8 out of 10, possibly 9 if the error were corrected.\n\nI'm weighing whether to give an 8 here, and I'm questioning the scale: the criterion lists a max of 40, yet the level bands only run from 0 to 10. Since the level descriptors are what the marks have to fit, I'll score within the 0–10 range and keep the mark consistent with that.\n\nI'm weighing the second criterion now: the plan has contingencies and its order follows the mission narrative, though the Gantt colours don't match the timeline, so I'd put it at about 9. For the third, the hand calculations hold and the tutorials are done, but the reef width is unsupported and the STK scenario shows no results, which leaves it at around 8.\n\nI'm settling the presentation score at around 8, since the length might run past the two or three pages I'd want and one citation points to the wrong agency. The inclination column in Table 3 gives a rate rather than a calculation, which is minor. On the requirements, the orbit side is applied but the launch side is not, so that one only partly holds.\n\nI'm going through the remaining issues: the acidification-bleaching statement contradicts the later paragraph, the 250 km reef width has no source, and the Gantt colours don't clearly match the completed stages. I'm also noting that the Bureau of Meteorology claim is cited to a NOAA source and the GBRMPA reference doesn't support the need for bleaching maps.\n\nI'm checking the ground-track shift per orbit against the sidereal day, which holds up. The next worry is whether one satellite can cover a region weekly, since a 2,700 km shift between passes and a 60 km swath leave big gaps that I'll need to work through.\n\nI'm checking the ground-track spacing: at about 14.9 orbits a day, neighbouring tracks at the equator sit roughly 2,700 km apart, so that figure holds. Against a 60 km swath, a 250 km reef would need several passes, and those passes won't fall on the same day, which is the coverage gap I still need to work through.\n\nI'm trying to square the reef's 250 km width with the 60 km swath: the passes are spaced roughly 2,500 to 2,700 km apart in longitude, so they won't cover the width from neighbouring tracks, and I'll need to work out how cross-track offsets or multiple passes could close that gap.\n\nI'm working through the coverage problem now: the 2,700 km spacing between tracks holds, but it says nothing about cross-track coverage, which is what the 250 km reef width needs. The real question is how long a 60 km offset track takes to revisit, which points to the repeat cycle rather than the daily pass count.\n\nI'm checking the ground-track geometry against the sun-synchronous inclination, which holds up at 97.8 degrees for a 600 km orbit. I'm also confirming that 10 m pixels across 6000 pixels gives the 60 km swath. For the presentation, I'm settling on marks of 8, 9, 8 and 8 across the four criteria, with an overall comment of no more than 60 words to write up, and I'll pick out one short quote from the acidification claim to support the critique.\n\nI'm now checking the quotes I plan to use as evidence, making sure the reef-width line and the Bureau of Meteorology citation match the source exactly.\n\nI'm settling on the exact quote for the Gantt point now, pulling the sentence that says the mission concept stage is complete so I can set it against the gold bars that only cover weeks 2 to 3.\n\nI'm checking the wording of the reef-related citation and the STK scenario note, which the earlier draft already covers. I also want a contingency line about relaxing the coverage objective to fortnightly, and I'm confirming the Table 3 precession figure is fine. The requirements reference that I'd started, though, is still unfinished, so I'll come back to it.\n\nI'm picking the evidence for each requirement now: the reef-width and acidification lines for the critique, and for the plan, the STK design note, the weekly Gantt breakdown and the information-sources table. I'll keep every quote under 25 words and copied exactly.\n\nI'm flagging three technical problems in the critique: the acidification line wrongly attributes bleaching to acidification when heat stress is the main driver, the 250 km reef width has no source, and the 2,700 km track spacing is a longitude figure that doesn't establish cross-track coverage, so that argument needs a repeat-cycle analysis.\n\nI'm drafting the last few critique points: the GBRMPA page doesn't back up the need for bleaching maps, and the Bureau of Meteorology capability is cited to a NOAA source, which doesn't fit an Australian agency claim.\n\nI'm drafting the critique as JSON now: marks of 8, 9, 8 and 8 with brief reasoning for each, plus a single quoted line or two as evidence, keeping the whole overall comment under 60 words.\n\n",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the numb",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ers: the orbital period works",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " out to about 96.7 ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "minutes, and the ro",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ughly 14.9 or",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "bits per day also",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " checks out.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm ver",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ifying the s",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "un-synchronous incl",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ination and the nodal precession",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " rate, both",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " of which check",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " out. The ground-track sh",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ift per orbit com",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "es to ro",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ughly 2,700 km",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", and the swath of about",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 60 km from",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 6000",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " pixels at",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 10 m also",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " looks right.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm going",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " through the rem",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "aining chec",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ks: the or",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "bit",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " tim",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ing, the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Gantt ch",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "art week",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " lab",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "els and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " final report date",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " all",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " h",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "old up, and the contingency",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " week is no",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ted as float.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the G",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "antt chart col",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ours against",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the text, since",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Background",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Research sh",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ows as",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " planned while",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the text",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " cal",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ls it ongoing. The",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Mission Concept st",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "age is gold only in",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Weeks 2 ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "and 3, and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " I",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "m also conf",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "irming that the STK",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Design and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Simulations timing",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " l",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ines up.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm going",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " through the rest of the requ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "irement",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " checks: the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " launch a",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "spect isn't really",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " wor",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ked through",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", so that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " one only",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " part",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ly",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " hol",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ds, while the information",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " s",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ources, the preliminary techn",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ical content with",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " its",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " hand calculation and ST",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "K setup, the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Gantt chart and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the mission concept all look",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " met.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " I",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'m also no",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ting that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Table 3's",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " inclination column g",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ives a rate rather than a",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " calculation,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " which is min",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "or.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm no",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ting that the acidification",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " claim is lo",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "osely ph",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "rased but ac",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ceptable as",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a comm",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "only cited figure, while",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the bleaching link",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " real",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " problem,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " since bleaching is dri",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ven mainly by temperature",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " rather than acidification. The",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " caus",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "al stat",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ement that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ac",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "idification leads to coral b",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "leaching doesn't h",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "old up and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " would",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need corre",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "cting.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the rem",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "aining fact",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ual claims, such as the ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "2016 and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 2017 bleaching",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " perc",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "entages and the ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "100-met",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "re p",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ixel resolution,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " which look",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " plausible though",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the s",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ources could",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " be ver",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ified further",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". I'm also",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " conf",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "irming the mon",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "itoring method and the ST",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "K access ar",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "rangement, and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the week-6",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " or",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "bit trade de",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "adline se",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ems f",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ine.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm no",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ting that the re",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ef-",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "width fig",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ure of about 250 km is",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " unreferenced and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " may need checking,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and that a",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " few sources,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " like",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the ResearchGate and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " WWF cit",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ations, are weaker than the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " r",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "est. The",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " STK tutorial",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " timing also",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " looks in",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "consistent,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " since the Gantt chart",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " has",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the STK design st",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "age starting in",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Week 7.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm no",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ting that the Bureau of",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Meteorology sea sur",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "face temperature claim is c",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ited to a NOAA source",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", which is",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a mismatch, though",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " minor one. I'm also",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " se",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "eing that the GBRM",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "PA re",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ef-fac",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ts cit",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ation doesn't act",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ually support the need for blea",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ching maps, so",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " evidence is weak.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm re",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ading",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " through the pres",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "entation now",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": the head",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ings look",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " consistent, and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the references app",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ear in ro",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ughly the right order. The document",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is qu",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ite long, prob",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ably around",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " four pages with",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the Gantt chart,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " when",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " two",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " or",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " three would be better",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm sett",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ling on a gr",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ade for the presentation and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " m",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ission concept now",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " obj",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ectives,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " requirements and users are cl",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "early set out and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " t",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ied to the literature, but the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " causal cla",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "im that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " acidification dr",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ives bleaching is a real",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " we",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "akness.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " That points",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " to around",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 8 out",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " of 10, poss",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ibly 9 if the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " error",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " were",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " corrected.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm weighing wh",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ether to give an",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 8 here",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", and I'm quest",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ioning the sc",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ale: the cri",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "terion l",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ists a max of 40,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " yet the level",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " b",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ands only",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " run",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " from",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 0 to 10.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Since the level",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " descriptors",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " are what the marks have",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " to fit",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ",",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " I'll",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " score",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " within",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 0–10 range and ke",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ep the mark consistent with",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " that.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm we",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ighing the second",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " cri",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "terion now",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": the pl",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "an has",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " cont",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ingencies and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " its",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " order foll",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ows the mission narrative,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " though",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Gantt col",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ours don",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'t match the tim",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "eline,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " so I'd put it at about",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 9. For",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the third, the h",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "and calculations h",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "old and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the t",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "utorials are done",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", but the reef width is",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " uns",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "upported and the STK sc",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "enario shows no results, which",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " leaves it",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " at around 8.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm sett",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ling the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " pres",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "entation score",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " at around 8,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " since the length",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " might",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " run",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " past the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " two or three pages I",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'d want",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and one",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " citation points",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " to the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " wrong agency. The in",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "clination column in",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Table 3 gives a",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " rate rather than a calcul",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ation, which is minor.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " On",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the requirements,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " or",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "bit side",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is appl",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ied but the launch side",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is not, so that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " one only",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " partly holds.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm going through the rema",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ining issues:",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the ac",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "idification-",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "bleaching stat",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ement cont",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "radicts the later",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " paragraph, the ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "250 km re",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ef width has",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " no source, and the Gant",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "t colours don't cl",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "early match the complet",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ed stages. I'm also",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " noting that the Bureau",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " of Meteorology cla",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "im is cited to a NO",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "AA source and the GBR",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "MPA re",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ference doesn't support the need",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " for bleaching maps.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ground-track sh",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ift per orbit against",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the s",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "idereal day",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", which holds up",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". The next wor",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ry is wh",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ether one satellite can cover",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a region",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " we",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ekly, since",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 2,700 km sh",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ift between pass",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "es and a 60 km sw",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ath leave big",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " gaps that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " I'll",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to work through",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the ground",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-track spacing: at",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " about",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 14.9 orbits",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " day, neighbouring t",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "racks at",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the equator s",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "it roughly 2,700",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " km apart, so",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " that fig",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ure holds. Against",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a 60",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " km swath, a 250",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " km reef would need several",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " passes, and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " those passes won",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'t f",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "all on the same day,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " which is the co",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "verage gap I still",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to work through.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm tr",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ying to square",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the reef's ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "250 km width with the 60",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " km swath: the passes",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " are sp",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "aced roughly 2,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "500 to",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 2,700 km apart",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " in",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " long",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "itude,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " so they",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " won",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'t cover the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " width",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " from ne",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ighbouring t",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "racks,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and I",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'ll need",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " to work out how c",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ross-track offsets or",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " multiple passes could",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " close that gap.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm working through",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the coverage probl",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "em now",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ":",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "2,700 km sp",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "acing between t",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "racks holds,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " but it says",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " nothing about cross-track",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " coverage, which",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is what",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 250 km reef width",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " needs. The real question",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is how long",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a 60 km offset track",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " takes to revisit, which",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " points",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " to the repeat cycle",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " rather than the da",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ily p",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ass count.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ground-track ge",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ometry against",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the sun-synchronous",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " inclination, which",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " hol",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ds up at",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 97.8 ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "degrees for",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a 600 km or",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "bit. I",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'m also confirming that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "10 m p",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ixels across",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 6000 pixels g",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ives the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 60 km swath.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " For the pres",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "entation, I'm settling",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " on marks of",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 8,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 9, 8 and ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "8 across the four",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " criteria, with an",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " overall com",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ment of no",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " more than 60 words to write",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " up",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", and I'll p",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ick out",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " one short",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " quote from the ac",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "idification cla",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "im to support the crit",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ique.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm now",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " checking the quot",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "es I pl",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "an to use",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " as",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " evidence,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " making",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " sure the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " re",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ef-",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "width line",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Bureau of Meteor",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ology cit",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ation match the source exactly.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm sett",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ling on the ex",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "act quote",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " for",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " G",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "antt point",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " now",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ",",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " pulling the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " s",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "entence that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " says the m",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ission concept stage is complete",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " so",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " I can set",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " it against the g",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "old b",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ars that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " only cover weeks 2",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "to 3.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm checking the w",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ording of the re",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ef-related",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " citation and the ST",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "K scenario note",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", which",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the ear",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "lier dra",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ft already",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " cov",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ers. I also want a",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " contingency line",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " about rel",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "axing the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " coverage obj",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ective to fortnightly,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and I'm confirming the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Table 3 prec",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ession figure is f",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ine.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " The requ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "irements",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " reference that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " I'd",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " started",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ",",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " though",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", is still unf",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "inished,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " so I'll",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " come",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " back to it",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm pic",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "king the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " evidence for each requirement",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " now",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": the re",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ef-width and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ac",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "idification l",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ines for",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the crit",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ique, and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " for",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the plan,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the STK design note",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", the we",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ek",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ly",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Gantt breakdown and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the information",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "sources table. I'll",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ke",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ep every",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " quote under",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 25 words and cop",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ied ex",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "actly.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm flagging three techn",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ical problems in",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the crit",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ique: the acidification line",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " w",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "rongly attributes ble",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "aching to acidification when",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " heat stress is",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the main",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " driver, the 250 km",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " reef width has no source, and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the 2",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ",700 km track",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " spacing is",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " longitude",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " fig",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ure that doesn't establ",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ish cross-track coverage",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ",",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " so that",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " arg",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ument needs a",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " repeat-cycle anal",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ysis.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm dr",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "afting the last",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " few critique",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " points: the GBRMP",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "A page",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " do",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "esn't back",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " up",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the need for bleaching ma",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ps, and the Bureau",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " of Meteorology cap",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ability is cited to a NO",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "AA source,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " which doesn't fit an",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Australian agency cla",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "im.",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "I'm drafting the crit",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ique as JSON now",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": marks of 8",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", 9, 8 and",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 8 with",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " br",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ief reasoning for",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " each,",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " pl",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "us a single",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " qu",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "o",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ted line",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " or two as",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " evidence, keeping the",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " whole over",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "all comment under 60 words",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\n\n",
+            "format": "anthropic-claude-v1",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 8268,
+    "completion_tokens": 8555,
+    "total_tokens": 16823,
+    "reasoning_tokens": 6830,
+    "completion_tokens_details": {
+      "reasoning_tokens": 6830,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 8264,
+    "prompt_tokens_details": {
+      "cached_tokens": 8264,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 4,
+    "cost": 0.00436054,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_de62ef6e-fd1e-4eba-bc99-756d59019614",
+  "x_nanogpt_pricing": {
+    "amount": 0.00436054,
+    "currency": "USD",
+    "cost": 0.00436054,
+    "inputTokens": 8268,
+    "outputTokens": 8555,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 8264,
+    "cacheCost": 8.264e-05,
+    "requestId": "req_6ad5fe36-ed2d-431c-8264-2532724ad4d9",
+    "costUsd": 0.00436054,
+    "usdCost": 0.00436054,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "hit",
+      "readTokens": 8264,
+      "writeTokens": 0
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 8264,
+    "writeTokens": 0
+  }
+}

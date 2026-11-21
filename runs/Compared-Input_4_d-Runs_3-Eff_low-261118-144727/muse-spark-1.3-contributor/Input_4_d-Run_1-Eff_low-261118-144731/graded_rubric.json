@@ -1,0 +1,214 @@
+{
+  "total": 22.0,
+  "total_max": 40.0,
+  "percent": 55.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Two relevant attributes justified from lunch-peak scenario. Performance scenario is six-part and measurable. Availability scenario has six parts but response measure is not measurable.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation. Two scenario-specific trade-offs: 5-person team vs overhead, single VM and deployment downtime fixes. Downside explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "Part (a) correct. Part (b) arithmetic wrong: 0.00699x720 is ~5.0h not 3.5h. Part (c) wrong: uses payment-only 99.9975% not series ~99.80% and downtime ~1.5h.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 1.0,
+      "scale": 5.0,
+      "points": 1.0,
+      "max": 5.0,
+      "reasoning": "Appropriate pattern chosen and applied, but open/closed states inverted, so mechanism explained incorrectly. No clear drawback or tuning trade-off stated.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Both availability vs consistency choices reasonable. Menu technique named (Redis TTL). Payment technique missing and CAP misused; partition tolerance cannot be given up.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision, Consequences present and specific to outlet notification. Multiple positives given but no negative consequence, cost or complexity.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Clear writing with required headings, but [2] cited in Q4 missing from list, no assumptions stated, and Q2 likely exceeds 150-word limit.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice,",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "(b) 0.00699*720 = 5.03h not 3.5h; (c) end-to-end = 0.9995*0.999*0.9995*0.999975 ~99.80% with ~1.5h downtime, not 99.9975% and 0.018h"
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states reversed: Closed is normal operation, Open fails fast, Half-Open trials"
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP: partition tolerance is mandatory during partition; choice is between C and A, cannot sacrifice P"
+    }
+  ],
+  "overall": "Good architectural judgment for style and ADR, but undermined by availability calculation errors, inverted breaker states, and CAP error.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You showed good judgment on style and trade-offs, with clear scenarios for performance and a solid ADR. To improve, you need measurable response measures, correct availability maths, accurate pattern and CAP explanations, and balanced consequences with precise formatting.",
+    "next_steps": [
+      "Rewrite vague measures and add missing negative consequence, payment technique, and breaker tuning.",
+      "Recalculate Q3(b)-(c) as full series with working and fix inverted Open/Closed breaker states and CAP claim.",
+      "Keep all answers under 150 words and complete your IEEE list, including [2] from Q4."
+    ],
+    "criteria": {
+      "C1": "You did well in Question 1 choosing two relevant attributes with lunch-peak justification and a measurable performance scenario. To reach Excellent, rewrite your availability measure — 'stay up most of the time' is not measurable — as a quantified target.",
+      "C2": "You excelled in Question 2 with a clear modular-monolith recommendation, two scenario-specific trade-offs on 5-person team and single VM downtime, and acknowledged that 'a bug in one module can still crash the whole process.'",
+      "C3": "You showed correct method in Question 3(a). To move up, fix Question 3(b) to ~5.0h and Question 3(c) to end-to-end series ~99.80% with ~1.5h downtime, showing working to requested precision.",
+      "C4": "You picked an appropriate pattern for the Question 4 outage. To progress, correct your states — you wrote 'In the Open state calls pass through normally' — to Closed normal, Open fail-fast, Half-Open trials, plus a drawback.",
+      "C5": "You made reasonable choices in Question 5 and named Redis TTL for menus. For Excellent, correct CAP — you cannot give up partition tolerance — and name a concrete payment technique.",
+      "C6": "You wrote specific Context, Decision and Consequences for outlet notification with good positives on lunch-peak smoothing. To reach Excellent, add at least one negative consequence like cost or complexity.",
+      "C7": "Your writing is clear with required headings. For Excellent, keep every answer within 150 words (check Q2), add missing reference [2] cited in Q4 to your list, and state assumptions."
+    }
+  }
+}

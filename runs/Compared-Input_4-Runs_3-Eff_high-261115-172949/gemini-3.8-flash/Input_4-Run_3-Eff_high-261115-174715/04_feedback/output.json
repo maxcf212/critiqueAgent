@@ -1,0 +1,17 @@
+{
+  "summary": "You demonstrated strong architectural reasoning and produced well-structured solutions grounded in the CampusEats scenario, particularly in your Q2 recommendation and IEEE referencing. To improve, ensure all quality attribute response measures are quantitatively measurable, address architectural trade-offs such as negative consequences in your ADR and resilience pattern drawbacks, and correctly articulate the trade-offs of the CAP theorem. Additionally, double-check end-to-end availability calculations across composite components and observe word count constraints.",
+  "next_steps": [
+    "In Question 1 and Question 3, ensure metrics and calculations are precise: quantify qualitative response measures into measurable thresholds and incorporate all series components into availability equations.",
+    "In Question 4 and Question 6, balance your proposals by explicitly evaluating operational trade-offs, such as tuning thresholds for circuit breakers and negative architectural consequences in your ADR.",
+    "Review the CAP theorem for Question 5 to correctly reflect that network partitions cannot be chosen away, and adhere strictly to the 150-word limit across all answers."
+  ],
+  "criteria": {
+    "C1": "You justified performance and availability well for CampusEats and used the six-part structure effectively. However, your availability response measure ('stay up most of the time') was qualitative. To achieve Excellent, ensure both scenarios feature quantitatively measurable response measures (such as 99.9% uptime or under 5 minutes MTTR).",
+    "C2": "You provided an excellent recommendation for a modular monolith, effectively linking team size and single-VM constraints to scenario trade-offs while acknowledging scaling and coupling downsides. You met all criteria for Excellent.",
+    "C3": "Parts (a) and (b) showed clear, correct working. In part (c), you calculated parallel provider availability accurately, but forgot to include the remaining series components in the end-to-end availability calculation and missed requested precision. To reach Excellent, calculate total series availability and adhere to decimal specifications.",
+    "C4": "You correctly identified the Circuit Breaker pattern, accurately explained its state transitions, and applied it to the payment outage. To reach Excellent, provide at least one drawback or operational tuning consideration, such as configuring timeout thresholds or handling fallback complexity.",
+    "C5": "You chose sensible trade-offs and provided concrete techniques like Redis TTL and idempotency keys. However, your CAP theorem rationale stated you can drop partition tolerance to achieve CA. To reach Excellent, correctly articulate that partitions are unavoidable in distributed networks, requiring a trade-off between consistency and availability.",
+    "C6": "Your ADR included clear Context, Decision, and Consequences sections tailored specifically to CampusEats. However, the consequences were entirely positive. To attain Excellent, also document negative consequences or new trade-offs introduced by the decision, such as increased operational complexity or message broker overhead.",
+    "C7": "Your writing was clear, well-structured with required headings, and supported by proper IEEE citations. To reach Excellent, adhere strictly to the 150-word limit (Question 2 was ~187 words) and follow the requested numerical precision in calculation answers."
+  }
+}

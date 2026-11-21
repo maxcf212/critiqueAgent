@@ -1,0 +1,200 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail, and ordering works again within 1 minute of the provider recovering."
+        }
+      ],
+      "reasoning": "Both attributes are well motivated by the scenario. Both scenarios specify source, stimulus, artefact, environment, response and measurable response measures. The measures are concrete, even if the performance scenario’s guarantee that every request is accepted may be demanding."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite for the next 12 months."
+        },
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "The recommendation and trade-offs are specific to the team size, service count, known lunchtime bottleneck, and downtime. It acknowledges the recommendation’s downside."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.03, so 5.0 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975"
+        }
+      ],
+      "reasoning": "The series and parallel calculations are correct under the stated independence assumptions. Availability and monthly downtime are rounded to the requested precision; working is shown for all parts."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Last month the breaker would have opened within seconds, and students would have seen \"payment temporarily unavailable\" instead of the app hanging for 25 minutes."
+        },
+        {
+          "where": "Question 4",
+          "quote": "Too sensitive and it opens on a brief blip, rejecting payments that would have succeeded; too lax and threads are exhausted first."
+        }
+      ],
+      "reasoning": "Circuit breaker mechanism is accurately explained and applied to the slow-payment outage. The response also gives meaningful threshold-tuning considerations and a fallback drawback."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "I would favour availability."
+        },
+        {
+          "where": "Question 5",
+          "quote": "This is the AP choice, with eventual consistency."
+        },
+        {
+          "where": "Question 5",
+          "quote": "For payments I choose consistency (CP): the order is rejected with a clear error rather than risk an inconsistent charge."
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge."
+        }
+      ],
+      "reasoning": "The availability/consistency choices are reasonable and justified, and concrete techniques are named. CAP is broadly explained correctly. However, an idempotency key prevents duplicate effects on retries but does not itself provide consistency during a partition; a consistency-enforcing coordination or transaction mechanism would strengthen the payment technique."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor."
+        }
+      ],
+      "reasoning": "Context, decision and consequences are all specific to CampusEats. Positive and negative consequences are included, with relevant delivery and duplicate-handling implications."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "## Question 1"
+        },
+        {
+          "where": "Question 6",
+          "quote": "## Question 6"
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed."
+        }
+      ],
+      "reasoning": "All six required headings are used, answers appear within the 150-word limit, and terminology and citations are clear. IEEE-style numbered citations and a reference list are present. The missing assumptions statement is captured separately under R7."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 5",
+      "issue": "The idempotency key helps prevent duplicate charges on retries, but does not itself enforce consistency during a network partition; the payment case would benefit from naming a coordination, quorum, or transactional mechanism."
+    },
+    {
+      "where": "Question 6",
+      "issue": "The claim that an offline outlet tablet means the order is lost is not established by the scenario. A synchronous call may fail or time out, but whether the paid order is actually lost depends on persistence and error-handling behavior."
+    },
+    {
+      "where": "References",
+      "issue": "A reference list and numbered citations are included, but no assumptions are explicitly stated, as requested."
+    }
+  ],
+  "overall": "Strong, scenario-specific submission with correct availability calculations, complete quality-attribute scenarios, and a well-developed resilience explanation and ADR. The main technical weakness is treating idempotency as the payment consistency technique; assumptions are also not explicitly stated. Total: 38/40."
+}

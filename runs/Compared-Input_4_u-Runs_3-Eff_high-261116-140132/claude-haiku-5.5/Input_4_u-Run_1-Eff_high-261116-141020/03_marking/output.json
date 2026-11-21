@@ -1,0 +1,148 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Availability scenario. Source: the external payment provider."
+        }
+      ],
+      "reasoning": "Performance and availability are chosen and tied to scenario facts (900 lunch orders, 4.2 s p95, last month's payment slowdown). Both scenarios have all six parts and measurable response measures."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular monolith recommendation. Two scenario-specific trade-offs are given: operational overhead for five developers, and the single-VM slowness and weekly downtime. The downside is acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99798) × 720 = 0.00202 × 720 = 1.46, so 1.5 hours per month."
+        }
+      ],
+      "reasoning": "I checked all three parts. (a) 99.30% is correct. (b) 5.0 h is correct. (c) 99.80% and 1.5 h are correct, with working shown and two-decimal percentages."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data."
+        }
+      ],
+      "reasoning": "Circuit Breaker is named and its states are explained correctly. It is applied to the payment outage, and both a drawback (no payments while open) and a tuning consideration are given."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge."
+        }
+      ],
+      "reasoning": "Both choices are justified and the CAP statement is essentially correct. However, idempotency keys address duplicate charges rather than consistency under partition, so the CP technique is weakly matched."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are all present and specific. Consequences include both positive (faster response, offline outlets recover) and negative (extra component, at-least-once duplicates, stuck-queue risk) points."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Availability scenario. Source: the external payment provider."
+        }
+      ],
+      "reasoning": "Writing is clear and headings are correct. IEEE citations and the reference list are correct. Question 1 is about 151 words by my count, one word over the limit, so it is not fully Excellent."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 5 (ii)",
+      "issue": "Idempotency keys prevent duplicate charges but do not provide consistency during a partition. A CP technique such as synchronous quorum writes or a serialised transaction would fit better."
+    },
+    {
+      "where": "Question 6 Context",
+      "issue": "Asserts that synchronous outlet calls add to the 4.2 s p95 without evidence or a stated assumption."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Component availabilities and the independence assumption are used without being stated as assumptions."
+    },
+    {
+      "where": "Whole document",
+      "issue": "No assumptions section is provided, although the brief requires assumptions to be stated."
+    }
+  ],
+  "overall": "Strong, mostly correct submission. Q3 calculations are fully correct and Q1, Q2, Q4 and Q6 are well argued. Weaknesses: no stated assumptions, a weak CP technique in Q5, and Q1 at about 151 words."
+}

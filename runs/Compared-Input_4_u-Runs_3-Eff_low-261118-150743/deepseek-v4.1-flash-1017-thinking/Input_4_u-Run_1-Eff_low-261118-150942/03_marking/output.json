@@ -1,0 +1,168 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail, and ordering works again within 1 minute"
+        }
+      ],
+      "reasoning": "Two attributes justified from scenario evidence (lunch peak, 4.2 s p95, payment outage). Both scenarios contain all six parts and both response measures are quantified and measurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features"
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process"
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation with two scenario-specific trade-offs (team size/ops overhead; single VM and 20-minute downtime vs rewrite cost) and an explicit acknowledged downside."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975"
+        }
+      ],
+      "reasoning": "Series product 0.99301 (99.30%) correct; downtime 5.03→5.0 h correct; parallel payment 0.999975, combined 0.99798 (99.80%), downtime 1.46→1.5 h correct. Working shown, precision as requested."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately, so request threads are not blocked"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data"
+        }
+      ],
+      "reasoning": "Circuit Breaker named, states and transitions explained correctly, applied to the 25-minute payment hang, with both a tuning consideration and a drawback (no payments while open, fallback needed)."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says that during a partition a system must give up either consistency or availability"
+        },
+        {
+          "where": "Question 5",
+          "quote": "it is better to show a slightly stale menu from a cache (Redis with a 60-second TTL)"
+        }
+      ],
+      "reasoning": "AP for browsing and CP for payments, both justified; CAP used correctly (partition tolerance not optional); concrete techniques given (Redis TTL cache, idempotency key with rejection on partition)."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply"
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor"
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences all present and scenario-specific, with two positive and three negative consequences (ops burden, at-least-once duplicates, premature 'paid' state)."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge"
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed."
+        }
+      ],
+      "reasoning": "All answers at or under 150 words, required headings in order, precise terminology, IEEE-style citations and reference list present."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Rounding of 0.993011 to 99.30% and 5.03 to 5.0 h is correct; no error, but intermediate value 0.99301 slightly truncates (0.993011) — immaterial."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Idempotency key is a retry-safety mechanism rather than a partition-consistency technique per se; acceptable alongside the CP rejection choice but slightly loose."
+    },
+    {
+      "where": "Whole submission",
+      "issue": "No explicit assumptions section despite the brief requiring assumptions to be stated (e.g. independence of failures, 30-day month)."
+    }
+  ],
+  "overall": "Near-exemplary submission: all six questions answered in six-part/ADR form, calculations fully correct to the requested precision, trade-offs and drawbacks scenario-specific, and all answers within the 150-word limit with IEEE references. Only gap is the missing explicit assumptions statement."
+}

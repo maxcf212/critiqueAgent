@@ -1,0 +1,152 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Coral reefs, specifically the Great Barrier Reef, would immensely benefit from dedicated satellite monitoring."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        }
+      ],
+      "reasoning": "Mission, rationale, and single-spacecraft choice are well covered with references. However, users are only vaguely identified: 'operated and accessed from Australia ground facilities' and implied scientists; no explicit operator entity or customer groups are named."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of 87.7924° for the satellite to remain sun-synchronous"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "An average contact duration of almost twenty minutes was achieved"
+        },
+        {
+          "where": "Launch",
+          "quote": "it is situated very close to the equator, with a latitude of 45.05°N"
+        }
+      ],
+      "reasoning": "All major requirements addressed with STK evidence (screenshots, access report, element table). But significant errors: stated 87.79° inclination contradicts own plot (~97.9°) and retrograde SSO claim; Kourou latitude is ~5°N not 45.05°N; mean access 580 s is ~10 min not 20; STK files not mentioned."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet."
+        }
+      ],
+      "reasoning": "Conclusions summarise each segment and acknowledge a programmatic risk (Vega E availability) with fallback. Somewhat generic and repeats body content without quantitative synthesis, but useful and evidence-based."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Orbit",
+          "quote": "STK 3D view of orbit: 12 hours apart"
+        }
+      ],
+      "reasoning": "Clear structure with executive summary and logical sections. However, figures lack figure numbers, tables are unnumbered, references are bare URLs with no titles/dates, Wikipedia is used (explicitly disallowed), and grammar slips occur ('a Earth observation satellite', 'which is also desirable')."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction — operator/customers only implied, not explicitly identified"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Launch — Vega E from Kourou (latitude value erroneous)"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Orbit — elements given but inclination (87.79°) inconsistent with retrograde SSO and own plot (~97.9°)"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Orbit — no manoeuvres except EOL disposal"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications — Mt Pleasant Observatory, STK access summary"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL — 5-year life, drag-sail disposal"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Orbit/Ground Control — STK 11 used with supporting plots"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Screenshots provided (Images 1–5) but no mention of attached STK scenario files"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Structure logical and sources cited, but Wikipedia used and figure/table labelling inconsistent"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Orbit",
+      "issue": "Inclination 87.79° is prograde and not sun-synchronous at 600 km; correct value is ~97.8°, matching the student's own plot. Contradicts 'retrograde' description."
+    },
+    {
+      "where": "Launch",
+      "issue": "Kourou latitude stated as 45.05°N; actual is ~5.2°N. Downstream two-window logic is affected."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Mean access duration 580.8 s (~9.7 min) described as 'almost twenty minutes'."
+    },
+    {
+      "where": "Orbit",
+      "issue": "'A very high altitude would yield low resolution images which is also desirable' — should be 'not desirable'."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Graveyard-orbit option discussed despite LEO context; redundant/contradictory sentences about thrusters and passive disposal."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "Wikipedia cited, which the task disallows; references lack titles and access dates."
+    }
+  ],
+  "overall": "A well-structured, referenced mission design covering launch, SSO orbit, ground station, and EOL with genuine STK evidence, but undermined by a critical inclination error, a wrong launch-site latitude, a misread access statistic, and presentation/citation weaknesses."
+}

@@ -1,0 +1,270 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are justified with scenario details. Both scenarios include all six parts, with measurable response measures. The performance stimulus also quantifies the stated lunch-hour load.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "900 order requests arrive within one hour (about 15 per minute on average).",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail, and ordering works again within 1 minute of the provider recovering.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "The recommendation is clear and supported by trade-offs tied to the five-developer team, existing VM and deployment problems, and the 12-month horizon. It acknowledges the monolith’s scaling and failure-isolation downside.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite for the next 12 months.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "The series and active-active calculations are correct, with working shown. The resulting availabilities and monthly downtimes are reported to the requested precision.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.03, so 5.0 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "The circuit breaker mechanism is accurately explained and applied to the slow-payment outage, including the effect on browsing. Threshold tuning and loss of payment availability while open are suitable drawbacks. The claim it would open within seconds depends on configuration.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "After a wait it goes Half-Open and lets a few trial calls through; if they succeed it closes, otherwise it reopens.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Too sensitive and it opens on a brief blip, rejecting payments that would have succeeded; too lax and threads are exhausted first.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "The AP browsing and consistency-favouring payment choices are justified, CAP is applied appropriately to partition behaviour, and concrete techniques are named. Idempotency keys help prevent duplicate charges on retries.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "I would favour availability. If a partition separates an application server from the database, it is better to show a slightly stale menu from a cache (Redis with a 60-second TTL) than an error page.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says that during a partition a system must give up either consistency or availability; partitions cannot be ruled out in a distributed system, so partition tolerance is not optional.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "The ADR includes specific context, a clear queue decision, and both positive and negative consequences. It also recognizes at-least-once delivery and duplicate handling.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ).",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "Answers use the required headings and are concise and clear within the word limits. Numbered in-text citations and a corresponding reference list are provided in IEEE-style format.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The scenarios use the six-part form from [1].",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[2] M. T. Nygard, *Release It! Design and Deploy Production-Ready Software*, 2nd ed. Raleigh, NC, USA: Pragmatic Bookshelf, 2018.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Question 3; References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 4",
+      "issue": "The claim that the breaker would open within seconds is configuration-dependent; no threshold or timeout values are given. A breaker alone also cannot guarantee browsing remains responsive if payment calls share saturated resources before it opens."
+    },
+    {
+      "where": "Question 6",
+      "issue": "Publishing after payment creates a possible dual-write failure: a crash after payment succeeds but before the event is durably queued can leave the outlet unnotified. A transactional outbox or equivalent recovery mechanism would address this risk."
+    }
+  ],
+  "overall": "A strong, technically sound submission that meets the requested structure and calculations. The resilience pattern and ADR are well applied; the main design caveats are the configuration-dependent breaker timing and the payment-to-queue dual-write risk.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 19,
+    "quotes_found": 19,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You produced a strong, clearly structured submission, with scenario-specific reasoning in Questions 1, 2, 4, 5 and 6, and correct availability calculations in Question 3. Your work meets the highest rubric level across the criteria. To strengthen it further, make the circuit-breaker timing assumptions explicit and address the risk of losing an outlet notification between payment and event publication.",
+    "next_steps": [
+      "In Question 4, state the breaker’s assumed failure threshold and timeout before predicting when it opens. Also explain how you would prevent slow payment calls from exhausting resources shared with browsing.",
+      "In Question 6, add a transactional outbox or equivalent recovery mechanism so a crash after payment succeeds cannot leave the outlet without a durable notification.",
+      "Keep the strengths shown across Questions 1–3 and 5: use measurable scenarios, scenario-specific trade-offs, visible calculation working, and concrete techniques such as the Redis TTL and idempotency keys."
+    ],
+    "criteria": {
+      "C1": "Question 1 selects performance and availability for relevant CampusEats reasons. Both six-part scenarios have measurable response measures, and the lunch-hour load is quantified. To maintain this standard, keep linking each attribute to a specific user or operational need.",
+      "C2": "Question 2 gives a clear modular-monolith recommendation, tied to the five-developer team, VM and deployment issues, and 12-month horizon. You also acknowledge scaling and failure-isolation costs. This meets the highest rubric level; preserve that balance of scenario-specific benefits and downside.",
+      "C3": "Question 3 shows the series and active-active calculations, with correct results and monthly downtime to the requested precision. Keep showing each calculation step and checking that reported rounding follows the question’s instructions.",
+      "C4": "Question 4 correctly explains and applies the circuit breaker, including Half-Open trials and tuning trade-offs. Qualify the claim that it opens within seconds: this depends on thresholds and timeouts. Also address resource sharing, since a breaker alone may not keep browsing responsive before it opens.",
+      "C5": "Question 5 justifies availability for cached menu browsing and consistency for payments, uses CAP appropriately, and names concrete techniques including a 60-second cache TTL and idempotency keys. Keep distinguishing the two use cases and explaining how each technique supports its choice.",
+      "C6": "Question 6 has specific Context, Decision and Consequences, including positive and negative effects and duplicate handling. Strengthen the design by addressing the payment-to-queue dual-write risk: use a transactional outbox or equivalent recovery so a crash cannot lose the outlet notification.",
+      "C7": "Your answers use the required headings, stay within the word limits, and use clear terminology with IEEE-style citations and a reference list. Continue this concise, well-supported presentation."
+    }
+  }
+}

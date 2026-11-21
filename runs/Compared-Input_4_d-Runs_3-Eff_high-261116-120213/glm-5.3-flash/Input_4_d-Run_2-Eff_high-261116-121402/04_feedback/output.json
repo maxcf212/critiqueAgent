@@ -1,0 +1,17 @@
+{
+  "summary": "You showed strong scenario-specific reasoning in Q1 and an excellent, well-justified recommendation in Q2. However, Q3 contains an arithmetic slip in (b) and a conceptual error in (c), Q4 reverses the circuit breaker states, Q5 misapplies CAP and omits a payment technique, and your ADR lacks a negative consequence. Total: 24/40.",
+  "next_steps": [
+    "Redo Q3(b): 0.00699 × 720 = 5.0 hours, and recompute (c) end-to-end as 0.99800125 × 0.999975 ≈ 99.80% (≈1.5 h downtime), not the payment subsystem alone.",
+    "Rewrite your circuit breaker explanation: Open fails fast, Closed is normal operation, and successful Half-Open trials transition back to Closed.",
+    "Fix your CAP statement (P is mandatory; you trade C or A during a partition), name a concrete technique for payments, and add a negative consequence to your ADR."
+  ],
+  "criteria": {
+    "C1": "Your performance scenario is excellent: all six parts with a measurable response measure (p95 under 1.5 s). To reach Excellent, make the availability scenario's response measure measurable too — 'stay up most of the time' should be quantified, e.g. 'no more than 5 minutes downtime per month'.",
+    "C2": "Excellent work. Your recommendation of a modular monolith is justified by two scenario-specific trade-offs (five-developer team overhead; root causes being the single VM and deployment process) and you explicitly acknowledge the downside. Nothing more needed here.",
+    "C3": "Part (a) is correct with working shown. Part (b) has an arithmetic slip: 0.00699 × 720 = 5.0 hours, not 3.5. Part (c) is conceptually wrong: you quoted the payment-pair availability (99.9975%) instead of recomputing end-to-end availability (0.99800125 × 0.999975 ≈ 99.80%, ≈1.5 h downtime). Correcting both parts would lift you to Excellent.",
+    "C4": "Circuit Breaker is an appropriate pattern and you applied it to the outage with a tuning threshold, but the states are reversed: Open should fail fast, Closed is normal operation, and successful Half-Open trials transition to Closed. Correct the mechanism and keep your threshold discussion to reach Excellent.",
+    "C5": "Both choices are reasonable and you named a concrete technique for browsing (Redis with 60-second TTL). However, CAP is misapplied: partition tolerance is mandatory in distributed systems — during a partition you sacrifice consistency or availability, not P. Also name a concrete technique for the payment case (e.g., synchronous write with quorum) to reach Excellent.",
+    "C6": "Your Context, Decision and Consequences are all present and specific to CampusEats, with several positive consequences. To reach Excellent, add at least one negative consequence, such as delayed order notification, duplicate delivery risk, or the operational burden of running the queue.",
+    "C7": "Your writing is clear and headings are used correctly, but Q2 exceeds the 150-word limit (~185 words) and source [2] is cited in Q4 yet missing from your reference list. Trim Q2 and complete the reference list to reach Excellent."
+  }
+}

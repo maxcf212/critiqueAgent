@@ -1,0 +1,17 @@
+{
+  "summary": "You submitted an excellent response earning full marks across all criteria. Q1 scenarios are complete and measurable, Q2 trade-offs are scenario-specific, Q3 calculations are correct with working, Q4–Q6 apply patterns, CAP and ADR structure well, and references follow IEEE style. Minor polish only: align Q1 artefact and response measure, and soften Q2 'removed' wording.",
+  "next_steps": [
+    "In Q1, tighten the availability scenario so the artefact (order service) and response measure (menu p95, non-payment failures) align; keep all six parts and measurable measures.",
+    "In Q2, revise 'removed' to 'reduced' or 'largely eliminated' for rolling deployments, since planned downtime is reduced not fully removed.",
+    "Maintain the Excellent standard by keeping every answer at or under 150 words, using required headings, and citing sources in IEEE style as you did in References."
+  ],
+  "criteria": {
+    "C1": "You chose performance and availability with strong scenario justification and complete six-part scenarios. The measurable response measures are a strength. To stay at Excellent, align the availability artefact (order service) with its response measure (menu p95 and non-payment failures), so the measure clearly tests the stated artefact.",
+    "C2": "Your modular monolith recommendation is clear and justified by scenario-specific trade-offs: five developers, lunchtime load, weekly downtime and rewrite cost. You also acknowledge the downside. To remain at Excellent, soften 'removed' to 'reduced' for rolling deployments, since planned downtime is not fully eliminated.",
+    "C3": "All three parts are correct with working shown: (a) 99.30%, (b) 5.0 h, (c) 99.80% and 1.5 h. Precision matches the request. To stay at Excellent, keep showing the series calculation and rounding steps exactly as you did; no changes needed.",
+    "C4": "You named circuit breaker, explained closed/open/half-open correctly, applied it to the 25-minute payment hang, and gave tuning and fallback drawbacks. This fully meets Excellent. To maintain it, keep linking the threshold to real latency data and stating the fallback behaviour explicitly.",
+    "C5": "Both choices are justified and CAP is used correctly: AP for menu with Redis cache, CP for payments with rejection and idempotency key. Concrete techniques are named for each. To stay at Excellent, continue making the CAP trade-off explicit and naming the technique for each case.",
+    "C6": "Your ADR includes Context, Decision and Consequences, all scenario-specific, with both positive and negative consequences including operational cost and at-least-once duplicates. This meets Excellent. To maintain it, keep the negative consequences as concrete as the positive ones and avoid generic context.",
+    "C7": "Required headings are used in order, answers are at or under 150 words, terminology is precise, and IEEE-style citations and a reference list are present. This meets Excellent. To stay there, keep Q1/Q5/Q6 at exactly 150 words or less and preserve the citation format."
+  }
+}

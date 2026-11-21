@@ -1,0 +1,249 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Two attributes justified from scenario evidence (lunch peak, 4.2 s p95, payment outage). Both scenarios contain all six parts and both response measures are quantified and measurable.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail, and ordering works again within 1 minute",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation with two scenario-specific trade-offs (team size/ops overhead; single VM and 20-minute downtime vs rewrite cost) and an explicit acknowledged downside.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "Series product 0.99301 (99.30%) correct; downtime 5.03→5.0 h correct; parallel payment 0.999975, combined 0.99798 (99.80%), downtime 1.46→1.5 h correct. Working shown, precision as requested.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker named, states and transitions explained correctly, applied to the 25-minute payment hang, with both a tuning consideration and a drawback (no payments while open, fallback needed).",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately, so request threads are not blocked",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "AP for browsing and CP for payments, both justified; CAP used correctly (partition tolerance not optional); concrete techniques given (Redis TTL cache, idempotency key with rejection on partition).",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says that during a partition a system must give up either consistency or availability",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "it is better to show a slightly stale menu from a cache (Redis with a 60-second TTL)",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences all present and scenario-specific, with two positive and three negative consequences (ops burden, at-least-once duplicates, premature 'paid' state).",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "All answers at or under 150 words, required headings in order, precise terminology, IEEE-style citations and reference list present.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Rounding of 0.993011 to 99.30% and 5.03 to 5.0 h is correct; no error, but intermediate value 0.99301 slightly truncates (0.993011) — immaterial."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Idempotency key is a retry-safety mechanism rather than a partition-consistency technique per se; acceptable alongside the CP rejection choice but slightly loose."
+    },
+    {
+      "where": "Whole submission",
+      "issue": "No explicit assumptions section despite the brief requiring assumptions to be stated (e.g. independence of failures, 30-day month)."
+    }
+  ],
+  "overall": "Near-exemplary submission: all six questions answered in six-part/ADR form, calculations fully correct to the requested precision, trade-offs and drawbacks scenario-specific, and all answers within the 150-word limit with IEEE references. Only gap is the missing explicit assumptions statement.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "Your submission is near-exemplary: all six answers are complete, calculations are correct, trade-offs are scenario-specific, and writing is within limits with IEEE references. You justify choices clearly and acknowledge downsides. The only improvement is to add an explicit assumptions section (e.g., failure independence, 30-day month) so readers can see the basis for your calculations and scenarios.",
+    "next_steps": [
+      "Add a short 'Assumptions' subsection before Q3 (and where relevant in Q1/Q5) stating independence of component failures, a 30-day month, and that response measures are under lunch-peak load; this closes the only gap noted in the overall marking.",
+      "In Q5, tighten the idempotency-key discussion: frame it explicitly as retry safety supporting your CP choice, and name a partition-consistency technique (e.g., quorum writes or rejecting writes during partition) so the technique maps directly to CAP.",
+      "Keep every answer at or under 150 words and preserve IEEE citations; when revising, re-check Q3 rounding to the requested precision (99.30%, 5.0 h, 99.80%, 1.5 h) and keep working shown."
+    ],
+    "criteria": {
+      "C1": "You chose performance and availability and grounded them in scenario evidence (900 orders/lunch hour, 4.2 s p95, payment outage). Both six-part scenarios are complete and your response measures are measurable (p95 <2 s, <0.1% non-payment failures, recovery <1 minute). This is Excellent; to maintain it, keep each part explicit and quantified.",
+      "C2": "Your modular-monolith recommendation is clear and tied to the five-developer team and single-VM/20-minute downtime constraints. You give two scenario-specific trade-offs and explicitly acknowledge the downside (no independent scaling; one module can crash the process). Excellent level met; to sustain it, keep linking each trade-off to a named scenario fact.",
+      "C3": "All three parts are correct with working shown: series product 0.99301 (99.30%), downtime 5.03→5.0 h; parallel payment 0.999975, combined 0.99798 (99.80%), downtime 1.46→1.5 h. Precision matches the request. Excellent; to keep it, continue showing intermediate values and state assumptions such as failure independence and 30-day month.",
+      "C4": "You name Circuit Breaker, explain Open/Half-Open/Closed transitions correctly, and apply it to the 25-minute payment hang. You include a tuning consideration (threshold from real latency data) and a drawback (no payments while open; fallback needed). Excellent; to maintain, keep tying the pattern to the specific outage and naming the fallback behaviour.",
+      "C5": "You choose AP for browsing and CP for payments, justify both, and use CAP correctly (partition tolerance is not optional). Techniques are concrete: Redis TTL cache for menus and idempotency key with rejection on partition for payments. Excellent; to tighten, frame idempotency explicitly as retry safety and pair the CP choice with a partition-consistency technique.",
+      "C6": "Your ADR has Context, Decision and Consequences, all scenario-specific: synchronous tablet call, queue-based decision, and two positive plus three negative consequences (ops burden, duplicates, premature 'paid'). Excellent; to sustain, keep consequences balanced and explicitly label positive/negative as you did.",
+      "C7": "All answers are within 150 words, headings are in order, terminology is precise, and IEEE citations/reference list are present. Excellent. To keep this level, add the brief assumptions statement the brief requires and re-check word counts after any revision; citations are already well formed."
+    }
+  }
+}

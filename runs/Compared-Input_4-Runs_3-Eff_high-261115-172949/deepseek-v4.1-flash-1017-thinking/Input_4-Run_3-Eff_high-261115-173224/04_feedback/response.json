@@ -1,0 +1,80 @@
+{
+  "id": "chatcmpl-4b152996-a811-4528-a2f1-5ff2784421f7",
+  "object": "chat.completion",
+  "created": 1794724418,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"Total 30/40. You are strongest in Q2 and Q4: your modular-monolith trade-offs and circuit-breaker application are specific and well argued. Main losses are Q3(c) end-to-end availability, Q5 CAP misuse, Q1 non-measurable availability measure, Q6 missing negative consequence, and Q2 over the word limit. Address these to move Proficient criteria to Excellent.\",\"next_steps\":[\"Recompute Q3(c): multiply all four availabilities (0.9995×0.999×0.9995×0.999975) to get 99.80% and 1.5 h/month downtime; show each step.\",\"Rewrite Q5 CAP: explain partition tolerance is not optional; justify payments as CP and menu browsing as AP, naming a concrete technique for each.\",\"Tighten Q2 to 150 words, make Q1 availability response measure measurable (e.g. uptime % or downtime per month), and add a negative consequence to Q6.\"],\"criteria\":{\"C1\":\"You chose performance and availability and your performance scenario is complete and measurable. The availability response measure 'stay up most of the time' is not measurable, and its justification is thin. For Excellent, make both scenarios six-part and both response measures measurable (e.g. uptime % or downtime per month), and justify why these two attributes matter most in CampusEats.\",\"C2\":\"You clearly recommend a modular monolith and tie it to the five-developer team, single-VM load issue and deployment downtime, while acknowledging the downside. This is Excellent. To sustain it, keep every trade-off scenario-specific and the downside explicit; avoid generic textbook advantages.\",\"C3\":\"Parts (a) and (b) are correct. In (c) you compute payment availability but do not combine it with the other components; end-to-end should be 0.9995×0.999×0.9995×0.999975 = 99.80%, downtime 1.5 h/month, not 99.9975%/0.018 h. For Excellent, show the full series calculation for all components to the requested precision.\",\"C4\":\"You named circuit breaker, explained its states and threshold, and applied it to last month's outage. The tuning consideration satisfies Excellent. To make it even stronger, add an explicit drawback (e.g. false positives or added latency) alongside the tuning threshold.\",\"C5\":\"Your choices and idempotency-key technique are reasonable, but CAP is misused: you cannot 'give up partition tolerance' during a partition. Payments should be CP and menu browsing AP. For Excellent, explain CAP correctly, justify both choices, and name a concrete technique for each case.\",\"C6\":\"Context, Decision and Consequences are specific to CampusEats, but all consequences are positive. For Excellent, add at least one negative consequence, such as added complexity, eventual consistency, or handling outlets that are offline, while keeping the three sections specific.\",\"C7\":\"Headings and IEEE-style references are present, but Question 2 is about 181 words, over the 150-word limit. For Excellent, keep every answer within 150 words and maintain precise terminology and citation formatting.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each. Address student as \"you\". Be specific, supportive, actionable, cite sections/figures, name what they did well, state what next rubric level requires. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nWe have marking details. Need formative feedback per criterion C1-C7. Summary overall. Next steps 3 actionable.\n\nNeed ensure each criterion feedback <=70 words. Summary <=80 words. Next steps strings maybe concise.\n\nLet's craft.\n\nC1: Proficient 4/6. You chose performance and availability, performance scenario complete/measurable. Availability response measure \"stay up most of the time\" not measurable; justification thin. To reach Excellent, make both scenarios six-part and both response measures measurable, e.g. availability as percentage uptime/downtime per month, and justify why these two matter most from scenario. Mention Q1.\n\nC2: Excellent 6/6. Strong modular monolith recommendation tied to five-developer team, single-VM load issue, deployment downtime; downside acknowledged. Keep. Maybe note word limit? That's C7. For C2 excellent no next level. But feedback can say maintain specificity. Since no higher level, say \"This is at Excellent; keep...\" But schema wants feedback. We can say \"You clearly recommend modular monolith... This meets Excellent; to sustain it, keep trade-offs scenario-specific and downside explicit.\" But \"next rubric level\" not applicable. Fine.\n\nC3: Proficient 5/8. (a),(b) correct. (c) computes payment availability but doesn't combine with other components; end-to-end should be 0.9995×0.999×0.9995×0.999975 = 99.80%, downtime 1.5 h/month, not 99.9975%/0.018 h. To reach Excellent, show full series calculation for all components and requested precision. Need be careful: marking says should be 0.9995×0.999×0.9995×0.999975 = 99.80%, downtime 1.5 h/month. We can cite.\n\nC4: Excellent 5/5. Circuit breaker mechanism, states, outage application, tuning threshold correct. No explicit drawback but tuning consideration satisfies Excellent. Feedback: strong. To sustain, maybe add explicit drawback? But at Excellent. We can say \"You named circuit breaker, explained Open/Closed/Half-Open, applied to outage, gave threshold. This meets Excellent; adding an explicit drawback would make it even stronger.\" But don't imply mark change. Fine.\n\nC5: Proficient 3/6. Choices and techniques reasonable (idempotency key), but CAP misuse: \"choose consistency and availability and give up partition tolerance\" during partition. Payments should be CP, menu browsing AP. To reach Excellent, use CAP correctly: partition tolerance is not optional in a distributed system; during partition choose C or A, and name concrete technique for each. Mention both choices justified.\n\nC6: Proficient 4/5. Context, Decision, Consequences specific, but consequences all positive. To reach Excellent, include at least one negative consequence, e.g. added complexity/eventual consistency/outlet offline handling. Cite Q6.\n\nC7: Proficient 3/4. Headings and IEEE references present, but Q2 ~181 words exceeds 150. To reach Excellent, keep every answer within 150 words and maintain precise terminology/citations. Mention references.\n\nSummary: \"Total 30/40. You are strongest in Q2 and Q4: your modular-monolith trade-offs and circuit-breaker application are specific and well argued. Main losses are Q3(c) end-to-end availability, Q5 CAP misuse, Q1 non-measurable availability measure, Q6 missing negative consequence, and Q2 over the word limit. Address these to move Proficient criteria to Excellent.\" <=80 words. Count maybe 60.\n\nNext steps: 3 strings. Need actionable. 1) Recalculate Q3(c) end-to-end availability by multiplying all four component availabilities including new payment provider; show working and convert downtime to h/month. 2) Revise Q5 CAP explanation: partition tolerance cannot be given up; state payments CP and menu AP with techniques. 3) Tighten Q2 to <=150 words and add measurable availability response measure in Q1 and negative consequence in Q6. But next_steps only 3; can combine. Need cover all. Maybe:\n1. \"Recompute Q3(c): multiply all four availabilities (0.9995×0.999×0.9995×0.999975) to get 99.80% and 1.5 h/month downtime; show each step.\"\n2. \"Rewrite Q5 CAP: explain partition tolerance is not optional; justify payments as CP and menu browsing as AP, naming a concrete technique for each.\"\n3. \"Tighten Q2 to 150 words, make Q1 availability response measure measurable (e.g. uptime %/downtime per month), and add a negative consequence to Q6.\"\n\nGood.\n\nNeed JSON only. Ensure valid JSON. Criteria keys C1..C7. Each string <=70 words. Let's count roughly.\n\nC1: \"You chose performance and availability and your performance scenario is complete and measurable. The availability response measure 'stay up most of the time' is not measurable, and its justification is thin. For Excellent, make both scenarios six-part and both response measures measurable (e.g. uptime % or downtime per month), and justify why these two attributes matter most in CampusEats.\" Count ~60. Good.\n\nC2: \"You clearly recommend a modular monolith and tie it to the five-developer team, single-VM load issue and deployment downtime, while acknowledging the downside. This is Excellent. To sustain it, keep every trade-off scenario-specific and the downside explicit; avoid generic textbook advantages.\" ~45.\n\nC3: \"Parts (a) and (b) are correct. In (c) you compute payment availability but do not combine it with the other components; end-to-end should be 0.9995×0.999×0.9995×0.999975 = 99.80%, downtime 1.5 h/month, not 99.9975%/0.018 h. For Excellent, show the full series calculation for all components to the requested precision.\" ~55.\n\nC4: \"You named circuit breaker, explained its states and threshold, and applied it to last month's outage. The tuning consideration satisfies Excellent. To make it even stronger, add an explicit drawback (e.g. false positives or added latency) alongside the tuning threshold.\" ~40.\n\nC5: \"Your choices and idempotency-key technique are reasonable, but CAP is misused: you cannot 'give up partition tolerance' during a partition. Payments should be CP and menu browsing AP. For Excellent, explain CAP correctly, justify both choices, and name a concrete technique for each case.\" ~45.\n\nC6: \"Context, Decision and Consequences are specific to CampusEats, but all consequences are positive. For Excellent, add at least one negative consequence, such as added complexity, eventual consistency, or handling outlets that are offline, while keeping the three sections specific.\" ~40.\n\nC7: \"Headings and IEEE-style references are present, but Question 2 is about 181 words, over the 150-word limit. For Excellent, keep every answer within 150 words and maintain precise terminology and citation formatting.\" ~35.\n\nSummary: \"Total 30/40. You are strongest in Q2 and Q4: your modular-monolith trade-offs and circuit-breaker application are specific and well argued. Main losses are Q3(c) end-to-end availability, Q5 CAP misuse, Q1 non-measurable availability measure, Q6 missing negative consequence, and Q2 over the word limit. Address these to move Proficient criteria to Excellent.\" Count ~60. Good.\n\nNeed no markdown. JSON object only. Use double quotes. Ensure no newline issues? Fine.\n\nLet's final."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2598,
+    "completion_tokens": 2395,
+    "total_tokens": 4993,
+    "reasoning_tokens": 1722,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1722,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 1280,
+    "cache_read_input_tokens": 1280,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280,
+      "cache_write_tokens": 1280,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 38,
+    "cost": 0.001574176,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_1f5f2cd0-eaad-4888-894e-d30dc15472e9",
+  "x_nanogpt_pricing": {
+    "amount": 0.001574176,
+    "currency": "USD",
+    "cost": 0.001574176,
+    "inputTokens": 2598,
+    "outputTokens": 2395,
+    "cacheCreationInputTokens": 1280,
+    "cacheReadInputTokens": 1280,
+    "cacheCost": 0.00013337600000000002,
+    "requestId": "req_46e05f7e-ce37-4da3-bae9-c71108ea736e",
+    "costUsd": 0.001574176,
+    "usdCost": 0.001574176,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "hit_and_write",
+      "readTokens": 1280,
+      "writeTokens": 1280
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit_and_write",
+    "readTokens": 1280,
+    "writeTokens": 1280
+  }
+}

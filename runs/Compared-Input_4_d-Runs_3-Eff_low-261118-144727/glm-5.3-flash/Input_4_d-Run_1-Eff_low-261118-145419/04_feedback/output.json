@@ -1,0 +1,19 @@
+{
+  "summary": "You showed strong scenario-specific reasoning in Q2 (excellent trade-offs) and good structure in Q1, Q3 and Q6. To lift your mark, fix the arithmetic slip in Q3(b), correct the reversed circuit breaker states in Q4, apply CAP correctly and name a payment-path technique in Q5, add a negative consequence to your ADR, and tighten word limits and referencing.",
+  "next_steps": [
+    "Redo Q3(b): 0.00699 × 720 = 5.0 hours, not 3.5; double-check all arithmetic before submitting.",
+    "Rewrite your Q4 circuit breaker explanation: Closed passes calls normally; Open fails fast; Half-Open probes recovery.",
+    "In Q5, explain that partition tolerance cannot be sacrificed, and name a concrete technique (e.g. synchronous replication or a transactional ledger) for the payment path.",
+    "Add at least one negative consequence to your Q6 ADR and make the Q1 availability response measure measurable (e.g. '99.5% uptime per month').",
+    "Trim Q2 and Q4 to 150 words each and add the missing reference [2] to your reference list."
+  ],
+  "criteria": {
+    "C1": "Good choice of performance and availability with scenario-based justification, and a fully six-part, measurable performance scenario. To reach Excellent, make the availability response measure measurable — 'stay up most of the time' is not; try a percentage uptime or downtime figure per month.",
+    "C2": "Excellent work: a clear modular monolith recommendation with two trade-offs tied to the scenario (five developers, single VM, 20-minute deployment downtime) and the downside explicitly acknowledged. Keep this standard.",
+    "C3": "Your method was correct throughout and parts (a) and (c) were right, but one arithmetic slip in (b) — 0.00699 × 720 is 5.0 hours, not 3.5 — kept you at Proficient. Show working and recheck calculations to reach Excellent.",
+    "C4": "The circuit breaker was an appropriate choice and well applied to the outage, but the state machine was reversed: Closed passes calls normally and Open fails fast. Correcting this core explanation, while keeping your tuning discussion, would reach Excellent.",
+    "C5": "Both consistency/availability choices were reasonable and you named Redis with TTL for menu browsing, but CAP was misapplied — partition tolerance cannot be given up; partitions are a fact you must respond to. Also name a concrete technique for the payment path.",
+    "C6": "Context, Decision and Consequences were all present and scenario-specific, but your consequences were entirely positive. Adding a genuine negative consequence (e.g. delayed order confirmation or added message infrastructure) would reach Excellent.",
+    "C7": "Your writing is clear and headings are correct, but Q2 and Q4 exceed the 150-word limit and reference [2], cited in Q4, is missing from your reference list. Trimming answers and completing citations in IEEE style would lift this criterion."
+  }
+}

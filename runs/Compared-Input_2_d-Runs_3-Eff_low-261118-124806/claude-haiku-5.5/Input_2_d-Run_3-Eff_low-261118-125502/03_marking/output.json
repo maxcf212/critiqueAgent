@@ -1,0 +1,148 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Hundreds of millions of humans rely on reefs for food, natural protection, jobs, and tourism."
+        }
+      ],
+      "reasoning": "Mission purpose, rationale and single-spacecraft choice are given with some background. Users (operator and customers) are only implied via 'operated and accessed from Australia ground facilities'; no explicit operator/customer identification. Referencing is largely web links, some Wikipedia-sourced, weakening support."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Orbit",
+          "quote": "Specifically, an altitude of 600km requires a mean inclination of 87.7924° for the satellite to remain sun-synchronous."
+        },
+        {
+          "where": "Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "An average contact duration of almost twenty minutes was achieved"
+        }
+      ],
+      "reasoning": "Covers launch, orbit, COE table, ground station and STK access, EOL. However, the launch site latitude (45.05°N) is wrong for Kourou (about 5°N), the 'equator' rationale is inconsistent, Vega E is unbuilt, RAAN of 27.33° is unjustified, and the 'Argument of Latitude' is set to 0 with no epoch. Access listing has duplicated numbering (13). Mount Pleasant is not a radio observatory with two telescopes as stated; EOL section lacks a clear decision and has a truncated sentence."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A polar sun-synchronous orbit allows for consistent illumination of the oceans while maintaining a constant sun angle."
+        }
+      ],
+      "reasoning": "Conclusions summarise the design and note launch risk, but are generic and do not draw quantitative conclusions from the STK results or EOL analysis."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "The proposed ZYZZsat is small and without thrusters in a low-earth orbit."
+        }
+      ],
+      "reasoning": "Clear headings and labelled STK figures, but Wikipedia is cited despite prohibition, reference style is inconsistent, there are typos and a broken sentence in EOL, and the executive summary is not concise, with a truncated drag-sail sentence."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Executive Summary"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Launch"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "partial",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R11",
+      "met": "no",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Launch",
+      "issue": "Kourou latitude given as 45.05°N; actual is about 5.2°N, and the equatorial-launch argument is then inconsistent."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Ω = 27.33° is said to indicate the launch facility location, which is not justified for a sun-synchronous RAAN, and the 1°/day precession claim is misstated (sun-synchronous precession is about 0.9856°/day, not 360°/year as a requirement phrased that way)."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Retrograde orbit claim 'passes over almost the entire Earth' and 'frequent orbital period' are vague; no period or revs/day given."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Drag sail alternative sentence is truncated; uncontrolled deorbit at 600 km would not burn up fully and is not evaluated quantitatively."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Mount Pleasant described as having two radio telescopes with receivers; claim unsupported and ground station selection reasoning contradicts 'close to poles' rule."
+    }
+  ],
+  "overall": "Coherent concept with STK access and ground-track evidence, but significant technical errors (launch site latitude, RAAN reasoning), incomplete users, orbit element and EOL analysis, truncated text, and prohibited Wikipedia citation. Adequate overall."
+}

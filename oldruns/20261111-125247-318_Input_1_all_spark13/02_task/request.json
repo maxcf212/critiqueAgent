@@ -1,0 +1,21 @@
+{
+  "model": "meta/muse-spark-1.3-contributor",
+  "max_tokens": 3000,
+  "system": "Summarise the attached assessment task into compact JSON for a marker.\nCapture everything the student must do or submit, including requirements a rubric may omit\n(length, format, sections, calculations, drawings, standards, units). Omit admin (dates, submission portals).\nSchema: {\"title\":str,\"overview\":str(<=80 words),\"deliverables\":[str],\"format\":{\"length\":str,\"structure\":str,\"other\":str},\"requirements\":[{\"id\":\"R1\",\"text\":str}]}\nReply with one JSON object only. No prose, no markdown.",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "document",
+          "source": "<pdf Task_1.pdf sha256=bee8422c49ac 28KB>"
+        },
+        {
+          "type": "text",
+          "text": "Task attached."
+        }
+      ]
+    }
+  ],
+  "temperature": 0
+}

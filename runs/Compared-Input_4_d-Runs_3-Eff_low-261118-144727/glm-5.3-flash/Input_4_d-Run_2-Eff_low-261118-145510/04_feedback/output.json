@@ -1,0 +1,17 @@
+{
+  "summary": "Good work overall: your Q2 recommendation was excellent, with trade-offs tied directly to the scenario, and your Q3 method was correct apart from one arithmetic slip. To lift your mark, fix the inverted circuit breaker states in Q4, apply CAP correctly and name a payment technique in Q5, add a negative consequence to your ADR, and trim Q2 and Q4 to 150 words with a complete reference list.",
+  "next_steps": [
+    "Rewrite the circuit breaker state machine in Q4: Open fails fast, Closed passes calls normally, and successful Half-Open trials close the breaker.",
+    "In Q5, explain that partition tolerance cannot be sacrificed — during a partition you choose between consistency and availability — and name a concrete technique for payments (e.g. synchronous commit or a quorum write).",
+    "Add at least one negative consequence to your Q6 ADR (e.g. delayed notifications or operational overhead), trim Q2 and Q4 to 150 words, and add citation [2] to your reference list."
+  ],
+  "criteria": {
+    "C1": "You chose suitable attributes with good scenario-based justification, and your performance scenario was fully six-part and measurable. To reach Excellent, make the availability response measure measurable — replace 'stay up most of the time' with a figure such as 99.5% uptime per month.",
+    "C2": "Excellent work. Your modular monolith recommendation was justified with two scenario-specific trade-offs (five developers, single VM, 20-minute deployment downtime) and you explicitly acknowledged the downside of not scaling modules independently. Nothing more needed here.",
+    "C3": "Your method was correct and part (a) was right, but in (b) 0.00699 × 720 = 5.03 hours, not 3.5. In (c), give 99.9975% to two decimal places (100.00%) and 0.018 h to one decimal (0.0 h). Show working and match the requested precision to reach Excellent.",
+    "C4": "The circuit breaker was an appropriate choice and applied to the outage, but your state machine is inverted: Open should fail fast, Closed should pass calls normally, and successful Half-Open trials should close the breaker. Correct the mechanism and add a drawback or tuning consideration to reach Excellent.",
+    "C5": "Both choices were reasonable and Redis with TTL was a good technique for menu browsing. However, partition tolerance cannot be given up — during a partition you choose between consistency and availability. Also name a concrete technique for payments (e.g. synchronous two-phase commit) to reach Excellent.",
+    "C6": "Your ADR had specific, scenario-based Context, Decision and Consequences, which is strong. To reach Excellent, add at least one negative consequence, such as eventual order notification delays or added operational overhead from the queue.",
+    "C7": "Your writing was clear and headings correct, but Q2 (~200 words) and Q4 (~180 words) exceed the 150-word limit, and citation [2] used in Q4 is missing from your reference list. Trim both answers and complete the reference list in IEEE style to reach Excellent."
+  }
+}

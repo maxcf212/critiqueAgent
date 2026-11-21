@@ -1,0 +1,350 @@
+{
+  "id": "chatcmpl-09ab8a28-ff56-4d7b-bf7e-c47153069ba0",
+  "object": "chat.completion",
+  "created": 1794963560,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You have a strong, well-structured submission with clear scenario grounding and correct Q3(a)/(b). Your main losses are Q3(c) recombination, CAP misapplication in Q5, an unmeasurable Q1 availability measure, one-sided Q6 consequences, Q2 over the word limit, and no explicit assumptions section. Current total 30/40.\",\"next_steps\":[\"In Q3(c), after computing payment availability 0.999975, recombine it with the other three components (0.9995 × 0.999 × 0.9995 × 0.999975) and report 99.80% with ~1.5 h downtime; show the multiplication explicitly.\",\"In Q5(ii), reframe CAP: partition tolerance is not optional; during a partition choose consistency or availability. State which you sacrifice for payments and browsing, and keep your Redis TTL and idempotency-key techniques.\",\"Revise Q1's availability response measure to a measurable target tied to payment-dependent ordering, add a negative consequence to Q6, trim Q2 to ≤150 words, and add a short assumptions section.\"],\"criteria\":{\"C1\":\"Your performance scenario is complete and measurable, and you justify performance/availability from lunch-peak data. To reach Excellent, make the availability response measure measurable and tie it to the payment-dependent order flow rather than degraded browsing; 'stay up most of the time' in Q1 is not measurable.\",\"C2\":\"Your modular-monolith recommendation is clear and well grounded: you use the five-developer team, per-service overhead, and known single-VM/deployment problems, and you acknowledge the downside. This is Excellent. For format, trim Q2 to the 150-word limit so the communication criterion is not affected.\",\"C3\":\"Q3(a) and (b) are correct with working (99.30%, 5.0 h). In Q3(c) you correctly compute payment availability 0.999975 but report it as whole-system availability; re-multiply by the other three components to get 99.80% and ~1.5 h downtime. That one incorrect part keeps this at Proficient; correcting it would meet Excellent.\",\"C4\":\"You name Circuit Breaker, explain closed/open/half-open correctly, and apply it convincingly to the 25-minute hang with a threshold example. To reach Excellent, add a drawback or genuine tuning consideration, such as threshold calibration, false trips, or fallback behaviour, in Q4.\",\"C5\":\"Your choices and techniques (Redis TTL cache, idempotency key) are sensible. However, Q5(ii) misapplies CAP: partition tolerance cannot be given up; during a partition you choose consistency or availability. Correct that framing and state the sacrifice for payments versus browsing to reach Excellent.\",\"C6\":\"Your ADR has Context, Decision and Consequences specific to CampusEats. The consequences are one-sided: you list latency, offline outlets and peak smoothing but no negative consequence. Add one, such as duplicate delivery, ordering guarantees, or added operational complexity, to meet Excellent.\",\"C7\":\"Writing is clear, headings are in order, and IEEE-style citations/reference list are present. Q2 is ~180 words, over the 150-word limit; trim it. Also add an explicit assumptions section, as the brief requires assumptions to be stated, to strengthen format compliance.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce formative feedback JSON. Need address student as \"you\". Specific, supportive, actionable, cite sections/figures, name what did well, state next rubric level. Do not change marks. Do not comment on document-conversion artefacts. Do not make up explanations for reasoning given by marking agent unclear/incomplete. Schema: summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each. Need one JSON object only.\n\nNeed include all criteria C1-C7. Feedback per criterion <=70 words. Summary <=80 words. Next steps exactly 3 strings. Need be supportive actionable. Mention marks? We can mention current level and next level. Do not change marks. Need cite sections/figures. Use \"you\". Need not mention conversion artefacts. Need not make up. Need be careful with Q3(c): marking says final availability wrongly reported as 99.9975% (payment-only figure); should re-multiply by other three components giving 99.80% and ~1.5 h downtime. We can state that. Q5 CAP misapplied: partition tolerance cannot be traded away; in partition sacrifice consistency or availability. Q1 availability response measure not measurable; response describes degraded browsing rather than payment-dependent order flow. Q6 no negative consequence. Q2 exceeds word limit ~180. Whole submission no explicit assumptions section despite brief requiring assumptions stated. Need include in next steps maybe. C7 feedback mention Q2 word limit and assumptions? C7 is communication/format; assumptions maybe whole submission. Could mention in summary/next steps. Need not comment on document conversion.\n\nNeed ensure criteria feedback <=70 words each. Let's draft.\n\nSummary: \"You have a strong, well-structured submission with clear scenario grounding and correct Q3(a)/(b). Your main losses are Q3(c) recombination, CAP misapplication in Q5, an unmeasurable Q1 availability measure, one-sided Q6 consequences, Q2 over the word limit, and no explicit assumptions section. Current total 30/40.\" Count words ~50. Good. But summary should be <=80. Fine.\n\nNext steps: 3 strings. Need actionable. Could be:\n1. \"In Q3(c), after computing payment availability 0.999975, recombine it with the other three components (0.9995 × 0.999 × 0.9995 × 0.999975) and report 99.80% with ~1.5 h downtime; show the multiplication explicitly.\"\n2. \"In Q5(ii), reframe CAP: partition tolerance is not optional; during a partition choose consistency or availability. State which you sacrifice for payments and browsing, and keep your Redis TTL and idempotency-key techniques.\"\n3. \"Revise Q1 availability response measure to a measurable target tied to payment-dependent ordering (e.g., successful order rate or p95 order latency during outage), add a negative consequence to Q6, trim Q2 to ≤150 words, and add a short assumptions section.\"\n\nNeed maybe next steps exactly 3. Good.\n\nCriteria:\nC1: \"Your performance scenario is complete and measurable, and you justify performance/availability from lunch-peak data. To reach Excellent, make the availability response measure measurable and tie it to the payment-dependent order flow rather than degraded browsing; 'stay up most of the time' in Q1 is not measurable.\" <=70 words. Count ~50. Good.\n\nC2: \"Your modular-monolith recommendation is clear and well grounded: you use the five-developer team, per-service overhead, and known single-VM/deployment problems, and you acknowledge the downside. This is Excellent. For format, trim Q2 to the 150-word limit so the communication criterion is not affected.\" <=70. Good. But C2 is Excellent; feedback can mention keep. Fine.\n\nC3: \"Q3(a) and (b) are correct with working (99.30%, 5.0 h). In Q3(c) you correctly compute payment availability 0.999975 but report it as whole-system availability; re-multiply by the other three components to get 99.80% and ~1.5 h downtime. That one incorrect part keeps this at Proficient; correcting it would meet Excellent.\" <=70. Good.\n\nC4: \"You name Circuit Breaker, explain closed/open/half-open correctly, and apply it convincingly to the 25-minute hang with a threshold example. To reach Excellent, add a drawback or genuine tuning consideration, such as threshold calibration, false trips, or fallback behaviour, in Q4.\" <=70. Good.\n\nC5: \"Your choices and techniques (Redis TTL cache, idempotency key) are sensible. However, Q5(ii) misapplies CAP: partition tolerance cannot be given up; during a partition you choose consistency or availability. Correct that framing and state the sacrifice for payments versus browsing to reach Excellent.\" <=70. Good.\n\nC6: \"Your ADR has Context, Decision and Consequences specific to CampusEats. The consequences are one-sided: you list latency, offline outlets and peak smoothing but no negative consequence. Add one, such as duplicate delivery, ordering guarantees, or added operational complexity, to meet Excellent.\" <=70. Good.\n\nC7: \"Writing is clear, headings are in order, and IEEE-style citations/reference list are present. Q2 is ~180 words, over the 150-word limit; trim it. Also add an explicit assumptions section, as the brief requires assumptions to be stated, to strengthen format compliance.\" <=70. Good.\n\nNeed ensure JSON valid. No markdown. Use exact criterion ids. Summary <=80. Next_steps array 3. Criteria object. Need no extra. Use quotes escaped. Ensure no newline? JSON can have strings. Fine.\n\nNeed maybe mention \"current total 30/40\" in summary. Good.\n\nNeed not mention \"document-conversion artefacts\". Fine.\n\nNeed \"Do not make up explanations for reasoning given by marking agent unclear/incomplete.\" We don't.\n\nNeed \"Do not change marks.\" We don't.\n\nNeed \"Address student as you.\" Yes.\n\nNeed \"cite their sections/figures\" We cite Q1, Q2, Q3(c), Q4, Q5(ii), Q6, References. Good.\n\nNeed \"name what they did well\" yes.\n\nNeed \"state what next rubric level requires\" yes.\n\nNeed \"Be specific, supportive and actionable\" yes.\n\nPotential issue: C2 feedback says \"This is Excellent\" but also trim Q2; okay. C7 says Q2 over limit. Fine.\n\nNeed maybe include \"assumptions section\" in C7 or next steps. Good.\n\nNeed ensure summary word count <=80. Let's count: You(1) have2 a3 strong,4 well-structured5 submission6 with7 clear8 scenario9 grounding10 and11 correct12 Q3(a)/(b).13 Your14 main15 losses16 are17 Q3(c)18 recombination,19 CAP20 misapplication21 in22 Q5,23 an24 unmeasurable25 Q1 26 availability27 measure,28 one-sided29 Q6 30 consequences,31 Q2 32 over33 the34 word35 limit,36 and37 no38 explicit39 assumptions40 section.41 Current42 total43 30/40.44 Good.\n\nNext steps word counts not constrained. Fine.\n\nNeed final only JSON.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to produce formative feedback JSON. Need address student as \"you\". Specific, supportive, actionable, cite sections/figures, name what did well, state next",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " rubric level. Do not change marks. Do not comment on document-conversion artefacts. Do not make up explanations for reasoning given by marking agent unclear/incomplete. Schema:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each. Need one JSON object only.\n\nNeed include all criteria C1-C7. Feedback per criterion <=70 words. Summary <=80 words. Next steps exactly 3 strings. Need be supportive actionable",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Mention marks? We can mention current level and next level. Do not change marks. Need cite sections/figures. Use \"you\". Need not mention conversion",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " artefacts. Need not make up. Need be careful with Q3(c): marking says final availability wrongly reported as 99.9975% (payment-only figure",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "); should re-multiply by other three components giving 99.80% and ~1.5 h downtime. We can state that. Q5 CAP",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " misapplied: partition tolerance cannot be traded away; in partition sacrifice consistency or availability. Q1 availability response measure not measurable; response describes degraded browsing rather than payment-dependent",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " order flow. Q6 no negative consequence. Q2 exceeds word limit ~180. Whole submission no explicit assumptions section despite brief requiring assumptions stated. Need include in next",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " steps maybe. C7 feedback mention Q2 word limit and assumptions? C7 is communication/format; assumptions maybe whole submission. Could mention in summary/next steps. Need not comment",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " on document conversion.\n\nNeed ensure criteria feedback <=70 words each. Let's draft.\n\nSummary: \"You have a strong, well-structured submission with clear scenario grounding and correct",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Q3(a)/(b). Your main losses are Q3(c) recombination, CAP misapplication in Q5, an unmeasurable Q1 availability measure, one",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-sided Q6 consequences, Q2 over the word limit, and no explicit assumptions section. Current total 30/40.\" Count words ~50. Good. But summary",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " should be <=80. Fine.\n\nNext steps: 3 strings. Need actionable. Could be:\n1. \"In Q3(c), after computing payment availability 0.999975",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", recombine it with the other three components (0.9995 × 0.999 × 0.9995 × 0.999975)",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and report 99.80% with ~1.5 h downtime; show the multiplication explicitly.\"\n2. \"In Q5(ii), reframe CAP:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " partition tolerance is not optional; during a partition choose consistency or availability. State which you sacrifice for payments and browsing, and keep your Redis TTL and idempotency",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-key techniques.\"\n3. \"Revise Q1 availability response measure to a measurable target tied to payment-dependent ordering (e.g., successful order rate or p95 order",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " latency during outage), add a negative consequence to Q6, trim Q2 to ≤150 words, and add a short assumptions section.\"\n\nNeed maybe next steps exactly",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 3. Good.\n\nCriteria:\nC1: \"Your performance scenario is complete and measurable, and you justify performance/availability from lunch-peak data. To",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " reach Excellent, make the availability response measure measurable and tie it to the payment-dependent order flow rather than degraded browsing; 'stay up most of the time' in",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Q1 is not measurable.\" <=70 words. Count ~50. Good.\n\nC2: \"Your modular-monolith recommendation is clear and well grounded: you",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " use the five-developer team, per-service overhead, and known single-VM/deployment problems, and you acknowledge the downside. This is Excellent. For format",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", trim Q2 to the 150-word limit so the communication criterion is not affected.\" <=70. Good. But C2 is Excellent; feedback can mention keep",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Fine.\n\nC3: \"Q3(a) and (b) are correct with working (99.30%, 5.0 h). In Q",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "3(c) you correctly compute payment availability 0.999975 but report it as whole-system availability; re-multiply by the other three components to get 99.80",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "% and ~1.5 h downtime. That one incorrect part keeps this at Proficient; correcting it would meet Excellent.\" <=70. Good.\n\nC4",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": \"You name Circuit Breaker, explain closed/open/half-open correctly, and apply it convincingly to the 25-minute hang with a threshold example. To reach",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Excellent, add a drawback or genuine tuning consideration, such as threshold calibration, false trips, or fallback behaviour, in Q4.\" <=70. Good.\n\nC5",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": \"Your choices and techniques (Redis TTL cache, idempotency key) are sensible. However, Q5(ii) misapplies CAP: partition",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " tolerance cannot be given up; during a partition you choose consistency or availability. Correct that framing and state the sacrifice for payments versus browsing to reach Excellent.\" <=70. Good.\n\nC6",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": \"Your ADR has Context, Decision and Consequences specific to CampusEats. The consequences are one-sided: you list latency, offline outlets and peak smoothing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " but no negative consequence. Add one, such as duplicate delivery, ordering guarantees, or added operational complexity, to meet Excellent.\" <=70. Good.\n\nC7: \"Writing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is clear, headings are in order, and IEEE-style citations/reference list are present. Q2 is ~180 words, over the 150-word limit; trim",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " it. Also add an explicit assumptions section, as the brief requires assumptions to be stated, to strengthen format compliance.\" <=70. Good.\n\nNeed ensure JSON valid. No",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " markdown. Use exact criterion ids. Summary <=80. Next_steps array 3. Criteria object. Need no extra. Use quotes escaped. Ensure no new",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "line? JSON can have strings. Fine.\n\nNeed maybe mention \"current total 30/40\" in summary. Good.\n\nNeed not mention \"document-conversion artefacts",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\". Fine.\n\nNeed \"Do not make up explanations for reasoning given by marking agent unclear/incomplete.\" We don't.\n\nNeed \"Do not change marks.\" We don't.\n\nNeed \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "Address student as you.\" Yes.\n\nNeed \"cite their sections/figures\" We cite Q1, Q2, Q3(c), Q4, Q5",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "(ii), Q6, References. Good.\n\nNeed \"name what they did well\" yes.\n\nNeed \"state what next rubric level requires\" yes.\n\nNeed \"Be",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " specific, supportive and actionable\" yes.\n\nPotential issue: C2 feedback says \"This is Excellent\" but also trim Q2; okay. C7 says Q",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "2 over limit. Fine.\n\nNeed maybe include \"assumptions section\" in C7 or next steps. Good.\n\nNeed ensure summary word count <=80. Let",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'s count: You(1) have2 a3 strong,4 well-structured5 submission6 with7 clear8 scenario9 grounding10 and11 correct12 Q3",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "(a)/(b).13 Your14 main15 losses16 are17 Q3(c)18 recombination,19 CAP20 misapplication21 in22 Q5,23 an",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "24 unmeasurable25 Q1 26 availability27 measure,28 one-sided29 Q6 30 consequences,31 Q2 32 over33 the34 word35 limit,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "36 and37 no38 explicit39 assumptions40 section.41 Current42 total43 30/40.44 Good.\n\nNext steps word counts not constrained. Fine.\n\nNeed final",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " only JSON.",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 1280,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1542,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 2868,
+    "completion_tokens": 2251,
+    "total_tokens": 5119,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 1280,
+    "cost": 0.0015147759999999998,
+    "currency": "USD",
+    "reasoning_tokens": 1542,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 1588
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_58a370e1-0cb3-4a53-9b36-1fab31510f52",
+  "x_nanogpt_pricing": {
+    "amount": 0.0015147759999999998,
+    "cost": 0.0015147759999999998,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 2868,
+    "outputTokens": 2251,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 1280,
+    "cacheCost": 5.376e-06
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 1280,
+    "writeTokens": 0
+  }
+}

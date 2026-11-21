@@ -1,0 +1,218 @@
+{
+  "total": 28.0,
+  "total_max": 40.0,
+  "percent": 70.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Performance scenario is six-part with measurable p95. Availability scenario has six parts but response measure is vague and unmeasurable, matching Proficient descriptor.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Modular monolith clearly recommended with two scenario-specific trade-offs team size and single-VM plus deployment downtime, downside acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "(a) series product 99.30% and (b) 5.0h correct with working. (c) parallel payment 0.999975 correct but failed to multiply by other components, so end-to-end and downtime wrong. One part incorrect.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker correctly explained with Closed/Open/Half-Open, applied to 25-min outage, tuning threshold and timeout given.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds)",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Both choices reasonable with concrete techniques Redis TTL and idempotency key, but CAP misused partitions cannot be given up, must choose C or A.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context and Decision specific to OrderPaid RabbitMQ, but Consequences list only positives, no negative consequence like ops complexity or consistency delay.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders at a steady rate.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Headings and IEEE references present and writing clear, but Question 2 exceeds 150-word limit at ~180 words.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Part (c) omits series components: correct end-to-end is ~0.99798 = 99.80% and ~1.5h downtime, not 99.9975% and 0.018h."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP error: cannot choose C+A and abandon P during partition; partition tolerance is mandatory."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable; needs %/time bound."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence stated for queue introduction."
+    }
+  ],
+  "overall": "Solid scenario-grounded answers with correct series math and patterns, weakened by Q3c recombination error, CAP misunderstanding, and one-sided ADR.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You wrote clear scenario-grounded answers with strong Q2 and Q4. To reach Excellent, tighten measurability in Q1, correct Q3c recombination, fix CAP reasoning in Q5, add a negative consequence in Q6, and meet word limits.",
+    "next_steps": [
+      "Make your Q1 availability response measurable with a % and time bound, e.g. uptime % per month.",
+      "Recalculate Q3c end-to-end as series of all components including redundant payment, then derive downtime.",
+      "Correct CAP to choose C or A under partition, add one negative ADR consequence, and trim Q2 under 150 words."
+    ],
+    "criteria": {
+      "C1": "Well done in Q1: you chose relevant attributes and gave a full six-part performance scenario with measurable p95. For Excellent, rewrite your availability response 'stay up most of the time' as measurable, e.g. % uptime per month.",
+      "C2": "Excellent in Q2: you clearly recommended modular monolith with scenario-specific team-size and single-VM trade-offs and acknowledged downtime risk that a bug 'can still crash the whole process'. Keep this specificity.",
+      "C3": "Well done in Q3: your (a) 99.30% series and (b) 5.0h downtime with working were correct. For Excellent, fix (c): you reported 99.9975% for payment alone, multiply it by other components for end-to-end ~99.80%.",
+      "C4": "Excellent in Q4: you correctly explained Circuit Breaker Closed/Open/Half-Open, applied it to the 25-min outage, and gave tuning of '50% of calls in 10 seconds'. Keep linking mechanism to scenario.",
+      "C5": "Good in Q5: reasonable choices with concrete Redis TTL and idempotency key. For Excellent, fix CAP: you wrote 'give up partition tolerance' but you must retain P and choose C or A during partition.",
+      "C6": "Good in Q6: specific Context and Decision on OrderPaid RabbitMQ and positive smoothing of 'lunch peak'. For Excellent, add at least one negative consequence such as ops complexity or delay.",
+      "C7": "Clear writing with headings and IEEE references. For Excellent, bring every answer within 150 words: Q2 at ~180 words starting 'I recommend against a full microservices rewrite' exceeds the limit."
+    }
+  }
+}

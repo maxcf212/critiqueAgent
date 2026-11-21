@@ -1,0 +1,172 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "One satellite is therefore used."
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS)"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The customers are the Great Barrier Reef Marine Park Authority"
+        }
+      ],
+      "reasoning": "Clearly explains the mission need and rationale, specifies a single spacecraft and why it is sufficient, and identifies the operator and several customers. The environmental context and intended public benefit are well described and supported with citations. A little more qualification of whether 5 m multispectral imagery can reliably identify bleaching would strengthen the case."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "The orbit is circular, so it has no perigee"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "No orbital manoeuvres are required."
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "There are six passes each day, three in the evening and three in the morning (UTC)"
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "The mission lasts five years."
+        },
+        {
+          "where": "Appendix A: STK files and settings",
+          "quote": "The following STK 11 files are submitted with this report in ZYZZsat_STK.zip."
+        }
+      ],
+      "reasoning": "The design covers launch selection and fallback, orbit elements and J2 sun-synchronous calculation, manoeuvres, STK access analysis, contact frequency, data budget, mission duration and disposal. Screenshots and hand calculations provide useful evidence. The analysis is substantial but not fully validated: the assumed 50 Mbit/s link lacks a link budget, imager performance and operational constraints are lightly treated, and the one-station operations case is an assumption."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations."
+        },
+        {
+          "where": "3 Conclusion",
+          "quote": "With these points addressed in the next design phase, the mission can provide the direct, regular bleaching maps"
+        }
+      ],
+      "reasoning": "The conclusion draws specific findings from the design and openly identifies consequential limitations, including launch uncertainty, unproven fluid-lensing benefit, missing link budget and revisit limitations. It could more explicitly distinguish demonstrated performance from preliminary estimates, but it is appropriately evidence-based."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report presents the design of ZYZZsat"
+        },
+        {
+          "where": "Contents",
+          "quote": "3 Conclusion"
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "Table 5: STK access report, ZYZZsat to Mount Pleasant Radio Observatory (elevation above 0°)."
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[11] D. A. Vallado, Fundamentals of Astrodynamics and Applications"
+        }
+      ],
+      "reasoning": "The report has a logical structure, executive summary, numbered sections, labelled tables and figures, and generally clear professional writing. References are cited throughout and a bibliography is provided. Some source entries are incomplete or less authoritative than ideal, and the many dense calculations and tables could be more consistently supported with assumptions and validation. The STK appendix lists files, but their contents cannot be assessed from the report text alone."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Appendix A: STK files and settings"
+    },
+    {
+      "id": "R11",
+      "met": "yes",
+      "where": "Contents"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "The proposed 50 Mbit/s X-band downlink is not substantiated by a link budget. The report acknowledges this; therefore the claimed daily capacity and margin are preliminary rather than demonstrated."
+    },
+    {
+      "where": "2.3 Orbit",
+      "issue": "The five-day reach estimate divides equatorial ground-track spacing by the maximum roll-reach width. This is an idealized geometric estimate; it does not establish actual five-day coverage of every reef location once imaging geometry, pointing limits, sunlight, clouds and acquisition scheduling are considered."
+    },
+    {
+      "where": "Appendix A: STK files and settings",
+      "issue": "The report says the STK files are submitted in a ZIP, but the files themselves are not present in the supplied submission text, so their completeness and reproducibility cannot be verified."
+    }
+  ],
+  "overall": "A strong, well-structured preliminary design with a clear Australian mission purpose, substantial orbit and access analysis, and useful STK imagery. The principal weaknesses are unverified communications performance and idealized coverage assumptions; the claimed software files are also not verifiable in the supplied material."
+}

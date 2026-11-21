@@ -1,0 +1,255 @@
+{
+  "total": 38.0,
+  "total_max": 40.0,
+  "percent": 95.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Two attributes are chosen and tied to scenario facts (900 lunch orders, 4.2 s p95, payment slowdown). Both scenarios have all six parts, and both response measures are quantified and testable.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "The modular monolith is clearly recommended. Trade-offs are tied to the five-developer team, the single-VM slowness and the weekly downtime. The downside is acknowledged. The unstated assumption of eight services slightly weakens it.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The lunchtime slowness comes from a single virtual machine and is fixed by running several instances of the monolith behind a load balancer.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "All three parts are correct on checking: (a) 99.30%, (b) 5.0 h, (c) 99.80% and 1.5 h. Working is shown at two decimal places. Component availabilities are not restated explicitly, which is a minor presentation gap.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is an appropriate pattern. Closed, Open and Half-Open states are explained correctly and applied to the 25-minute outage. Tuning and fallback drawbacks are both given.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "CAP is used correctly, with both choices justified and a concrete technique for each (cache with TTL, idempotency key). The idempotency key addresses retry safety more than partition-time consistency, so it is a slightly weak fit.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "For payments I choose consistency (CP): the order is rejected with a clear error rather than risk an inconsistent charge.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "This is the AP choice, with eventual consistency.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are all present and specific to CampusEats. Both positive and negative consequences are given, including at-least-once delivery and the stuck-queue risk.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Headings, IEEE citations and reference list are correct and the terminology is precise. Several answers (Q2, Q4, Q6) sit at or slightly above 150 words by my count, and no assumptions section is provided.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "Drawback: nobody can pay while it is open, so a fallback is needed.",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[2] M. T. Nygard, Release It! Design and Deploy Production-Ready Software, 2nd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Component availabilities (0.9995, 0.999, 0.9995, 0.995) are used without being stated as assumptions or sourced, so the reader cannot verify the inputs."
+    },
+    {
+      "where": "Question 2",
+      "issue": "The claim 'Five developers running eight or more services' assumes a service count that is not stated in the scenario or as an assumption."
+    },
+    {
+      "where": "Question 5",
+      "issue": "An idempotency key prevents duplicate charges on retry; it is not a mechanism that enforces consistency during a partition, so it is a weak technique for the CP choice."
+    },
+    {
+      "where": "Question 4",
+      "issue": "The claim that the breaker 'would have opened within seconds' is asserted without supporting data or stated assumptions."
+    }
+  ],
+  "overall": "Strong, technically accurate answers. Q3 calculations are correct to the required precision. Main deductions: no explicit assumptions section, several answers at or just over the 150-word limit, and a weak technique choice for the CP payment decision.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [
+      "R1"
+    ],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You produced a strong, technically accurate assignment. Your modular monolith recommendation, Q3 availability calculations and Circuit Breaker analysis were clearly grounded in the CampusEats scenario, and your ADR was complete. The main gaps are presentation: several answers sit at or just above the 150-word limit, your inputs are not stated as assumptions, and one technique choice needs tightening.",
+    "next_steps": [
+      "Trim Questions 2, 4 and 6 so every answer is within 150 words. This is the main step needed to reach the top band for communication.",
+      "Add a short assumptions section that states your component availabilities for Q3 and the service count behind your claim of eight or more services in Q2, so a reader can verify your inputs.",
+      "In Q5, strengthen the CP payment choice with a mechanism that enforces consistency during a partition, such as a confirmed, synchronous write to the payment record, and explain how it does so."
+    ],
+    "criteria": {
+      "C1": "You chose performance and availability and tied them to scenario facts such as the 900 lunch orders and the 4.2 s p95 response. Both scenarios have all six parts, and both response measures are quantified and testable. This is an Excellent answer. Keep this level of measurability in future responses.",
+      "C2": "You recommended a modular monolith and linked your trade-offs to the five-developer team, the single-VM lunchtime slowness and the weekly downtime. You also acknowledged the downside that modules cannot scale independently. To strengthen it, state the service count behind your claim of eight or more services as an explicit assumption.",
+      "C3": "All three parts are correct: 99.30% for (a), 5.0 h for (b), and 99.80% with 1.5 h for (c). Working is shown to the required precision. Your component availabilities are not restated or sourced, so a reader cannot check your inputs. State them explicitly as assumptions to make your working fully verifiable.",
+      "C4": "You named the Circuit Breaker and explained the Closed, Open and Half-Open states correctly, applying them to the 25-minute outage. You also gave a drawback (no payments while open, so a fallback is needed) and a tuning consideration. The claim that the breaker would have opened within seconds needs supporting data or stated assumptions, such as the failure threshold and latency figures used.",
+      "C5": "Your CAP reasoning is correct. You chose consistency for payments, rejecting the order rather than risking an inconsistent charge, and availability for the menu with eventual consistency. You named a concrete technique for each, including a cache with TTL. The idempotency key prevents duplicate charges on retry but does not enforce consistency during a partition, so it is a weaker fit for the CP choice.",
+      "C6": "Your ADR includes Context, Decision and Consequences, all specific to CampusEats. You described the synchronous tablet call and gave both positive and negative consequences, including at-least-once delivery and the stuck-queue risk. This is a complete record. Keep the consequences balanced as you did here.",
+      "C7": "Your headings, IEEE citations and reference list are correct, and your terminology is precise. To reach the top band, every answer must be within 150 words. Q2, Q4 and Q6 sit at or slightly above the limit, so trim them. Adding an assumptions section would also make your inputs explicit."
+    }
+  }
+}

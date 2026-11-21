@@ -1,0 +1,26 @@
+{
+  "model": "deepseek/deepseek-v4.1-flash-1017",
+  "max_tokens": 8000,
+  "include_usage": true,
+  "messages": [
+    {
+      "role": "system",
+      "content": "Summarise the assessment task below into compact JSON for a marker. The document was converted to markdown by OCR: odd characters, broken LaTeX/tables and split paragraphs are usually conversion artefacts, not the author's errors.\nCapture everything the student must do or submit, including requirements a rubric may omit\n(length, format, sections, calculations, drawings, standards, units). Omit admin (dates, submission portals).\nSchema: {\"title\":str,\"overview\":str(<=80 words),\"deliverables\":[str],\"format\":{\"length\":str,\"structure\":str,\"other\":str},\"requirements\":[{\"id\":\"R1\",\"text\":str}]}\nReply with one JSON object only. No prose, no markdown."
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "TASK:\n"
+        },
+        {
+          "type": "text",
+          "text": "# AERO9500 Preliminary Report (Part 1)\n\nT3 2020 Assignment\n\nIn this assignment you will design a space mission and identify the main elements of its space segment. The intent is to demonstrate your understanding of the course material by applying what you have learned about the space segment systems (launch, orbits etc.) by developing a preliminary plan for a new mission.\n\nThe mission should benefit Australia in some way. Try to keep your mission concept simple. Some ideas include:\n\n1. A bushfire tracking and alert system\n2. Weather satellite\n3. Internet / communication\n4. Earth observation for city planning / real estate\n\nYou will use the software of your choice to complete the design, although you are encouraged to supplement the design with hand calculations as needed. Your software options include:\n\n1. STK – this is industry-standard mission design software. There are self-guided tutorials available for you to get started learning how to use it. STK is available in the MECH computer lab 204. You can access it in person (keep in mind there is a limit to the number of students allowed in the lab), or via remote access. You can also download a demo version.\n2. PIGI – this is software developed by Saber Astronautics, an Australian company. If you are using PIGI, you can enter your design in their competition. In any case, you will need to register for the competition in order to get a license for the software.\n3. Other software, e.g. flightclub - please contact Naomi to discuss before you start working with other software.\n\nThere are two parts to this assignment. Part 1 is a preliminary report designed to help guide you in your completion of the main assignment in Part 2.\n\nPart 1 is worth 5% and is due on Friday of Week 3, 2 October at 17:00.\n\nIn Part 1 you will lay out a plan for your mission design and present your preliminary work. You should decide which software package you are using, and list the sources of information you plan to use. In Part 1 you will be marked based on:\n\n1. Your mission concept and its rationale (what will it do, who are the users, why is it needed etc.)\n2. Your project plan (how you plan to complete the assignment, including either a Gannt chart or a timetable and the sources of information you plan to use)\n3. Your preliminary progress (technical content and evidence of sufficient work done to date)\n\nIdeally your preliminary report should be around 2 - 3 pages in length. Your report is to be submitted as a single pdf document via Turnitin on Moodle.\n\nRefer to the marking rubric (available on Moodle) for further information on how the preliminary report will be marked."
+        }
+      ]
+    }
+  ],
+  "temperature": 0,
+  "reasoning_effort": "low"
+}

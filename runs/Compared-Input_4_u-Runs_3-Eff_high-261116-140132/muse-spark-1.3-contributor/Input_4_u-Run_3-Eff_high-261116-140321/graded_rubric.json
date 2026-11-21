@@ -1,0 +1,236 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Two central attributes chosen with scenario justification. Both scenarios contain all six parts with quantitative measurable response measures.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the p95 response time is under 1.5 s and no requests are dropped",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "under 0.1% of non-payment requests fail",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation. Two scenario-specific trade-offs: 5-dev ops overhead and single-VM/weekly-downtime fixes. Downside acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets)",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "modules cannot be scaled independently and a bug in one module can still crash",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "Series multiplication, 720h downtime, and active-active parallel payment all correct. Working shown, 99.30%/5.0h and 99.80%/1.5h to required precision.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker correctly described with Closed/Open/Half-Open, applied to 25-min hang, with tuning and fallback drawback.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Too sensitive and it opens on a brief blip",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "AP for browsing and CP for payment justified. CAP used correctly with partition tolerance mandatory. Concrete techniques named for both.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "show a slightly stale menu from a cache (Redis with a 60-second TTL)",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Specific Context, Decision, and both positive and negative consequences present and tied to tablet loss and p95 scenario.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Delivery is at-least-once, so the tablet must ignore duplicate order IDs",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "Headings Question 1-6 in order, all answers <=150 words, precise terminology, in-text citations and IEEE reference list.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The scenarios use the six-part form from [1]",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman,",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [],
+  "overall": "Strong complete submission meeting all technical tasks. Calculations correct. Only gap is no explicit assumptions statement. Full marks on all criteria.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You produced a strong complete submission with correct calculations and well-justified architecture choices across all six questions and clear communication. Keep this precision and scenario grounding as you tackle larger design tasks.",
+    "next_steps": [
+      "Keep writing measurable response measures for every quality-attribute scenario you create.",
+      "Keep tying each architectural trade-off and downside explicitly to team, load and failure context.",
+      "Keep showing full calculation working and citing sources in IEEE style to retain precision."
+    ],
+    "criteria": {
+      "C1": "In Question 1 you justified two central attributes from the scenario and wrote complete six-part scenarios. Your measures like p95 under 1.5 s and under 0.1% fail are measurable. You meet Excellent; keep every future scenario fully six-part and quantitative.",
+      "C2": "In Question 2 you recommended a modular monolith with modules orders, menu and linked trade-offs to 5-dev overhead and VM/downtime. You acknowledged downside about modules not scaling independently. You meet Excellent; keep grounding both trade-offs and downside in scenario.",
+      "C3": "In Question 3 you showed working for series A = 0.9995 x 0.999 x 0.9995 x 0.995 = 0.99301, downtime and A_pay = 1-(1-0.995) squared to required precision. All parts correct. You meet Excellent; keep showing method steps and rounding exactly as requested.",
+      "C4": "In Question 4 you explained Circuit Breaker Closed/Open/Half-Open and applied it to the 25-min hang with calls fail immediately and tuning note Too sensitive. You meet Excellent; keep adding an applied mechanism plus drawback/tuning.",
+      "C5": "In Question 5 you justified AP browsing with stale menu via Redis with 60-second TTL and CP payment with idempotency key. You used CAP correctly. You meet Excellent; keep pairing each choice with correct CAP reasoning and concrete technique.",
+      "C6": "In Question 6 you gave specific Context, Decision Publish an OrderPaid event with RabbitMQ and both consequences including must ignore duplicate order IDs. You meet Excellent; keep context specific with positive and negative consequences.",
+      "C7": "Across Questions 1-6 you stayed within 150 words, used headings in order and precise terminology with six-part form from [1] and IEEE list. You meet Excellent; keep word-count discipline and IEEE citations."
+    }
+  }
+}

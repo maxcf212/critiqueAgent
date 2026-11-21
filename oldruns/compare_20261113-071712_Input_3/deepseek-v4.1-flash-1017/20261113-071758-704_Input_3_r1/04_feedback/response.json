@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-3b6c1b3d-235b-45bb-87eb-886387483dbf",
+  "object": "chat.completion",
+  "created": 1794514749,
+  "model": "deepseek/deepseek-v4.1-flash-1017",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"Your report is a solid Very Good: clear stakeholder framing in the Introduction, balanced for/against discussion, relevant Apple/NHS/Volkswagen cases, and a justified Not to Ship conclusion. To reach Excellent more consistently, deepen stakeholder-specific decision conclusions (C2/C3), strengthen evidence and referencing (C4/C5), add visual elements, and tighten role-appropriate recommendations and decision criteria for known defects.\",\"next_steps\":[\"Revise the Recommendation so Rachel's actions are role-appropriate: as QA engineer she should certify/block release and escalate through QA and engineering management rather than 'refuse the contract'; align this with your Not to Ship conclusion.\",\"Add an explicit acceptable-risk decision framework (likelihood/severity, duty to warn, escalation thresholds) in the Discussion and use it to compare ship/not ship options; remove or evidence the speculative competitor-would-ship claim.\",\"Complete and standardise the reference list (URLs, authors, titles, dates, consistent format) and add at least one figure or table, such as a stakeholder-interest map or risk matrix, to support your argument.\"],\"criteria\":{\"C1\":\"Your Introduction clearly identifies the QA/shipment dilemma, links it to engineering design and competitive organisational context, and lists key stakeholders with interests. This meets the Excellent descriptor. To consolidate, keep each ethical issue explicitly tied to specific stakeholder impacts as you transition into the body.\",\"C2\":\"In 'The Most Ethical Path' and 'Recommendation' you balance economic, competitive, safety and professional-duty arguments and conclude Not to Ship. For Excellent, extend conclusions to decision-making recommendations for several distinct stakeholders (Rachel, company leadership, health department, patients/public), not mainly Rachel/company.\",\"C3\":\"Your structure builds logically to the Conclusion's Not to Ship position, but all-stakeholder coverage is uneven. For Excellent, systematically argue each stakeholder's ethical position and avoid unsupported assertions; ensure every recommendation follows from the preceding analysis so the conclusion is compelling rather than asserted.\",\"C4\":\"You use the EA Code plus Apple, NHS/HSSIB and Volkswagen cases and some quantitative impacts. For Excellent, substantiate all claims—especially the competitor-would-ship assertion—and provide both qualitative and quantitative evidence. Complete and standardise references so research demonstrates balanced, in-depth understanding.\",\"C5\":\"You include the required sections and generally fluent prose. For Very Good, add several competently used visual elements (e.g. stakeholder map, risk matrix) and ensure references are complete and consistently formatted; the current reference list has missing URLs, authors/titles and mixed formats. Check headings and expression.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce formative feedback JSON per schema. Address student as \"you\". Cite sections/figures, name what done well, state what next rubric level requires. Do not change marks. No comment on conversion artefacts (e.g., \"DICUSSION\" heading typo? That might be typographical/heading error; avoid conversion artefacts. Marking mentions minor typographical/heading errors; we can avoid mentioning DICUSSION if conversion artifact. Also no made-up explanations. Need summary <=80 words, next_steps array 3 strings, criteria object with each criterion id <=70 words each. Use criterion ids C1-C5.\n\nNeed be specific supportive actionable. For C1 Excellent: say strong. Next level? Already Excellent — maybe maintain: to consolidate, ensure stakeholder interests are explicitly tied to each ethical issue? But no next rubric level. We can say \"You are at Excellent; sustain by...\" But schema asks state what next rubric level requires; for C1 no next level. Could say \"Excellent is top level; to consolidate...\" That's okay.\n\nC2 Very good: next Excellent requires conclusions on decision-making recommendations for several different stakeholders with more depth; deepen stakeholder-specific decision processes.\n\nC3 Very good: next Excellent requires systematic understanding for all stakeholders; make claims systematically argued; ensure all stakeholder perspectives. C4 Very good: next Excellent requires both qualitative and quantitative evidence and balanced in-depth research; complete references, add evidence for speculative claims (competitor-would-ship). C5 Good: next Very good requires several types of visual elements used competently and relevant references; fix reference completeness/consistency; add figures/tables (decision matrix? stakeholder map?) and fluent no incorrect language. Since Good; next Very good needs visual elements and relevant references. Mention no visual elements. Avoid \"DICUSSION\" heading? Could mention \"check headings\" but that's typographical; okay. Don't mention conversion artefacts.\n\nNeed next_steps exactly 3 strings. They should be actionable. Example:\n1. \"Expand the Recommendation so Rachel's actions are role-appropriate: certify/block release and escalate through QA and engineering management rather than 'refuse the contract'; align this with your Not to Ship conclusion.\"\n2. \"Add an explicit acceptable-risk decision framework (likelihood/severity, duty to warn, escalation thresholds) in Discussion and use it to compare ship/not ship; remove or evidence the speculative competitor-would-ship claim.\"\n3. \"Complete and standardise the reference list (URLs, authors, titles, dates) and add at least one figure or table, e.g. stakeholder-interest map or risk matrix, to support the argument.\"\n\nNeed criteria strings <=70 words. Include section references. C1 ~ maybe 60. C2 ~70. C3. C4. C5.\n\nSummary <=80 words: \"Your report is a solid Very Good: clear stakeholder framing in Introduction, balanced for/against discussion, relevant Apple/NHS/Volkswagen cases, and a justified Not to Ship conclusion. To reach Excellent more consistently, deepen stakeholder-specific decision conclusions (C2/C3), strengthen evidence and referencing (C4/C5), add visual elements, and tighten role-appropriate recommendations and decision criteria for known defects.\" That's ~61 words. Good.\n\nNeed one JSON object only. Ensure valid JSON. Strings escaped. Criteria object keys C1 etc. Each string <=70 words. Summary <=80. Next steps exactly 3. No markdown. Good.\n\nNeed not mention marks. We can mention \"Very Good\" levels? It's okay? It says do not change marks; naming rubric level likely okay. But maybe avoid numeric. We can mention current rubric level? The feedback should state next level. Fine.\n\nNeed specific support. For C2 mention \"The Most Ethical Path\" and \"Recommendation\". C3 mention Conclusion. C4 mention case studies and references. C5 mention References and lack of visual elements.\n\nLet's craft.\n\nC1 string: \"Your Introduction clearly identifies the QA/shipment dilemma, links it to engineering design and competitive organisational context, and lists key stakeholders with interests. This meets the Excellent descriptor. To consolidate, keep each ethical issue explicitly tied to specific stakeholder impacts as you transition into the body.\" 43 words.\n\nC2: \"In 'The Most Ethical Path' and 'Recommendation' you balance economic, competitive, safety and professional-duty arguments and conclude Not to Ship. For Excellent, extend conclusions to decision-making recommendations for several distinct stakeholders (Rachel, company leadership, health department, patients/public), not mainly Rachel/company.\" 45 words.\n\nC3: \"Your structure builds logically to the Conclusion's Not to Ship position, but all-stakeholder coverage is uneven. For Excellent, systematically argue each stakeholder's ethical position and avoid unsupported assertions; ensure every recommendation follows from the preceding analysis so the conclusion is compelling rather than asserted.\" 44.\n\nC4: \"You use the EA Code plus Apple, NHS/HSSIB and Volkswagen cases and some quantitative impacts. For Excellent, substantiate all claims—especially the competitor-would-ship assertion—and provide both qualitative and quantitative evidence. Complete and standardise references so research demonstrates balanced, in-depth understanding.\" 43.\n\nC5: \"You include the required sections and generally fluent prose. For Very Good, add several competently used visual elements (e.g. stakeholder map, risk matrix) and ensure references are complete and consistently formatted; the current reference list has missing URLs, authors/titles and mixed formats. Check headings and expression.\" 46.\n\nNext steps strings. Ensure actionable. Include \"Recommendation\", \"Discussion\", \"References\".\n\nSummary includes \"C2/C3\" maybe okay.\n\nNeed JSON only."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2759,
+    "completion_tokens": 1716,
+    "total_tokens": 4475,
+    "reasoning_tokens": 1171,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1171,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 2759,
+    "cost": 0.0013054999999999998,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_8a707fe8-2fe6-4b59-b7d4-4f47839739ae",
+  "x_nanogpt_pricing": {
+    "amount": 0.0013054999999999998,
+    "currency": "USD",
+    "cost": 0.0013054999999999998,
+    "inputTokens": 2759,
+    "outputTokens": 1716,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_835489c3-bf81-462c-ae76-47a39ecd7438",
+    "costUsd": 0.0013054999999999998,
+    "usdCost": 0.0013054999999999998,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

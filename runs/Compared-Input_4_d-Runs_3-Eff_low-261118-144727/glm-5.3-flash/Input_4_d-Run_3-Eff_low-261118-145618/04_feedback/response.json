@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-cfc9b79e-696d-4c39-b4ac-5ee47520eec5",
+  "object": "chat.completion",
+  "created": 1794974211,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You showed solid architectural reasoning: your Q2 recommendation was excellent, and Q1, Q5 and Q6 were reasonable. The main losses came from Q3 (arithmetic slip and end-to-end availability), a reversed circuit-breaker explanation in Q4, a misstatement of CAP in Q5, and a one-sided ADR. Total: 23/40.\",\"next_steps\":[\"Redo Q3(b): 0.00699 × 720 = 5.0 hours, and compute end-to-end availability by multiplying component availabilities (≈99.80%, ≈1.5 h downtime), not just the payment pair.\",\"Rewrite the circuit breaker state machine: Open = fail fast, Closed = normal operation, and add a drawback or tuning consideration (e.g. threshold/half-open testing).\",\"Fix your CAP explanation — you cannot keep consistency and availability during a partition — and name a concrete technique for the payment case.\",\"Add at least one negative consequence to your ADR (e.g. delayed order confirmation, extra infrastructure).\",\"Trim Q2 and Q4 to 150 words and add the missing reference [2] to your reference list.\"],\"criteria\":{\"C1\":\"Good choice of performance and availability, justified from the lunch-hour scenario, and your performance scenario was fully six-part and measurable. To reach Excellent, make the availability response measure measurable — e.g. '≤0.2% failed requests per month' instead of 'stay up most of the time'.\",\"C2\":\"Excellent work: a clear modular-monolith recommendation with two trade-offs tied to the five-developer team and the single-VM/deployment problems, and you explicitly acknowledged the downside (no independent scaling, one bug can crash the process). This is the standard to carry into the other answers.\",\"C3\":\"Your method and working were shown and part (a) was correct, but (b) had an arithmetic slip (0.00699 × 720 = 5.0 h, not 3.5 h) and (c) reported the payment-pair availability (99.9975%) instead of end-to-end order-placement availability (≈99.80%, ≈1.5 h). Showing working kept this in Developing; fixing both parts would reach Excellent.\",\"C4\":\"Circuit breaker was an appropriate pattern and you applied it to the outage, but the states were reversed: Open should fail fast and Closed passes calls normally. You also gave no drawback or tuning consideration. Correcting the mechanism and adding, say, a half-open testing note would reach the top level.\",\"C5\":\"Both choices (availability for browsing, consistency for payments) were reasonable and you named Redis with TTL for menus. However, CAP was misapplied — you cannot 'give up partition tolerance'; partitions are not optional — and no concrete technique was named for payments (e.g. synchronous two-phase commit or a single writable ledger).\",\"C6\":\"Context, Decision and Consequences were all present and specific to CampusEats, which is good. To reach Excellent, include at least one negative consequence, such as delayed order confirmation during eventual-consistency lag or the added message infrastructure and its operational cost.\",\"C7\":\"Your writing was clear and headings were used correctly, but Q2 and Q4 exceeded the 150-word limit and reference [2], cited in Q4, was missing from the reference list. Keep every answer within 150 words and check that every in-text citation appears in the list, in IEEE style.\"}}",
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2577,
+    "completion_tokens": 722,
+    "total_tokens": 3299,
+    "reasoning_tokens": 0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "created_cache_tokens": 2496,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 2577,
+    "cost": 0.0004743,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_6017ec4f-74b0-4a46-b37d-5c84d56680c3",
+  "x_nanogpt_pricing": {
+    "amount": 0.0004743,
+    "currency": "USD",
+    "cost": 0.0004743,
+    "inputTokens": 2577,
+    "outputTokens": 722,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_8701125e-47a9-4b99-8abe-a5d090b6676a",
+    "costUsd": 0.0004743,
+    "usdCost": 0.0004743,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

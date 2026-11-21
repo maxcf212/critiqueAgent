@@ -1,0 +1,17 @@
+{
+  "summary": "You produced a strong, scenario-specific submission: your quality-attribute scenarios are measurable, your availability calculations are correct, and your architectural recommendations and ADR are well formed. To strengthen future work, state assumptions explicitly and distinguish retry protection from mechanisms that enforce strong consistency.",
+  "next_steps": [
+    "In Question 5, keep the idempotency key for preventing duplicate charges, and add a strong-consistency mechanism—such as a strongly consistent transaction or quorum—to enforce payment consistency during a partition.",
+    "In Question 3, state the assumptions behind your availability calculations explicitly; this will make your correct working easier to interpret and check.",
+    "In Question 4, make your circuit-breaker tuning advice operational by specifying the failure threshold and recovery or half-open test criteria you would start with. Keep each answer within the word limit and retain IEEE-style citations."
+  ],
+  "criteria": {
+    "C1": "Question 1 links performance and availability to CampusEats’ lunch-hour demand and abandonment, and gives measurable response targets. To maintain this standard, keep all six scenario parts explicit and ensure each response measure remains quantifiable.",
+    "C2": "Question 2 makes a clear modular-monolith recommendation and relates its trade-offs to the five-person team, deployment problems, and independent scaling. This meets the top rubric level; continue grounding trade-offs in CampusEats’ constraints and naming a downside.",
+    "C3": "Question 3 shows the working for all three correct availability calculations, including the series and active-active equations. State your assumptions explicitly alongside the calculations to make the method fully transparent.",
+    "C4": "Question 4 correctly explains and applies the circuit breaker to the slow payment provider, and identifies the risks of overly sensitive or lax thresholds. For added precision, state initial failure and recovery-test criteria.",
+    "C5": "Question 5 appropriately favours availability for menu browsing and uses CAP in the partition context. Idempotency keys prevent duplicate charges on retries, but do not enforce strong consistency; pair them with a strongly consistent transaction or quorum.",
+    "C6": "Question 6’s ADR gives CampusEats-specific context, a clear durable-queue decision, and both positive and negative consequences. This meets the top rubric level; keep consequences concrete when writing future ADRs.",
+    "C7": "Your answers are clear, use the required headings, stay within the word limit, and include IEEE-style citations and references. Preserve this format while making assumptions explicit where they affect your calculations."
+  }
+}

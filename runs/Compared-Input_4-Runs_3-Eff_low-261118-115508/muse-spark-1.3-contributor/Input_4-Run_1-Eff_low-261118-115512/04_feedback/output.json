@@ -1,0 +1,17 @@
+{
+  "summary": "You wrote clear scenario-grounded answers with strong Q2 and Q4. To reach Excellent, tighten measurability in Q1, correct Q3c recombination, fix CAP reasoning in Q5, add a negative consequence in Q6, and meet word limits.",
+  "next_steps": [
+    "Make your Q1 availability response measurable with a % and time bound, e.g. uptime % per month.",
+    "Recalculate Q3c end-to-end as series of all components including redundant payment, then derive downtime.",
+    "Correct CAP to choose C or A under partition, add one negative ADR consequence, and trim Q2 under 150 words."
+  ],
+  "criteria": {
+    "C1": "Well done in Q1: you chose relevant attributes and gave a full six-part performance scenario with measurable p95. For Excellent, rewrite your availability response 'stay up most of the time' as measurable, e.g. % uptime per month.",
+    "C2": "Excellent in Q2: you clearly recommended modular monolith with scenario-specific team-size and single-VM trade-offs and acknowledged downtime risk that a bug 'can still crash the whole process'. Keep this specificity.",
+    "C3": "Well done in Q3: your (a) 99.30% series and (b) 5.0h downtime with working were correct. For Excellent, fix (c): you reported 99.9975% for payment alone, multiply it by other components for end-to-end ~99.80%.",
+    "C4": "Excellent in Q4: you correctly explained Circuit Breaker Closed/Open/Half-Open, applied it to the 25-min outage, and gave tuning of '50% of calls in 10 seconds'. Keep linking mechanism to scenario.",
+    "C5": "Good in Q5: reasonable choices with concrete Redis TTL and idempotency key. For Excellent, fix CAP: you wrote 'give up partition tolerance' but you must retain P and choose C or A during partition.",
+    "C6": "Good in Q6: specific Context and Decision on OrderPaid RabbitMQ and positive smoothing of 'lunch peak'. For Excellent, add at least one negative consequence such as ops complexity or delay.",
+    "C7": "Clear writing with headings and IEEE references. For Excellent, bring every answer within 150 words: Q2 at ~180 words starting 'I recommend against a full microservices rewrite' exceeds the limit."
+  }
+}

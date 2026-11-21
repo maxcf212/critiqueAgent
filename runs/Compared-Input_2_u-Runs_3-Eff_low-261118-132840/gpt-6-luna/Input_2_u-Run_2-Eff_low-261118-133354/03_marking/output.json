@@ -1,0 +1,164 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "One satellite is therefore used."
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS)"
+        }
+      ],
+      "reasoning": "The mission, Australian benefit, rationale, single-spacecraft choice, operator, customers, and public-service funding are clearly explained. References support the rationale, although some sources are secondary or incompletely detailed."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "The orbit is circular, so it has no perigee"
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "There are six passes each day, three in the evening and three in the morning (UTC)"
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "With a 4 m² sail the satellite re-enters about two years after the end of the mission."
+        }
+      ],
+      "reasoning": "The report addresses launch, orbit and elements, access calculations, station, communications, duration, and disposal, with STK figures and detailed calculations. However, the orbital-decay calculation is wrong by about a factor of ten, undermining its EOL compliance claim; a link budget is also absent, and the orbit/revisit and payload assumptions are preliminary."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations."
+        },
+        {
+          "where": "3 Conclusion",
+          "quote": "With these points addressed in the next design phase, the mission can provide the direct, regular bleaching maps"
+        }
+      ],
+      "reasoning": "The conclusion synthesizes key design results and identifies meaningful limitations and follow-up work. It is specific to the evidence, though its positive EOL conclusion relies on the erroneous decay calculation."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report presents the design of ZYZZsat (Z-axis/Y-axis Zeroed Zoning Satellite)"
+        },
+        {
+          "where": "Contents",
+          "quote": "Executive Summary\n1 Introduction\n2 Mission Design\n2.1 Spacecraft overview"
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[11] D. A. Vallado, *Fundamentals of Astrodynamics and Applications*"
+        },
+        {
+          "where": "Image 1",
+          "quote": ""
+        }
+      ],
+      "reasoning": "The report has a logical structure, concise executive summary, labelled figures and tables, readable technical prose, and a substantial bibliography with in-text citations. Presentation is generally professional. Some sources are weakly specified and some figures are not accompanied by underlying software outputs in the report, but the appendix identifies submitted STK files."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "partial",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Appendix A: STK files and settings"
+    },
+    {
+      "id": "R11",
+      "met": "yes",
+      "where": "Contents"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.5 Mission Duration & EOL",
+      "issue": "The stated orbital-decay values are approximately ten times too large for the given equation and inputs. At 600 km, Δa per orbit is about 0.040 m for 0.3 m² and 0.57 m for 4.3 m², not 0.40 m and 5.8 m. Corresponding initial decay rates are about 0.22 km/year and 3.1 km/year; the H/rate estimates are about 320 years and 23 years, respectively, not 32 and 2.2 years. Thus the report does not establish that a 4 m² sail meets the 25-year guideline."
+    },
+    {
+      "where": "2.5 Mission Duration & EOL",
+      "issue": "The claim of about 11 km altitude loss over five years follows the same factor-of-ten error; the stated inputs imply about 1.1 km using the report's approximation."
+    },
+    {
+      "where": "2.3 Orbit",
+      "issue": "The five-day access estimate divides equatorial ground-track spacing by the maximum roll-reachable width. It is a simplified upper-bound argument and does not demonstrate actual reef-specific revisit or imaging opportunities, which depend on ground-track geometry, pointing, lighting, and cloud conditions."
+    },
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "A 50 Mbit/s downlink is assumed without a link budget. The report acknowledges this gap, so the stated capacity margin is not yet verified against transmitter power, antenna gains, range, coding, and losses."
+    }
+  ],
+  "overall": "A clear, well-supported preliminary mission design with strong mission rationale, useful STK evidence, and detailed orbit and communications work. The orbital-decay arithmetic error materially invalidates the claimed drag-sail lifetime and EOL compliance; the link budget and revisit analysis also need validation. Recalculate disposal performance and verify communications and coverage before treating the design as feasible."
+}

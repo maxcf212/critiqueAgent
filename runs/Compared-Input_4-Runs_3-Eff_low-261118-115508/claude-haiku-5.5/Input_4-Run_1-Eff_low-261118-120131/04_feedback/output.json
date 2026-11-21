@@ -1,0 +1,17 @@
+{
+  "summary": "You have a solid structure and a sensible modular monolith recommendation in Question 2, which is your strongest answer. The main gaps are the accuracy of Question 3(c), the CAP explanation in Question 5, and the measurability of the availability measure in Question 1. Tightening these and bringing several answers within 150 words would raise your mark considerably.",
+  "next_steps": [
+    "Recalculate Question 3(c) using end-to-end availability (about 99.80% and about 1.5 hours monthly downtime), and report percentages to two decimals and hours to one decimal.",
+    "Rewrite the Question 1 availability response measure as a numeric target (for example, a percentage of uptime over a stated period), and revise the Question 5 CAP explanation so that partition tolerance is treated as unavoidable, with the real choice being consistency or availability during a partition.",
+    "Trim Questions 2, 4 and 5 to 150 words or fewer, add a negative consequence to the Question 6 ADR (such as duplicate deliveries, ordering or RabbitMQ operational load), and add a stated assumptions section."
+  ],
+  "criteria": {
+    "C1": "Performance and availability are sensibly chosen and justified from the lunch-hour load in the scenario. The performance scenario has all six parts and a measurable p95 target. The availability response measure, 'stay up most of the time', is not measurable, so state a numeric target and its time window to reach the top band.",
+    "C2": "Your modular monolith recommendation is clear and well grounded. Team size against operational overhead and the single-VM and deployment-downtime problems are scenario-specific trade-offs, and you acknowledge the downside of losing independent scaling. Keep this level of specificity while trimming the answer to 150 words.",
+    "C3": "Parts (a) at 99.30% and (b) at 5.0 hours are correct and well worked. Part (c) reports payment-only availability as end-to-end; the correct end-to-end figure is about 99.80% with about 1.5 hours monthly downtime. Also round results to the required precision (two decimals for percentages, one for hours).",
+    "C4": "Circuit Breaker is an appropriate pattern and its states are explained correctly, with a clear link to the provider outage. Add at least one drawback or tuning consideration, such as threshold choice or false trips. Remove the unsupported claim that it would have opened within seconds, or justify it with the timing data.",
+    "C5": "Both choices are reasonable, and you name concrete techniques: a Redis TTL cache for the menu and idempotency keys for payments. The CAP explanation needs correcting, since partitions cannot be avoided, so the trade-off is consistency versus availability during a partition. Make this precise.",
+    "C6": "Context, Decision and Consequences are all present and specific to the outlet tablet problem. The consequences currently list only benefits. Add at least one negative consequence, such as duplicate deliveries, message ordering issues, or the operational load of running RabbitMQ.",
+    "C7": "Your headings and IEEE citations [1] and [2] with a reference list are correct. Several answers, including Questions 2, 4 and 5, exceed 150 words, so tighten them. Also add the required assumptions section, which is currently missing."
+  }
+}

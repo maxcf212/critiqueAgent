@@ -1,0 +1,80 @@
+{
+  "id": "chatcmpl-e0c613f6-22de-44ef-a49b-db1b947568a5",
+  "object": "chat.completion",
+  "created": 1794724269,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You submitted strong, scenario-grounded answers (31/40). Q2 and Q4 are excellent; Q1, Q3, Q5, Q6 and communication are proficient. Main losses: Q3(c) never recomputes end-to-end availability, Q5 misstates CAP, Q6 lacks a negative consequence, Q2 exceeds the word limit, and Q1's availability measure is unmeasurable. Address these to move up.\",\"next_steps\":[\"Recompute Q3(c) end-to-end: multiply 0.9995 × 0.999 × 0.9995 × 0.999975, show the working, and report 99.80% with about 1.5 hours monthly downtime to two decimals.\",\"Correct Q5's CAP framing: partition tolerance cannot be given up; during a partition choose consistency or availability, then tie your Redis TTL and idempotency-key techniques to that choice.\",\"Tighten Q1 and Q6: make the availability response measure measurable and tied to order placement, add a negative ADR consequence, and cut Q2 to 150 words.\"],\"criteria\":{\"C1\":\"You chose performance and availability well, grounded in 900 orders and 4.2 s p95. The performance scenario is complete and measurable. The availability scenario has all six parts, but 'stay up most of the time' is not measurable and the response drifts from the order-placement artefact. For Excellent, make both response measures measurable and align the availability response with the order service.\",\"C2\":\"Strong modular monolith recommendation with scenario-specific trade-offs: five developers versus infrastructure overhead, and known problems stemming from the single VM and deployment process rather than the monolith shape. You explicitly acknowledge the downside (no independent scaling, one module can crash the process). This meets Excellent; keep tying trade-offs to scenario evidence.\",\"C3\":\"Parts (a) 99.30% and (b) 5.0 hours are correct with working shown. In (c) you correctly combine payment to 0.999975 but never recombine it with the other three components. End-to-end availability should be 99.80% with about 1.5 hours monthly downtime, not 99.9975% and 0.018 hours. For Excellent, recompute the full series and carry rounding to two decimals.\",\"C4\":\"Circuit breaker is named and its Closed/Open/Half-Open mechanism, including failure counting and timeouts, is explained correctly. You apply it concretely to the 25-minute outage with a user-visible fallback and give a tuning consideration (failure threshold and window). This meets Excellent; keep the concrete outage application.\",\"C5\":\"Both choices are sensible and justified, with concrete techniques (Redis cache with 60-second TTL; idempotency keys). However, your CAP explanation is wrong: a partition-tolerant system cannot give up partition tolerance and keep both C and A; during a partition it must sacrifice one. For Excellent, correct the CAP framing and tie each choice to partition behaviour.\",\"C6\":\"Context, Decision and Consequences are all present and specific (offline tablet, synchronous call, 4.2 s p95, RabbitMQ, retrying worker). The consequences are entirely positive, so the record is one-sided. For Excellent, add at least one negative consequence, such as duplicate notifications, eventual consistency for outlets, or queue operations burden.\",\"C7\":\"Writing is clear and precise, with headings and IEEE-style references and a reference list. Q1, Q4, Q5 and Q6 appear within 150 words. Q2 is roughly 195 words and exceeds the limit. For Excellent, bring every answer within 150 words and keep citations precise.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary (<=80 words), next_steps (3 strings), criteria object mapping criterion id to feedback <=70 words each. Address student as \"you\". Be specific, supportive, actionable, cite sections/figures, name what they did well, state what next rubric level requires. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nWe have criteria C1-C7 with marks. Need feedback for each. Summary overall. Next steps 3.\n\nLet's craft.\n\nC1: Proficient 4/6. Feedback: You chose performance and availability well, grounded in 900 orders and 4.2s p95. Performance scenario complete and measurable. Availability scenario has six parts but \"stay up most of the time\" isn't measurable and response drifts from order-placement artefact. To reach Excellent, make both response measures measurable and align availability response with order service. <=70 words.\n\nC2: Excellent 6/6. Feedback: Strong modular monolith recommendation with scenario-specific trade-offs (five developers vs infra overhead; known problems from single VM/deployment not monolith shape) and explicit downside. Excellent level met. Keep linking trade-offs to scenario evidence. <=70.\n\nC3: Proficient 5/8. Feedback: (a) 99.30% and (b) 5.0 hours correct with working. In (c) you correctly combined payment to 0.999975 but never recombined with other three components; end-to-end should be 99.80% and ~1.5 hours downtime, not 99.9975%/0.018h. To reach Excellent, recompute full series and carry rounding to two decimals. <=70.\n\nC4: Excellent 5/5. Feedback: Circuit breaker named, Closed/Open/Half-Open mechanism explained with failure counting/timeouts, applied to 25-minute outage with user-visible fallback, and tuning consideration (threshold/window). Excellent. Keep concrete application. <=70.\n\nC5: Proficient 4/6. Feedback: Both choices sensible with concrete techniques (Redis TTL, idempotency keys). CAP explanation is wrong: you cannot give up partition tolerance and keep both C and A; during a partition you choose C or A. To reach Excellent, correct CAP framing and tie each choice to partition behaviour. <=70.\n\nC6: Proficient 4/5. Feedback: Context, Decision, Consequences present and specific (offline tablet, synchronous call, 4.2s p95, RabbitMQ, retrying worker). Consequences are all positive; no negative consequence. To reach Excellent, add at least one negative consequence (e.g., duplicate notifications, eventual consistency for outlets, queue ops burden). <=70.\n\nC7: Proficient 3/4. Feedback: Writing clear, headings and IEEE-style references present; Q1, Q4, Q5, Q6 within 150 words. Q2 ~195 words exceeds limit. To reach Excellent, bring every answer within 150 words and keep citations precise. <=70.\n\nSummary <=80 words: \"You submitted strong, scenario-grounded answers (31/40). Q2 and Q4 are excellent; Q1, Q3, Q5, Q6 and communication are proficient. Main losses: Q3(c) never recomputes end-to-end availability, Q5 misstates CAP, Q6 lacks a negative consequence, Q2 exceeds the word limit, and Q1's availability measure is unmeasurable. Address these to move up.\" Count words ~60.\n\nNext steps 3 strings: actionable. 1) Recompute Q3(c) end-to-end: multiply all four component availabilities including payment combination, show working, convert to downtime at two decimals. 2) Fix Q5 CAP: state partition tolerance is not tradable; choose C or A during partition; align techniques. 3) Revise Q1 availability response measure to measurable and align with order service; add negative consequence to Q6; trim Q2 to <=150 words. But next_steps should be 3 strings. Could combine. Need specific.\n\nMaybe:\n1. \"Recompute Q3(c) end-to-end: multiply 0.9995 × 0.999 × 0.9995 × 0.999975, show the working, and report 99.80% with ~1.5 hours monthly downtime to two decimals.\"\n2. \"Correct Q5's CAP framing: partition tolerance cannot be given up; during a partition choose consistency or availability, then tie your Redis TTL and idempotency-key techniques to that choice.\"\n3. \"Tighten Q1 and Q6: make the availability response measure measurable and tied to order placement, add a negative ADR consequence, and cut Q2 to 150 words.\"\n\nNeed ensure no markdown, one JSON object only. Use exact criterion ids. Strings.\n\nCheck word limits. C1 feedback <=70 words. Let's count roughly. \"You chose performance and availability well, grounded in 900 orders and 4.2 s p95. The performance scenario is complete and measurable. The availability scenario has all six parts, but 'stay up most of the time' is not measurable and the response drifts from the order-placement artefact. For Excellent, make both response measures measurable and align the availability response with the order service.\" ~65 words. Good.\n\nC2: \"Strong modular monolith recommendation with scenario-specific trade-offs: five developers versus infrastructure overhead, and known problems stemming from the single VM and deployment process rather than the monolith shape. You explicitly acknowledge the downside (no independent scaling, one module can crash the process). This meets Excellent; keep tying trade-offs to scenario evidence.\" ~55.\n\nC3: \"Parts (a) 99.30% and (b) 5.0 hours are correct with working shown. In (c) you correctly combine payment to 0.999975 but never recombine it with the other three components. End-to-end availability should be 99.80% with about 1.5 hours monthly downtime, not 99.9975% and 0.018 hours. For Excellent, recompute the full series and carry rounding to two decimals.\" ~65.\n\nC4: \"Circuit breaker is named and its Closed/Open/Half-Open mechanism, including failure counting and timeouts, is explained correctly. You apply it concretely to the 25-minute outage with a user-visible fallback and give a tuning consideration (failure threshold and window). This meets Excellent; keep the concrete outage application.\" ~50.\n\nC5: \"Both choices are sensible and justified, with concrete techniques (Redis cache with 60-second TTL; idempotency keys). However, your CAP explanation is wrong: a partition-tolerant system cannot give up partition tolerance and keep both C and A; during a partition it must sacrifice one. For Excellent, correct the CAP framing and tie each choice to partition behaviour.\" ~60.\n\nC6: \"Context, Decision and Consequences are all present and specific (offline tablet, synchronous call, 4.2 s p95, RabbitMQ, retrying worker). The consequences are entirely positive, so the record is one-sided. For Excellent, add at least one negative consequence, such as duplicate notifications, eventual consistency for outlets, or queue operations burden.\" ~55.\n\nC7: \"Writing is clear and precise, with headings and IEEE-style references and a reference list. Q1, Q4, Q5 and Q6 appear within 150 words. Q2 is roughly 195 words and exceeds the limit. For Excellent, bring every answer within 150 words and keep citations precise.\" ~50.\n\nSummary: \"You submitted strong, scenario-grounded answers (31/40). Q2 and Q4 are excellent; Q1, Q3, Q5, Q6 and communication are proficient. Main losses: Q3(c) never recomputes end-to-end availability, Q5 misstates CAP, Q6 lacks a negative consequence, Q2 exceeds the word limit, and Q1's availability measure is unmeasurable. Address these to move up.\" ~55.\n\nNeed \"Do not change marks\" okay.\n\nEnsure JSON valid. No markdown. Use double quotes. Criteria keys C1 etc. next_steps array of 3 strings. Summary string.\n\nLet's final."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2889,
+    "completion_tokens": 2522,
+    "total_tokens": 5411,
+    "reasoning_tokens": 1740,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1740,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 2816,
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 2816,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 73,
+    "cost": 0.0018020999999999996,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_acc84257-163e-46a5-a299-73ba87f97d7a",
+  "x_nanogpt_pricing": {
+    "amount": 0.0018020999999999996,
+    "currency": "USD",
+    "cost": 0.0018020999999999996,
+    "inputTokens": 2889,
+    "outputTokens": 2522,
+    "cacheCreationInputTokens": 2816,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0.0002816,
+    "requestId": "req_0ba00ee9-f714-45c2-8660-24e1facbb286",
+    "costUsd": 0.0018020999999999996,
+    "usdCost": 0.0018020999999999996,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "write_only",
+      "readTokens": 0,
+      "writeTokens": 2816
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "write_only",
+    "readTokens": 0,
+    "writeTokens": 2816
+  }
+}

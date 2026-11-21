@@ -1,0 +1,422 @@
+{
+  "id": "chatcmpl-1e46fd7c-022d-467b-a0dc-a5bfc8c2fb85",
+  "object": "chat.completion",
+  "created": 1794794068,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"Overall, this is a strong, well-structured mission design. You address all major elements and support them with STK screenshots, access data and hand calculations. The main improvements are the optimistic revisit calculation, missing X-band link budget/ground-segment verification, the rideshare release-orbit assumption, and Table 5 UTC/local wording. Embedding the STK files will make your evidence fully verifiable.\",\"next_steps\":[\"Revise Section 2.3: use the ~134 km daily equatorial track shift and ~280 km half-swath rather than dividing 2,698 km by 560 km; report a realistic maximum revisit (order 8-20 days) or justify the 5-day claim with target-specific access results.\",\"Add an X-band link budget in Section 2.4 and verify the Mount Pleasant 12 m ground-segment modification; correct Table 5's UTC/local-time wording and clarify the rideshare release orbit/trim in Section 2.2.\",\"Make the STK evidence fully verifiable by embedding key screenshots and including the software files in Appendix A, and refine the Introduction's bathymetry-versus-satellite-imagery rationale.\"],\"criteria\":{\"C1\":\"You address all C1 requirements clearly in Section 1: mission need, single-spacecraft rationale, operator AIMS and customers GBRMPA, with appropriate citations. To move toward the top of Accomplished, sharpen the rationale by distinguishing bathymetric mapping [3] from satellite imagery rather than conflating them at 100 m/pixel.\",\"C2\":\"You cover all major design elements with STK screenshots, access data and hand calculations (Sections 2.2-2.5). To strengthen: revise the Section 2.3 revisit calculation using the ~134 km daily track shift and ~280 km half-swath; add an X-band link budget and verify the Mount Pleasant 12 m ground-segment assumption in Section 2.4; clarify the rideshare release orbit/trim in Section 2.2; correct Table 5 UTC/local wording; embed STK files.\",\"C3\":\"Your Section 3 conclusion is specific and quantitative, and you record four limitations, which is strong. To move toward the top of Accomplished, explicitly link each limitation to the affected design choice and state the next verification step, so the conclusion reads as a clear evidence-based close rather than a list.\",\"C4\":\"Your report has a clear engineering structure, a concise executive summary, labelled figures/tables and consistent citations. To move toward the top of Accomplished, polish minor awkward phrasing and resolve small labelling ambiguities; ensure every figure/table is explicitly referenced in text and that listed STK files are accessible so presentation evidence is fully verifiable.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary <=80 words, next_steps array of 3 strings, criteria object with keys C1-C4 each <=70 words. Address student as \"you\". Be specific, supportive, actionable, cite sections/figures, name what they did well, state what next rubric level requires. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nWe need formative feedback. Marks: C1 9/10 Accomplished, C2 8/10 Accomplished, C3 9/10, C4 9/10. Overall strong. Need next steps to reach higher within Accomplished (or top). For C2, main weaknesses: revisit calculation optimistic, no X-band link budget, ground-segment assumption unverified, launch rideshare release assumption, UTC wording. Need actionable next steps. Also R10 partial: STK files listed but only externally referenced, provision partly verifiable. Need mention include software files/screenshots in appendix/main body? R10 partial. We can mention ensure STK files are embedded/provided so evidence is verifiable. But don't comment on conversion artefacts. Fine.\n\nNeed criteria feedback <=70 words each. Include what well and next level. For C1: well addressed all requirements with citations; to strengthen, distinguish bathymetric mapping from satellite imagery in rationale (technical issue). Next level? Already Accomplished 9; to reach 10, refine rationale and ensure precise distinction. But rubric top level is Accomplished 7-10; \"next rubric level\" maybe within level? We can say \"to move toward the top of Accomplished\". Need not change marks.\n\nC2: cite sections 2.3, 2.4, 2.2, Table 5. Well supported with STK screenshots, access data, hand calcs. Next: revise revisit calculation using daily track shift (~134 km) and half-swath (~280 km), report realistic max revisit (order 8–20 days) or justify; add X-band link budget and verify Mount Pleasant 12 m telescope modification; clarify rideshare release orbit and trim; correct UTC/local wording. Also include STK files in appendix for verifiability. <=70 words. Need concise.\n\nC3: specific quantitative conclusion and limitations; to strengthen, tie limitations explicitly to design decisions and next steps? Already good. Maybe ensure conclusions map to each objective. <=70.\n\nC4: clear structure, exec summary, labelled figures/tables, consistent citations; minor awkward phrasing and labelling ambiguities. Next: polish phrasing and resolve labelling ambiguities (e.g., Table 5 UTC wording? That's technical not presentation). Maybe ensure all figures/tables referenced in text and software files listed are accessible. <=70.\n\nSummary <=80 words: Overall strong. Mention all major elements, good STK/hand calcs, clear structure. Main improvements: revisit calc, link budget/ground segment, launch release assumption, UTC wording, embed STK files. Supportive.\n\nNext_steps: 3 strings. Need actionable. Could be:\n1. \"Revise Section 2.3 revisit analysis: use the ~134 km daily equatorial track shift and ~280 km half-swath rather than dividing 2,698 km by 560 km; report a realistic maximum revisit (order 8–20 days) or justify the 5-day claim with target-specific access results.\"\n2. \"Add an X-band link budget in Section 2.4 and verify the Mount Pleasant 12 m ground-segment modification; also correct Table 5's UTC/local-time wording and clarify the rideshare release orbit/trim in Section 2.2.\"\n3. \"Make the STK evidence fully verifiable by embedding key screenshots and including the software files in Appendix A, and refine the Introduction's bathymetry-vs-satellite-imagery rationale.\"\n\nNeed ensure no made-up explanations. The marking says \"STK files are listed but only externally referenced, so provision is partly verifiable.\" We can say include/embed. Good.\n\nCriteria object keys \"C1\",\"C2\",\"C3\",\"C4\". Each string <=70 words. Need address \"you\". Let's draft.\n\nC1: \"You address all C1 requirements clearly in Section 1: mission need, single-spacecraft rationale, operator AIMS and customers GBRMPA, with appropriate citations. To move toward the top of Accomplished, sharpen the rationale by distinguishing bathymetric mapping [3] from satellite imagery rather than conflating them at 100 m/pixel.\" Count ~50 words. Good.\n\nC2: \"You cover all major design elements with STK screenshots, access data and hand calculations (Sections 2.2–2.5). To strengthen toward the top of Accomplished: revise the Section 2.3 revisit calculation using the ~134 km daily track shift and ~280 km half-swath; add an X-band link budget and verify the Mount Pleasant 12 m ground-segment assumption in Section 2.4; clarify the rideshare release orbit/trim in Section 2.2; correct Table 5 UTC/local wording; embed STK files.\" Count ~70? Let's count: You(1) cover2 all3 major4 design5 elements6 with7 STK8 screenshots9, access10 data11 and12 hand13 calculations14 (Sections15 2.2–2.516). To17 strengthen18 toward19 the20 top21 of22 Accomplished23: revise24 the25 Section26 2.327 revisit28 calculation29 using30 the31 ~13432 km33 daily34 track35 shift36 and37 ~28038 km39 half-swath40; add41 an42 X-band43 link44 budget45 and46 verify47 the48 Mount49 Pleasant50 12m51 ground-segment52 assumption53 in54 Section55 2.456; clarify57 the58 rideshare59 release60 orbit/trim61 in62 Section63 2.264; correct65 Table66 567 UTC/local68 wording69; embed70 STK71 files72. Slightly over 70. Need trim. Maybe \"You cover all major design elements with STK screenshots, access data and hand calculations (Sections 2.2–2.5). To strengthen: revise the Section 2.3 revisit calculation using the ~134 km daily track shift and ~280 km half-swath; add an X-band link budget and verify the Mount Pleasant 12 m ground-segment assumption in Section 2.4; clarify the rideshare release orbit/trim in Section 2.2; correct Table 5 UTC/local wording; embed STK files.\" Count: You1 cover2 all3 major4 design5 elements6 with7 STK8 screenshots9, access10 data11 and12 hand13 calculations14 (Sections15 2.2–2.516). To17 strengthen18: revise19 the20 Section21 2.322 revisit23 calculation24 using25 the26 ~13427 km28 daily29 track30 shift31 and32 ~28033 km34 half-swath35; add36 an37 X-band38 link39 budget40 and41 verify42 the43 Mount44 Pleasant45 12m46 ground-segment47 assumption48 in49 Section50 2.451; clarify52 the53 rideshare54 release55 orbit/trim56 in57 Section58 2.259; correct60 Table61 562 UTC/local63 wording64; embed65 STK66 files67. Good 67.\n\nC3: \"Your Section 3 conclusion is specific and quantitative, and you record four limitations, which is strong. To move toward the top of Accomplished, explicitly link each limitation to the affected design choice and state the next verification step, so the conclusion reads as a clear evidence-based close rather than a list.\" Count ~50. Good.\n\nC4: \"Your report has a clear engineering structure, a concise executive summary, labelled figures/tables and consistent citations. To move toward the top of Accomplished, polish minor awkward phrasing and resolve small labelling ambiguities; ensure every figure/table is explicitly referenced in text and that listed STK files are accessible so presentation evidence is fully verifiable.\" Count ~55. Good.\n\nSummary: \"Overall, this is a strong, well-structured mission design. You address all major elements and support them with STK screenshots, access data and hand calculations. The main improvements are the optimistic revisit calculation, missing X-band link budget/ground-segment verification, the rideshare release-orbit assumption, and Table 5 UTC/local wording. Embedding the STK files will make your evidence fully verifiable.\" Count ~60. Good.\n\nNeed JSON only. Ensure valid JSON. No markdown. Use double quotes. Criteria strings with apostrophes okay. Avoid unescaped quotes. Use \"12 m\" not \"12 m\" fine. Use \"UTC/local\" fine. Use \"~\" fine. Use \"2.2–2.5\" en dash okay in JSON? Unicode okay. Could use hyphen to be safe. Use \"2.2-2.5\". Use \"Table 5's\" apostrophe okay. Need no newline? JSON can have spaces. Fine.\n\nNeed \"next_steps\" exactly 3 strings. Good.\n\nLet's final.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to produce JSON with summary <=80 words, next_steps array of 3 strings, criteria object with keys C1-C4 each <=70 words. Address",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " student as \"you\". Be specific, supportive, actionable, cite sections/figures, name what they did well, state what next rubric level requires. Don't",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nWe need formative feedback. Marks: C1 9/10 Accom",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "plished, C2 8/10 Accomplished, C3 9/10, C4 9/10. Overall strong. Need next steps to",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " reach higher within Accomplished (or top). For C2, main weaknesses: revisit calculation optimistic, no X-band link budget, ground-segment assumption unverified, launch",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " rideshare release assumption, UTC wording. Need actionable next steps. Also R10 partial: STK files listed but only externally referenced, provision partly verifiable. Need mention",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " include software files/screenshots in appendix/main body? R10 partial. We can mention ensure STK files are embedded/provided so evidence is verifiable. But don",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'t comment on conversion artefacts. Fine.\n\nNeed criteria feedback <=70 words each. Include what well and next level. For C1: well addressed all requirements with",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " citations; to strengthen, distinguish bathymetric mapping from satellite imagery in rationale (technical issue). Next level? Already Accomplished 9; to reach ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "10, refine rationale and ensure precise distinction. But rubric top level is Accomplished 7-10; \"next rubric level\" maybe within level? We can say \"to",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " move toward the top of Accomplished\". Need not change marks.\n\nC2: cite sections 2.3, 2.4, 2.2, Table",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 5. Well supported with STK screenshots, access data, hand calcs. Next: revise revisit calculation using daily track shift (~134 km) and half-sw",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ath (~280 km), report realistic max revisit (order 8–20 days) or justify; add X-band link budget and verify Mount Pleasant 12 m",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " telescope modification; clarify rideshare release orbit and trim; correct UTC/local wording. Also include STK files in appendix for verifiability. <=70 words. Need concise",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".\n\nC3: specific quantitative conclusion and limitations; to strengthen, tie limitations explicitly to design decisions and next steps? Already good. Maybe ensure conclusions map to each",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " objective. <=70.\n\nC4: clear structure, exec summary, labelled figures/tables, consistent citations; minor awkward phrasing and labelling ambiguities. Next: polish",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " phrasing and resolve labelling ambiguities (e.g., Table 5 UTC wording? That's technical not presentation). Maybe ensure all figures/tables referenced in text and software",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " files listed are accessible. <=70.\n\nSummary <=80 words: Overall strong. Mention all major elements, good STK/hand calcs, clear structure. Main",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " improvements: revisit calc, link budget/ground segment, launch release assumption, UTC wording, embed STK files. Supportive.\n\nNext_steps: 3 strings. Need actionable",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Could be:\n1. \"Revise Section 2.3 revisit analysis: use the ~134 km daily equatorial track shift and ~280 km half-sw",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ath rather than dividing 2,698 km by 560 km; report a realistic maximum revisit (order 8–20 days) or justify the 5-day claim",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " with target-specific access results.\"\n2. \"Add an X-band link budget in Section 2.4 and verify the Mount Pleasant 12 m ground-segment modification",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "; also correct Table 5's UTC/local-time wording and clarify the rideshare release orbit/trim in Section 2.2.\"\n3. \"Make the ST",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "K evidence fully verifiable by embedding key screenshots and including the software files in Appendix A, and refine the Introduction's bathymetry-vs-satellite-im",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "agery rationale.\"\n\nNeed ensure no made-up explanations. The marking says \"STK files are listed but only externally referenced, so provision is partly verifiable.\" We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " can say include/embed. Good.\n\nCriteria object keys \"C1\",\"C2\",\"C3\",\"C4\". Each string <=70 words. Need address",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " \"you\". Let's draft.\n\nC1: \"You address all C1 requirements clearly in Section 1: mission need, single-spacecraft rationale, operator",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " AIMS and customers GBRMPA, with appropriate citations. To move toward the top of Accomplished, sharpen the rationale by distinguishing bathymetric mapping [3]",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " from satellite imagery rather than conflating them at 100 m/pixel.\" Count ~50 words. Good.\n\nC2: \"You cover all major design elements with ST",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "K screenshots, access data and hand calculations (Sections 2.2–2.5). To strengthen toward the top of Accomplished: revise the Section",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 2.3 revisit calculation using the ~134 km daily track shift and ~280 km half-swath; add an X-band link budget and verify the Mount",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Pleasant 12 m ground-segment assumption in Section 2.4; clarify the rideshare release orbit/trim in Section 2.2; correct Table 5",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " UTC/local wording; embed STK files.\" Count ~70? Let's count: You(1) cover2 all3 major4 design5 elements6 with7 STK",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "8 screenshots9, access10 data11 and12 hand13 calculations14 (Sections15 2.2–2.516). To17 strengthen18 toward",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "19 the20 top21 of22 Accomplished23: revise24 the25 Section26 2.327 revisit28 calculation29 using30 the31 ~134",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "32 km33 daily34 track35 shift36 and37 ~28038 km39 half-swath40; add41 an42 X-band43 link44 budget45 and46 verify",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "47 the48 Mount49 Pleasant50 12m51 ground-segment52 assumption53 in54 Section55 2.456; clarify57 the58 rideshare59 release",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "60 orbit/trim61 in62 Section63 2.264; correct65 Table66 567 UTC/local68 wording69; embed70 STK71 files72. S",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "lightly over 70. Need trim. Maybe \"You cover all major design elements with STK screenshots, access data and hand calculations (Sections 2.2–",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "2.5). To strengthen: revise the Section 2.3 revisit calculation using the ~134 km daily track shift and ~280 km half-swath; add an",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " X-band link budget and verify the Mount Pleasant 12 m ground-segment assumption in Section 2.4; clarify the rideshare release orbit/trim in Section ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "2.2; correct Table 5 UTC/local wording; embed STK files.\" Count: You1 cover2 all3 major4 design5 elements6 with7 ST",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "K8 screenshots9, access10 data11 and12 hand13 calculations14 (Sections15 2.2–2.516). To17 strengthen18: revise",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "19 the20 Section21 2.322 revisit23 calculation24 using25 the26 ~13427 km28 daily29 track30 shift31 and32 ~280",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "33 km34 half-swath35; add36 an37 X-band38 link39 budget40 and41 verify42 the43 Mount44 Pleasant45 12m46 ground-se",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "gment47 assumption48 in49 Section50 2.451; clarify52 the53 rideshare54 release55 orbit/trim56 in57 Section58 2.259; correct",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "60 Table61 562 UTC/local63 wording64; embed65 STK66 files67. Good 67.\n\nC3: \"Your Section 3 conclusion is specific",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and quantitative, and you record four limitations, which is strong. To move toward the top of Accomplished, explicitly link each limitation to the affected design choice",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and state the next verification step, so the conclusion reads as a clear evidence-based close rather than a list.\" Count ~50. Good.\n\nC4: \"Your report has",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a clear engineering structure, a concise executive summary, labelled figures/tables and consistent citations. To move toward the top of Accomplished, polish minor awkward phrasing and resolve",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " small labelling ambiguities; ensure every figure/table is explicitly referenced in text and that listed STK files are accessible so presentation evidence is fully verifiable.\" Count",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ~55. Good.\n\nSummary: \"Overall, this is a strong, well-structured mission design. You address all major elements and support them with STK screens",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "hots, access data and hand calculations. The main improvements are the optimistic revisit calculation, missing X-band link budget/ground-segment verification, the rideshare release",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-orbit assumption, and Table 5 UTC/local wording. Embedding the STK files will make your evidence fully verifiable.\" Count ~60. Good.\n\nNeed JSON only. Ensure valid JSON. No markdown. Use double quotes. Criteria strings with apostrophes okay. Avoid unescaped quotes. Use \"12",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " m\" not \"12 m\" fine. Use \"UTC/local\" fine. Use \"~\" fine. Use \"2.2–2.5\" en",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " dash okay in JSON? Unicode okay. Could use hyphen to be safe. Use \"2.2-2.5\". Use \"Table 5's\"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " apostrophe okay. Need no newline? JSON can have spaces. Fine.\n\nNeed \"next_steps\" exactly 3 strings. Good.\n\nLet's final",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1944,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 2464,
+    "completion_tokens": 2521,
+    "total_tokens": 4985,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 1024,
+    "cost": 0.0016609007999999997,
+    "currency": "USD",
+    "reasoning_tokens": 1944,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 1440
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_5b3fb968-18c4-4537-b152-6426bb56ec92",
+  "x_nanogpt_pricing": {
+    "amount": 0.0016609007999999997,
+    "cost": 0.0016609007999999997,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 2464,
+    "outputTokens": 2521,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 1024,
+    "cacheCost": 4.3007999999999995e-06
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 1024,
+    "writeTokens": 0
+  }
+}

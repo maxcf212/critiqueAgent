@@ -1,0 +1,265 @@
+{
+  "total": 23.0,
+  "total_max": 40.0,
+  "percent": 57.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Attributes are well chosen and justified from the scenario, and both scenarios have all six parts. However, the availability response measure is vague and not measurable, which caps it at Proficient.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "the current p95 of 4.2 s for placing an order makes students abandon their orders",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear recommendation with two scenario-specific trade-offs (team size/operational overhead, known problems caused by single VM and deployment process) and an explicit acknowledged downside.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "(a) is correct (0.99301, 99.30%). (b) has an arithmetic slip: 0.00699 x 720 = 5.0 h, not 3.5 h. (c) wrongly gives payment availability as the end-to-end figure; correct answer 99.80% (~1.5 h/month). Working is shown, so Developing.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "Circuit breaker is the right pattern and is applied well to the outage, but the Open/Closed states are inverted, a significant explanatory error. No explicit drawback or tuning consideration is stated beyond an example threshold.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "the breaker moves to Closed and calls fail immediately without waiting",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Menu browsing choice plus Redis TTL technique is correct. The payment choice favours consistency, which is directionally right, but CAP is misapplied (you cannot give up partition tolerance) and no concrete technique is named for the payment case.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "it is better to show a slightly stale menu from a cache (for example Redis with a 60-second TTL)",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are all present and specific to CampusEats. Consequences are entirely positive; no negative consequence (e.g. eventual consistency, duplicate handling, queue operational cost) is given.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders at a steady rate.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "If a tablet is offline the order is lost, and during the lunch peak these calls add to the 4.2 s p95 response time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 4.0,
+      "points": 2.0,
+      "max": 4.0,
+      "reasoning": "Questions 2 and 4 clearly exceed 150 words; Q1 is borderline. Reference [2] is cited in Q4 but absent from the reference list. Availability figures are not consistently given to two decimal places as required.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Microservices let each service scale and deploy independently, but every service needs its own pipeline, monitoring and on-call knowledge.",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "no",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Downtime arithmetic: 0.00699 x 720 = 5.03 h, not 3.5 h (should be 5.0 h to one decimal place)."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) reports 99.9975% — the payment-only figure. End-to-end availability is 0.9995 x 0.999 x 0.9995 x 0.999975 = 99.80%, downtime ~1.5 h/month."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states inverted: Closed should pass calls; Open should fail fast. Half-open description is correct."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP misapplied — a partitioned distributed system must sacrifice availability or consistency, not partition tolerance; unavailable payment provider is not a partition anyway."
+    },
+    {
+      "where": "Question 5",
+      "issue": "No concrete consistency technique named for payments (e.g. idempotency keys, two-phase commit, saga)."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure not measurable; peak load of 150 orders/min is stated but not tied to a capacity measure beyond latency."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [2] cited but missing from the reference list; no assumptions section as required."
+    }
+  ],
+  "overall": "Solid architectural reasoning and a well-argued Q2, but Q3 has two wrong answers and the circuit-breaker states are inverted. CAP is misapplied in Q5, Q6 lacks a negative consequence, and two answers exceed the word limit with an incomplete reference list.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You have a solid grasp of architectural reasoning, especially in Question 2, where your recommendation is well argued and tied to CampusEats' team size and known deployment problems. Your main losses come from Question 3 arithmetic and the payment availability figure, inverted circuit-breaker states in Question 4, and CAP being misapplied in Question 5. Tightening these areas and the formal requirements will lift your mark considerably.",
+    "next_steps": [
+      "Recheck Question 3: multiply the downtime fraction by 720 hours carefully, and calculate end-to-end availability by multiplying all component availabilities, not reporting the payment figure alone.",
+      "Revisit circuit breaker states: Closed passes calls through, Open fails fast, and Half-Open probes recovery. Also apply CAP correctly, remembering partition tolerance is not optional in distributed systems, and name a concrete consistency technique such as idempotency keys or a saga for payments.",
+      "Add a negative consequence to your Question 6 decision record, cite every reference used (including [2]) in the reference list, and keep each answer within 150 words with an assumptions section."
+    ],
+    "criteria": {
+      "C1": "You chose two attributes that matter most for CampusEats and justified them from the scenario, including the 4.2 s p95 ordering latency, which is a strong, specific link. Both scenarios are in six-part form. The availability response measure, however, says the system should stay up most of the time, which is not measurable. Give a specific target such as 99.5% over a month to reach the top level.",
+      "C2": "This is an excellent answer. You recommend a clear style and justify it with two trade-offs specific to CampusEats: the operational overhead for a five-person team and the known problems from the single VM and deployment process. You also state the downside you accept, namely that modules cannot scale independently. Keep this standard in future answers.",
+      "C3": "Part (a) is correct at 0.99301 (99.30%), and your working is shown. In part (b), 0.00699 × 720 gives about 5.0 hours, not 3.5 hours, so recheck that multiplication. In part (c), the end-to-end availability should multiply all four component availabilities, giving about 99.80% and roughly 1.5 hours of downtime a month. Your 99.9975% reflects only the payment service.",
+      "C4": "Choosing the circuit breaker is appropriate and you apply it sensibly to the outage. However, the states are inverted: Closed should pass calls through, and Open should fail fast. Your Half-Open description is correct. Add a clear drawback or tuning consideration, such as choosing failure thresholds and reset timeouts, to reach the top level.",
+      "C5": "Your menu-browsing choice with a Redis TTL cache is correct and well reasoned. For payments, your instinct to favour consistency is directionally right, but CAP is misapplied: in a partitioned system you must trade availability against consistency, not give up partition tolerance. Also name a concrete technique for payment consistency, such as idempotency keys, two-phase commit or a saga.",
+      "C6": "Your record has clear Context, Decision and Consequences sections, all specific to CampusEats, and the consequences describe the queue's benefits well. It lacks any negative consequence. Add one, for example the added operational cost of the queue, the need to handle duplicate messages, or eventual consistency of order status.",
+      "C7": "Your writing is generally clear and your terminology is mostly precise. Questions 2 and 4 exceed the 150-word limit, and Question 1 is borderline. Reference [2] is cited but missing from the reference list, and the availability figures should be given consistently to two decimal places. Trim your answers and complete the reference list in IEEE style."
+    }
+  }
+}

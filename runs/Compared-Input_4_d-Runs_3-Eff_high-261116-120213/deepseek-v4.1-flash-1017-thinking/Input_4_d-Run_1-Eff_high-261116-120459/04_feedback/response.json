@@ -1,0 +1,257 @@
+{
+  "id": "chatcmpl-d0714a2f-7b2d-41f8-a9b8-3cceceacd59d",
+  "object": "chat.completion",
+  "created": 1794791137,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You scored 25/40. Q2 is excellent and Q1/Q6 are strong. Q3 has two wrong parts, Q4 reverses circuit-breaker states, Q5 misuses CAP and omits a payment technique, Q6 lacks a negative consequence, and Q2 exceeds the word limit with a missing reference. Address these specific fixes to move up the rubric.\",\"next_steps\":[\"Re-work Q3: correct 0.00699×720 to about 5.03 h and multiply all component availabilities for end-to-end availability (about 99.80%, about 1.46 h downtime).\",\"Fix Q4 circuit-breaker semantics (Open = fail fast, Closed = pass calls) and add a drawback or tuning consideration; in Q5 explain CAP correctly (partition tolerance is not optional) and name a concrete payment technique.\",\"In Q6 add a negative consequence; in Q2 trim to 150 words or fewer; add reference [2] and state your assumptions.\"],\"criteria\":{\"C1\":\"You chose performance and availability well, justified from the lunch peak and abandonment. Your performance scenario has all six parts and a measurable p95 target. Your availability scenario has six parts, but 'stay up most of the time' is not measurable. To reach Excellent, make both response measures measurable, for example 99.9% monthly uptime.\",\"C2\":\"Excellent work. Your modular-monolith recommendation is clear, with scenario-specific trade-offs: five developers versus operational overhead, and single-VM/deployment causes of known problems. You acknowledge the downside: no independent scaling and whole-process crash risk. Keep this level of specificity.\",\"C3\":\"Part (a) is correct. Part (b) has an arithmetic slip: 0.00699×720 is about 5.03 h, not 3.5 h. Part (c) computes payment availability correctly but treats it as end-to-end; multiply all components to get about 99.80% and about 1.46 h downtime. To reach Proficient, correct both parts and show working.\",\"C4\":\"Circuit breaker is appropriate and applied to the outage, but the state semantics are reversed: Open should fail fast and Closed should pass calls. 'Opens again' should be 'closes again'. No clear drawback or tuning consideration is given beyond a threshold example. To reach Proficient, correct the mechanism explanation; for Excellent, add a drawback or tuning consideration.\",\"C5\":\"Your menu choice and Redis cache technique are good. The payment choice is reasonable, but CAP is misused: partition tolerance is not optional; during a partition you choose consistency or availability. No concrete payment technique is named. To reach Excellent, explain CAP correctly and name a concrete payment technique, such as idempotency keys or a transactional outbox.\",\"C6\":\"Context, Decision and Consequences are specific and present. Your consequences are all positive; no negative consequence is given. To reach Excellent, add at least one negative consequence, such as added complexity, operational overhead, or eventual consistency.\",\"C7\":\"Headings and IEEE-style [1] are present, and writing is clear. Q2 is about 181 words, over the 150-word limit; [2] is cited in Q4 but missing from the reference list; assumptions are not stated. To reach Excellent, keep every answer within 150 words, add the missing reference entry, and state assumptions.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each. Address student as \"you\". Be specific, supportive, actionable, cite sections/figures, name what they did well, state what next rubric level requires. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nWe need write feedback for each criterion C1-C7. Each <=70 words. Summary <=80 words. Next steps 3 strings.\n\nLet's craft.\n\nC1: Q1. You chose performance and availability well justified from lunch peak and abandonment. Performance scenario has all six parts and measurable p95 target. Availability scenario has six parts but response measure \"stay up most of the time\" is not measurable. To reach Excellent, make both response measures measurable (e.g., 99.9% monthly uptime). Good.\n\nC2: Q2. Excellent. Clear modular-monolith recommendation, scenario-specific trade-offs (five developers vs operational overhead, single-VM/deployment causes), downside acknowledged (no independent scaling, whole-process crash risk). Keep this. Note word limit issue is C7. For C2 no next level needed but can say maintain.\n\nC3: Q3. Part (a) correct. Part (b) arithmetic slip: 0.00699×720≈5.03 h not 3.5 h. Part (c) payment availability correct but treated as end-to-end; multiply all components gives ~99.80% and ~1.46 h downtime. To reach Proficient/Excellent, show working and multiply all components. Actually current Developing 3/8. Next level Proficient requires method correct throughout with one slip or one part incorrect. Here two parts incorrect. So say correct (b) arithmetic and (c) end-to-end multiplication.\n\nC4: Q4. Circuit breaker appropriate and applied to outage, but state semantics reversed: Open should fail fast, Closed should pass calls. \"Opens again\" should be \"closes again\". No clear drawback/tuning beyond threshold example. To reach Proficient, correct state semantics and add drawback/tuning consideration. Actually Proficient requires named and explained correctly but loosely applied or no drawback. Excellent requires correct mechanism, applied, drawback/tuning. So next level Proficient: correct explanation. Then Excellent add drawback.\n\nC5: Q5. Menu choice and Redis cache technique good. Payment choice reasonable but CAP misused: partition tolerance not optional; during partition choose C or A. No concrete payment technique named. To reach Excellent, explain CAP correctly (P is not optional; favour consistency over availability during partition) and name a concrete payment technique (e.g., idempotency keys, transactional outbox, two-phase commit?).\n\nC6: Q6. Context, Decision, Consequences specific and present. Consequences all positive; no negative consequence. To reach Excellent, add at least one negative consequence (e.g., added complexity, operational overhead, eventual consistency). Good.\n\nC7: Q7. Headings and IEEE-style [1] present, writing clear. Q2 ~181 words over 150; [2] cited in Q4 but missing from reference list; assumptions not stated. To reach Excellent, keep every answer within 150 words, add missing reference entry, state assumptions. Good.\n\nSummary: \"You scored 25/40. Q2 is excellent and Q1/Q6 are strong. Q3 has two wrong parts, Q4 reverses circuit-breaker states, Q5 misuses CAP and omits a payment technique, Q6 lacks a negative consequence, and Q2 exceeds the word limit with a missing reference. Address these specific fixes to move up the rubric.\" <=80 words. Count ~60.\n\nNext steps: 3 strings. Could be:\n1. \"Re-work Q3: correct 0.00699×720 to ≈5.03 h and multiply all component availabilities for end-to-end (~99.80%, ~1.46 h downtime).\"\n2. \"Fix Q4 circuit-breaker semantics (Open=fail fast, Closed=pass calls) and add a drawback/tuning consideration; in Q5 explain CAP correctly (P not optional) and name a concrete payment technique.\"\n3. \"In Q6 add a negative consequence; in Q2 trim to ≤150 words; add reference [2] and state assumptions.\"\n\nNeed ensure JSON only. Criteria keys C1..C7. Each <=70 words. Let's write concise.\n\nCheck word counts roughly. C1 ~60. C2 ~55. C3 ~65. C4 ~60. C5 ~60. C6 ~50. C7 ~55. Good.\n\nNeed not mention marks changed. We can mention marks? \"You scored 25/40\" in summary okay. Do not change marks. Fine.\n\nNeed \"cite their sections/figures\" - we cite Question 1 etc. No figures. Good.\n\nNeed \"state what the next rubric level requires\" for each. We do.\n\nLet's produce JSON. Ensure no markdown. Use double quotes. No trailing commas.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to produce JSON with summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each. Address student",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " as \"you\". Be specific, supportive, actionable, cite sections/figures, name what they did well, state what next rubric level requires. Don't change",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nWe need write feedback for each criterion C1-C7. Each <=70 words. Summary",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " <=80 words. Next steps 3 strings.\n\nLet's craft.\n\nC1: Q1. You chose performance and availability well justified from lunch peak and abandonment",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Performance scenario has all six parts and measurable p95 target. Availability scenario has six parts but response measure \"stay up most of the time\" is not measurable. To reach",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Excellent, make both response measures measurable (e.g., 99.9% monthly uptime). Good.\n\nC2: Q2. Excellent. Clear modular-mon",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "olith recommendation, scenario-specific trade-offs (five developers vs operational overhead, single-VM/deployment causes), downside acknowledged (no independent scaling, whole-process crash risk). Keep this",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Note word limit issue is C7. For C2 no next level needed but can say maintain.\n\nC3: Q3. Part (a) correct.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Part (b) arithmetic slip: 0.00699×720≈5.03 h not 3.5 h. Part (c) payment availability",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " correct but treated as end-to-end; multiply all components gives ~99.80% and ~1.46 h downtime. To reach Proficient/Excellent, show working",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and multiply all components. Actually current Developing 3/8. Next level Proficient requires method correct throughout with one slip or one part incorrect. Here two parts incorrect",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". So say correct (b) arithmetic and (c) end-to-end multiplication.\n\nC4: Q4. Circuit breaker appropriate and applied to outage, but state",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " semantics reversed: Open should fail fast, Closed should pass calls. \"Opens again\" should be \"closes again\". No clear drawback/tuning beyond threshold example",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". To reach Proficient, correct state semantics and add drawback/tuning consideration. Actually Proficient requires named and explained correctly but loosely applied or no drawback. Excellent",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " requires correct mechanism, applied, drawback/tuning. So next level Proficient: correct explanation. Then Excellent add drawback.\n\nC5: Q5. Menu choice",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and Redis cache technique good. Payment choice reasonable but CAP misused: partition tolerance not optional; during partition choose C or A. No concrete payment technique named. To reach",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Excellent, explain CAP correctly (P is not optional; favour consistency over availability during partition) and name a concrete payment technique (e.g., idempotency keys",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", transactional outbox, two-phase commit?).\n\nC6: Q6. Context, Decision, Consequences specific and present. Consequences all positive; no negative consequence. To reach Excellent",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", add at least one negative consequence (e.g., added complexity, operational overhead, eventual consistency). Good.\n\nC7: Q7. Headings and IEEE",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-style [1] present, writing clear. Q2 ~181 words over 150; [2] cited in Q4 but missing from reference list; assumptions",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " not stated. To reach Excellent, keep every answer within 150 words, add missing reference entry, state assumptions. Good.\n\nSummary: \"You scored 25/40",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Q2 is excellent and Q1/Q6 are strong. Q3 has two wrong parts, Q4 reverses circuit-breaker states, Q5 misuses CAP and omits a",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " payment technique, Q6 lacks a negative consequence, and Q2 exceeds the word limit with a missing reference. Address these specific fixes to move up the rubric.\" <=",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "80 words. Count ~60.\n\nNext steps: 3 strings. Could be:\n1. \"Re-work Q3: correct 0.00699×",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "720 to ≈5.03 h and multiply all component availabilities for end-to-end (~99.80%, ~1.46 h downtime).\"\n2. \"Fix Q",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "4 circuit-breaker semantics (Open=fail fast, Closed=pass calls) and add a drawback/tuning consideration; in Q5 explain CAP correctly (P not",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " optional) and name a concrete payment technique.\"\n3. \"In Q6 add a negative consequence; in Q2 trim to ≤150 words; add reference [2] and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " state assumptions.\"\n\nNeed ensure JSON only. Criteria keys C1..C7. Each <=70 words. Let's write concise.\n\nCheck word counts roughly. C1 ~60",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". C2 ~55. C3 ~65. C4 ~60. C5 ~60. C6 ~50. C7 ~55. Good.\n\nNeed not",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " mention marks changed. We can mention marks? \"You scored 25/40\" in summary okay. Do not change marks. Fine.\n\nNeed \"cite their",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " sections/figures\" - we cite Question 1 etc. No figures. Good.\n\nNeed \"state what the next rubric level requires\" for each. We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " do.\n\nLet's produce JSON. Ensure no markdown. Use double quotes. No trailing commas.",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1061,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 2756,
+    "completion_tokens": 1772,
+    "total_tokens": 4528,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cost": 0.0013387999999999998,
+    "currency": "USD",
+    "reasoning_tokens": 1061,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 2756
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c0078710-77ef-4856-9235-76efe280e116",
+  "x_nanogpt_pricing": {
+    "amount": 0.0013387999999999998,
+    "cost": 0.0013387999999999998,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 2756,
+    "outputTokens": 1772,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0
+  }
+}

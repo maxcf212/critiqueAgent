@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Coral reefs, specifically the Great Barrier Reef, would immensely benefit from dedicated satellite monitoring."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        },
+        {
+          "where": "Introduction",
+          "quote": "The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM)"
+        }
+      ],
+      "reasoning": "All required elements addressed: primary mission (fluid-lensing reef monitoring), rationale with bleaching statistics and references, single-spacecraft justification, and users/funding. Detail is good though user discussion is brief and operator vs customer roles could be sharper."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "Mission Design - Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle – launched from the Guiana Space Centre Spaceport."
+        },
+        {
+          "where": "Mission Design - Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of 97.7924°"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "Systems Tool Kit 11 (STK) was used to calculate access periods as seen below:"
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "The most promising alternative is a ‘drag sail’"
+        }
+      ],
+      "reasoning": "Launch, orbit (COE table, J2 hand calc plot), manoeuvres, ground station with STK access report, duration and EOL all addressed with screenshots and evidence. Weaknesses: RAAN value incorrectly tied to launch site, contradictory altitude-resolution statement, no explicit STK files/appendix, EOL discussion muddled."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet."
+        }
+      ],
+      "reasoning": "Conclusions summarise each segment and acknowledge risks (Vega E availability, fallback to Vega C). Reasonably specific but brief; no quantitative recap (e.g. access statistics, orbit elements) and no forward recommendations beyond launch contingency."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Orbit",
+          "quote": "STK 3D view of orbit: 12 hours apart"
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "utilising a large surface area to ‘ and is suitable for low-earth orbit altitudes"
+        }
+      ],
+      "reasoning": "Structure is logical with headings and executive summary, but figures/tables lack numbers, references are bare URLs including Wikipedia (explicitly disallowed), bibliography entries malformed, and several typos/unfinished sentences ('complied', 'purposed', broken drag-sail sentence). Not professional-level presentation."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction - 'Thus, only one satellite is required.'"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Introduction - CSIRO/BOM users, government/university funding"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Mission Design - Launch (Vega E, Guiana Space Centre)"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Mission Design - Orbit (COE table: a=6971km, e=0, i=97.79°)"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Orbit - 'the only orbital manoeuvre occurs at the EOL segment'"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications (Mt Pleasant, STK access summary)"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL (5 years, drag sail)"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "STK simulations and MATLAB inclination-vs-altitude plot"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Screenshots included (Images 1-5, access report) but no explicit STK scenario files or appendix provided"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Structure is clear, but Wikipedia is cited and references are bare URLs without proper citation format"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Mission Design - Orbit",
+      "issue": "'A very high altitude would yield low resolution images which is also desirable' – contradiction; low resolution is undesirable for reef imaging."
+    },
+    {
+      "where": "Mission Design - Orbit",
+      "issue": "RAAN of 27.33° claimed to 'indicate the location of the launch facility'; Kourou is at ~52°W and RAAN is not set by launch-site longitude."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Contradictory paragraph: satellite 'without thrusters' yet discusses choosing uncontrolled descent, then restates it has no thrust capability; drag-sail sentence is incomplete."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "Wikipedia used as a source, which the task explicitly disallows; references lack titles/authors/access dates."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Claim that vertical inclination 'maintains a significant contact for the vast majority of passes' is vague and unsupported; access table shows duplicated access number 13."
+    }
+  ],
+  "overall": "A well-motivated Australian reef-monitoring CubeSat-style mission with sound SSO selection, STK access analysis and EOL planning. Main weaknesses are internal contradictions, a questionable RAAN justification, missing STK files, and sub-professional referencing (Wikipedia, bare URLs) and figure/table labelling."
+}

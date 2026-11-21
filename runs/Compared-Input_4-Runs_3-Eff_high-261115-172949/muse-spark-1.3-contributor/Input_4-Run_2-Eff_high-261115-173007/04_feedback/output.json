@@ -1,0 +1,17 @@
+{
+  "summary": "You show strong practical judgment on style, resilience and availability calculations. To reach Excellent, tighten measurable response measures in Q1, correct end-to-end availability aggregation in Q3c, fix CAP reasoning in Q5, and add a negative consequence in your ADR while staying within word limits.",
+  "next_steps": [
+    "Rewrite Q1 second response measure to be measurable, e.g. 'system remains available 99.9% of peak hour' instead of 'stay up most of the time'.",
+    "For Q3c recalculate end-to-end as A_menu*A_notify*A_orders*A_pay_new = 0.9995*0.999*0.9995*0.999975 ≈ 99.80%, then downtime ≈1.5h for 720h.",
+    "Fix Q5 CAP explanation: you cannot give up partition tolerance; explain CP vs AP choice, and in Q6 add one negative consequence like ordering or duplicate handling, and trim Q2 to <150 words."
+  ],
+  "criteria": {
+    "C1": "You chose relevant attributes and justified them from the lunch peak. Your first scenario with p95 under 1.5s is complete and measurable. For Excellent, change your second measure 'stay up most of the time' to a quantified value like 99.9% uptime or <30s recovery.",
+    "C2": "Excellent work in Q2. You recommended modular monolith with two CampusEats-specific trade-offs – 5-person team vs microservice overhead, and single-VM issues – and you acknowledged the downside that modules cannot scale independently.",
+    "C3": "Well shown working: Q3(a) 99.30% and Q3(b) 5.0h are correct. For Excellent, in Q3(c) you used payment availability only for 99.9975% and 0.018h. You need to multiply by the other three components to get ~99.80% and ~1.5h.",
+    "C4": "Strong Q4 – you correctly named Circuit Breaker, explained Closed/Open/Half-Open with 50% in 10s, applied it to the payment outage to avoid thread blocking, and gave tuning considerations.",
+    "C5": "You made reasonable choices – cached menu for availability and idempotency key for payment consistency. For Excellent, correct CAP: you must handle partitions, so justify CP for payments vs AP for menu, not choosing C and A and giving up P.",
+    "C6": "Your ADR in Q6 has specific Context, Decision with RabbitMQ OrderPaid event, and positive consequences. For Excellent, add at least one negative consequence like duplicate handling, ordering, or operational complexity.",
+    "C7": "Clear writing with headings and IEEE citations [1]. For Excellent, keep every answer ≤150 words – Q2 is ~165 words – and add an explicit assumptions statement if required."
+  }
+}

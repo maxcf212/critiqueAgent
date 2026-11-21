@@ -1,4 +1,4 @@
-# CritiqueAgentv3
+# CritiqueAgentv3 (ver OCT. 2026)
 
 Marks student submissions against a rubric using LLMs through the NanoGPT API. There are two methods: a multi-agent pipeline and a single-prompt baseline.
 

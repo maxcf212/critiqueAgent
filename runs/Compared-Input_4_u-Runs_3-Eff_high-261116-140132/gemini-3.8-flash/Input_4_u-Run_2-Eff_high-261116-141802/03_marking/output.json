@@ -1,0 +1,127 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders"
+        }
+      ],
+      "reasoning": "The two most critical attributes (performance and availability) are selected and well justified with quantitative details from the scenario. Both quality attribute scenarios strictly follow the six-part specification format and specify clear, measurable response measures."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "## Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features."
+        }
+      ],
+      "reasoning": "The student provides a clear recommendation for a modular monolith, justified by two specific, context-relevant trade-offs (small team operational overhead and monolith horizontal scaling vs rewrite costs). Realistic downsides (lack of independent process scaling and shared failure domain) are explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "## Question 3",
+          "quote": "The availability of placing an order is 99.30%."
+        }
+      ],
+      "reasoning": "Calculations for parts (a), (b), and (c) are completely accurate. Series and parallel availability formulas are correctly applied with clear intermediate working shown, and results are appropriately rounded to the requested precision (two decimal places for percentages, one for hours)."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "## Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure. Calls to the payment provider are wrapped in a breaker"
+        }
+      ],
+      "reasoning": "The circuit breaker pattern is correctly identified and explained via closed, open, and half-open state transitions. It is directly tied to the scenario's cascading failure and thread starvation. Both tuning parameters (latency thresholds) and drawbacks (fallback requirement) are thoroughly covered."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "## Question 5",
+          "quote": "For payments I choose consistency (CP): the order is rejected with a clear error rather than risk an inconsistent charge."
+        }
+      ],
+      "reasoning": "Both menu browsing and payment scenarios are evaluated with sound architectural choices (AP vs CP). The CAP theorem is accurately interpreted regarding network partitions, and concrete implementation techniques (Redis caching with TTL and idempotency keys) are provided."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "## Question 6",
+          "quote": "The queue is one more component for five developers to run and monitor. Delivery is at-least-once, so the tablet must ignore duplicate order IDs."
+        }
+      ],
+      "reasoning": "The ADR adheres to the required template and contains scenario-specific context (tablet outages and latency), a clear architectural decision (RabbitMQ queue), and balanced consequences covering both concrete latency/resilience benefits and negative operational/at-least-once delivery overheads."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "The scenarios use the six-part form from [1]."
+        }
+      ],
+      "reasoning": "All responses strictly adhere to the 150-word limit. Headings follow the requested structure and sequence, technical terminology is precise, and external sources are cited and referenced in proper IEEE style."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "## Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "## Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "## Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "## Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "## Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "## Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "## References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "An exemplary submission that fully satisfies all rubric criteria and assignment requirements. The architectural analyses are rigorous, scenario-specific, and concise, with completely accurate calculations, well-justified decisions, and flawless communication formatting throughout."
+}

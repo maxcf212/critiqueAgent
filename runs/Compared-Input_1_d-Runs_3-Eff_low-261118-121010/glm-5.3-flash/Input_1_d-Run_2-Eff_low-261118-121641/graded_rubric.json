@@ -1,0 +1,150 @@
+{
+  "total": 51.0,
+  "total_max": 100.0,
+  "percent": 51.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Adequate",
+      "mark": 5.0,
+      "scale": 10.0,
+      "points": 20.0,
+      "max": 40.0,
+      "reasoning": "Clear mission purpose (GBR bleaching monitoring), users (marine/conservation scientists) and need are described with literature citations. However, no explicit mission objectives or requirements are stated, and details of the mission architecture are thin.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "A near-real-time relay to monitoring stations on the ground would allow marine and conservation scientists to more accurately predict and react to coral bleaching events.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Adequate",
+      "mark": 5.0,
+      "scale": 10.0,
+      "points": 15.0,
+      "max": 30.0,
+      "reasoning": "Detailed week-by-week Gantt chart with task descriptions covering launch, orbit, ground control, comms and STK work; plan fits the mission narrative. No provision for contingencies/variations, and information sources are only the four URLs plus implied course/STK material.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "Project work will be divided into weeks via a Gantt Chart. Detailed task descriptions can be found on the next page.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Adequate",
+      "mark": 4.0,
+      "scale": 10.0,
+      "points": 4.0,
+      "max": 10.0,
+      "reasoning": "Progress is limited to background research and completing STK tutorials; no preliminary technical results (orbit parameters, coverage, link budgets) are presented or interpreted. On track, but only minor technical work demonstrated.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "completed STK tutorials 1, 2, 3 & 4",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Adequate",
+      "mark": 6.0,
+      "scale": 10.0,
+      "points": 12.0,
+      "max": 20.0,
+      "reasoning": "Clear headings, readable and well-written prose, labelled Gantt figure with legend. References are cited as bare URLs in footnotes with no formal reference list, and figure caption/labelling is minimal — not professional level but adequate.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "¹ https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-acidification",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "partial",
+      "where": "Project Plan & Preliminary Progress — launch/orbit tasks planned, but orbit description contains a major technical error"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan & Preliminary Progress — 'STK Design & Simulations' indicates STK selected"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Image 1 Gantt chart with weekly schedule"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Footnoted URLs in Mission Concept & Rationale; no consolidated list of planned information sources"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Project Plan & Preliminary Progress — STK tutorials and research only, no technical results"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Project Plan & Preliminary Progress",
+      "issue": "'geostationary orbit at an altitude of 600 km, which keeps the satellite fixed above the reef' — geostationary altitude is ~35,786 km; 600 km is LEO and cannot be fixed above the reef. Also GEO is poor for high-resolution reef imaging."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "No quantitative mission requirements or objectives (resolution, revisit time, swath) despite citing a 100 m/pixel mapping gap."
+    }
+  ],
+  "overall": "Well-motivated GBR monitoring mission with a solid Gantt plan and clear writing, but no explicit requirements, no contingencies, minimal technical progress (tutorials only), and a fundamental orbit altitude error (600 km 'geostationary').",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 4,
+    "quotes_found": 4,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "Your Great Barrier Reef monitoring mission is well motivated, with clear users and a solid week-by-week Gantt plan. To reach the next level, state explicit quantitative mission requirements, correct the orbit altitude error, add contingencies to your plan, present preliminary technical results from STK, and adopt a formal referencing style.",
+    "next_steps": [
+      "Add a requirements table with quantitative values (e.g. spatial resolution, revisit time, swath, latency) linked to the 100 m/pixel mapping gap you cite, and derive mission objectives from them.",
+      "Correct the orbit description: geostationary altitude is ~35,786 km; 600 km is LEO and cannot keep the satellite fixed above the reef. Justify an orbit choice suited to high-resolution reef imaging (e.g. LEO with appropriate revisit).",
+      "Extend your Gantt plan with contingency provisions (delays, software issues, task slippage) and add a consolidated list of planned information sources.",
+      "Produce preliminary STK results — orbit parameters, coverage/revisit analysis or link budget — with brief interpretation, beyond tutorial completion.",
+      "Replace footnoted bare URLs with a formal citation style and a matching reference list, and improve figure captions and labelling."
+    ],
+    "criteria": {
+      "C1": "You clearly describe the mission purpose (GBR bleaching monitoring), users (marine and conservation scientists) and need, supported by literature. To reach Accomplished, state explicit mission goals, objectives and requirements — e.g. resolution, revisit time, swath, data latency — and connect each requirement to user needs, with referenced justification.",
+      "C2": "Your week-by-week Gantt chart with detailed task descriptions fits the mission narrative well. To reach Accomplished, add contingency and variation provisions (schedule buffers, fallback tasks) and a consolidated, referenced list of information sources and software, explaining why the plan is structured this way.",
+      "C3": "Progress is currently limited to research and STK tutorials 1–4, with no technical results. To reach Accomplished, present preliminary outputs — e.g. candidate orbit parameters, coverage or revisit analysis, or a link budget — with brief description and interpretation showing you are on track.",
+      "C4": "Your report is well written with clear headings and a labelled Gantt figure. To reach Accomplished, use a consistent formal citation style with a reference list matching in-text citations, replace bare footnoted URLs, and strengthen figure captions and formatting consistency throughout."
+    }
+  }
+}

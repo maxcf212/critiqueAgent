@@ -1,0 +1,148 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "marine and conservation scientists to more accurately predict and react to coral bleaching events."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required. This also just allows for simplicity in communications, reduces cost, and requires less time to build and launch."
+        }
+      ],
+      "reasoning": "The report presents a relevant mission concept addressing Great Barrier Reef monitoring using fluid lensing. The rationale for deploying a single satellite is clearly justified based on coral bleaching timescales. However, mission users are only defined broadly as marine scientists and Australian ground facilities, without identifying specific operational entities (e.g., ASA, CSIRO) or customer organisations (e.g., GBRMPA). Referencing relies heavily on general online links."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Mission Design",
+          "quote": "altitude of 600km requires a mean inclination of 87.7924° for the satellite to remain sun-synchronous."
+        },
+        {
+          "where": "Mission Design",
+          "quote": "Earth radius of 6371km plus a proposed altitude of 600km as previously explained."
+        }
+      ],
+      "reasoning": "The mission architecture covers launch, orbit, ground access, and passive de-orbiting using STK. However, multiple technical errors undermine the design: Kourou's latitude is given as 45.05°N instead of 5.23°N; semi-major axis arithmetic is incorrect (6371 + 600 = 7171 km); inclination is transcribed as 87.79° (prograde) rather than 97.79° (retrograde SSO); and STK mean pass duration (581 s / ~9.7 min) is incorrectly stated as 'almost twenty minutes'."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "After analysis of each mission segment, a fully described satellite configuration has been constructed."
+        }
+      ],
+      "reasoning": "The conclusion summarises the primary mission decisions across launch, orbit, ground station access, and end-of-life disposal. While it ties together the main operational segments and highlights risks with the unbuilt Vega E vehicle, it remains largely qualitative and does not critically synthesise performance compromises or technical limitations encountered during the design."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "utilising a large surface area to ‘ and is suitable for low-earth orbit altitudes [10]."
+        }
+      ],
+      "reasoning": "The report follows a standard structure with an executive summary. However, presentation quality is degraded: figures and tables lack standard numbering and captions; Wikipedia tables with raw footnote tags are copy-pasted; a broken sentence appears in the EOL section; reference list formatting is messy with broken entries; and Wikipedia is cited as a source despite being explicitly prohibited."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Mission Design"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Mission Design"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Mission Design"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Mission Design",
+      "issue": "Launch site latitude for Kourou (CSG) is erroneously stated as 45.05°N; Kourou is located near the equator at approximately 5.23°N."
+    },
+    {
+      "where": "Mission Design",
+      "issue": "Semi-major axis calculation error: 6371 km Earth radius + 600 km altitude is calculated as 7171 km instead of 6971 km."
+    },
+    {
+      "where": "Mission Design",
+      "issue": "Sun-synchronous inclination at 600 km altitude is stated as 87.79° (prograde), which is physically invalid for an SSO; the correct retrograde inclination is 97.79° (as shown on the student's plot)."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Text reports an average pass duration of 'almost twenty minutes', contradicting the included STK report which indicates a mean duration of 580.8 seconds (~9.7 minutes)."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "The drag sail discussion terminates abruptly mid-sentence: 'utilising a large surface area to ‘ and is suitable...'."
+    },
+    {
+      "where": "Mission Design",
+      "issue": "Direct copy-pasting of raw Wikipedia tables into the document body with unformatted hyperlink reference numbers (e.g. [50][51], [66])."
+    }
+  ],
+  "overall": "The proposal introduces an interesting coral reef monitoring mission for Australia. While the high-level architecture covers the necessary mission phases using STK analysis, the submission is compromised by basic technical errors (arithmetic, inclination, Kourou latitude, pass duration) and unpolished presentation, including Wikipedia citations, unformatted tables, and incomplete text."
+}

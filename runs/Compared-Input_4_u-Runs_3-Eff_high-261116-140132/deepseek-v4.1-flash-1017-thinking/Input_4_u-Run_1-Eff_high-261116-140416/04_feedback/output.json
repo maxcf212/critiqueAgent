@@ -1,0 +1,17 @@
+{
+  "summary": "Excellent submission: all six answers are complete, specific and within limits, and your Q3 calculations are correct to the requested precision. You justify choices from the CampusEats scenario and acknowledge downsides. The only minor gap is that no explicit assumptions statement is included, and the references requirement was marked partial. Keep the same precision and scenario-specific reasoning.",
+  "next_steps": [
+    "Add a short explicit assumptions statement, for example independence of components in Q3 and traffic distribution in Q1, so your calculations and scenarios are unambiguous.",
+    "Tighten the references list: ensure every cited source has a complete IEEE-style entry, since R7 was marked partial.",
+    "Maintain the Excellent standard by keeping every quality-attribute scenario in six-part form with measurable response measures and every recommendation tied to at least two scenario-specific trade-offs plus an acknowledged downside."
+  ],
+  "criteria": {
+    "C1": "You chose performance and availability and justified them from the 900 lunchtime orders and the 4.2 s p95. Both six-part scenarios have measurable response measures: p95 under 1.5 s and under 0.1% non-payment failures. This is Excellent; keep every response measure measurable and tied to the scenario.",
+    "C2": "Your modular monolith recommendation is clear and tied to team size, lunchtime load, single-VM slowness and weekly downtime. You explicitly acknowledge the downside: modules cannot scale independently and one bug can crash the process. Excellent. Keep trade-offs scenario-specific and continue naming the accepted downside.",
+    "C3": "All three parts are correct with working shown: 99.30%, 5.0 hours, 99.80% and 1.5 hours. You rounded to the requested precision. Excellent. To maintain this, keep showing the series calculation and the downtime conversion explicitly.",
+    "C4": "You named Circuit Breaker, explained its mechanism, applied it to the slow payment provider outage, and gave tuning considerations plus a drawback: nobody can pay while it is open, so a fallback is needed. Excellent. Keep linking the pattern to the specific failure and stating the drawback.",
+    "C5": "You justified menu browsing as availability with a Redis cache and TTL, and payments as consistency with idempotency keys, using CAP correctly. Excellent. Continue naming a concrete technique for each choice and explaining the CAP trade-off precisely.",
+    "C6": "Your ADR has Context, Decision and Consequences specific to CampusEats, including positive and negative consequences: faster response, but an extra component for five developers to run and monitor. Excellent. Keep both consequence types and scenario-specific context.",
+    "C7": "You used the required headings in order, stayed within 150 words, used precise terminology, and included IEEE-style citations. Excellent. The references requirement was marked partial, so check every entry is complete and consistently formatted."
+  }
+}

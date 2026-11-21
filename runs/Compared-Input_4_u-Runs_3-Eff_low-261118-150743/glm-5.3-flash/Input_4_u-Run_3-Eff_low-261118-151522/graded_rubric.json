@@ -1,0 +1,236 @@
+{
+  "total": 39.0,
+  "total_max": 40.0,
+  "percent": 97.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Both attributes are clearly justified from the scenario (lunch-hour load, 4.2 s p95, payment outage). Both scenarios have all six named parts with measurable response measures.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular monolith recommendation with two trade-offs tied to team size, load profile and known problems; downside explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "All three parts correct with working shown: series product 99.30%, 5.0 h downtime, parallel payment pair 0.999975 giving 99.80% and 1.5 h. Precision matches requirements.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_new = 0.9995 × 0.999 × 0.9995 × 0.999975 = 0.99798",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit breaker named, mechanism (Closed/Open/Half-Open) explained correctly, applied to the 25-minute outage, with both a tuning consideration and a drawback.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "the breaker moves to Open and calls fail immediately, so request threads are not blocked",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Drawback: nobody can pay while it is open, so a fallback is needed.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "AP for browsing (Redis TTL cache) and CP for payments, both justified; CAP theorem used correctly; concrete techniques named for each case.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "during a partition a system must give up either consistency or availability",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "ADR has specific Context, Decision and Consequences with multiple positive and negative consequences tied to the scenario.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Clear writing, correct headings, IEEE citations and reference list. However, several answers (Q1, Q2, Q4) appear to sit at or slightly above the 150-word limit, a minor formatting issue.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "A strong, technically accurate submission. All calculations in Q3 are correct with working shown; every question is well justified and scenario-specific. Only minor word-limit pressure on a few answers prevents full marks on communication. Total: 39/40.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "Excellent work — you scored 39/40. Every answer is technically accurate and tightly tied to the CampusEats scenario: your Q3 calculations are all correct with working shown, and Q1, Q2, Q4, Q5 and Q6 all reached the Excellent level. The only gap is communication: a few answers (Q1, Q2, Q4) sit at or slightly above the 150-word limit, which cost one mark.",
+    "next_steps": [
+      "Trim Q1, Q2 and Q4 to comfortably under 150 words by cutting general textbook background and keeping only scenario-specific justification.",
+      "Practise drafting answers to a word budget: state the recommendation or choice first, then add only the two or three strongest scenario-linked reasons.",
+      "Keep your current habits — showing working, naming concrete techniques, and acknowledging downsides — as they are exactly what the top rubric levels reward."
+    ],
+    "criteria": {
+      "C1": "Excellent (6/6). You chose performance and availability and justified both from the scenario (lunch-hour load, 4.2 s p95, payment outage). Both quality attribute scenarios contain all six parts with measurable response measures. To stay at this level, keep both response measures explicitly quantified as you did.",
+      "C2": "Excellent (6/6). Your modular monolith recommendation is supported by two scenario-specific trade-offs (five developers vs eight-plus services; load profile) and you explicitly acknowledge the downside of independent scaling. Maintain this pattern of naming the accepted cost of your recommendation.",
+      "C3": "Excellent (8/8). All three parts are correct with working shown: the series product 99.30%, 5.0 h downtime, and the parallel payment pair giving 99.80% and 1.5 h, all at the requested precision. Continue showing your intermediate products so your method stays verifiable.",
+      "C4": "Excellent (5/5). You named the circuit breaker, explained the Closed/Open/Half-Open mechanism correctly, applied it to the 25-minute outage, and gave both a tuning consideration and the drawback that payments fail while Open. This full coverage is what the single-mark rubric requires.",
+      "C5": "Excellent (6/6). You justified AP for browsing and CP for payments, used the CAP theorem correctly, and named concrete techniques (Redis TTL cache; idempotency keys). Keep pairing each consistency/availability choice with a named mechanism to stay at this level.",
+      "C6": "Excellent (5/5). Your ADR has a scenario-specific Context, a clear Decision, and both positive and negative Consequences tied to CampusEats. This balance of consequences is exactly what distinguishes Excellent from Proficient — keep including at least one negative consequence.",
+      "C7": "Proficient (3/4). Your writing is clear, headings and IEEE citations are correct, but Q1, Q2 and Q4 sit at or slightly above the 150-word limit. To reach Excellent, trim each answer comfortably under the limit while keeping the scenario-specific justification."
+    }
+  }
+}

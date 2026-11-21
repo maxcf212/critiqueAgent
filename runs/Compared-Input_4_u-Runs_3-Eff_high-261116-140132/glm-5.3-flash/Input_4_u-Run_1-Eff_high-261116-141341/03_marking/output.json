@@ -1,0 +1,156 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Source: the external payment provider. Stimulus: it becomes slow or stops responding."
+        }
+      ],
+      "reasoning": "Performance and availability are well justified from scenario facts (900 orders/hour, 4.2 s p95, payment outage). Both scenarios contain all six parts with measurable response measures (p95 thresholds, failure rate, recovery time)."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular monolith recommendation with two scenario-specific trade-offs (team size of five, single-VM lunchtime bottleneck, 20-minute weekly downtime) and an explicitly acknowledged downside."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975"
+        }
+      ],
+      "reasoning": "Verified: (a) 0.99301 → 99.30%; (b) 0.00699×720 = 5.03 → 5.0 h; (c) parallel payment 0.999975, series 0.99798 → 99.80%, downtime 1.46 → 1.5 h. All parts correct with working shown, percentages to two decimals and hours to one decimal as required."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately, so request threads are not blocked"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Drawback: nobody can pay while it is open, so a fallback is needed."
+        }
+      ],
+      "reasoning": "Circuit Breaker named, mechanism (Closed/Open/Half-Open) explained correctly, applied concretely to the 25-minute payment outage, and both a tuning consideration and a drawback are given."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says that during a partition a system must give up either consistency or availability"
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge."
+        }
+      ],
+      "reasoning": "AP for menu browsing (Redis cache with TTL) and CP for payments (idempotency keys) are both justified; CAP theorem is used correctly, noting partition tolerance is not optional. Concrete technique named for each case."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Delivery is at-least-once, so the tablet must ignore duplicate order IDs."
+        }
+      ],
+      "reasoning": "ADR has Context, Decision and Consequences, all specific to the CampusEats scenario (4.2 s p95, offline tablets, five developers). Multiple positive and negative consequences are given."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed."
+        }
+      ],
+      "reasoning": "All answers appear within 150 words, required headings Question 1–6 used in order, terminology precise, IEEE-style citations and reference list included, availability/downtime formats followed."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Question 3 / References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Minor: 'no requests are dropped' is slightly less precisely quantified than the other response measures, though bounded by the 0.1% failure figure elsewhere."
+    }
+  ],
+  "overall": "An outstanding submission. All calculations in Q3 verified correct with working and required precision; every question is scenario-specific, complete, and within word limits, with proper IEEE citations. Full marks awarded across all criteria."
+}

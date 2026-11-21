@@ -1,0 +1,80 @@
+{
+  "id": "chatcmpl-98171ee8-d36f-4acd-9d97-d322ea42d860",
+  "object": "chat.completion",
+  "created": 1794722117,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You present a coherent single-satellite coral-reef mission and address most required elements with STK evidence. The main weaknesses are launch-vehicle feasibility, orbital-element justification, EOL/manoeuvre consistency, communications sizing, missing STK files, and referencing/formatting. The feedback below is formative only and identifies what each criterion needs for the next level.\",\"next_steps\":[\"Revise Mission Design – Launch and Orbit: replace or strongly justify Vega E with an operational launch vehicle and current manifest evidence; correct the RAAN 27.33° claim, remove the contradictory low-resolution-desirable statement, and show orbital-element derivation.\",\"Reconcile Mission Duration & EOL and Ground Control & Communications: state a thruster-free EOL plan using the passive drag sail, calculate deorbit lifetime, and add a link/data-rate and ground-station compatibility analysis; include your STK software files.\",\"Improve C1, C3 and C4: separate operator and customer roles in the Introduction, make the Conclusion evidence-specific including limitations, and replace Wikipedia/bare URLs, add missing [50], and number/caption figures and tables consistently.\"],\"criteria\":{\"C1\":\"You cover the primary mission, Australian benefit, single-spacecraft rationale and likely users in the Introduction. To reach Accomplished, separate the operator and customer roles explicitly (your CSIRO/BOM sentence mixes them), give more detailed mission rationale, and support claims with specific literature rather than weak/inappropriate sources.\",\"C2\":\"You address launch, orbit, ground access, duration and EOL with STK screenshots and calculations. To reach Accomplished: replace/justify the non-operational Vega E and 2021 manifest; correct RAAN 27.33° and the low-resolution-desirable contradiction; make EOL consistent with no thrusters by calculating passive drag-sail deorbit lifetime; add link/data-rate and ground-station compatibility; include STK files.\",\"C3\":\"Your Conclusion summarises the Vega E launch, SSO and ground station and links them to reef monitoring, but it is generic and omits limitations and performance evidence. To reach Accomplished, make each conclusion traceable to your design evidence (orbit, access, link budget, EOL) and state key risks/limitations, including that Vega E is not yet built.\",\"C4\":\"Your headings and writing are generally clear, but figures/tables lack consistent numbering and captions (e.g. Image 1-2), references are bare URLs including Wikipedia, and cited entries such as [50] are missing from the list. To reach Accomplished, use consistent figure/table formatting and a complete, correctly cited reference list with quality sources.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce formative feedback JSON. Must address student as \"you\". Be specific, supportive, actionable: cite sections/figures, name what they did well, state what next rubric level requires. Do not change marks. Do not comment on document-conversion artefacts. Do not make up explanations for reasoning given by marking agent unclear/incomplete.\n\nSchema: summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each.\n\nNeed ensure one JSON object only. No markdown.\n\nNeed feedback per criterion C1-C4. Summary overall concise. Next steps three actionable. Use specific citations: Introduction, Mission Design – Launch, Orbit, Ground Control & Communications, Mission Duration & EOL, Conclusion, Bibliography, Image 1-2. Mention STK screenshots, missing STK files, Vega E not operational, RAAN, resolution contradiction, EOL no thrusters/passive drag sail/no deorbit lifetime, no link/data-rate/ground-station compatibility, referencing Wikipedia/bare URLs/missing [50]. But keep each criterion <=70 words. Need not mention all in each.\n\nC1 feedback: You cover primary mission, Australian benefit, single satellite rationale and users in Introduction, but operator/customer roles not clearly separated and referencing weak/inappropriate. To reach Accomplished, clearly distinguish operator vs customers, add specific literature references and detail. <=70 words. Address as you. Good.\n\nC2: You address launch, orbit, ground access, duration/EOL with STK screenshots and some calculations. However Vega E not operational and 2021 manifest weak; RAAN 27.33° claim; \"high altitude...low resolution desirable\" contradictory; EOL maneuver inconsistent with no thrusters/passive drag sail/no deorbit lifetime; no link/data-rate/ground-station compatibility; missing STK files. To reach Accomplished, provide operational launch vehicle justification, correct orbital-element reasoning, consistent EOL with calculated deorbit lifetime, link budget and software files. Need <=70 words. This is many. Can pack. Maybe 70 words exactly? We'll craft concise.\n\nC3: Conclusion summarises launch/SSO/ground station and links to reef monitoring, but generic and omits limitations/performance evidence. To reach Accomplished, tie conclusions explicitly to evidence (link budget, access, orbit, EOL) and state limitations/risks. <=70.\n\nC4: Structure/headings/writing generally clear, but figures/tables lack consistent numbering; references bare URLs incl Wikipedia and missing cited entries ([50]); Image 1-2 label etc. To reach Accomplished, number/caption all figures/tables consistently, use quality references with full entries matching in-text citations, polish formatting. <=70.\n\nNext_steps: three. 1 revise C2 technical: replace Vega E with operational LV or strong justification; correct RAAN/SSO reasoning; fix resolution statement; reconcile EOL with passive drag sail and calculate deorbit lifetime. 2 add communications sizing: link budget/data rate and ground-station compatibility; include STK software files. 3 referencing/presentation: replace Wikipedia/bare URLs, add missing [50], consistent figure/table numbering/captions. Maybe also C1 operator/customer separation and conclusion evidence. Need exactly 3 strings. Could combine.\n\nSummary <=80 words: \"You have a coherent single-satellite coral-reef mission with STK evidence and most required elements. Main weaknesses are launch-vehicle feasibility, orbital-element justification, EOL/manoeuvre consistency, communications sizing, missing STK files, and referencing/formatting. Your marks are unchanged; the feedback below identifies what to do to move each criterion toward Accomplished.\" Count ~55. Good. Avoid saying marks unchanged? It's okay.\n\nNeed no markdown. JSON object only. Need valid JSON. Use escaped quotes? Strings can contain apostrophes. Avoid newlines? Can include. Need ensure no unescaped double quotes within strings. Use single quotes or avoid. But JSON strings use double quotes; inside use apostrophes or escaped. Avoid citations with quotes? We can write RAAN 27.33° etc. Use 97.7924° maybe. Use \"high altitude yielding low resolution is desirable\" would require escaping; can phrase as your statement that high altitude yielding low resolution is desirable. No double quotes. Fine. Use [50] okay.\n\nNeed criterion keys \"C1\" etc. Word counts.\n\nLet's draft each.\n\nSummary: \"You present a coherent single-satellite coral-reef mission and address most required elements with STK evidence. The main weaknesses are launch-vehicle feasibility, orbital-element justification, EOL/manoeuvre consistency, communications sizing, missing STK files, and referencing/formatting. The feedback below is formative only and identifies what each criterion needs for the next level.\" <=80. Good.\n\nNext steps:\n1. \"Revise Mission Design – Launch and Orbit: replace or strongly justify Vega E with an operational launch vehicle and current manifest evidence; correct the RAAN 27.33° claim, remove the contradictory low-resolution-desirable statement, and show orbital-element derivation.\"\n2. \"Reconcile Mission Duration & EOL and Ground Control & Communications: state a thruster-free EOL plan using the passive drag sail, calculate deorbit lifetime, and add a link/data-rate and ground-station compatibility analysis; include your STK software files.\"\n3. \"Improve C1, C3 and C4: separate operator and customer roles in the Introduction, make the Conclusion evidence-specific including limitations, and replace Wikipedia/bare URLs, add missing [50], and number/caption figures and tables consistently.\"\n\nNeed mention Image 1-2? Could in C4.\n\nC1 <=70: \"You cover the primary mission, Australian benefit, single-spacecraft rationale and likely users in the Introduction. To reach Accomplished, separate the operator and customer roles explicitly (your CSIRO/BOM sentence mixes them), give more detailed mission rationale, and support claims with specific literature rather than weak/inappropriate sources.\" Count ~50.\n\nC2 <=70: Need concise but include key issues. \"You address launch, orbit, ground access, duration and EOL with STK screenshots and calculations. To reach Accomplished: replace/justify the non-operational Vega E and 2021 manifest; correct RAAN 27.33° and the low-resolution-desirable contradiction; make EOL consistent with no thrusters by calculating passive drag-sail deorbit lifetime; add link/data-rate and ground-station compatibility; include STK files.\" Count ~57. Good. This is actionable.\n\nC3 <=70: \"Your Conclusion summarises the Vega E launch, SSO and ground station and links them to reef monitoring, but it is generic and omits limitations and performance evidence. To reach Accomplished, make each conclusion traceable to your design evidence (orbit, access, link budget, EOL) and state key risks/limitations, including that Vega E is not yet built.\" ~55.\n\nC4 <=70: \"Your headings and writing are generally clear, but figures/tables lack consistent numbering and captions (e.g. Image 1-2), references are bare URLs including Wikipedia, and cited entries such as [50] are missing from the list. To reach Accomplished, use consistent figure/table formatting and a complete, correctly cited reference list with quality sources.\" ~56.\n\nNeed ensure criteria feedback mention student as \"you\". Yes.\n\nPotential issue: \"Do not make up explanations for reasoning given by marking agent that is unclear or incomplete.\" We're using given. Good.\n\nNeed \"Do not change marks\" no marks in feedback. Fine.\n\nFinal one JSON object only."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2265,
+    "completion_tokens": 2166,
+    "total_tokens": 4431,
+    "reasoning_tokens": 1604,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1604,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 2176,
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 2176,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 89,
+    "cost": 0.0015260999999999999,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_9110bd3c-ecd7-4564-933a-dd8eabb983f7",
+  "x_nanogpt_pricing": {
+    "amount": 0.0015260999999999999,
+    "currency": "USD",
+    "cost": 0.0015260999999999999,
+    "inputTokens": 2265,
+    "outputTokens": 2166,
+    "cacheCreationInputTokens": 2176,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0.00021760000000000003,
+    "requestId": "req_fac7b73c-bd9a-4ad0-a2ba-a892e17d9a28",
+    "costUsd": 0.0015260999999999999,
+    "usdCost": 0.0015260999999999999,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "write_only",
+      "readTokens": 0,
+      "writeTokens": 2176
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "write_only",
+    "readTokens": 0,
+    "writeTokens": 2176
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "total": 61.0,
+  "total_max": 100.0,
+  "percent": 61.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Introduction: mission concept and rationale. Include the following required information: What is the spacecraft's primary mission? Why is the mission needed? How many spacecraft are used and why? Who are the users (operator and customers)?",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 8.0,
+      "max": 10.0,
+      "reasoning": "The introduction clearly identifies the primary mission (Great Barrier Reef monitoring via fluid lensing), its national benefit, justification for a single satellite, and users/operators (CSIRO, BOM, Australian government).",
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "The ZYZZsat however, does not require such constant coverage as the reef bleaching events occur over days and weeks. Thus, only one satellite is required.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Main body: mission design. Present a summary of the mission design using software and/or hand calculations as appropriate. Include relevant screenshots and software files in the main body of the report and/or appendix. Include the following information: Where will it launch from, and using which launch vehicle? Why did you choose this option? What type of orbit will you use? What are its characteristics and orbital elements? Will you need to perform any orbital maneuvers? Which ground control facilities will you use? How often will your spacecraft be able to communicate with ground control? How long will the mission last, and what are your plans for EOL?",
+      "weight": 60.0,
+      "level": "Adequate",
+      "mark": 6.0,
+      "scale": 10.0,
+      "points": 36.0,
+      "max": 60.0,
+      "reasoning": "Core mission elements are addressed (Vega E rideshare, 600 km circular SSO, Mt Pleasant station with STK access analysis, passive drag-sail EOL). However, it exhibits technical misconceptions (equatorial launch velocity benefit for a retrograde SSO), contains contradictions about maneuvers vs passive design, and lacks hand calculations.",
+      "evidence": [
+        {
+          "where": "Orbit",
+          "quote": "As the satellite can be launched directly into low-earth orbit, the only orbital manoeuvre occurs at the EOL segment",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Conclusion",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 7.0,
+      "scale": 10.0,
+      "points": 7.0,
+      "max": 10.0,
+      "reasoning": "The conclusion synthesizes the findings across launch, orbit, ground segment, and reef monitoring objectives, acknowledging launcher availability risks.",
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Adequate",
+      "mark": 5.0,
+      "scale": 10.0,
+      "points": 10.0,
+      "max": 20.0,
+      "reasoning": "The report follows a standard structure with an executive summary. However, presentation is compromised by unnumbered figure captions, incomplete sentences in the EOL section, bare URLs, and the prohibited use of Wikipedia as a reference.",
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online].",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Launch",
+      "issue": "Equatorial launch sites do not assist retrograde sun-synchronous orbits ($i \\approx 97.8^\\circ$); Earth's eastward rotational velocity imposes a $\\Delta v$ penalty rather than a fuel saving."
+    },
+    {
+      "where": "Orbit",
+      "issue": "The text states an orbital maneuver occurs at EOL, but later confirms the satellite has no propulsion system and uses passive drag deorbit."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Incomplete sentence: 'utilising a large surface area to ‘ and is suitable for low-earth orbit altitudes [10].'"
+    }
+  ],
+  "overall": "A well-conceived Australian reef-monitoring mission with good use of STK for access analysis. Improvements are needed in orbital mechanics rigor (retrograde launch physics), independent calculations, formal figure labeling, and academic referencing standards.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 4,
+    "quotes_found": 4,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You delivered a well-conceived Australian reef-monitoring mission concept with strong STK access analysis in your ground segment and a thorough introduction. To advance your mission design to a professional standard, focus on refining orbital mechanics fundamentals (such as retrograde launch dynamics), providing supporting hand calculations, eliminating design contradictions regarding maneuvers, and adhering to formal academic reporting standards with proper figure numbering and peer-reviewed citations.",
+    "next_steps": [
+      "Recalculate your launch delta-v budget to correctly account for the Earth rotational velocity penalty when launching into retrograde sun-synchronous inclinations from equatorial sites.",
+      "Supplement your STK simulation outputs with independent hand calculations for parameters like orbital period, coverage revisit rates, or aerodynamic drag decay timelines.",
+      "Standardise your report presentation by numbering all figure captions, completing truncated text in the EOL section, and replacing non-academic references like Wikipedia with peer-reviewed literature."
+    ],
+    "criteria": {
+      "C1": "You clearly established ZYZZsat's primary reef-monitoring mission, justified a single satellite, and identified key stakeholders like CSIRO and BOM in the Introduction. To reach the top of Accomplished, integrate deeper literature citations connecting your mission requirements directly to existing Australian Earth-observation and reef-monitoring frameworks.",
+      "C2": "You effectively applied STK to assess Mt Pleasant access and selected an appropriate 600 km SSO. To achieve Accomplished, correct technical misconceptions—such as the velocity penalty when launching retrograde orbits from equatorial sites—resolve contradictions between active maneuvers and passive drag deorbit, and support software models with hand calculations.",
+      "C3": "Your conclusion provides a solid synthesis of the mission architecture and astutely highlights programmatic risks, such as Vega E development status. To achieve the top mark in Accomplished, include more detailed, quantitative conclusions evaluating whether the final orbital elements and revisit intervals fully satisfy the initial science goals.",
+      "C4": "The report features a logical structure and concise executive summary. To achieve Accomplished, number and caption all figures formally, proofread to fix incomplete sentences (such as in Mission Duration & EOL), and ensure your bibliography uses professional reference styles rather than bare URLs or Wikipedia citations."
+    }
+  }
+}

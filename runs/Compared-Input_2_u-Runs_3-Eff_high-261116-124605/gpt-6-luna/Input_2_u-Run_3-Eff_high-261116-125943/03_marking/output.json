@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "One satellite is therefore used. This also simplifies communications, reduces cost, and requires less time to build and launch."
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS), which already runs the long-term monitoring program for the reef"
+        }
+      ],
+      "reasoning": "Clearly explains the mission, its Australian environmental need, the choice of a single spacecraft, and specific operator and customer groups. The rationale is detailed and supported with citations. A few claims rely on relatively general or secondary sources, preventing a top mark."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "With J2 = 1.0826 × 10⁻³, R = 6,378 km, a = 6,978 km and mean motion n = √(μ/a³) = 1.0831 × 10⁻³ rad/s:"
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "STK 11 was used to calculate when the satellite is above the horizon at Mount Pleasant."
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "A full link budget for the X-band downlink has not been calculated in this report and is the main item of further work for this segment."
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "The EOL plan is therefore passive: a drag sail is deployed at the end of the mission."
+        }
+      ],
+      "reasoning": "The design is comprehensive and uses STK outputs, calculations, orbital elements, access data and an EOL analysis to address the major requirements. However, the claimed five-day revisit and 45-day nadir mosaic derive days by dividing track spacing in km by a footprint width in km; this is dimensionless and does not establish revisit time without ground-track drift or coverage analysis. The daily imaging plan also does not reconcile with full-reef coverage, and the assumed downlink rate lacks a link budget."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations. First, Vega C has not yet flown, so the Falcon 9 rideshare service is kept as a fallback"
+        },
+        {
+          "where": "3 Conclusion",
+          "quote": "With these points addressed in the next design phase, the mission can provide the direct, regular bleaching maps that current temperature-based monitoring cannot."
+        }
+      ],
+      "reasoning": "The conclusion draws specific results from the design and candidly identifies limitations and next steps. It is appropriate and useful, although some of its coverage conclusions repeat the unsupported revisit calculations."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report presents the design of ZYZZsat (Z-axis/Y-axis Zeroed Zoning Satellite), a single Earth observation microsatellite for monitoring coral bleaching on the Great Barrier Reef."
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "Table 5: STK access report, ZYZZsat to Mount Pleasant Radio Observatory (elevation above 0°)."
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[11] D. A. Vallado, Fundamentals of Astrodynamics and Applications, 4th ed. Hawthorne, CA, USA: Microcosm Press, 2013."
+        }
+      ],
+      "reasoning": "The report has a clear engineering structure, executive summary, numbered sections, labelled tables and figures, and a substantial bibliography with in-text citations. It is readable and generally consistent. Some prose and reference entries could be more polished, and the central coverage presentation is not adequately substantiated, which limits confidence in the presentation of results."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Image 1; Appendix A: STK files and settings"
+    },
+    {
+      "id": "R11",
+      "met": "yes",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.3 Orbit",
+      "issue": "The claimed revisit and nadir-mosaic periods divide ground-track spacing (km) by reachable width or swath (km), producing a dimensionless ratio rather than days. A repeat-ground-track or time-dependent coverage analysis is needed to support these periods."
+    },
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "The daily plan budgets 60,000 km² of imaging, while the reef area is stated as 344,400 km². Covering the entire reef within five days would require at least 68,880 km²/day even with no overlap; the coverage and data-volume plan are not reconciled."
+    },
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "The 50 Mbit/s X-band rate and resulting capacity are assumed rather than verified with a link budget. The report acknowledges this, so achievable downlink capacity remains unestablished."
+    }
+  ],
+  "overall": "Strong, well-structured preliminary mission report with clear users, orbit design, STK access results and EOL planning. The main weakness is that the key revisit and complete-mapping claims are not supported by valid time-based coverage calculations; data-volume and link feasibility also need further work. Weighted result: 69/100."
+}

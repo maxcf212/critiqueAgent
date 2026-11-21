@@ -1,0 +1,164 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required. This also just allows for simplicity in communications, reduces cost"
+        },
+        {
+          "where": "Introduction",
+          "quote": "A near-real-time relay to monitoring stations on the ground would allow marine and conservation scientists"
+        }
+      ],
+      "reasoning": "Mission, rationale, and single-spacecraft choice are well covered with references. However, users are only implied: customers (marine/conservation scientists) are hinted at, but the operator is never explicitly identified, so not all requirements are fully addressed."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Mission Design - Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle"
+        },
+        {
+          "where": "Mission Design - Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of $ 87.7924^{\\circ} $"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "An average contact duration of almost twenty minutes was achieved"
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "a 'drag sail' – a drag-enhancing deorbit device that deploys at the EOL"
+        }
+      ],
+      "reasoning": "All major requirements addressed with STK evidence (3D views, inclination plot, access report, ground tracks). However, several technical errors: 87.79° inclination contradicts the student's own plot (~97.8°) and the 'retrograde' claim; a=7171 km should be 6971 km; Kourou latitude 45.05°N is wrong (~5.2°N); 'twenty minutes' contradicts the 580.8 s mean. Content adequate but not fully accurate."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet."
+        }
+      ],
+      "reasoning": "Conclusions follow from the report's evidence and acknowledge a real risk (Vega E availability) with a fallback. However, the conclusion is brief and generic in places, reiterating design choices rather than synthesising deeper insight."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Mission Design - Orbit",
+          "quote": "STK 3D view of orbit: 12 hours apart"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "for the purposed of this satellite"
+        }
+      ],
+      "reasoning": "Clear structure with headings, TOC and executive summary; references cited in text. But figures/tables lack numbers, Wikipedia is used (explicitly disallowed), and there are grammar/typo issues ('purposed', 'which is also desirable', broken drag-sail sentence). Formatting inconsistent in places."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction - 'Thus, only one satellite is required'"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction - customers implied (marine/conservation scientists); operator never explicitly identified"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Mission Design - Launch (Vega E from Kourou)"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Mission Design - Orbit - elements given but inclination (87.79°) and semi-major axis (7171 km) values are erroneous"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Mission Design - Orbit - 'the only orbital manoeuvre occurs at the EOL segment'"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications - Mt Pleasant Observatory with STK access summary"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL - five-year life, drag-sail disposal"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Orbit/Ground Control sections - STK 11 used with plots and reports"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Screenshots included in body, but no appendix or statement that STK files are provided"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Structure is logical, but Wikipedia is cited (disallowed) and figures/tables are unnumbered"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Mission Design - Orbit",
+      "issue": "Inclination 87.79° is prograde and not sun-synchronous at 600 km (~97.8° required); contradicts the student's own inclination-vs-altitude plot and the 'retrograde' description."
+    },
+    {
+      "where": "Mission Design - Orbit (COE table)",
+      "issue": "Semi-major axis 7171 km is wrong: 6371 + 600 = 6971 km."
+    },
+    {
+      "where": "Mission Design - Launch",
+      "issue": "Kourou's latitude stated as 45.05°N; actual is ~5.2°N."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Claims 'almost twenty minutes' mean contact, but the STK table shows mean duration 580.786 s (~9.7 min)."
+    },
+    {
+      "where": "Mission Design - Orbit (COE table)",
+      "issue": "RAAN 27.33° said to indicate launch facility location, inconsistent with Kourou (~52°W)."
+    },
+    {
+      "where": "Mission Design - Orbit",
+      "issue": "Text states low resolution from high altitude 'is also desirable' - contradicts the resolution requirement."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "Reference [6] is Wikipedia, explicitly not an acceptable source."
+    }
+  ],
+  "overall": "A well-structured, plausible mission concept (reef-monitoring SSO satellite) with genuine STK evidence covering nearly all requirements. However, multiple numerical errors (inclination, semi-major axis, site latitude, contact duration), Wikipedia sourcing, and unnumbered figures keep it at Adequate rather than Accomplished."
+}

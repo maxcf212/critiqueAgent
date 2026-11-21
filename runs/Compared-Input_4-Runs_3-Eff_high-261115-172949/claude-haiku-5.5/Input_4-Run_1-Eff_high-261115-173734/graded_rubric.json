@@ -1,0 +1,265 @@
+{
+  "total": 26.0,
+  "total_max": 40.0,
+  "percent": 65.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are chosen and tied to the scenario (lunch peak, 4.2 s p95). Both scenarios have all six parts, but the availability response measure ('stay up most of the time') is not measurable. Limited scenario words also push the section over the limit.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "because the business depends on the lunch hour: 900 orders arrive between 12:00 and 13:00",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation with trade-offs tied to the five-person team and the single-VM and deployment problems. The downside (no independent scaling, shared crash domain) is acknowledged. The answer exceeds 150 words, which is a format matter under C7 rather than here.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The slow lunchtime responses come from running on a single virtual machine",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) 99.30% and (b) 5.0 h are correct with working. Part (c) reports payment availability (99.9975%) as end-to-end, ignoring the other three components. Correct end-to-end is about 99.80% and 1.5 h/month. Precision breaks the two-decimal and one-decimal rules.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "which reduces the downtime to 0.000025 × 720 = 0.018 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Circuit breaker is an appropriate pattern and its states are explained correctly. It is applied to the outage with a plausible outcome. No drawback is stated, and the threshold example is not discussed as a tuning trade-off. The 'within seconds' claim is unsupported.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "the breaker would have opened within seconds of the provider slowing down.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds)",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Choices are reasonable and techniques are named (TTL caching, idempotency keys). The CAP theorem is misstated: partition tolerance is not optional in a distributed system, and 'consistency and availability' contradicts choosing consistency during a partition.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Redis with a 60-second TTL",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are present and specific to the tablet and p95 problems. Consequences are one-sided, with no negative consequence (e.g., added operational complexity, duplicate notifications, ordering). Status 'Proposed' is a minor addition.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 4.0,
+      "points": 2.0,
+      "max": 4.0,
+      "reasoning": "Headings and IEEE-style citations are present. Question 2 is clearly over 150 words and Question 1 appears to exceed the limit. Precision formatting is wrong in Question 3(c). No assumptions section is provided.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Instead the existing application should be restructured into a modular monolith with clear internal modules",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[2] M. T. Nygard, Release It! Design and Deploy Production-Ready Software, 2nd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure ('stay up most of the time') is not measurable."
+    },
+    {
+      "where": "Question 3(c)",
+      "issue": "End-to-end availability ignores the other three components; correct value is about 99.80% and 1.5 h/month, not 99.9975%."
+    },
+    {
+      "where": "Question 3(c)",
+      "issue": "Precision violates the rules: 99.9975% has four decimals and 0.018 h is not given to one decimal place."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP misstated: partition tolerance is not optional; the 'choose consistency and availability' statement contradicts choosing consistency during a partition."
+    },
+    {
+      "where": "Question 4",
+      "issue": "No drawback or tuning trade-off is discussed; the 'within seconds' outcome is asserted without support."
+    },
+    {
+      "where": "Question 6",
+      "issue": "Consequences list only positives; no negative consequence such as duplicate delivery or added operational complexity."
+    },
+    {
+      "where": "Overall",
+      "issue": "No assumptions section is provided, despite the requirement to state assumptions."
+    }
+  ],
+  "overall": "Solid Question 2 and Question 4 reasoning and correct Question 3(a)-(b). Marks are lost to a non-measurable availability measure, an incorrect end-to-end calculation and precision errors, a misstated CAP argument, a one-sided ADR, missing assumptions and word-limit overruns.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You show strong understanding in several areas. Your modular-monolith recommendation in Question 2, your circuit-breaker reasoning in Question 4 and your decision record in Question 6 are all well developed. The main losses are in Question 3(c), where end-to-end availability must include all four components, the CAP argument in Question 5, the non-measurable availability measure, and the missing assumptions section and word-limit control.",
+    "next_steps": [
+      "Recalculate Question 3(c) using all four components in series, not payment alone. Present percentages to two decimal places and hours to one decimal place, as the question requires.",
+      "Make the availability response measure in Question 1 numeric, for example a target percentage over a stated period. Add a short assumptions section, and trim Questions 1 and 2 to within 150 words each.",
+      "Correct your CAP reasoning: partition tolerance must be assumed in a distributed system, so the real choice during a partition is consistency or availability. Add a negative consequence to your ADR and a drawback or tuning consideration to your circuit-breaker answer."
+    ],
+    "criteria": {
+      "C1": "You chose performance and availability and tied them clearly to the scenario, citing the lunch peak of 900 orders between 12:00 and 13:00 and the 4.2 s p95 latency. Both scenarios have all six parts. To reach Excellent, make the availability response measure measurable, for example with a stated percentage target over a defined period. Also trim the scenario text to fit the word limit.",
+      "C2": "Your recommendation of a modular monolith is clear and well reasoned. You linked it to the five-person team, noting that eight or ten services would take more time on infrastructure than on features, and to the single-VM cause of slow lunchtime responses. You also acknowledged the downside of no independent scaling and a shared crash domain. Shorten the answer to 150 words to meet the format requirement.",
+      "C3": "Parts (a) at 99.30% and (b) at 5.0 hours per month are correct, and your working is clear. In part (c), your end-to-end figure reflects payment alone and ignores the other three components in series. Recalculate using all four components; the end-to-end result should be about 99.80% and 1.5 hours per month. Also apply the precision rules: two decimal places for percentages and one for hours.",
+      "C4": "Circuit breaker is a suitable pattern, and you explained its states correctly. You applied it to the provider slowdown, showing how it would stop calls to the slow dependency. To reach Excellent, add a drawback or tuning consideration, such as how the failure threshold and time window (for example 50% of calls in 10 seconds) could cause false trips or slow recovery. Also support your claim that the breaker opens 'within seconds'.",
+      "C5": "Your choices are reasonable. Caching with a TTL and idempotency keys for payments are appropriate, concrete techniques. However, the CAP argument needs correcting. Partition tolerance cannot be given up in a distributed system, so during a partition you must choose between consistency and availability. Restate your payment choice in those terms and justify it clearly.",
+      "C6": "Your decision record has clear Context, Decision and Consequences sections that are specific to the tablet dependency and the p95 latency problem. However, the consequences list only benefits. Add at least one negative consequence, such as delayed or duplicate notifications, ordering issues, or the added operational complexity of a queue, and state the trade-off you accept.",
+      "C7": "Your headings are clear and your IEEE-style references are present, which is good. Question 2 and probably Question 1 exceed the 150-word limit, so tighten both. Question 3(c) does not follow the precision rules. The brief requires an assumptions section, which is missing; add a short list of assumptions, such as the component availability figures you used, so that your calculations can be evaluated."
+    }
+  }
+}

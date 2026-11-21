@@ -1,0 +1,287 @@
+{
+  "total": 28.0,
+  "total_max": 40.0,
+  "percent": 70.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Both attributes are relevant and tied to the lunch-hour scenario. The performance scenario has a measurable response measure, but the availability measure (“most of the time”) is not measurable. The six parts are otherwise identifiable in both scenarios.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The two most important quality attributes are performance and availability",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "The recommendation is clear and grounded in team size, the single-VM bottleneck, and deployment downtime. It gives specific trade-offs and acknowledges the downside of a modular monolith.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Instead the existing application should be restructured into a modular monolith",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) and (b) are correct to the requested precision. In (c), the student correctly calculates redundant payment availability but treats it as end-to-end availability, omitting the other required components. The resulting availability and downtime are therefore incorrect.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.0 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "The pattern’s states and failure-containment mechanism are accurately explained and applied to the slow-provider outage. The threshold and time window provide a tuning consideration.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "After a wait period the breaker goes Half-Open and lets a few trial calls through.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "for example 50% of calls in 10 seconds",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "The menu choice and cache technique are reasonable, and an idempotency key is a concrete payment retry technique. However, the CAP explanation is incorrect: during a partition, a distributed system cannot guarantee both consistency and availability; partition tolerance is not an option that can simply be given up in that situation.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "I would favour availability.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "a slightly stale menu from a cache (for example Redis with a 60-second TTL)",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says a system can only provide two of consistency, availability and partition tolerance",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context, decision, and positive consequences are specific and present. No negative consequence of introducing the queue is stated, such as additional operational complexity or eventual notification delay.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ).",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders at a steady rate.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "All six required headings appear in order, answers are within the 150-word limit, and external sources are cited in IEEE-style numbered form with a reference list. Writing is clear and terminology is generally precise.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "## Question 1",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "The availability response measure, “stay up most of the time,” is not measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) reports redundant payment-provider availability as end-to-end order-placement availability. Including the other required components, availability is approximately 99.80%, with about 1.5 hours of downtime per 30-day month."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP is misstated: under a network partition, a distributed system must trade off consistency and availability; it cannot choose consistency and availability while giving up partition tolerance."
+    },
+    {
+      "where": "Question 6",
+      "issue": "The ADR omits a negative consequence of the queue decision."
+    },
+    {
+      "where": "References",
+      "issue": "No assumptions are explicitly stated, despite the task requirement to state any assumptions."
+    }
+  ],
+  "overall": "Strong, scenario-specific architecture reasoning and clear presentation. The main technical errors are the end-to-end availability calculation in Q3(c) and the CAP explanation in Q5. The availability scenario’s response measure is vague, and the ADR lacks a negative consequence.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 20,
+    "quotes_found": 20,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You present clear, scenario-specific architecture reasoning, especially in Questions 2 and 4, and your communication meets the rubric’s highest level. To strengthen the work further, make the availability response measurable, correct the end-to-end calculation in Question 3(c), explain CAP accurately, and include a negative consequence in your ADR.",
+    "next_steps": [
+      "In Question 1, replace “stay up most of the time” with a measurable availability target, such as a specified percentage over a stated period, and check that each scenario includes all six parts.",
+      "In Question 3(c), distinguish the redundant payment-provider availability from end-to-end order-placement availability; include all required components and show the resulting monthly downtime. In Question 5, explain that during a network partition, consistency and availability must be traded off, then connect each choice to its technique.",
+      "In Question 6, add a specific negative consequence of the queue decision, such as added operational complexity or delayed notifications. State any assumptions explicitly, as required by the task. Retain the scenario-specific trade-offs in Question 2 and the outage application and tuning consideration in Question 4."
+    ],
+    "criteria": {
+      "C1": "In Question 1, you chose relevant attributes and gave a measurable performance response measure. Make “stay up most of the time” measurable to meet the next level’s response-measure requirement.",
+      "C2": "In Question 2, your modular-monolith recommendation is grounded in the five-person team and existing bottleneck, and you acknowledge a downside. Keep these scenario-specific trade-offs clear.",
+      "C3": "In Question 3, parts (a) and (b) are correct. In part (c), you report payment-provider availability as end-to-end availability; include all required components and recalculate the result and downtime.",
+      "C4": "In Question 4, you explain and apply the Circuit Breaker to the provider outage, and give a threshold and time window as tuning considerations. This is a strong, complete response.",
+      "C5": "In Question 5, your menu-cache choice and payment idempotency key are concrete. Correct the CAP explanation: under a partition, consistency and availability trade off; partition tolerance is not the option to give up.",
+      "C6": "In Question 6, your Context, Decision and positive consequences are specific to the scenario. Add at least one negative consequence of the queue decision to complete the ADR.",
+      "C7": "Your headings, concise answers and IEEE-style numbered citations meet the communication requirements. Also state any assumptions explicitly, as the task requires."
+    }
+  }
+}

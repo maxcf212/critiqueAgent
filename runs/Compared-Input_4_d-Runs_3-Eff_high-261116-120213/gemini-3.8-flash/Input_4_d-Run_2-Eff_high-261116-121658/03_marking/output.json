@@ -1,0 +1,152 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are well-chosen and justified. However, the availability scenario's response measure is vague and unmeasurable rather than quantified."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Recommends a modular monolith with two clear trade-offs tailored to team size, VM setup, and deployment issues. Downsides are explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "Part (a) is correct. Part (b) contains an arithmetic error (0.00699 × 720 = 5.03 h, not 3.5 h). Part (c) equates payment availability to end-to-end availability."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally. When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed"
+        }
+      ],
+      "reasoning": "Identifies circuit breaker and applies it, but inverts the fundamental Open and Closed states. Additionally, no drawback or tuning consideration is provided."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Choices are sensible and caching is named for browsing. However, CAP theorem is misstated by claiming CA can be chosen over P, and no technique is named for orders/payments."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, decision, and positive consequences are well specified and grounded in the scenario. However, consequences are entirely one-sided, omitting negative impacts."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months."
+        }
+      ],
+      "reasoning": "Headings are followed and writing is structured, but Question 2 exceeds the 150-word limit (178 words) and reference [2] is missing from the reference list."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability scenario response measure ('most of the time') is subjective and non-measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Calculation error in (b): 0.00699 * 720 = 5.03 hours, not 3.5. In (c), end-to-end availability omitted the remaining components, mistakenly treating 99.9975% payment availability as overall availability."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states are inverted: Open was described as normal flow and Closed as failing fast. Drawbacks/tuning considerations were also omitted."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Misapplication of CAP theorem asserting that a partitioned distributed system can choose consistency and availability over partition tolerance; no concrete technique was provided for orders/payments."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequences or trade-offs (e.g., message queue maintenance overhead, eventual consistency) are documented in the ADR."
+    },
+    {
+      "where": "References",
+      "issue": "Source [2] cited in Question 4 is omitted from the reference list."
+    }
+  ],
+  "overall": "Good architectural reasoning in Q2 and Q6. However, marks were lost due to an unmeasurable response measure, arithmetic and series availability errors in Q3, inverted circuit breaker states in Q4, misapplying CAP in Q5, and omitting negative ADR consequences."
+}

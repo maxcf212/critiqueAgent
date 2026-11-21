@@ -1,0 +1,17 @@
+{
+  "summary": "You demonstrated strong architectural reasoning in your modular monolith analysis (Question 2) and structured your ADR well in Question 6. To improve future submissions, focus on quantitative precision in your calculations (Question 3) and quality attribute response measures (Question 1). Additionally, refine technical accuracy regarding distributed resilience patterns (Question 4) and CAP trade-offs (Question 5), while adhering strictly to word limits and citation requirements.",
+  "next_steps": [
+    "Recalculate end-to-end availability by ensuring parallel subsystems are factored back into the broader series system formula.",
+    "Review distributed systems definitions, specifically the state transitions of the Circuit Breaker pattern and CAP theorem implications during network partitions.",
+    "Ensure architectural evaluations consistently document negative trade-offs and operational overhead alongside positive outcomes in ADRs."
+  ],
+  "criteria": {
+    "C1": "You selected relevant quality attributes and developed a strong, measurable performance scenario. In Question 1, however, your availability response measure ('stay up most of the time') is qualitative. To reach Excellent, specify an exact, quantifiable response measure for both scenarios (such as achieving 99.9% uptime or defining a maximum permissible downtime per month).",
+    "C2": "Excellent work in Question 2! You provided a well-justified recommendation for a modular monolith, explicitly tailoring trade-offs to the five-developer team size and operational constraints while clearly acknowledging key downsides like shared failure domains.",
+    "C3": "You solved part (a) correctly. In part (b), check your arithmetic (0.00699 × 720 equals 5.03 hours). For part (c), ensure the parallel payment subsystem is multiplied back into the remaining series components. To reach Proficient, apply the complete series calculation across all required parts.",
+    "C4": "In Question 4, you appropriately selected the Circuit Breaker pattern for external outages. However, your explanation inverted the state machine: requests pass through when Closed and fail fast when Open. To reach Excellent, describe these states accurately and include tuning considerations or drawbacks, such as timeout thresholds.",
+    "C5": "Your trade-off choices and recommendation of Redis caching for menu browsing in Question 5 were well-reasoned. To reach Excellent, clarify that partition tolerance cannot be sacrificed during network partitions under the CAP theorem, and propose a concrete technique (such as a Saga or two-phase commit) for order placement and payment.",
+    "C6": "In Question 6, your ADR Context and Decision sections are clear and tailored to CampusEats. However, the Consequences section only listed benefits. To reach Excellent, ensure you also document negative consequences or operational trade-offs, such as increased broker management or handling eventual consistency.",
+    "C7": "Your writing is clear with correct structural headings. To reach Excellent, keep all responses strictly within the 150-word limit (Question 2 exceeded this at ~188 words) and ensure every in-text citation, such as [2] in Question 4, is fully documented in your reference list."
+  }
+}

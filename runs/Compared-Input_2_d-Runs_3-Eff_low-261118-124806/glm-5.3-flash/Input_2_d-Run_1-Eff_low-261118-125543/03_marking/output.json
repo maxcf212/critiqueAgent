@@ -1,0 +1,148 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        },
+        {
+          "where": "Introduction",
+          "quote": "would allow marine and conservation scientists to more accurately predict and react to coral bleaching events"
+        }
+      ],
+      "reasoning": "Mission, rationale and single-spacecraft choice are well covered with references. However, users are only vaguely identified: operator implied (Australian facilities) and customers (scientists) mentioned but not explicitly defined as operator/customers, so not all requirements addressed to a high standard."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of 87.7924°"
+        },
+        {
+          "where": "Launch",
+          "quote": "situated very close to the equator, with a latitude of 45.05°N"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "An average contact duration of almost twenty minutes was achieved"
+        }
+      ],
+      "reasoning": "Launch, orbit, elements, manoeuvres, ground station, comms frequency and EOL all addressed with STK evidence. But significant technical errors: Kourou is at ~5.2°N not 45.05°N; SSO inclination at 600 km should be ~97.8° (retrograde), not 87.79° (prograde), contradicting the 'retrograde' claim; no STK files/appendix evident."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet."
+        }
+      ],
+      "reasoning": "Conclusions are specific and trace back to report evidence, including risks (Vega E availability) and design rationale; not generic."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight."
+        },
+        {
+          "where": "Orbit",
+          "quote": "STK 3D view of orbit: 12 hours apart"
+        }
+      ],
+      "reasoning": "Clear structure, executive summary, contents, labelled figures and tables, consistent citations. Minor flaws: Wikipedia used (unacceptable per task), some figure captions minimal, occasional grammar slips ('It's first launch', 'complied daily'), preventing a higher mark."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Mission Design – Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Mission Design – Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications (STK)"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Orbit / Ground Control (screenshots present; no STK files/appendix evident)"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography (Wikipedia cited, not acceptable)"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Launch",
+      "issue": "Kourou's latitude stated as 45.05°N; actual is ~5.2°N. The claim that this is 'smaller than the target inclination' enabling two windows/day is based on the wrong value."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Sun-synchronous inclination at 600 km should be ~97.8° (retrograde); 87.79° is prograde and cannot be sun-synchronous, contradicting the stated retrograde orbit and Image 3 (~97.8° at 600 km)."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Text states high altitude yields 'low resolution images which is also desirable' – likely an error; low resolution is undesirable."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Contradictory phrasing: 'without thrusters... uncontrolled descent... However, the ZYZZsat is without thrust capability' repeats and muddles the drag-sail rationale."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "Wikipedia used as a source, which the task disallows; some references incomplete (e.g. '[10 d.]')."
+    }
+  ],
+  "overall": "A well-structured, mostly comprehensive mission design with good STK evidence, but undermined by key technical errors (wrong Kourou latitude, incorrect SSO inclination contradicting the retrograde claim), vague user identification, no software files provided, and use of Wikipedia as a source."
+}

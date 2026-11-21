@@ -1,0 +1,188 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "1 Introduction, Primary mission",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution"
+        },
+        {
+          "where": "1 Introduction, Number of spacecraft",
+          "quote": "One satellite is therefore used."
+        },
+        {
+          "where": "1 Introduction, Users",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS), which already runs the long-term monitoring program for the reef"
+        }
+      ],
+      "reasoning": "All four required questions are answered with justification: mission need is built from the limits of existing bleaching monitoring, single-satellite choice is argued, and operator and customers are named. References [1]-[6] support the rationale. Minor gaps: some claims are uncited (reliance of humans on reefs, government funding), and the tone is informal in places."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025"
+        },
+        {
+          "where": "2.3 Orbit, Inclination",
+          "quote": "This agrees with the STK value of 97.7924°."
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "so about 60 percent of the contact time, or 34 minutes per day, is counted."
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "it is in the Earth's shadow for about 34 minutes of each orbit"
+        },
+        {
+          "where": "Table 6 (2.4)",
+          "quote": "One strip over the reef: 60 km × 1,000 km"
+        },
+        {
+          "where": "2.3 Orbit, Table 3",
+          "quote": "A complete map of the reef directly from overhead takes about 45 days."
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "A full link budget for the X-band downlink has not been calculated in this report"
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "Without the sail the satellite would stay in orbit for about 32 years"
+        }
+      ],
+      "reasoning": "Strong, largely verified calculations: launch azimuth, J2 inclination, 771 s maximum pass, access statistics, drag decay and data budget all check out. Accuracy is reduced by errors and inconsistencies: 510 s of 771 s is about 66 percent, not 60; the 34-minute eclipse looks high for an 08:45 node; the 60,000 km² daily area conflicts with the 45-day mosaic; the link budget is unclosed."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "ZYZZsat meets the mission needs set out in the introduction with one 50 kg satellite."
+        },
+        {
+          "where": "3 Conclusion",
+          "quote": "the 45-day complete map is slower than the weekly coverage that reef managers would prefer"
+        }
+      ],
+      "reasoning": "Conclusions are specific and tied to the evidence: revisit times, pass statistics, downlink margin and decay lifetime are restated with numbers. Four named limitations are identified with consequences and next steps. Minor weakness: the claim that managers prefer weekly coverage is uncited."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "The design is supported by STK simulations and by hand calculations of the orbit, coverage, data budget and orbital decay."
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "but this is not even the full extent of their nurture"
+        },
+        {
+          "where": "2.3 Orbit, Figure 2",
+          "quote": "Figure 2: Inclination required for a sun-synchronous orbit as a function of altitude."
+        },
+        {
+          "where": "Executive Summary",
+          "quote": "this gives about three times the downlink capacity the imaging plan needs"
+        }
+      ],
+      "reasoning": "Clear report structure with executive summary, numbered sections, numbered and captioned tables and figures, and consistent IEEE-style references. Weaknesses: informal phrasing in places, some uncited claims, and a downlink margin given as about three times in the summary but 3.5 in Section 2.4."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction, Primary mission"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction, Number of spacecraft; Table 1"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction, Users"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit, Table 4"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit, Manoeuvres"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications, Table 5"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3 Orbit, 2.4, Appendix A (STK 11)"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Figures 1, 3, 4; Appendix A"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography; body text"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "510 s of 771 s is about 66 percent of a pass, not 60 percent. Using 66 percent gives about 38 min/day, changing the 34-min figure and the downlink margin."
+    },
+    {
+      "where": "2.3 Orbit (eclipse statement) and Table 1",
+      "issue": "A 34-minute eclipse implies a beta angle near 10 degrees. An 08:45 node time gives roughly 28 min by estimate (beta about 49 degrees). Verify in STK or correct the figure."
+    },
+    {
+      "where": "Table 6 vs Table 3 and 1 Introduction",
+      "issue": "One 60 km x 1,000 km strip per day gives about 6 days to image the 344,400 km2 reef, conflicting with the 45-day nadir mosaic and the reef-coverage narrative. The daily imaging assumption is not reconciled with track geometry."
+    },
+    {
+      "where": "2.5 Mission Duration & EOL, Table 7",
+      "issue": "Lifetime is estimated as scale height divided by a constant decay rate using one density, which is crude. Decay rates change strongly with altitude, so the 32-year and 2.2-year figures need numerical propagation or a caveat."
+    },
+    {
+      "where": "2.4 Ground Control & Communications, Table 6",
+      "issue": "The 50 Mbit/s X-band downlink margin is presented as adequate without a link budget. This is acknowledged but weakens the conclusion."
+    },
+    {
+      "where": "Appendix A, Table A1",
+      "issue": "The facility file extension is given as .f; STK facility files normally use .fac. Check that the submitted files open in STK."
+    }
+  ],
+  "overall": "Comprehensive, mostly accurate mission design with verified orbit, launch and drag calculations and strong structure. Deductions for numerical inconsistencies (contact fraction, eclipse time, revisit versus daily area), an unclosed link budget, some uncited claims and informal phrasing."
+}

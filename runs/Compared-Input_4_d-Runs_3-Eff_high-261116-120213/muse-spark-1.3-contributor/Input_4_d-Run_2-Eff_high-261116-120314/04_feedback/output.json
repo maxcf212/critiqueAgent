@@ -1,0 +1,17 @@
+{
+  "summary": "You showed strong scenario reasoning, especially in Question 2 modular monolith. Your performance scenario, ADR context and browsing cache are good. To improve, make availability measurable, fix calculations, correct breaker states and CAP, add ADR negative and fix length/citations.",
+  "next_steps": [
+    "Rewrite Q1 availability response to a measurable target and check all six parts for both scenarios.",
+    "Recalculate Q3(b)-(c) end-to-end availability/downtime to requested precision and correct Q4 breaker Open/Closed/Half-Open with a drawback.",
+    "Fix Q5 CAP wording plus concrete orders technique, add Q6 negative consequence, trim Q2 to 150 words and complete References."
+  ],
+  "criteria": {
+    "C1": "You chose relevant attributes and your performance scenario in Question 1 is complete with measurable 'p95 under 1.5 s'. Well done. For Excellent, rewrite your availability response 'stay up most of the time' as a measurable measure with all six parts complete.",
+    "C2": "Excellent work in Question 2: you recommended modular monolith with two scenario-specific trade-offs about five developers and single-VM downtime, and you acknowledged scaling/crash downside. To stay Excellent, keep linking both trade-offs and downside to scenario.",
+    "C3": "Your Question 3(a) 99.30% was correct with working. To move up, fix (b) to 0.00699x720 ~5.0h not 3.5h, recalculate (c) end-to-end ~99.80% ~1.5h not payment-only 99.9975%, and show working to requested precision.",
+    "C4": "You correctly chose Circuit Breaker for the outage in Question 4 with threshold example. For higher level, correct states: Closed passes normally, Open fails fast, Half-Open probes recovery; and add a drawback/tuning trade-off.",
+    "C5": "Your Question 5 choices AP browsing with Redis 60-second TTL and CP payments are sensible. For Excellent, correct CAP: you cannot give up partition tolerance, and name a concrete technique for orders/payments as you did for browsing.",
+    "C6": "Your Question 6 ADR gives specific context on synchronous tablet call at lunch peak and decision to publish OrderPaid via RabbitMQ. For Excellent, add at least one negative consequence like complexity or lag alongside positives.",
+    "C7": "Your headings and IEEE [1] are clear. For Excellent, keep every answer within 150 words — shorten Question 2 from ~180 — list cited [2] in References and use precise breaker terms."
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "total": 67.0,
+  "total_max": 100.0,
+  "percent": 67.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Introduction: mission concept and rationale. Include the following required information: What is the spacecraft's primary mission? Why is the mission needed? How many spacecraft are used and why? Who are the users (operator and customers)?",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 8.0,
+      "max": 10.0,
+      "reasoning": "All required elements addressed: primary mission (fluid-lensing reef monitoring), rationale with bleaching statistics and references, single-spacecraft justification, and users/funding. Detail is good though user discussion is brief and operator vs customer roles could be sharper.",
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Coral reefs, specifically the Great Barrier Reef, would immensely benefit from dedicated satellite monitoring.",
+          "verified": true
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required.",
+          "verified": true
+        },
+        {
+          "where": "Introduction",
+          "quote": "The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM)",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Main body: mission design. Present a summary of the mission design using software and/or hand calculations as appropriate. Include relevant screenshots and software files in the main body of the report and/or appendix. Include the following information: Where will it launch from, and using which launch vehicle? Why did you choose this option? What type of orbit will you use? What are its characteristics and orbital elements? Will you need to perform any orbital maneuvers? Which ground control facilities will you use? How often will your spacecraft be able to communicate with ground control? How long will the mission last, and what are your plans for EOL?",
+      "weight": 60.0,
+      "level": "Accomplished",
+      "mark": 7.0,
+      "scale": 10.0,
+      "points": 42.0,
+      "max": 60.0,
+      "reasoning": "Launch, orbit (COE table, J2 hand calc plot), manoeuvres, ground station with STK access report, duration and EOL all addressed with screenshots and evidence. Weaknesses: RAAN value incorrectly tied to launch site, contradictory altitude-resolution statement, no explicit STK files/appendix, EOL discussion muddled.",
+      "evidence": [
+        {
+          "where": "Mission Design - Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle – launched from the Guiana Space Centre Spaceport.",
+          "verified": true
+        },
+        {
+          "where": "Mission Design - Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of 97.7924°",
+          "verified": true
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "Systems Tool Kit 11 (STK) was used to calculate access periods as seen below:",
+          "verified": true
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "The most promising alternative is a ‘drag sail’",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Conclusion",
+      "weight": 10.0,
+      "level": "Adequate",
+      "mark": 7.0,
+      "scale": 10.0,
+      "points": 7.0,
+      "max": 10.0,
+      "reasoning": "Conclusions summarise each segment and acknowledge risks (Vega E availability, fallback to Vega C). Reasonably specific but brief; no quantitative recap (e.g. access statistics, orbit elements) and no forward recommendations beyond launch contingency.",
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Adequate",
+      "mark": 5.0,
+      "scale": 10.0,
+      "points": 10.0,
+      "max": 20.0,
+      "reasoning": "Structure is logical with headings and executive summary, but figures/tables lack numbers, references are bare URLs including Wikipedia (explicitly disallowed), bibliography entries malformed, and several typos/unfinished sentences ('complied', 'purposed', broken drag-sail sentence). Not professional-level presentation.",
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online].",
+          "verified": true
+        },
+        {
+          "where": "Orbit",
+          "quote": "STK 3D view of orbit: 12 hours apart",
+          "verified": true
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "utilising a large surface area to ‘ and is suitable for low-earth orbit altitudes",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction - 'Thus, only one satellite is required.'"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Introduction - CSIRO/BOM users, government/university funding"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Mission Design - Launch (Vega E, Guiana Space Centre)"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Mission Design - Orbit (COE table: a=6971km, e=0, i=97.79°)"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Orbit - 'the only orbital manoeuvre occurs at the EOL segment'"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications (Mt Pleasant, STK access summary)"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL (5 years, drag sail)"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "STK simulations and MATLAB inclination-vs-altitude plot"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Screenshots included (Images 1-5, access report) but no explicit STK scenario files or appendix provided"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Structure is clear, but Wikipedia is cited and references are bare URLs without proper citation format"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Mission Design - Orbit",
+      "issue": "'A very high altitude would yield low resolution images which is also desirable' – contradiction; low resolution is undesirable for reef imaging."
+    },
+    {
+      "where": "Mission Design - Orbit",
+      "issue": "RAAN of 27.33° claimed to 'indicate the location of the launch facility'; Kourou is at ~52°W and RAAN is not set by launch-site longitude."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Contradictory paragraph: satellite 'without thrusters' yet discusses choosing uncontrolled descent, then restates it has no thrust capability; drag-sail sentence is incomplete."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "Wikipedia used as a source, which the task explicitly disallows; references lack titles/authors/access dates."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Claim that vertical inclination 'maintains a significant contact for the vast majority of passes' is vague and unsupported; access table shows duplicated access number 13."
+    }
+  ],
+  "overall": "A well-motivated Australian reef-monitoring CubeSat-style mission with sound SSO selection, STK access analysis and EOL planning. Main weaknesses are internal contradictions, a questionable RAAN justification, missing STK files, and sub-professional referencing (Wikipedia, bare URLs) and figure/table labelling.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": [
+      "C3"
+    ]
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 11,
+    "quotes_found": 11,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You presented a well-motivated Australian reef-monitoring CubeSat mission with a sound sun-synchronous orbit choice, STK access analysis and drag-sail EOL plan. The introduction is strong, but internal contradictions (altitude vs resolution, thrusters at EOL), an incorrect RAAN justification, missing STK scenario files and sub-professional referencing (Wikipedia, bare URLs) held the report back.",
+    "next_steps": [
+      "Fix internal contradictions: clarify that low resolution is undesirable for reef imaging, and rewrite the EOL section so the thruster/descent discussion and drag-sail sentence are consistent and complete.",
+      "Replace Wikipedia with primary sources and format all references consistently (authors, titles, dates); number and caption all figures and tables.",
+      "Attach your STK scenario files and access reports in an appendix, and add a quantitative recap (orbit elements, access statistics) to strengthen the conclusion."
+    ],
+    "criteria": {
+      "C1": "Accomplished (8/10). You addressed all required elements: the fluid-lensing reef-monitoring mission, rationale with bleaching statistics, the single-satellite justification, and users/funding (CSIRO, BOM). To reach the top band, sharpen the operator-vs-customer roles and expand the user discussion with more detail and literature support.",
+      "C2": "Accomplished (7/10, 42/60). Launch (Vega E from Guiana), orbit (COE table, J2 inclination plot), manoeuvres, ground station with STK access analysis, and 5-year duration with drag-sail EOL are all evidenced. Next level requires: correcting the RAAN justification (RAAN is not set by launch-site longitude; Kourou is ~52°W), resolving the altitude-resolution contradiction, justifying contact-frequency claims quantitatively, and including STK scenario files in an appendix.",
+      "C3": "Adequate (7/10). Your conclusions summarise each segment and acknowledge risks such as Vega E availability with a Vega C fallback. To reach Accomplished, add a quantitative recap of key results (orbit elements, access statistics, EOL timeline) and forward recommendations beyond the launch contingency.",
+      "C4": "Adequate (5/10). Your structure is logical with headings and an executive summary, but figures and tables lack numbers, references are bare URLs including Wikipedia (explicitly disallowed), and typos/unfinished sentences (e.g. the broken drag-sail sentence) reduce professionalism. Number all figures/tables, fix proofreading, and adopt a consistent citation style to reach the top band."
+    }
+  }
+}

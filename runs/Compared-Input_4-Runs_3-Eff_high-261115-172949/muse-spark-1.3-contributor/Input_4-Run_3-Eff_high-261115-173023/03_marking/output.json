@@ -1,0 +1,140 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Attributes performance/availability justified from lunch peak and abandonment. Performance scenario has all six parts with measurable p95 <1.5s. Availability scenario lacks measurable response measure ('most of the time') not quantifiable, so one scenario incomplete."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure"
+        }
+      ],
+      "reasoning": "Clear recommendation for modular monolith not full microservices. Two specific trade-offs: team size vs ops overhead and VM/deployment issues fixable without rewrite. Downside acknowledged: no independent scaling and shared failure domain."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "(a) 0.99301=99.30% correct. (b) 5.0h correct. (c) payment redundancy calc correct but then omitted other components; used 0.999975 as end-to-end and downtime 0.000025*720. Should be ~99.80% and ~1.5h. One part incorrect, method otherwise correct."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open"
+        }
+      ],
+      "reasoning": "Circuit Breaker is appropriate. States Closed/Open/Half-Open explained correctly and applied to 25-min outage with fast-fail UX. Tuning consideration provided via threshold and wait period example."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "CAP theorem says a system can only provide two of consistency, availability and partition tolerance, so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Menu favours availability (stale cache) and orders favour consistency both reasonable. CAP explanation wrong - partition tolerance cannot be given up. Concrete technique for menu (Redis TTL) ok, but idempotency key is not a consistency technique for payments, so technique weak/imprecise."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "ADR has Context, Decision, Consequences specific to synchronous outlet calls and 4.2s p95. Positives given (response time, offline handling, smoothing peak) but no negative consequence (ops complexity, eventual consistency, duplicate delivery) listed, so one-sided."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months."
+        }
+      ],
+      "reasoning": "Headings used, IEEE citations and reference list present, precise terminology. Q2 exceeds 150-word limit, others near limit, so one answer over limit triggers Proficient with minor formatting issue."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "(a)(b) correct but (c) calculates end-to-end availability as payment availability alone 99.9975% instead of A_db*A_app*A_api*A_pay_new = ~99.80% (approx 99.79-99.80 depending rounding) and downtime ~1.4-1.5h not 0.018h."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP statement chooses C+A and gives up P, incorrect. Partition tolerance is required in distributed system; choice is between C and A during partition. Idempotency key is resilience not consistency guarantee."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability scenario response measure 'stay up most of the time' not measurable; needs percentage or threshold."
+    }
+  ],
+  "overall": "Mostly sound with specific scenario reasoning and correct series math, but misses measurable measure, miscalculates redundant end-to-end availability, misstates CAP, and omits negative ADR consequence. Exceeds word limit in Q2."
+}

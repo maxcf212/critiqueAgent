@@ -1,0 +1,17 @@
+{
+  "summary": "You earned 29/40. Your strongest work is the scenario-specific modular-monolith recommendation in Q2 and the circuit-breaker explanation in Q4. To progress, make Q1’s availability target measurable, correct the end-to-end calculation in Q3(c), apply CAP precisely in Q5, and add balanced consequences in Q6. Also reduce Q2 to the 150-word limit.",
+  "next_steps": [
+    "Revise Q1’s availability scenario with a numerical target, correct Q3(c) by including all end-to-end components, and show the resulting availability and monthly downtime to the requested precision.",
+    "Correct Q5’s CAP explanation: during a partition, consistency-focused behaviour sacrifices availability for affected requests; retain concrete techniques such as menu caching and payment idempotency.",
+    "Add a negative consequence and distinguish order persistence from notification delivery in Q6; then edit Q2 to 150 words or fewer and check IEEE citation and formatting requirements."
+  ],
+  "criteria": {
+    "C1": "You appropriately justified performance using lunch-hour demand and the p95 response target in Q1. Your availability scenario is relevant and has six parts, but “stay up most of the time” is not measurable. The Excellent level requires measurable response measures for both scenarios, such as a numerical availability target and time period.",
+    "C2": "Your modular-monolith recommendation is excellent: Q2 links the five-person team, infrastructure overhead, VM and deployment problems, and rewrite cost to clear trade-offs, while acknowledging shared-process risk. Maintain this scenario-specific reasoning; ensure the answer also remains within the 150-word communication limit.",
+    "C3": "Parts (a) and (b) in Q3 are correctly calculated and rounded. In part (c), you correctly calculated redundant payment availability but treated it as end-to-end availability. Recalculate using all required components, report approximately 99.80% and 1.5 hours monthly downtime, and show working to reach Excellent.",
+    "C4": "Your Q4 circuit-breaker answer is excellent. You correctly explain the states and mechanism, apply them to the slow payment-provider outage, and give a threshold and time window as tuning considerations. Continue linking the pattern’s behaviour directly to the CampusEats failure scenario.",
+    "C5": "Your choices and techniques in Q5 are reasonable, including cached menus and payment idempotency. However, CAP is stated imprecisely. During a partition, consistency and availability cannot both be guaranteed; consistency-focused behaviour sacrifices availability for affected requests. Correct this explanation to reach Excellent.",
+    "C6": "Q6 includes a scenario-specific Context, Decision and Consequences, and correctly identifies faster responses. To reach Excellent, add a negative consequence such as eventual delivery, queue or worker operations, or duplicate handling. Also distinguish persistence of the paid order from delivery of its notification when discussing an offline tablet.",
+    "C7": "Your headings, generally clear writing, numbered citations and reference list are effective. Q2 is approximately 180 words, so it exceeds the limit. The Excellent level requires every answer to be within 150 words, use precise terminology, retain the required headings, and use IEEE-style citations."
+  }
+}

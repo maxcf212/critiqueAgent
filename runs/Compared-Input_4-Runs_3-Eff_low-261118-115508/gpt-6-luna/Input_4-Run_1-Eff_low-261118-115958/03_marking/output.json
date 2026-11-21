@@ -1,0 +1,200 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The two most important quality attributes are performance and availability"
+        },
+        {
+          "where": "Question 1",
+          "quote": "the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Both attributes are scenario-relevant and justified, and the scenarios include the six parts. The performance measure is measurable, but the availability response measure (“stay up most of the time”) is not quantified. The availability response also addresses browsing rather than order availability."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Instead the existing application should be restructured into a modular monolith"
+        },
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure"
+        },
+        {
+          "where": "Question 2",
+          "quote": "The slow lunchtime responses come from running on a single virtual machine"
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently"
+        }
+      ],
+      "reasoning": "The recommendation is clear and supported by scenario-specific trade-offs involving the five-person team, the VM, deployment downtime, and the cost of a rewrite. It also acknowledges the modular monolith’s downside."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.0 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975"
+        }
+      ],
+      "reasoning": "Parts (a) and (b) are correct to the requested precision. In (c), the redundant payment availability is correctly calculated, but the student uses payment-only availability for end-to-end availability and downtime instead of multiplying by the other required component availabilities."
+    },
+    {
+      "id": "C4",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "Question 4",
+          "quote": "After a wait period the breaker goes Half-Open and lets a few trial calls through."
+        },
+        {
+          "where": "Question 4",
+          "quote": "the breaker would have opened within seconds of the provider slowing down."
+        }
+      ],
+      "reasoning": "The pattern and its states are explained correctly and applied to the slow-provider outage. No drawback or tuning consideration is given; a threshold example alone does not discuss a drawback or tuning trade-off."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "I would favour availability."
+        },
+        {
+          "where": "Question 5",
+          "quote": "I would favour consistency, because charging a student twice or accepting an order without a payment is unacceptable."
+        },
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says a system can only provide two of consistency, availability and partition tolerance"
+        }
+      ],
+      "reasoning": "The choices are reasonable and the menu cache and payment idempotency key are concrete techniques. However, CAP is described imprecisely: during a partition, a distributed system must choose between consistency and availability, while partition tolerance is assumed. The payment choice should explicitly sacrifice availability during the partition."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously"
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet"
+        }
+      ],
+      "reasoning": "Context, decision, and consequences are present and scenario-specific, with multiple positive consequences. The consequences omit a negative consequence, such as delayed outlet notification, duplicate delivery handling, or queue operations."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "## Question 1"
+        },
+        {
+          "where": "Question 6",
+          "quote": "## Question 6"
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman"
+        }
+      ],
+      "reasoning": "The required question headings are used in order, answers appear within the 150-word limit, and external sources are cited with a corresponding IEEE-style reference list. Terminology is generally clear and precise."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Part (c) reports payment-only availability and downtime. End-to-end availability must include the other series components: 0.9995 × 0.999 × 0.9995 × 0.999975 ≈ 0.99795, or 99.80%, giving about 1.5 hours of monthly downtime."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP is not a choice to give up partition tolerance. When a partition occurs, the system must trade off consistency against availability. The payment discussion should say it rejects or defers operations during the partition to preserve consistency."
+    },
+    {
+      "where": "Question 6",
+      "issue": "The ADR gives only positive consequences and does not acknowledge a downside of asynchronous queue-based notification."
+    }
+  ],
+  "overall": "Strong, scenario-specific architectural reasoning and clear presentation. The main technical error is the end-to-end availability calculation with redundant payment providers; CAP is also stated imprecisely. The availability scenario’s response measure is not measurable, and the ADR lacks a negative consequence."
+}

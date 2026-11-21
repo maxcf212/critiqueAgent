@@ -1,0 +1,63 @@
+{
+  "id": "chatcmpl-146652ab-684f-4df0-9ae8-9b8dd6970714",
+  "object": "chat.completion",
+  "created": 1794799002,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"Outstanding work across all six questions. Your Q1 scenarios were complete and measurable, your Q2 recommendation was scenario-specific with an acknowledged downside, and every Q3 calculation was verified correct with working shown. Your Circuit Breaker, CAP analysis and ADR were all precise and grounded in CampusEats. Formatting, headings and IEEE citations were exemplary. You achieved full marks: 40/40.\",\"next_steps\":[\"State your assumptions explicitly in calculations (e.g., note in Q3 that component failures are treated as independent), even when the task supplies them.\",\"Deepen your pattern knowledge by exploring combinations, such as Circuit Breaker paired with a fallback or bulkhead, and their interaction trade-offs.\",\"Practise applying these skills to larger design tasks, such as architecture documentation or evaluation exercises, where the same rigour will transfer well.\"],\"criteria\":{\"C1\":\"Excellent. You chose performance and availability and justified both from scenario figures (900 orders/hour, 4.2 s p95, payment outage). Both scenarios included all six parts with measurable response measures, such as p95 under 1.5 s and under 0.1% of non-payment requests failing. To sustain this level, keep tying every response measure to a concrete scenario number.\",\"C2\":\"Excellent. Your modular monolith recommendation was justified by two scenario-specific trade-offs: the five-developer team's infrastructure burden and the lunchtime load with 20-minute downtime tolerance. You explicitly acknowledged the downside that modules cannot be scaled independently. Maintain this habit of naming what you give up with every recommendation.\",\"C3\":\"Excellent. All three parts were verified correct: the series product 0.99301 (99.30%), 5.0 hours downtime, and the parallel payment pair at 0.999975 giving 99.80% and 1.5 hours. Working was shown and precision matched requirements. One refinement: explicitly state the independence assumption behind the product formula rather than leaving it implicit.\",\"C4\":\"Excellent. You named the Circuit Breaker, correctly explained the Closed/Open/Half-Open mechanism, applied it to the 25-minute payment outage, and gave both a tuning consideration and the drawback that payments fail while open, requiring a fallback. This full treatment is exactly what the top level requires; keep pairing mechanisms with their costs.\",\"C5\":\"Excellent. You justified AP for menu browsing (Redis cache with TTL) and CP for payments (idempotency keys preventing duplicate charges), and applied CAP correctly by noting partition tolerance is not optional. Naming a concrete technique for each case lifted this to the top level; continue grounding theory in specific mechanisms.\",\"C6\":\"Excellent. Your ADR contained scenario-specific Context, Decision and Consequences, with positives and negatives including at-least-once delivery requiring duplicate ID handling, offline tablet order loss, and added load on the 4.2 s p95. Balanced consequences on both sides is what distinguishes the top level; keep this two-sided style in future records.\",\"C7\":\"Excellent. You used the required headings in order, kept every answer within 150 words (correctly excluding calculations), used precise terminology, and provided IEEE-style in-text citations and a reference list. This is a model of the communication standard; maintain it in longer assignments where discipline is harder.\"}}",
+        "refusal": null,
+        "reasoning": "Produce JSON feedback. All excellent, 40/40. Summary ≤80 words, next steps 3, criteria ≤70 words each."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2458,
+    "completion_tokens": 706,
+    "total_tokens": 3164,
+    "reasoning_tokens": 29,
+    "completion_tokens_details": {
+      "reasoning_tokens": 29,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "created_cache_tokens": 2368,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 2458,
+    "cost": 0.00045759999999999996,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_3855517d-a241-4616-919a-1eeb14cb85b8",
+  "x_nanogpt_pricing": {
+    "amount": 0.00045759999999999996,
+    "currency": "USD",
+    "cost": 0.00045759999999999996,
+    "inputTokens": 2458,
+    "outputTokens": 706,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_51f439b7-058c-41a7-bfbd-1f7521d6ed5c",
+    "costUsd": 0.00045759999999999996,
+    "usdCost": 0.00045759999999999996,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

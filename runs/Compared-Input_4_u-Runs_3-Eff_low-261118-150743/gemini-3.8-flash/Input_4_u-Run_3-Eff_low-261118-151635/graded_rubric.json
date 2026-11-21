@@ -1,0 +1,246 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Both quality attributes are thoroughly justified using specific scenario details. Each scenario includes all six required parts with clear, concrete, and measurable response measures.",
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders",
+          "verified": true
+        },
+        {
+          "where": "## Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "A clear recommendation is provided and justified with two scenario-specific trade-offs (team size/overhead and VM/deployment issues vs rewrite costs), with explicit downsides acknowledged.",
+      "evidence": [
+        {
+          "where": "## Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite for the next 12 months.",
+          "verified": true
+        },
+        {
+          "where": "## Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "Parts (a), (b), and (c) are fully correct. All mathematical workings are shown clearly, and values are rounded accurately to the requested precision (two decimals for availability, one for downtime).",
+      "evidence": [
+        {
+          "where": "## Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301\n\nThe availability of placing an order is 99.30%.",
+          "verified": true
+        },
+        {
+          "where": "## Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.03, so 5.0 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "## Question 3",
+          "quote": "The new availability of placing an order is 99.80%.\n\nDowntime = (1 − 0.99798) × 720 = 0.00202 × 720 = 1.46, so 1.5 hours per month.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is appropriately selected. The mechanism across closed, open, and half-open states is clearly explained, directly applied to the scenario outage, and includes tuning considerations and drawbacks.",
+      "evidence": [
+        {
+          "where": "## Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        },
+        {
+          "where": "## Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data. Too sensitive and it opens on a brief blip, rejecting payments that would have succeeded",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Both choices (AP for menu browsing, CP for ordering/payments) are soundly justified with clear reference to CAP theorem implications. Concrete techniques (Redis cache with TTL, idempotency keys) are provided.",
+      "evidence": [
+        {
+          "where": "## Question 5",
+          "quote": "Menu browsing: I would favour availability. If a partition separates an application server from the database, it is better to show a slightly stale menu",
+          "verified": true
+        },
+        {
+          "where": "## Question 5",
+          "quote": "For payments I choose consistency (CP): the order is rejected with a clear error rather than risk an inconsistent charge.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "The ADR is structured cleanly with Context, Decision, and both positive and negative consequences that are specific and relevant to the scenario.",
+      "evidence": [
+        {
+          "where": "## Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply.",
+          "verified": true
+        },
+        {
+          "where": "## Question 6",
+          "quote": "Consequences (positive): Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        },
+        {
+          "where": "## Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor. Delivery is at-least-once",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "All answers are well within the 150-word limit. Headings strictly follow the required structure, writing is concise and precise, and external sources are cited properly in IEEE style.",
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "The scenarios use the six-part form from [1].",
+          "verified": true
+        },
+        {
+          "where": "## References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed. Upper Saddle River, NJ, USA: Addison-Wesley, 2012.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "## Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "## Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "## Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "## Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "## Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "## Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "## References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "Exemplary submission across all criteria. Calculations are accurate and clear, architectural reasoning is scenario-grounded and nuanced, and formatting strictly adheres to all constraints.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 16,
+    "quotes_found": 16,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You delivered an exceptional submission that met all requirements at the highest level. Your architectural decisions were tightly coupled with the CampusEats scenario, calculations were exact and neatly presented, and all patterns were thoroughly analyzed with practical trade-offs. Your writing remained precise, well-structured, and strictly compliant with word counts and citation guidelines throughout.",
+    "next_steps": [
+      "Apply your strong scenario-grounded reasoning and quality attribute workshops to future end-to-end system design projects.",
+      "Explore distributed tracing and observability patterns to complement resilience tactics like Circuit Breakers in asynchronous workflows.",
+      "Practice evaluating complex architectural trade-offs where multiple viable consistency models (such as causal or read-your-writes consistency) apply."
+    ],
+    "criteria": {
+      "C1": "You achieved Excellent by justifying performance and availability using direct metrics from the scenario in Question 1. Both quality attribute scenarios included all six parts with concrete, measurable response measures.",
+      "C2": "You achieved Excellent by recommending a modular monolith in Question 2, supporting it with scenario-specific constraints like team size, and transparently acknowledging the downside of shared-process failures.",
+      "C3": "You achieved Excellent by correctly computing parts (a), (b), and (c) in Question 3 with full working shown and accurate rounding to the requested precision.",
+      "C4": "You achieved Excellent in Question 4 by clearly detailing the Circuit Breaker mechanism, mapping it to the outage, and discussing practical threshold-tuning considerations and operational risks.",
+      "C5": "You achieved Excellent by correctly applying the CAP theorem in Question 5, justifying AP for browsing and CP for payments, and offering concrete implementation techniques like Redis TTL caches and idempotency keys.",
+      "C6": "You achieved Excellent in Question 6 by providing a well-structured ADR containing specific context, a clear decision, and balanced positive and negative operational consequences.",
+      "C7": "You achieved Excellent by keeping every response under the 150-word limit, adhering to required headings, and correctly formatting external sources in IEEE citation style."
+    }
+  }
+}

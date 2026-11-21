@@ -1,0 +1,18 @@
+{
+  "summary": "You produced well-structured, scenario-specific answers, with strong work in Q1, Q2 and Q6. The main losses came from Q3 (an arithmetic slip and an end-to-end availability calculation that omitted the other components), Q4 (circuit-breaker states reversed), Q5 (CAP misapplied, no payment technique), and an incomplete reference list. Overall: 24/40.",
+  "next_steps": [
+    "Redo Q3(b) and (c): check 0.00699 × 720, then multiply the payment subsystem availability by the other three components to get end-to-end availability, and round to two decimal places.",
+    "Rewrite your Q4 state machine so Closed passes calls, Open fails fast, and a successful Half-Open probe returns the breaker to Closed.",
+    "Fix your CAP statement in Q5 (partition tolerance is unavoidable; you choose between consistency and availability during a partition) and name a concrete technique for payments.",
+    "Add reference [2] to your reference list and trim Q2 to within 150 words."
+  ],
+  "criteria": {
+    "C1": "Good choice of performance and availability, with the performance scenario fully six-part and a measurable p95 response measure. To reach Excellent, make the availability response measure measurable too — replace 'stay up most of the time' with a figure such as 'no more than X minutes of downtime per month'.",
+    "C2": "Excellent work: a clear modular-monolith recommendation with scenario-specific trade-offs (five-developer team, root causes in the single VM and deployment process) and the downside acknowledged. For a full 6, frame both arguments as genuine trade-offs rather than root-cause analysis.",
+    "C3": "Part (a) is correct (99.30%). Part (b) has an arithmetic slip: 0.00699 × 720 = 5.0 hours, not 3.5. Part (c) reports payment-only availability (99.9975%); end-to-end must include the other three components: 0.99800125 × 0.999975 ≈ 99.80%, about 1.5 hours of downtime. Show all working and use two decimal places.",
+    "C4": "Circuit Breaker is an appropriate pattern and you applied it to the outage with a tuning threshold, but the states are reversed: Closed passes calls normally, Open fails fast, and a successful Half-Open probe transitions to Closed. Correct the mechanism and keep your drawback/tuning discussion to reach Excellent.",
+    "C5": "Both choices (availability for browsing, consistency for payments) are reasonable, and the Redis TTL cache is a good concrete technique. However, CAP is misapplied: partition tolerance cannot be given up in a distributed system — during a partition you choose between consistency and availability. Also name a concrete technique for payments.",
+    "C6": "All three ADR sections are present and specific to CampusEats (4.2 s p95, offline tablets, RabbitMQ), which is good. To reach Excellent, add at least one negative consequence, such as delayed outlet notification, added infrastructure to operate, or the need to handle duplicate orders.",
+    "C7": "Your writing is clear and headings are used correctly, but Q2 exceeds the 150-word limit (~185 words) and Q4 is borderline. Reference [2] is cited in Q4 but missing from your reference list, which contains only [1]. Complete the list and state assumptions explicitly."
+  }
+}

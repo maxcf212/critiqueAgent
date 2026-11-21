@@ -1,0 +1,17 @@
+{
+  "summary": "You demonstrated solid architectural intuition and strong contextual application, particularly in your Q2 recommendation of a modular monolith. To reach higher rubric levels, ensure your quality attribute response measures are quantitatively measurable, maintain accuracy across multi-step availability calculations, account for network partitions correctly under the CAP theorem, and include trade-offs such as drawbacks or negative consequences in patterns and ADRs.",
+  "next_steps": [
+    "Refine quality attribute scenarios by defining quantified, testable response measures (e.g., uptime percentages or MTTR rather than vague qualitative descriptors).",
+    "Review CAP theorem fundamentals: remember that network partitions are unavoidable, meaning distributed systems must choose between Consistency (CP) and Availability (AP).",
+    "Ensure balanced architectural evaluations by explicitly detailing negative consequences or tuning complexities in both pattern descriptions and ADRs."
+  ],
+  "criteria": {
+    "C1": "You selected appropriate attributes with good justification. However, in Question 1, your response measure ('the system should stay up most of the time') is unmeasurable. To reach Excellent, ensure both scenarios include all six parts with concrete, measurable metrics (e.g., 99.9% uptime or recovery within 5 minutes).",
+    "C2": "Excellent work. In Question 2, you provided a clear recommendation for a modular monolith strongly grounded in scenario constraints (team size and load issues) while explicitly acknowledging real architectural downsides.",
+    "C3": "Your method was clear, but in Question 3(c) you equated total availability directly to A_pay alone. To reach Excellent, complete the series calculation by multiplying A_pay by the remaining three series components (0.9995 * 0.999 * 0.9995 * 0.999975).",
+    "C4": "In Question 4, you accurately selected the Circuit Breaker pattern and applied its mechanism well to the recent outage. To achieve Excellent, also provide at least one drawback or operational tuning consideration (e.g., setting threshold sensitivities or managing fallback states).",
+    "C5": "You identified sensible choices and concrete techniques in Question 5. However, stating that payments choose CA and 'give up partition tolerance' misinterprets CAP; partitions cannot be chosen away. Excellent requires framing trade-offs strictly between CP and AP during a network partition.",
+    "C6": "In Question 6, your Context, Decision, and positive consequences were clearly articulated and relevant. To achieve Excellent, you must also include at least one negative consequence or trade-off, such as added operational complexity or eventual consistency lag.",
+    "C7": "Your writing and terminology were generally clear and well-structured. However, Question 2 ran to approximately 198 words, exceeding the 150-word limit. To attain Excellent, ensure all responses adhere strictly to the word count constraints."
+  }
+}

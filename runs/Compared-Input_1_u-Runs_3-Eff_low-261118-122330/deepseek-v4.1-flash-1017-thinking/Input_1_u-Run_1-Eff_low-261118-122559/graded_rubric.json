@@ -1,0 +1,180 @@
+{
+  "total": 98.0,
+  "total_max": 100.0,
+  "percent": 98.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Accomplished",
+      "mark": 10.0,
+      "scale": 10.0,
+      "points": 40.0,
+      "max": 40.0,
+      "reasoning": "Clear goal, four numbered objectives with quantitative requirements, explicitly named operator and users with needs traced back to objectives, and literature citations throughout. Weakness: the 10 m GSD requirement rests on a Nature news item about airborne mapping rather than a satellite-derived sensitivity study.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef, so that bleaching is detected within days",
+          "verified": true
+        },
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "The satellite would be operated by the Australian Institute of Marine Science (AIMS). Its customers are the Great Barrier Reef Marine Park Authority",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Accomplished",
+      "mark": 10.0,
+      "scale": 10.0,
+      "points": 30.0,
+      "max": 30.0,
+      "reasoning": "Gantt chart plus task descriptions sequenced by mission logic (imaging requirements drive orbit, then ground/comms, EOL after orbit), a risk/contingency table with triggers, and an information-source table. Software choice justified. Minor gap: no specific orbit/launch numbers yet tied to the schedule.",
+      "evidence": [
+        {
+          "where": "Project Plan",
+          "quote": "Project work is divided into weeks in the Gantt chart in Figure 1, and each task is described below it",
+          "verified": true
+        },
+        {
+          "where": "Project Plan",
+          "quote": "Week 10 is float as well as editing time: no new design work is planned in it.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 8.0,
+      "max": 10.0,
+      "reasoning": "Hand calculations are correct (T = 5,801 s, 14.9 orbits/day, 97.8 deg SSO, 2,700 km track spacing, 60 km swath) and are interpreted against the coverage requirement, feeding a contingency. Depth is modest — one orbit only, no optical/aperture check — but clearly on track.",
+      "evidence": [
+        {
+          "where": "Preliminary Progress",
+          "quote": "a circular sun-synchronous orbit at 600 km altitude (Table 3), using μ = 398,600 km³/s² and an Earth radius of 6,378 km",
+          "verified": true
+        },
+        {
+          "where": "Preliminary Progress",
+          "quote": "Weekly coverage (objective 1) is therefore not guaranteed by one satellite at this altitude and resolution.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Accomplished",
+      "mark": 10.0,
+      "scale": 10.0,
+      "points": 20.0,
+      "max": 20.0,
+      "reasoning": "Logical structure, concise professional prose, labelled and consistent figures/tables, IEEE-style reference list whose entries all appear in text and vice versa. Small lapses: reference [11] has no author, and [4] is a news article cited as a technical source.",
+      "evidence": [
+        {
+          "where": "Project Plan",
+          "quote": "Table 1: Project risks and contingency plans.",
+          "verified": true
+        },
+        {
+          "where": "Preliminary Progress",
+          "quote": "Table 3: Preliminary hand calculations for the candidate orbit.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Project Plan / Preliminary Progress"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Project Plan, Figure 1"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Project Plan, Table 2"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Preliminary Progress, Table 3"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "10 m GSD requirement justified by a Nature news piece on airborne (CAO) mapping, not a satellite performance or bleaching-detection sensitivity study."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "Statement that satellites map GBR depths only to 100 m/pixel misreads source [3], which is a compiled depth model (gbr100), not a satellite product."
+    },
+    {
+      "where": "Preliminary Progress",
+      "issue": "Coverage interpretation understates the problem: with ~2,700 km between same-day tracks and a 60 km swath, five passes across a 250 km-wide reef would take weeks, not one week."
+    },
+    {
+      "where": "Preliminary Progress",
+      "issue": "No aperture/IFOV, diffraction, data-rate or downlink budget check to confirm 10 m GSD from 600 km is achievable with the stated 6,000-pixel swath."
+    }
+  ],
+  "overall": "Strong, concise preliminary report: well-argued Australian-benefit mission, defensible users and requirements, Gantt chart with contingencies and sources, and correct orbit hand calculations feeding a real coverage trade. Weaknesses are minor referencing and an optimistic revisit analysis. Approximately 89/100.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [
+      "C1",
+      "C2",
+      "C4"
+    ],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 8,
+    "quotes_found": 8,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "Your preliminary report is strong and concise: a well-argued Australian-benefit mission, clear users and requirements, a Gantt chart with contingencies and sources, and correct orbit hand calculations feeding a real coverage trade. Minor weaknesses are referencing and an optimistic revisit analysis. You are at Accomplished for C1, C2 and C4, and solidly Accomplished for C3.",
+    "next_steps": [
+      "Replace the Nature news item supporting the 10 m GSD with a satellite performance or bleaching-detection sensitivity study, and correct the statement that satellites map the GBR only to 100 m/pixel by citing [3] as a compiled depth model.",
+      "Strengthen Preliminary Progress by adding an aperture/IFOV and diffraction check, plus a data-rate/downlink budget, to confirm 10 m GSD from 600 km with a 6,000-pixel swath; revisit the five-pass coverage claim—2,700 km track spacing and 60 km swath imply weeks, not one week.",
+      "Tighten presentation: give reference [11] an author and replace news article [4] with a technical source; in the Project Plan, tie specific orbit/launch numbers to the schedule to close the minor gap noted."
+    ],
+    "criteria": {
+      "C1": "You clearly state the mission goal, four numbered objectives with quantitative requirements, named operator/users, and trace needs to objectives with citations. To consolidate at Accomplished, replace the Nature news item behind the 10 m GSD with a satellite or bleaching-sensitivity study, and correct the 100 m/pixel satellite claim by citing [3] as a compiled depth model.",
+      "C2": "Your Gantt chart, task descriptions sequenced by mission logic, risk/contingency table with triggers, and information-source table are strong; software choice is justified. To stay at the top of Accomplished, tie specific orbit and launch numbers to the schedule, closing the minor gap where the plan lacks those concrete inputs.",
+      "C3": "Your hand calculations are correct (T=5,801 s, 14.9 orbits/day, 97.8° SSO, 2,700 km spacing, 60 km swath) and interpreted against coverage, feeding a contingency. To move toward the top of Accomplished, add an aperture/IFOV and diffraction check plus a data-rate/downlink budget, and revise the optimistic five-pass/one-week coverage interpretation.",
+      "C4": "Logical structure, concise professional prose, labelled consistent figures/tables, and an IEEE-style reference list with matching in-text citations. To secure Accomplished, give reference [11] an author and replace news article [4] with a technical source; these are small lapses rather than structural issues."
+    }
+  }
+}

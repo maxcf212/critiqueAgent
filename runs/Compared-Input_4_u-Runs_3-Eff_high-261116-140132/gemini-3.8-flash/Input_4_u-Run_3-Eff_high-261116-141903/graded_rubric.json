@@ -1,0 +1,201 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are justified with concrete data from the prompt. Both scenarios adhere strictly to the six-part template and provide clear, quantifiable response measures.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance scenario. Source: students using the mobile app. Stimulus: 900 order requests arrive within one hour (about 15 per minute on average).",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "The recommendation of a modular monolith is well-grounded in scenario-specific trade-offs, citing the five-person team size, operational overhead, and existing architectural bottlenecks. Trade-off downsides are clearly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite for the next 12 months.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "Parts (a), (b), and (c) are completely accurate. Calculations and clear intermediate working are shown, and final values are rounded to the required precision (two decimal places for percentages, one for hours).",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "The Circuit Breaker pattern is correctly named and its states (Closed, Open, Half-Open) clearly explained. Its direct benefit to preventing thread exhaustion during the payment outage is shown alongside tuning considerations and drawbacks.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure. Calls to the payment provider are wrapped in a breaker",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Appropriate choices are made for menu browsing (AP) and order placement/payment (CP). Justifications correctly apply the CAP theorem, and concrete technical solutions (caching with TTL and idempotency keys) are specified.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says that during a partition a system must give up either consistency or availability",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "The ADR contains Context, Decision, and Consequences tailored to the scenario. Both positive impacts (improved latency, resilience to offline tablets) and negative consequences (operational overhead, deduplication requirements) are identified.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ).",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "Formatting and structural requirements are fully respected. Required headings are used in order, answers adhere strictly to the 150-word limit, and references follow standard IEEE citation conventions.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "An exemplary submission. All questions are addressed with sound engineering judgement, rigorous technical reasoning, accurate calculations, and precise scenario grounding. Word limits, structure, and citation requirements are impeccably observed.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You produced an outstanding submission, achieving full marks across every criterion. Your technical reasoning in the short-answer questions demonstrates exceptional engineering maturity. You skillfully grounded each response in the CampusEats scenario—from your six-part quality attribute scenarios and precise availability calculations to your well-balanced modular monolith recommendation and architecture decision record. Your writing remained rigorous, concise, and professional throughout.",
+    "next_steps": [
+      "Extend your availability modeling by exploring how parallel redundancy, active-passive failover, and degraded service modes impact overall system reliability.",
+      "Investigate distributed transaction patterns, such as the Saga pattern, to handle consistency and compensating actions across modular boundaries.",
+      "Apply your Architecture Decision Record approach to larger-scale evolution strategies, explicitly factoring in deployment pipelines and operational run costs."
+    ],
+    "criteria": {
+      "C1": "In Question 1, you excellently formulated both performance and availability scenarios using the complete six-part template. Your justification drew directly from scenario load numbers, establishing precise, measurable response metrics. To maintain this high standard in future work, ensure you continue to define realistic operational environments and explicit failure thresholds.",
+      "C2": "Your modular monolith recommendation in Question 2 showed strong architectural reasoning. You anchored the decision in CampusEats' specific constraints—such as the five-person team and deployment overhead—while explicitly addressing operational downsides. To build on this level, continue balancing long-term evolution strategies against immediate team capacity and maintenance trade-offs.",
+      "C3": "In Question 3, your calculations for parts (a), (b), and (c) were fully accurate with clear intermediate working and correct rounding precision. You effectively modelled series system availability and downtime. To push further in complex architectures, consider exploring parallel redundancy modeling and degraded-mode availability calculations.",
+      "C4": "For Question 4, you thoroughly explained the Circuit Breaker pattern across all three states (Closed, Open, Half-Open). You directly linked it to mitigating thread exhaustion during payment outages and provided realistic tuning considerations. Moving forward, keep analyzing how multiple resilience patterns (such as fallback queues with bulkhead isolation) interact under failure.",
+      "C5": "In Question 5, you applied the CAP theorem accurately, choosing AP for menu browsing and CP for order processing with solid justifications. Recommending concrete techniques like TTL caching and idempotency keys demonstrated practical depth. In future designs, explore how distributed consistency models like saga patterns handle partial transaction failures across boundaries.",
+      "C6": "Your Architecture Decision Record in Question 6 is exceptionally well structured, covering Context, Decision, and Consequences with direct scenario relevance. You balanced positive impacts against clear negative trade-offs, such as deduplication complexity. Maintain this standard by continuing to capture operational and cost implications in professional ADRs.",
+      "C7": "Your presentation throughout the document was exemplary. Every response adhered strictly to the 150-word limit while using precise technical terminology, standard headings, and properly formatted IEEE references. Retain this concise, rigorous communication style in future professional documentation and design proposals."
+    }
+  }
+}

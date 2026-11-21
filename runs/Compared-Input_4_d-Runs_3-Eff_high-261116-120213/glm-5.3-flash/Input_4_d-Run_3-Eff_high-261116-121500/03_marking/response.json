@@ -1,0 +1,77 @@
+{
+  "id": "chatcmpl-503fd10e-1f25-4422-b541-da760d36069f",
+  "object": "chat.completion",
+  "created": 1794791705,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"id\":\"C1\",\"level\":\"Proficient\",\"mark\":4,\"evidence\":[{\"where\":\"Question 1\",\"quote\":\"Response measure: the p95 response time is under 1.5 s and no requests are dropped.\"},{\"where\":\"Question 1\",\"quote\":\"Response measure: the system should stay up most of the time.\"}],\"reasoning\":\"Performance and availability are well justified from the lunch-hour scenario. The performance scenario has all six parts with a measurable response measure, but the availability scenario's response measure ('stay up most of the time') is not measurable.\"},{\"id\":\"C2\",\"level\":\"Excellent\",\"mark\":5,\"evidence\":[{\"where\":\"Question 2\",\"quote\":\"With five developers, running eight or ten services would mean more time spent on infrastructure than on features.\"},{\"where\":\"Question 2\",\"quote\":\"The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.\"}],\"reasoning\":\"Clear recommendation (modular monolith) with two scenario-specific trade-offs (five-developer team, root causes being single VM and deployment process) and the downside explicitly acknowledged. Not a full 6 because the second argument is root-cause analysis rather than a true trade-off.\"},{\"id\":\"C3\",\"level\":\"Developing\",\"mark\":3,\"evidence\":[{\"where\":\"Question 3\",\"quote\":\"Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.\"},{\"where\":\"Question 3\",\"quote\":\"So the new availability of placing an order is 99.9975%\"}],\"reasoning\":\"Part (a) is correct (0.99301 → 99.30%). Part (b) has an arithmetic slip: 0.00699 × 720 = 5.0 h, not 3.5 h. Part (c) is incorrect: 99.9975% is only the payment subsystem; end-to-end should be 0.99800125 × 0.999975 ≈ 99.80%, downtime ≈ 1.5 h. Two parts wrong, so Developing despite correct method.\"},{\"id\":\"C4\",\"level\":\"Developing\",\"mark\":2,\"evidence\":[{\"where\":\"Question 4\",\"quote\":\"In the Open state calls pass through normally. When failures exceed a threshold... the breaker moves to Closed and calls fail immediately\"}],\"reasoning\":\"Circuit Breaker is an appropriate pattern and is applied to the outage with a tuning threshold, but the mechanism is explained incorrectly: the states are reversed (Closed should pass calls normally, Open should fail fast, and Half-Open success should move to Closed, not Open).\"},{\"id\":\"C5\",\"level\":\"Proficient\",\"mark\":3,\"evidence\":[{\"where\":\"Question 5\",\"quote\":\"so for payments we choose consistency and availability and give up partition tolerance.\"},{\"where\":\"Question 5\",\"quote\":\"for example Redis with a 60-second TTL\"}],\"reasoning\":\"Both choices (availability for browsing, consistency for payment) are reasonable and justified; a concrete technique (Redis TTL cache) is named for menu browsing but none for payments. The CAP use is incorrect: partition tolerance cannot be surrendered in a distributed system; during a partition one chooses C or A.\"},{\"id\":\"C6\",\"level\":\"Proficient\",\"mark\":4,\"evidence\":[{\"where\":\"Question 6\",\"quote\":\"Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply.\"},{\"where\":\"Question 6\",\"quote\":\"Consequences: Placing an order no longer waits for the outlet, so the response time improves.\"}],\"reasoning\":\"Context, Decision and Consequences are all present and specific to CampusEats (4.2 s p95, offline tablets, RabbitMQ). However, the consequences are entirely positive; no negative consequence (e.g., eventual notification delay, added infrastructure, duplicate handling) is given, so not Excellent.\"},{\"id\":\"C7\",\"level\":\"Proficient\",\"mark\":3,\"evidence\":[{\"where\":\"Question 2\",\"quote\":\"A rewrite would freeze feature work for months without directly fixing either problem.\"},{\"where\":\"References\",\"quote\":\"[1] L. Bass, P. Clements, and R. Kazman\"}],\"reasoning\":\"Writing is clear and headings are used in order, but Question 2 exceeds 150 words (~185) and Question 4 is borderline. Citation [2] is used in Question 4 but is missing from the reference list, which contains only [1].\"}],\"requirements\":[{\"id\":\"R1\",\"met\":\"yes\",\"where\":\"Question 1\"},{\"id\":\"R2\",\"met\":\"yes\",\"where\":\"Question 2\"},{\"id\":\"R3\",\"met\":\"partial\",\"where\":\"Question 3 – (a) correct; (b) arithmetic error; (c) end-to-end availability not combined with other components\"},{\"id\":\"R4\",\"met\":\"partial\",\"where\":\"Question 4 – pattern named and applied but state machine explained incorrectly\"},{\"id\":\"R5\",\"met\":\"partial\",\"where\":\"Question 5 – CAP misapplied; no concrete technique for payments\"},{\"id\":\"R6\",\"met\":\"partial\",\"where\":\"Question 6 – all sections present but no negative consequence\"},{\"id\":\"R7\",\"met\":\"partial\",\"where\":\"References – [2] cited in text but absent from reference list; assumptions only implicitly stated\"}],\"technical_issues\":[{\"where\":\"Question 3 (b)\",\"issue\":\"0.00699 × 720 = 5.0 hours, not 3.5 hours.\"},{\"where\":\"Question 3 (c)\",\"issue\":\"End-to-end availability must include the other three components: 0.99800125 × 0.999975 ≈ 99.80%, downtime ≈ 1.5 h/month; 99.9975% is payment-only. Also exceeds the two-decimal-place format.\"},{\"where\":\"Question 4\",\"issue\":\"Circuit breaker states are reversed: Closed passes calls normally, Open fails fast, and Half-Open success transitions to Closed.\"},{\"where\":\"Question 5\",\"issue\":\"CAP theorem misstated: partition tolerance cannot be given up in a distributed system; the choice under partition is between consistency and availability.\"},{\"where\":\"Question 6\",\"issue\":\"No negative consequence provided as required.\"},{\"where\":\"References\",\"issue\":\"Reference [2] is cited in Question 4 but missing from the reference list.\"}],\"overall\":\"Well-structured answers with good scenario-specific reasoning in Q1, Q2 and Q6, but Q3 contains an arithmetic slip and an incorrect end-to-end calculation, Q4 reverses the circuit-breaker states, Q5 misapplies CAP, and the reference list is incomplete. 24/40.\"}",
+        "refusal": null,
+        "reasoning": "Let me evaluate each criterion.\n\nQ1: Two attributes: performance and availability, justified from scenario. Scenarios: performance scenario has all six parts with measurable response measure (p95 < 1.5s, no requests dropped). Availability scenario: source, stimulus, artefact, environment, response, response measure \"the system should stay up most of the time\" — not measurable. So Proficient (3-4). Mark 4? Justification is good, one scenario missing measurable response measure. Proficient: \"one is missing a part or has a response measure that is not measurable.\" Mark 4.\n\nQ2: Recommendation: modular monolith. Trade-offs: team size vs operational overhead (specific to scenario: five developers), known problems not caused by monolith (specific). Downside acknowledged: \"modules cannot be scaled independently, and a bug in one module can still crash the whole process.\" Excellent (5-6). Mark 5 or 6. Trade-offs are specific, downside acknowledged. Mark 6? The second trade-off is more about root cause analysis than trade-off, but it's scenario-specific. I'd give 5.\n\nQ3: (a) 0.9995 × 0.999 × 0.9995 × 0.995. Compute: 0.9995×0.999 = 0.9985005. ×0.9995 = 0.9985005×0.9995 = 0.9985005 - 0.9985005×0.0005 = 0.9985005 - 0.00049925 = 0.99800125. ×0.995 = 0.99800125×0.995 = 0.99800125 - 0.00499000625 = 0.99301124. So 0.99301, 99.30%. Correct.\n\n(b) (1−0.99301)×720 = 0.00699×720 = 5.0328 hours. Student wrote 3.5 hours! 0.00699×720 = 5.03. Student says 3.5. That's an arithmetic error. Actually 0.00699×720: 0.007×720=5.04. So 5.0 hours, not 3.5. Student error.\n\n(c) A_pay = 1 − (0.005)² = 1 − 0.000025 = 0.999975. Correct. New availability = 0.99301124... wait, they should recompute end-to-end: 0.99800125 × 0.999975 = 0.99797625... Actually end-to-end = other three components × new payment availability = 0.99800125/0.995 × 0.999975 = 1.00301633... hmm let me compute: other three = 0.99800125 × 0.9995 × 0.999... wait components: 0.9995, 0.999, 0.9995, payment 0.995. Other three = 0.9995×0.999×0.9995 = 0.99800125. New end-to-end = 0.99800125 × 0.999975 = 0.99797626 ≈ 99.7976% ≈ 99.80%. Student wrote \"99.9975%\" — that's just the payment availability, not end-to-end. Also downtime: 0.000025×720 = 0.018 hours — that's payment downtime only, not end-to-end. So part (c) is incorrect: they didn't combine with other components. Also precision: \"two decimal places\" — 99.9975% has more; end-to-end should be 99.80%.\n\nSo (a) correct, (b) arithmetic slip, (c) incorrect (didn't multiply by other components). Two parts incorrect → Developing (1-4). Method correct though. Hmm: \"Proficient: method correct throughout but one arithmetic or rounding slip, or exactly one part is incorrect.\" Here (b) arithmetic slip AND (c) incorrect — two issues. Developing: \"two or more parts are incorrect.\" (b) and (c) both incorrect → Developing. Mark 3? Method is correct, working shown. I'd give 3.\n\nQ4: Circuit breaker. But explanation has state names swapped: \"In the Open state calls pass through normally. When failures exceed a threshold the breaker moves to Closed and calls fail immediately.\" That's backwards — Closed = normal flow, Open = fail fast. Also \"If they succeed it opens again, otherwise it stays closed\" — backwards again (Half-Open success → Closed). So the explanation is incorrect. Pattern named appropriately, applied to outage, but mechanism explained incorrectly. Developing (1-2)? \"A pattern is named but the explanation is incorrect or very thin.\" Yes, explanation is incorrect (states swapped). Mark 2. Drawback/tuning: threshold example given (50% in 10 seconds) — tuning consideration present, but explanation wrong. Mark 2.\n\nQ5: Menu browsing: availability, cache with TTL, eventual consistency — good. Placing/paying: consistency. But CAP explanation: \"for payments we choose consistency and availability and give up partition tolerance\" — that's incorrect; P is not optional in a distributed system; during partition you choose between C and A. Choosing \"CA\" is the classic CAP misuse. Techniques: Redis cache named for menu; for payments no concrete technique named (e.g., synchronous commit, single-writer database, 2PC). So CAP used incorrectly and one technique missing → Proficient (3-4)? \"Both choices are reasonable and techniques are named, but CAP explained incorrectly or imprecisely, or one technique missing.\" Both conditions here — but still Proficient level descriptor fits best (choices reasonable, one technique named). Mark 3.\n\nQ6: ADR with Context, Decision, Consequences. Positive consequences given (response time improves, offline outlets receive orders, smooths peak). Negative consequence? None stated. \"Consequences\" section only positives. Proficient: \"all three sections present but consequences one-sided (no negative consequence).\" Mark 3 or 4. Context is specific. Mark 4? Proficient range 3-4; one-sided consequences → 3 or 4. Context specific, decision specific. I'd give 4.\n\nC7 Communication: Word limits — each answer ≤150 words. Q2 looks long: count roughly. Q2: ~200 words? Let me estimate: paragraph 1 ~30, para 2 ~70, para 3 ~60, para 4 ~25 → ~185 words. Exceeds 150. Q4: ~150? Roughly 160. Q1: ~150? Q1: ~140. Q5: ~130. Q6: ~120. References: only [1] cited; [2] cited in text (circuit breaker [2]) but no reference [2] in list — missing reference. IEEE style mostly ok. So several issues: one or two answers exceed limit, missing reference entry. Proficient (3): \"one answer exceeds the word limit or minor citation problems.\" Q2 exceeds and reference [2] missing. Could be Developing? \"Several answers exceed the word limit, or sources not cited.\" Sources are cited in text but reference list incomplete. I'd say Proficient, 3.\n\nRequirements check:\nR1: met (Q1).\nR2: met (Q2).\nR3: partial — (b) and (c) errors.\nR4: partial — pattern named but mechanism incorrect.\nR5: partial — CAP misused, one technique missing.\nR6: partial — no negative consequence.\nR7: partial — [2] cited but missing from reference list; assumptions? Q1 states \"about 150 per minute on average\" — assumptions somewhat stated. References incomplete.\n\nTechnical issues list:\n- Q3(b): 0.00699×720 = 5.0, not 3.5 hours.\n- Q3(c): end-to-end availability should be 0.99800125×0.999975 ≈ 99.80%, not 99.9975%; downtime ≈ 1.46 h... wait compute: (1−0.99797626)×720 = 0.00202374×720 = 1.457 h. So downtime ~1.5 h, not 0.018 h.\n- Q4: circuit breaker states reversed (Open should fail fast; Closed is normal; Half-Open success → Closed).\n- Q5: CAP \"give up partition tolerance\" is invalid; P is mandatory in distributed systems.\n- Q6: no negative consequence.\n- References: [2] cited but not listed.\n\nOverall: total marks: C1=4, C2=5, C3=3, C4=2, C5=3, C6=4, C7=3 = 24/40."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3253,
+    "completion_tokens": 3395,
+    "total_tokens": 6648,
+    "reasoning_tokens": 1962,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1962,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 3136,
+    "prompt_tokens_details": {
+      "cached_tokens": 3136,
+      "created_cache_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 117,
+    "cost": 0.0011086,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_76a51fe8-89be-42b1-9a70-e4279c1d7f7f",
+  "x_nanogpt_pricing": {
+    "amount": 0.0011086,
+    "currency": "USD",
+    "cost": 0.0011086,
+    "inputTokens": 3253,
+    "outputTokens": 3395,
+    "cacheReadInputTokens": 3136,
+    "cacheCost": 7.840000000000001e-05,
+    "requestId": "req_4b4c70c7-072e-4be8-8b97-d3ca4f533cdf",
+    "costUsd": 0.0011086,
+    "usdCost": 0.0011086,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "hit",
+      "readTokens": 3136
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 3136
+  }
+}

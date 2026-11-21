@@ -1,0 +1,209 @@
+{
+  "total": 82.0,
+  "total_max": 100.0,
+  "percent": 82.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Introduction: mission concept and rationale. Include the following required information: What is the spacecraft's primary mission? Why is the mission needed? How many spacecraft are used and why? Who are the users (operator and customers)?",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 9.0,
+      "max": 10.0,
+      "reasoning": "All four required items are addressed: primary mission, need, spacecraft count with justification, and operator and customers. Rationale is developed with multiple cited sources (NOAA, AIMS context, fluid lensing papers). Minor gaps: some claims are uncited (for example, hundreds of millions relying on reefs, and funding statement).",
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS), which already runs the long-term monitoring program for the reef",
+          "verified": true
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "One satellite is therefore used. This also simplifies communications, reduces cost, and requires less time to build and launch.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Main body: mission design. Present a summary of the mission design using software and/or hand calculations as appropriate. Include relevant screenshots and software files in the main body of the report and/or appendix. Include the following information: Where will it launch from, and using which launch vehicle? Why did you choose this option? What type of orbit will you use? What are its characteristics and orbital elements? Will you need to perform any orbital maneuvers? Which ground control facilities will you use? How often will your spacecraft be able to communicate with ground control? How long will the mission last, and what are your plans for EOL?",
+      "weight": 60.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 48.0,
+      "max": 60.0,
+      "reasoning": "Comprehensive design covering launch, orbit elements, inclination derivation, manoeuvres, ground station, contact statistics, data budget and EOL. Checked calculations (inclination, period, RAAN rate, drag decay, access totals) are correct and supported by STK figures and appendix files. Deductions for a 60% versus 510/771 (66%) inconsistency, an unjustified one-strip-per-day assumption, an unsourced Figure 2, and an unverified eclipse figure.",
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025",
+          "verified": true
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "the mean pass lasts 580.8 s, or 9.7 minutes",
+          "verified": true
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "Without the sail the satellite would stay in orbit for about 32 years, longer than the guideline allows, so the sail is necessary.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Conclusion",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 9.0,
+      "max": 10.0,
+      "reasoning": "Conclusions summarise quantified results and state four specific limitations (Vega C risk, fluid lensing at 5 m, missing X-band link budget, 45-day revisit) with proposed mitigations. Conclusions follow from the evidence in the report.",
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "a 4 m² drag sail removes the satellite in about two years, compared with about 32 years without it.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 16.0,
+      "max": 20.0,
+      "reasoning": "Clear engineering structure with executive summary, numbered sections, labelled tables and figures, and an appendix of STK files. Consistent IEEE-style citations. Deductions for awkward phrasing, a contents list without page numbers, an unsourced figure, and several uncited statements.",
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "but this is not even the full extent of their nurture",
+          "verified": true
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "Table 6: Daily data budget.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Appendix A: STK files and settings"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "1 Introduction"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "510 s of 771 s is about 66%, not 60%. The stated 34 min/day corresponds to 60% of 57 min, so the contact-time figure is inconsistent with the cited fraction (66% gives about 38 min)."
+    },
+    {
+      "where": "Table 6: Daily data budget",
+      "issue": "Downlink time labelled as 34 minutes, but 2,000 s is 33.3 minutes. Small rounding inconsistency feeding the 3.5× margin."
+    },
+    {
+      "where": "Table 6: Daily data budget",
+      "issue": "Daily imaging of one 60 km × 1,000 km strip is asserted without justification against 14.9 orbits per day and the 5-day revisit claim. The 4:1 compression ratio is also unreferenced."
+    },
+    {
+      "where": "2.3 Orbit",
+      "issue": "Eclipse duration of 34 min is asserted, not derived from the 08:45 node time or beta angle. It is close to the worst-case value, so the battery sizing claim is unsupported."
+    },
+    {
+      "where": "Figure 2",
+      "issue": "Figure 2 caption gives no source or credit, though the plot appears to come from an external or MATLAB model, breaching the citation requirement (R11)."
+    },
+    {
+      "where": "2.5 Mission Duration & EOL",
+      "issue": "Lifetime estimate H/rate assumes a constant decay rate, but drag accelerates as altitude falls, so 2.2 and 32-year figures are only rough order-of-magnitude values, not stated as such."
+    }
+  ],
+  "overall": "Strong, well-organised report that addresses every requirement with checkable calculations; key orbit, drag and access results verify. Marks are reduced for numerical inconsistencies (contact fraction, downlink time), an unjustified daily-imaging assumption, an eclipse figure without derivation, an unsourced figure, and several uncited statements.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 8,
+    "quotes_found": 8,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You have produced a well-organised report that addresses every requirement, with checkable orbit, drag and access calculations supported by STK files in Appendix A. Your conclusions are specific and quantified. Marks were reduced mainly for a few numerical inconsistencies, unjustified assumptions in the data budget and eclipse analysis, an unsourced figure, and some uncited statements. Addressing these would strengthen an already strong report.",
+    "next_steps": [
+      "Reconcile the contact-time figures in Section 2.4: 510 s of 771 s is about 66%, not the 60% stated, so check the 34 minutes per day against this.",
+      "Justify the one-strip-per-day imaging assumption in Table 6 against your 14.9 orbits per day and 5-day revisit claim, cite a source for the 4:1 compression ratio, and correct the downlink time (2,000 s is 33.3 minutes, not 34).",
+      "Derive your 34-minute eclipse duration from the node time or beta angle, credit the source of Figure 2, cite the uncited claims (such as the reef-dependent value and the funding statement), and describe the lifetime estimates as order-of-magnitude because drag increases as altitude falls."
+    ],
+    "criteria": {
+      "C1": "You clearly address all four required items: the primary mission, why it is needed, the single-spacecraft choice and its justification, and the operator and customers. Your rationale is supported by several cited sources, including NOAA, AIMS context and fluid lensing papers. To strengthen it further, add citations to the claim about hundreds of millions relying on reefs and to your funding statement, which are currently unreferenced.",
+      "C2": "Your design is comprehensive and well evidenced, covering launch on Vega C, orbit elements, manoeuvres, ground station, contact statistics, data budget and end-of-life. Your key calculations check out and are backed by STK figures and appendix files. Marks were reduced for the contact-time percentage that does not match your figures, an unjustified daily-imaging assumption, an unsourced Figure 2, and an eclipse duration that is asserted rather than derived.",
+      "C3": "Your conclusions are detailed and follow from your evidence, quantifying the result that a 4 m² drag sail removes the satellite in about two years compared with about 32 years without it. You also identify four specific limitations, namely the Vega C launch risk, fluid lensing at 5 m, the missing X-band link budget and the 45-day revisit, and propose mitigations for each.",
+      "C4": "Your report follows a clear engineering structure, with an executive summary, numbered sections, labelled tables and figures, and an appendix of STK files, and uses consistent IEEE-style citations. Marks were reduced for awkward phrasing (for example, 'but this is not even the full extent of their nurture' in Section 1), a contents list without page numbers, an unsourced Figure 2, and several uncited statements."
+    }
+  }
+}

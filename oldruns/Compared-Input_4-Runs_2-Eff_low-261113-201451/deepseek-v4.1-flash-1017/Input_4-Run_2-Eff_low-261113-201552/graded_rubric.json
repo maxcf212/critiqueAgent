@@ -1,0 +1,132 @@
+{
+  "method": "oneshot",
+  "total": 32.0,
+  "total_max": 40.0,
+  "percent": 80.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are suitable choices and performance is justified from the lunch-peak data. The performance scenario is complete and measurable. The availability scenario has all six parts, but its response measure ('stay up most of the time') is not measurable, and the justification for availability as a top-two attribute is weaker than for performance.",
+      "evidence": []
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear recommendation of a modular monolith. Two trade-offs are specific to the scenario (five-developer team vs operational overhead; known problems are deployment/VM issues rather than monolith issues) and the downside is acknowledged. Note that this answer exceeds the 150-word limit, which is addressed under Communication.",
+      "evidence": []
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 6.0,
+      "scale": 8.0,
+      "points": 6.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) and (b) are correct with working shown. Part (c) is incorrect: after improving payment availability to 99.9975%, you must still multiply by the other three components. The correct new availability is about 99.80%, giving about 1.5 hours downtime per 30-day month, not 0.018 hours.",
+      "evidence": []
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is named and explained correctly (Closed/Open/Half-Open, failure threshold, fail-fast). It is applied well to the payment-provider outage, and tuning considerations (threshold, wait period) are given.",
+      "evidence": []
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Both choices are reasonable and concrete techniques are named (cache with TTL for menu; idempotency key for payments). However, the CAP theorem explanation is incorrect: in a partition you cannot 'give up partition tolerance'; you choose consistency over availability (CP) for payments.",
+      "evidence": []
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are all present and specific to CampusEats. The consequences are one-sided: only positive consequences are listed, with no negative consequence as required for the excellent level.",
+      "evidence": []
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Writing is clear, headings are used, and references are in IEEE style. However, Question 2 is about 180 words, exceeding the 150-word limit. One answer over the limit fits the 3-mark level.",
+      "evidence": []
+    }
+  ],
+  "requirements": [],
+  "technical_issues": [],
+  "overall": "Strong answers on architectural style, resilience and ADR structure. Main losses are the non-measurable availability response measure in Q1, the part (c) calculation error in Q3, the CAP theorem misstatement in Q5, the missing negative consequence in Q6, and the Q2 word-limit breach.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": [],
+    "total_mismatch": []
+  },
+  "quote_check": {
+    "status": "n/a (one-shot: no evidence quotes requested)"
+  },
+  "model_reported": {
+    "total": 32.0,
+    "total_max": 40.0
+  },
+  "sum_of_criteria": {
+    "total": 32.0,
+    "total_max": 40.0
+  },
+  "feedback": {
+    "summary": "Strong answers on architectural style, resilience and ADR structure. Main losses are the non-measurable availability response measure in Q1, the part (c) calculation error in Q3, the CAP theorem misstatement in Q5, the missing negative consequence in Q6, and the Q2 word-limit breach.",
+    "next_steps": [
+      "Make every response measure measurable, e.g. 'availability is at least 99.9% during the lunch peak'.",
+      "In Q3(c), multiply the improved payment availability by the other three component availabilities to get the overall order-placement availability.",
+      "Correct the CAP explanation: during a partition, choose consistency or availability; partition tolerance is assumed, not given up.",
+      "Add at least one negative consequence to the ADR, e.g. eventual consistency or extra operational overhead for the queue.",
+      "Trim Question 2 to 150 words or fewer; keep all answers within the word limit."
+    ],
+    "criteria": {
+      "C1": "Performance and availability are suitable choices and performance is justified from the lunch-peak data. The performance scenario is complete and measurable. The availability scenario has all six parts, but its response measure ('stay up most of the time') is not measurable, and the justification for availability as a top-two attribute is weaker than for performance.",
+      "C2": "Clear recommendation of a modular monolith. Two trade-offs are specific to the scenario (five-developer team vs operational overhead; known problems are deployment/VM issues rather than monolith issues) and the downside is acknowledged. Note that this answer exceeds the 150-word limit, which is addressed under Communication.",
+      "C3": "Parts (a) and (b) are correct with working shown. Part (c) is incorrect: after improving payment availability to 99.9975%, you must still multiply by the other three components. The correct new availability is about 99.80%, giving about 1.5 hours downtime per 30-day month, not 0.018 hours.",
+      "C4": "Circuit Breaker is named and explained correctly (Closed/Open/Half-Open, failure threshold, fail-fast). It is applied well to the payment-provider outage, and tuning considerations (threshold, wait period) are given.",
+      "C5": "Both choices are reasonable and concrete techniques are named (cache with TTL for menu; idempotency key for payments). However, the CAP theorem explanation is incorrect: in a partition you cannot 'give up partition tolerance'; you choose consistency over availability (CP) for payments.",
+      "C6": "Context, Decision and Consequences are all present and specific to CampusEats. The consequences are one-sided: only positive consequences are listed, with no negative consequence as required for the excellent level.",
+      "C7": "Writing is clear, headings are used, and references are in IEEE style. However, Question 2 is about 180 words, exceeding the 150-word limit. One answer over the limit fits the 3-mark level."
+    }
+  }
+}

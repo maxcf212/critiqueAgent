@@ -1,0 +1,17 @@
+{
+  "summary": "A strong submission. Your modular monolith recommendation (Q2) is excellent, and Q3(a),(b) are correct with clear working. To reach the top levels: fix the Q3(c) end-to-end calculation, apply CAP correctly in Q5, add a negative consequence to your ADR, make your availability response measure measurable, and keep every answer within 150 words.",
+  "next_steps": [
+    "Recompute Q3(c) as the product of all three subsystem availabilities (0.9985005 × 0.9995 × 0.999975 ≈ 99.75%), giving ~1.8 h downtime/month, and round percentages to two decimals and downtime to one decimal as required.",
+    "In Q5, revise your CAP statement: partition tolerance cannot be sacrificed; during a partition you must choose between consistency and availability, then justify each choice on that basis.",
+    "Add at least one negative consequence to your Q6 ADR (e.g., delayed notifications or added infrastructure), add a drawback/tuning consideration to Q4, and make the Q1 availability response measure measurable (e.g., '99.5% uptime per month')."
+  ],
+  "criteria": {
+    "C1": "You chose suitable attributes with good justification, and your performance scenario is fully six-part and measurable. To reach Excellent, both scenarios must be complete and measurable: your availability response measure ('stay up most of the time') is not measurable. Replace it with a quantified target, such as uptime percentage or maximum downtime per month.",
+    "C2": "Excellent work. Your modular monolith recommendation is justified with two trade-offs tied to scenario specifics (five developers, single VM, 20-minute deployment downtime), and you explicitly acknowledge the downside that a bug in one module can crash the whole process. This is exactly what the top level requires.",
+    "C3": "Parts (a) and (b) are correct with working shown. In (c) you reported the payment subsystem's availability (99.9975%) as the end-to-end figure; end-to-end availability is the product of all three: 0.9985005 × 0.9995 × 0.999975 ≈ 99.75%, or about 1.8 h downtime per month. Also keep percentages to two decimals and downtime to one decimal as requested.",
+    "C4": "Your Circuit Breaker answer is appropriate and correctly explained (Closed/Open/Half-Open) and applied to the 25-minute outage. For the full 5 marks, add an explicit drawback or tuning consideration — for example, the risk of a breaker opening too eagerly under transient spikes, or how the failure threshold and half-open probe rate should be tuned.",
+    "C5": "Both consistency/availability choices are reasonable and you named concrete techniques (Redis TTL cache, idempotency keys). However, CAP was misapplied: you cannot 'give up partition tolerance' — partitions will happen, and under a partition you must choose between consistency and availability. Restate each choice in those terms to reach Excellent.",
+    "C6": "Your ADR has specific Context, Decision and Consequences sections, but all consequences are positive. The top level requires at least one negative consequence too — for example, delayed outlet notifications, added queue infrastructure to operate, or the need to handle duplicate submissions.",
+    "C7": "Your writing is clear, headings are used correctly, and IEEE citations and a reference list are present. To reach Excellent, every answer must be within 150 words — Question 2 (and likely Question 4) exceed the limit, so tighten these by cutting to the most scenario-specific points."
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "total": 99.0,
+  "total_max": 100.0,
+  "percent": 99.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Accomplished",
+      "mark": 10.0,
+      "scale": 10.0,
+      "points": 40.0,
+      "max": 40.0,
+      "reasoning": "Goal, four measurable objectives, and named users with needs are clearly stated and linked to objectives. Literature is cited throughout. Minor weaknesses: the acidification-to-bleaching causal claim is oversimplified, and a few requirements (e.g. 10 m GSD) are only provisional. Rubric level descriptors are on a 10-point scale; mark scaled to the 40-point weight.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Mission goal. Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef",
+          "verified": true
+        },
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Users and their needs. The satellite would be operated by the Australian Institute of Marine Science (AIMS).",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Accomplished",
+      "mark": 10.0,
+      "scale": 10.0,
+      "points": 30.0,
+      "max": 30.0,
+      "reasoning": "Gantt chart with task descriptions, logical ordering justified by the mission narrative, a risk table with triggers and responses, and planned information sources with purposes. Feasibility is convincing. Slightly less detail on week-by-week deliverables and some sources are generic. Scaled to 30-point weight.",
+      "evidence": [
+        {
+          "where": "Project Plan",
+          "quote": "the imaging requirements (objectives 1 and 2) fix the orbit altitude and local time, so orbit work comes before ground control",
+          "verified": true
+        },
+        {
+          "where": "Project Plan",
+          "quote": "Contingencies. Week 10 is float as well as editing time",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 9.0,
+      "max": 10.0,
+      "reasoning": "Hand calculations for period, orbits per day, sun-synchronous inclination and ground-track shift are correct and checked against STK. Interpretation identifies a real swath-versus-resolution conflict that drives the orbit trade. Results are on track, though the STK outputs themselves are not shown.",
+      "evidence": [
+        {
+          "where": "Preliminary Progress",
+          "quote": "Swath at 10 m sampling | 10 m × 6,000 pixels across track | 60 km",
+          "verified": true
+        },
+        {
+          "where": "Preliminary Progress",
+          "quote": "Weekly coverage (objective 1) is therefore not guaranteed by one satellite at this altitude and resolution.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Adequate",
+      "mark": 10.0,
+      "scale": 10.0,
+      "points": 20.0,
+      "max": 20.0,
+      "reasoning": "Clear headings, labelled figure and tables, and a consistent IEEE-style reference list with in-text citations matching. Weaknesses: some awkward phrasing, a colloquial sentence, reliance on a news article for a key claim, and the length likely exceeds the 2–3 page guideline. Scaled to 20-point weight; placed at the upper Adequate/lower Accomplished boundary.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "but this is not even the full extent of their nurture",
+          "verified": true
+        },
+        {
+          "where": "Project Plan",
+          "quote": "Completed stages are gold. Incomplete stages are blue.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "partial",
+      "where": "Project Plan / Preliminary Progress"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Project Plan"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Table 2: Planned information sources"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Preliminary Progress"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "The causal link from ocean acidification to coral bleaching is oversimplified; bleaching is mainly driven by thermal stress, so the cited acidity statement does not support the claim as written."
+    },
+    {
+      "where": "Preliminary Progress",
+      "issue": "Hand calculations are sound (period 5,801 s, 97.8° sun-synchronous inclination, 24.2° track shift), but the equations for nodal precession and the ground-track shift are not shown, so the inclination and shift values cannot be verified by the reader."
+    },
+    {
+      "where": "Project Plan",
+      "issue": "Launch specifics are scheduled and launch is named in the course material requirement, but no launch vehicle, site or injection analysis is presented, so the launch aspect of R2 is only partly addressed."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [4] is a news article used to support a specific technical method (Asner's seafloor colour mapping), rather than the primary publication."
+    }
+  ],
+  "overall": "A strong, well-structured preliminary report with a clear, measurable mission concept, a credible Gantt-based plan with contingencies, and correct orbit hand calculations that expose a real coverage trade-off. Weaknesses are the thin launch analysis (R2), some unshown equations, an oversimplified acidification claim, and minor language and length issues. Level marks are scaled from the 10-point descriptors to each criterion's weight.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [
+      "C1",
+      "C2",
+      "C4"
+    ],
+    "level_mismatch": [
+      "C4"
+    ]
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 8,
+    "quotes_found": 8,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You have written a strong, well-structured preliminary report. Your mission goal and four measurable objectives are clear, and your named users are tied to those objectives. Your Gantt-based plan includes contingencies, and your orbit hand calculations are sound and reveal a real swath-versus-resolution trade-off. Addressing the launch analysis, the unshown equations, the acidification claim, and the news-article reference will strengthen the report further.",
+    "next_steps": [
+      "Add a launch analysis covering the launch vehicle, launch site and injection, so that the launch part of the assignment is fully addressed.",
+      "Show the equations for nodal precession and ground-track shift, so the reader can verify the 97.8° inclination and 24.2° track shift.",
+      "Reword the ocean acidification to coral bleaching link to reflect that thermal stress is the main driver, and replace reference [4] with the primary publication for Asner's seafloor colour mapping."
+    ],
+    "criteria": {
+      "C1": "Your goal, four measurable objectives and named users (AIMS and reef managers) are clearly stated and linked to each other, and you cite literature throughout. To strengthen this, correct the oversimplified acidification-to-bleaching claim so the cited evidence supports it, and firm up provisional requirements such as the 10 m GSD with a stated justification.",
+      "C2": "Your Gantt chart, task descriptions, and risk table with triggers and responses make the plan convincing and feasible. The ordering is well justified by the mission narrative, since imaging requirements fix the orbit before ground control. Add more detail on week-by-week deliverables, and use more specific information sources where some are currently generic.",
+      "C3": "Your hand calculations for period, orbits per day, inclination and ground-track shift are correct, and your interpretation identifies a real coverage conflict that drives the orbit trade. To make the progress evidence more convincing, include the STK outputs you checked against, and show the working behind the inclination and shift values.",
+      "C4": "Your headings, labelled figures and tables, and IEEE-style references are clear and consistent, and in-text citations match the reference list. To reach a professional level, tighten awkward phrasing, remove the colloquial sentence, and check that the length fits the 2 to 3 page guideline."
+    }
+  }
+}

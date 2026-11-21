@@ -1,0 +1,200 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Coral reefs, specifically the Great Barrier Reef, would immensely benefit from dedicated satellite monitoring."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        },
+        {
+          "where": "Introduction",
+          "quote": "The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM) for research and/or education."
+        }
+      ],
+      "reasoning": "Introduction clearly states coral-reef monitoring need, one-spacecraft rationale and likely government/science users, with references. However operator/customer distinction is vague and citations are poor."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Ground Control & Communications",
+          "quote": "The first fifteen access periods are listed above. An average contact duration of almost ten minutes was achieved"
+        },
+        {
+          "where": "Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle – launched from the Guiana Space Centre Spaceport."
+        }
+      ],
+      "reasoning": "Covers launch, orbit, ground station and EOL with STK access evidence and orbital elements, but lacks payload/swath/link calculations and software files, and contains conceptual errors on RAAN, sunlight and equatorial launch."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "After analysis of each mission segment, a fully described satellite configuration has been constructed."
+        },
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet."
+        }
+      ],
+      "reasoning": "Conclusion summarises launch, orbit and ground station, but is generic, omits mission duration/EOL and specific orbital/contact values."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Image 1",
+          "quote": "STK 3D view of orbit: 12 hours apart"
+        }
+      ],
+      "reasoning": "Required sections and headings are present and readable, but figures/tables are unnumbered, bibliography uses bare URLs and Wikipedia, formatting and spelling are inconsistent."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "partial",
+      "where": "Mission Design"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Executive Summary; Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Launch"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R8",
+      "met": "partial",
+      "where": "Orbit; Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Orbit; Ground Control & Communications"
+    },
+    {
+      "id": "R12",
+      "met": "partial",
+      "where": "Orbit; Ground Control & Communications"
+    },
+    {
+      "id": "R13",
+      "met": "yes",
+      "where": "Executive Summary; Contents; Bibliography"
+    },
+    {
+      "id": "R14",
+      "met": "partial",
+      "where": "Orbit; Ground Control & Communications"
+    },
+    {
+      "id": "R15",
+      "met": "no",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Launch",
+      "issue": "Report states equatorial launch maximises rotational velocity; this applies to prograde orbits, not retrograde SSO, so Kourou choice is not justified."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Initial RAAN 27.33° is described as indicating launch facility location; RAAN is an inertial node angle, not a ground-site coordinate."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Text says very high altitude yields low resolution images which is also desirable; for fluid-lensing reef imaging low resolution is undesirable."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Assumes descending passes are constantly sunlit; SSO is continuously sunlit only for dawn-dusk LTAN, which is not specified."
+    },
+    {
+      "where": "Orbit",
+      "issue": "No sensor FOV, ground sample distance, swath or data-rate calculation supports 600 km altitude or 250 km reef coverage."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Selects Mt Pleasant radio observatory without showing compatible comms band, antenna gain, link budget or data rate; radio astronomy suitability unproven."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Access table has access 6 start/stop spanning about a day but duration 365 s, and access 15 duplicates access 14; access results need checking."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "EOL section says satellite has no thrusters, yet orbit section calls EOL an orbital manoeuvre; passive drag sail is not a manoeuvre."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Drag-sail deorbit from 600 km not sized or timed; no demonstration of 25-year rule or complete burn-up."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "No orbit maintenance or drag analysis over five-year life; replacement plan is generic."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "Uses Wikipedia [6] as a source and lists bare URLs/malformed entries, contrary to referencing requirements."
+    },
+    {
+      "where": "Orbit; Ground Control & Communications",
+      "issue": "Figures and tables lack figure/table numbers and full captions, so cross-referencing is incomplete."
+    }
+  ],
+  "overall": "A readable preliminary design with adequate introduction and STK access work, but main design lacks payload/swath/link/EOL calculations and contains conceptual errors; referencing and figure/table labelling are inadequate."
+}

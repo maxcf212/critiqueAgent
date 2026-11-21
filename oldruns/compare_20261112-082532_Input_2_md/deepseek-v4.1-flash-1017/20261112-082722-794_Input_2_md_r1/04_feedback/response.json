@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-02f19757-22d5-4162-b54e-34f936ca06a2",
+  "object": "chat.completion",
+  "created": 1794432561,
+  "model": "deepseek/deepseek-v4.1-flash-1017",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"A readable preliminary design with a clear Introduction and useful STK access work. The main design is Adequate but lacks payload, swath, link-budget and EOL calculations, and contains conceptual errors on launch, RAAN and sunlight. Referencing and figure/table labelling need work. The Conclusion is generic. Use the next steps to add quantitative evidence, correct the design statements, and professionalise presentation.\",\"next_steps\":[\"Add supporting calculations for sensor FOV/GSD/swath/data rate, a link budget for Mt Pleasant, and drag-sail deorbit sizing; correct the launch, RAAN and sunlight statements.\",\"Number and caption every figure and table (e.g., Image 1), and replace Wikipedia/bare URLs with properly formatted references that match in-text citations.\",\"Revise the Conclusion to include specific orbital/contact values and mission duration/EOL outcomes rather than generic claims.\"],\"criteria\":{\"C1\":\"Your Introduction clearly establishes the coral-reef monitoring need, the one-spacecraft rationale and likely government/science users, with references. To strengthen within Accomplished, sharpen the operator versus customer distinction and improve citation quality; the current references are thin. Keep the mission purpose and user discussion as detailed as your opening paragraphs.\",\"C2\":\"You cover launch, orbit, ground station and EOL with STK access evidence and orbital elements, which is a solid Adequate base. To reach Accomplished, add payload/swath/link/EOL calculations and software files, and correct the launch, RAAN and sunlight statements. Support the 600 km altitude and 250 km reef coverage with sensor FOV, GSD, swath and data-rate evidence, and check the access table inconsistencies.\",\"C3\":\"Your Conclusion summarises launch, orbit and ground station, but it is generic and omits mission duration/EOL and specific orbital/contact values. To reach Accomplished, tie conclusions directly to your evidence: state the chosen orbit and key elements, average contact duration, five-year life and drag-sail EOL outcome. Avoid broad claims like 'fully described satellite configuration' unless the report substantiates them.\",\"C4\":\"Your report has clear headings and is readable, but figures/tables are unnumbered and uncaptioned (e.g., Image 1), and the Bibliography includes Wikipedia and bare URLs. To reach Accomplished, use consistent engineering-report formatting, number and caption every figure/table, and cite properly formatted sources that match in-text citations. Check spelling and formatting consistency throughout.\"}}",
+        "refusal": null,
+        "reasoning": "We need to write formative feedback for a student based on the marking. Address as \"you\". Be specific, supportive, actionable. Cite sections/figures. Name what they did well, state what next rubric level requires. Do not change marks. Do not comment on document-conversion artefacts. Do not make up explanations for reasoning given by marking agent that is unclear/incomplete.\n\nSchema: summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each.\n\nWe need to produce one JSON object only.\n\nWe have rubric criteria C1-C4 with marks: C1 7/10 Accomplished, C2 5/10 Adequate, C3 5/10 Adequate, C4 5/10 Adequate. Overall readable preliminary design, adequate intro and STK access work, but main design lacks payload/swath/link/EOL calculations and conceptual errors; referencing and figure/table labelling inadequate.\n\nWe need formative feedback per criterion. For each, mention what they did well, what next level requires. Since C1 is Accomplished (7), next level? It's already Accomplished but at lower end; maybe to strengthen within Accomplished? But rubric levels: Accomplished 7-10. We can say to secure higher Accomplished, clarify operator/customer distinction and improve citations. But \"next rubric level\" for C1 would be staying Accomplished? Actually next level above Accomplished doesn't exist. We can phrase \"to strengthen within Accomplished\" or \"to move toward the upper end of Accomplished\". For C2/C3/C4 Adequate, next level is Accomplished. State what Accomplished requires.\n\nNeed to be specific: cite sections/figures. Use evidence from marking: Introduction quotes, Launch Vega E, Ground Control access periods, Conclusion quotes, Bibliography Wikipedia, Image 1 caption. Technical issues: equatorial launch justification, RAAN, resolution statement, sunlight assumption, no sensor FOV/GSD/swath/data rate, Mt Pleasant no link budget, access table inconsistencies, EOL no thrusters vs manoeuvre, drag sail not sized, no orbit maintenance, Wikipedia/bare URLs, figures/tables lack numbers/captions.\n\nNeed to not make up explanations. We can reference these issues as per marking. We should be supportive: \"You have...\" \"A good next step is...\" \"To reach Accomplished...\"\n\nNeed to keep each criterion <=70 words. Summary <=80 words. Next_steps exactly 3 strings. They should be actionable, likely prioritized: (1) add payload/link/EOL calculations and correct conceptual errors; (2) fix referencing and figure/table labelling; (3) strengthen conclusion with specific values and EOL. But need 3 strings. Could be: \"Add supporting calculations for sensor FOV/GSD/swath/data rate, link budget at Mt Pleasant, and drag-sail deorbit sizing; correct launch/RAAN/sunlight statements.\" \"Number and caption all figures/tables (e.g., Image 1) and replace Wikipedia/bare URLs with properly formatted references.\" \"Revise Conclusion to include specific orbital/contact values and mission duration/EOL outcomes.\" That's 3.\n\nNeed criteria feedback. Let's draft.\n\nC1: \"Your Introduction clearly establishes the coral-reef monitoring need, the one-spacecraft rationale and likely government/science users, with references. To strengthen within Accomplished, sharpen the operator versus customer distinction and improve citation quality; the current references are thin. Keep the mission purpose and user discussion as detailed as your opening paragraphs.\" <=70 words. Count ~55.\n\nC2: \"You cover launch, orbit, ground station and EOL with STK access evidence and orbital elements, which is a solid Adequate base. To reach Accomplished, add payload/swath/link/EOL calculations and software files, and correct the launch, RAAN and sunlight statements. Support the 600 km altitude and 250 km reef coverage with sensor FOV, GSD, swath and data-rate evidence, and check the access table inconsistencies.\" Need <=70 words. Count maybe 70. Let's count: You(1) cover2 launch3, orbit4, ground5 station6 and7 EOL8 with9 STK10 access11 evidence12 and13 orbital14 elements15, which16 is17 a18 solid19 Adequate20 base21. To22 reach23 Accomplished24, add25 payload/swath/link/EOL26 calculations27 and28 software29 files30, and31 correct32 the33 launch34, RAAN35 and36 sunlight37 statements38. Support39 the40 60041 km42 altitude43 and44 25045 km46 reef47 coverage48 with49 sensor50 FOV51, GSD52, swath53 and54 data-rate55 evidence56, and57 check58 the59 access60 table61 inconsistencies62. Good 62.\n\nC3: \"Your Conclusion summarises launch, orbit and ground station, but it is generic and omits mission duration/EOL and specific orbital/contact values. To reach Accomplished, tie conclusions directly to your evidence: state the chosen orbit and key elements, average contact duration, five-year life and drag-sail EOL outcome. Avoid broad claims like 'fully described satellite configuration' unless the report substantiates them.\" <=70. Count ~60.\n\nC4: \"Your report has clear headings and is readable, but figures/tables are unnumbered and uncaptioned (e.g., Image 1), and the Bibliography includes Wikipedia and bare URLs. To reach Accomplished, use consistent engineering-report formatting, number and caption every figure/table, and cite properly formatted sources that match in-text citations. Check spelling and formatting consistency throughout.\" <=70. Count ~55.\n\nSummary: \"A readable preliminary design with a clear Introduction and useful STK access work. The main design is Adequate but lacks payload, swath, link-budget and EOL calculations, and contains conceptual errors on launch, RAAN and sunlight. Referencing and figure/table labelling need work. The Conclusion is generic. Use the next steps to add quantitative evidence, correct the design statements, and professionalise presentation.\" <=80. Count ~60.\n\nNeed ensure JSON only. Keys: summary, next_steps, criteria. Criteria keys C1-C4. Values strings. No markdown. Use proper quotes. Ensure no newline? JSON can have strings. Fine.\n\nNeed not mention document-conversion artefacts. We don't.\n\nNeed not change marks. We don't.\n\nNeed not make up explanations. We reference marking issues.\n\nLet's produce final JSON."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2546,
+    "completion_tokens": 1898,
+    "total_tokens": 4444,
+    "reasoning_tokens": 1379,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1379,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 2546,
+    "cost": 0.0013934,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_5c994ce3-d393-46f8-bf02-7989658398c1",
+  "x_nanogpt_pricing": {
+    "amount": 0.0013934,
+    "currency": "USD",
+    "cost": 0.0013934,
+    "inputTokens": 2546,
+    "outputTokens": 1898,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_05680f9c-f13c-42c5-b2b4-d84b04e0ba27",
+    "costUsd": 0.0013934,
+    "usdCost": 0.0013934,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

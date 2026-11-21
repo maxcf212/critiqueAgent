@@ -1,0 +1,259 @@
+{
+  "total": 25.0,
+  "total_max": 40.0,
+  "percent": 62.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Attributes are well chosen and justified; performance scenario is complete and measurable. Availability scenario has six parts but its response measure is not measurable, so not Excellent.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The two most important quality attributes are performance and availability",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation tied to five-person team, single VM, deployment downtime, and rewrite risk; downside acknowledged. Excellent.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "Part (a) correct. Part (b) arithmetic wrong: 0.00699×720=5.03h, not 3.5h. Part (c) treats payment availability as end-to-end and omits other components; correct end-to-end is about 99.80% and 1.46h downtime. Two parts incorrect.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "Circuit breaker is appropriate and applied, but state semantics are reversed: Closed is normal, Open fails fast, Half-Open trials. No clear drawback/tuning consideration beyond threshold example. Explanation incorrect.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "the breaker moves to Closed and calls fail immediately",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Menu choice and cache technique are good. Payment choice is reasonable but no concrete technique is named, and CAP is misused: partition tolerance cannot be given up during a partition; choose C or A.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision, Consequences present and specific. Consequences are all positive; no negative consequence, so Proficient not Excellent.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Writing is clear and headings used, but Q2 is about 181 words (over 150), and [2] is cited without a reference-list entry. Minor citation/format issues.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (b) arithmetic error: 0.00699 × 720 = 5.03 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) uses payment availability as end-to-end availability; other components must also be multiplied, giving about 99.80% and 1.46 hours downtime, not 99.9975% and 0.018 hours."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states are reversed: Closed is normal, Open fails fast, Half-Open allows trial calls."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP theorem is misused: partition tolerance cannot be given up during a partition; the choice is C or A. No concrete payment consistency technique is named."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence is given in the ADR."
+    },
+    {
+      "where": "Question 2",
+      "issue": "Answer exceeds the 150-word limit (about 181 words)."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [2] is cited in Question 4 but missing from the reference list."
+    }
+  ],
+  "overall": "Total 25/40. Strong Q2 and Q1 justification, but Q3 has two calculation errors, Q4 reverses circuit-breaker states, Q5 misuses CAP and lacks a payment technique, Q6 lacks a negative consequence, and formatting/citation issues remain.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 12,
+    "quotes_found": 12,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You scored 25/40. Your Q2 modular-monolith recommendation is excellent and Q1 justification is strong. The main losses are in Q3 calculations, Q4 circuit-breaker states, Q5 CAP use, Q6 consequences, and formatting/citations. Use the next steps to target the specific rubric gaps.",
+    "next_steps": [
+      "Recompute Q3(b) and Q3(c) showing each step: 0.00699 × 720 = 5.03 h, and multiply all component availabilities for end-to-end availability (~99.80%, ~1.46 h).",
+      "Correct Q4's circuit-breaker states (Closed normal, Open fails fast, Half-Open trial) and add a tuning or drawback sentence.",
+      "In Q5, state CAP as choosing C or A during a partition and name a concrete payment consistency technique; in Q6 add a negative consequence; trim Q2 to 150 words and add reference [2]."
+    ],
+    "criteria": {
+      "C1": "You chose performance and availability and justified both from the scenario. Your performance scenario is complete and measurable. To reach Excellent, make the availability response measure measurable—replace 'stay up most of the time' with a numeric target such as 99.9% monthly uptime—so both scenarios have all six parts and measurable measures.",
+      "C2": "Excellent: your modular-monolith recommendation is clearly tied to the five-person team, single VM, deployment downtime and rewrite risk, and you acknowledge the scaling downside. Keep this structure. No rubric action needed here; just watch the word limit noted under C7.",
+      "C3": "Part (a) is correct. In (b), 0.00699 × 720 = 5.03 hours, not 3.5. In (c), payment availability alone is not end-to-end; multiply all component availabilities to get about 99.80% and 1.46 hours downtime. Show each step to reach Excellent.",
+      "C4": "Circuit breaker is the right pattern and you apply it to the outage, but the states are reversed: Closed is normal, Open fails fast, Half-Open allows trial calls. Correct the state semantics and add a clear drawback or tuning consideration (e.g., threshold calibration) to move from Developing to Proficient/Excellent.",
+      "C5": "Your menu choice and cache technique are good. For payment, name a concrete consistency technique (e.g., transactional outbox or two-phase commit). CAP is misused: during a partition you cannot give up partition tolerance; you choose consistency or availability. Correct that framing and justify both choices to reach Excellent.",
+      "C6": "Context, Decision and Consequences are present and specific. To reach Excellent, add at least one negative consequence—for example, the outlet no longer gets synchronous order confirmation, or added complexity in handling asynchronous failures—so the consequences are balanced.",
+      "C7": "Writing is clear and headings are used. Q2 is about 181 words, over the 150-word limit, and [2] is cited in Q4 but missing from the reference list. Trim Q2 and add the missing IEEE-style reference to reach Excellent."
+    }
+  }
+}

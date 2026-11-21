@@ -1,0 +1,226 @@
+{
+  "total": 31.0,
+  "total_max": 40.0,
+  "percent": 77.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are well chosen and justified for CampusEats. Both scenarios use the six-part structure, but the availability response measure ('stay up most of the time') is subjective and not quantitatively measurable.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "A modular monolith is clearly recommended and justified using two scenario-specific trade-offs (5-developer team size vs. microservice overhead, and single-VM bottlenecks vs. architectural rewrite). Downside trade-offs regarding process coupling and independent scaling are explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 6.0,
+      "scale": 8.0,
+      "points": 6.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) and (b) are entirely correct with clear working. In part (c), dual-provider availability is correctly calculated, but the student mistakenly equates it to the end-to-end order placement availability, omitting the other series components.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "The Circuit Breaker pattern is appropriately identified, its state transitions are accurately explained, and it is applied directly to the payment outage. However, no specific drawback or tuning consideration is provided.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Both availability and consistency choices are sensible, and concrete techniques (Redis cache TTL and idempotency keys) are provided. However, the CAP theorem explanation is incorrect: in a distributed network, partition tolerance cannot be 'given up' during a network partition.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision, and Consequences are present and tailored to the scenario. However, the consequences section is one-sided, describing multiple benefits but omitting any negative consequences or operational costs.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "The submission uses standard headings, clear technical writing, and IEEE references. However, Question 2 exceeds the 150-word limit (approximately 187 words), and Question 3(c) neglects the requested precision formatting.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "The availability scenario response measure ('stay up most of the time') is qualitative and not measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "In part (c), total order-placement availability was equated to the redundant payment provider availability alone, ignoring the other three components in series."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Precision instructions were not followed in part (c) (percentage given to 4 decimal places instead of 2, downtime given to 3 decimal places instead of 1)."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Failed to discuss a drawback or operational tuning consideration for the Circuit Breaker pattern."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Incorrect CAP formulation: during a network partition, one cannot choose CA and drop P; systems must trade off consistency against availability."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequences were documented in the ADR."
+    }
+  ],
+  "overall": "A solid submission displaying strong architectural reasoning and good referencing. Marks were lost due to omitting negative consequences in the ADR, a series calculation mistake in Q3(c), a CAP theorem misconception, and exceeding the word limit in Q2.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You demonstrated strong architectural reasoning and produced well-structured solutions grounded in the CampusEats scenario, particularly in your Q2 recommendation and IEEE referencing. To improve, ensure all quality attribute response measures are quantitatively measurable, address architectural trade-offs such as negative consequences in your ADR and resilience pattern drawbacks, and correctly articulate the trade-offs of the CAP theorem. Additionally, double-check end-to-end availability calculations across composite components and observe word count constraints.",
+    "next_steps": [
+      "In Question 1 and Question 3, ensure metrics and calculations are precise: quantify qualitative response measures into measurable thresholds and incorporate all series components into availability equations.",
+      "In Question 4 and Question 6, balance your proposals by explicitly evaluating operational trade-offs, such as tuning thresholds for circuit breakers and negative architectural consequences in your ADR.",
+      "Review the CAP theorem for Question 5 to correctly reflect that network partitions cannot be chosen away, and adhere strictly to the 150-word limit across all answers."
+    ],
+    "criteria": {
+      "C1": "You justified performance and availability well for CampusEats and used the six-part structure effectively. However, your availability response measure ('stay up most of the time') was qualitative. To achieve Excellent, ensure both scenarios feature quantitatively measurable response measures (such as 99.9% uptime or under 5 minutes MTTR).",
+      "C2": "You provided an excellent recommendation for a modular monolith, effectively linking team size and single-VM constraints to scenario trade-offs while acknowledging scaling and coupling downsides. You met all criteria for Excellent.",
+      "C3": "Parts (a) and (b) showed clear, correct working. In part (c), you calculated parallel provider availability accurately, but forgot to include the remaining series components in the end-to-end availability calculation and missed requested precision. To reach Excellent, calculate total series availability and adhere to decimal specifications.",
+      "C4": "You correctly identified the Circuit Breaker pattern, accurately explained its state transitions, and applied it to the payment outage. To reach Excellent, provide at least one drawback or operational tuning consideration, such as configuring timeout thresholds or handling fallback complexity.",
+      "C5": "You chose sensible trade-offs and provided concrete techniques like Redis TTL and idempotency keys. However, your CAP theorem rationale stated you can drop partition tolerance to achieve CA. To reach Excellent, correctly articulate that partitions are unavoidable in distributed networks, requiring a trade-off between consistency and availability.",
+      "C6": "Your ADR included clear Context, Decision, and Consequences sections tailored specifically to CampusEats. However, the consequences were entirely positive. To attain Excellent, also document negative consequences or new trade-offs introduced by the decision, such as increased operational complexity or message broker overhead.",
+      "C7": "Your writing was clear, well-structured with required headings, and supported by proper IEEE citations. To reach Excellent, adhere strictly to the 150-word limit (Question 2 was ~187 words) and follow the requested numerical precision in calculation answers."
+    }
+  }
+}

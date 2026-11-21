@@ -1,0 +1,20 @@
+{
+  "summary": "Strong, well-structured answers overall, and your Question 2 modular-monolith recommendation is the standout piece — clearly argued with scenario-specific trade-offs. The work needed now is precision: two parts of Question 3 are arithmetically wrong, the circuit breaker states are reversed in Question 4, the CAP explanation in Question 5 misstates what can be sacrificed, and your ADR needs a negative consequence. Fixing these is mostly mechanical rather than conceptual.",
+  "next_steps": [
+    "Redo Question 3(b) and (c) with the arithmetic written out: 0.00699 × 720 ≈ 5.0 h, and for (c) multiply the whole order chain (including the 99.30% outlet availability) rather than reporting payment availability alone, giving ≈99.30% and about 5.1 h/month downtime.",
+    "Rewrite the Question 4 mechanism so the states are correct: Closed lets calls through, Open fails fast, and a successful Half-Open trial closes the breaker. Keep your tuning consideration as-is.",
+    "Revisit Question 5 so partition tolerance is treated as unavoidable in a distributed system — the choice is between C and A during a partition — and name a concrete technique for the payment/order case as well as for menu browsing.",
+    "For Question 6, add at least one negative consequence (for example added queue complexity or handling broker failure), and replace the Question 1 availability response measure with something measurable such as a percentage uptime target.",
+    "Replace the missing reference [2] with a full IEEE-style entry, state your assumptions explicitly, and re-check every response measure is stated in numbers.",
+    "Keep your Question 2 reasoning as the model for the rest — that paragraph is exactly the level of specificity the rubric rewards."
+  ],
+  "criteria": {
+    "C1": "Your performance and availability choices are well justified from the lunch-hour peak, and both scenarios are complete in structure. The gap to Excellent is measurability: 'stay up most of the time' cannot be tested. Restate it as a numeric uptime target over a defined period and this becomes Excellent.",
+    "C2": "Excellent work. The modular-monolith recommendation is specific to the five-developer team and the single-VM, deployment-downtime problems, and you explicitly accept that modules cannot be scaled independently. This is exactly the trade-off reasoning the rubric asks for.",
+    "C3": "Part (a) is correct at 99.30%, but (b) misstates 0.00699 × 720 as 3.5 h when it is about 5.0 h, and (c) reports payment availability as end-to-end order availability. For (c), the full order chain including the 99.30% outlet gives about 99.30% and roughly 5.1 h/month. Show your working line by line.",
+    "C4": "Circuit breaker is the right pattern and your tuning consideration is sound, but the state machine is described backwards: Closed passes calls, Open fails fast, and Half-Open success closes the breaker. Correct the mechanism and this answer reaches the top level.",
+    "C5": "Your choices are reasoned and the Redis 60-second TTL is a concrete, appropriate technique for menu browsing. Two fixable gaps: partition tolerance cannot be given up in a distributed system, so frame the choice as C versus A during a partition; and name a concrete technique for the payment/order case too.",
+    "C6": "Context, Decision and Consequences are all present and tied to the CampusEats scenario. The consequences read entirely positively, though. Add at least one negative consequence — added queue complexity, or what happens if the broker fails — and it becomes Excellent.",
+    "C7": "Word limits and headings are respected and the writing is clear throughout. The one problem is citation [2] in Question 4 being absent from your reference list. Add the full IEEE-style entry and this criterion is fully met."
+  }
+}

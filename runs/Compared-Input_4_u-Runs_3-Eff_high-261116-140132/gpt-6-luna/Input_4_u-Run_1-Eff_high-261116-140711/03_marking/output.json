@@ -1,0 +1,184 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "900 order requests arrive within one hour (about 15 per minute on average)."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail, and ordering works again within 1 minute of the provider recovering."
+        }
+      ],
+      "reasoning": "Performance and availability are justified with scenario details. Both scenarios include all six parts, with measurable response measures. The performance stimulus also quantifies the stated lunch-hour load."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite for the next 12 months."
+        },
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "The recommendation is clear and supported by trade-offs tied to the five-developer team, existing VM and deployment problems, and the 12-month horizon. It acknowledges the monolith’s scaling and failure-isolation downside."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.03, so 5.0 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975"
+        }
+      ],
+      "reasoning": "The series and active-active calculations are correct, with working shown. The resulting availabilities and monthly downtimes are reported to the requested precision."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "After a wait it goes Half-Open and lets a few trial calls through; if they succeed it closes, otherwise it reopens."
+        },
+        {
+          "where": "Question 4",
+          "quote": "Too sensitive and it opens on a brief blip, rejecting payments that would have succeeded; too lax and threads are exhausted first."
+        }
+      ],
+      "reasoning": "The circuit breaker mechanism is accurately explained and applied to the slow-payment outage, including the effect on browsing. Threshold tuning and loss of payment availability while open are suitable drawbacks. The claim it would open within seconds depends on configuration."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "I would favour availability. If a partition separates an application server from the database, it is better to show a slightly stale menu from a cache (Redis with a 60-second TTL) than an error page."
+        },
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says that during a partition a system must give up either consistency or availability; partitions cannot be ruled out in a distributed system, so partition tolerance is not optional."
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge."
+        }
+      ],
+      "reasoning": "The AP browsing and consistency-favouring payment choices are justified, CAP is applied appropriately to partition behaviour, and concrete techniques are named. Idempotency keys help prevent duplicate charges on retries."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor."
+        }
+      ],
+      "reasoning": "The ADR includes specific context, a clear queue decision, and both positive and negative consequences. It also recognizes at-least-once delivery and duplicate handling."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The scenarios use the six-part form from [1]."
+        },
+        {
+          "where": "References",
+          "quote": "[2] M. T. Nygard, *Release It! Design and Deploy Production-Ready Software*, 2nd ed. Raleigh, NC, USA: Pragmatic Bookshelf, 2018."
+        }
+      ],
+      "reasoning": "Answers use the required headings and are concise and clear within the word limits. Numbered in-text citations and a corresponding reference list are provided in IEEE-style format."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Question 3; References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 4",
+      "issue": "The claim that the breaker would open within seconds is configuration-dependent; no threshold or timeout values are given. A breaker alone also cannot guarantee browsing remains responsive if payment calls share saturated resources before it opens."
+    },
+    {
+      "where": "Question 6",
+      "issue": "Publishing after payment creates a possible dual-write failure: a crash after payment succeeds but before the event is durably queued can leave the outlet unnotified. A transactional outbox or equivalent recovery mechanism would address this risk."
+    }
+  ],
+  "overall": "A strong, technically sound submission that meets the requested structure and calculations. The resilience pattern and ADR are well applied; the main design caveats are the configuration-dependent breaker timing and the payment-to-queue dual-write risk."
+}

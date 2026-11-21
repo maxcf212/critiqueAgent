@@ -1,0 +1,156 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Two relevant attributes chosen with lunch-peak justification. Performance scenario measurable. Availability scenario has six parts but response measure is vague and unmeasurable, preventing Excellent."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation. Two scenario-specific trade-offs: 5-person team overhead and single-VM plus deployment downtime fixes. Downside of no independent scaling and process crash acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "(a) 99.30% correct. (b) method correct but 0.00699x720 is 5.0h not 3.5h. (c) uses payment-only 99.9975% as end-to-end; correct is ~99.80% and ~1.5h. Two parts wrong."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        }
+      ],
+      "reasoning": "Circuit Breaker appropriate and applied to outage with threshold example. Mechanism reversed: Open described as normal and Closed as fail-fast, opposite of correct states. No clear drawback stated."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both choices reasonable: availability with Redis 60-second TTL for menus, consistency for payments. CAP misused; partition tolerance cannot be sacrificed. No concrete technique named for payment case."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Outlets that are briefly offline still receive their orders when they reconnect."
+        }
+      ],
+      "reasoning": "Context and Decision specific to CampusEats with RabbitMQ and OrderPaid event. Consequences present but only positive: latency, offline delivery, smoothing. No negative consequence stated."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman,"
+        }
+      ],
+      "reasoning": "Headings in order and clear writing. Question 2 exceeds 150 words (~181). [2] cited in text but missing from reference list, so IEEE citations incomplete."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "(b) 0.00699*720=5.03h not 3.5h; (c) end-to-end ~99.80% ~1.5h, not 99.9975% 0.018h"
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit Breaker states inverted: Closed is normal, Open is fail-fast"
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP: cannot choose C+A and give up P; must choose C vs A under partition"
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure unmeasurable"
+    },
+    {
+      "where": "References",
+      "issue": "[2] cited but absent from reference list; no assumptions stated"
+    }
+  ],
+  "overall": "Solid modular-monolith case but availability calculations, breaker states and CAP contain material errors. Total 23/40."
+}

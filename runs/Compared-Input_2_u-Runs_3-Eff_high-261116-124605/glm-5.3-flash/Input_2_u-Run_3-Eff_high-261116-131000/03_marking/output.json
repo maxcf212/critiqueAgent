@@ -1,0 +1,156 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS)"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "One satellite is therefore used."
+        }
+      ],
+      "reasoning": "All required elements addressed: primary mission, need (bleaching statistics, limitations of existing products), single-spacecraft justification, operator and multiple customers, funding. Detailed, well-referenced ([1]-[6]). Only minor gap: no discussion of alternative mission concepts."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "cos i = −0.1355, so i = 97.79°"
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "There are six passes each day, three in the evening and three in the morning"
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "With a 4 m² sail the satellite re-enters about two years after the end of the mission."
+        }
+      ],
+      "reasoning": "Launch site/vehicle justified with trade table and azimuth calculation; orbit elements derived by hand and verified in STK; manoeuvres explicitly addressed; ground station chosen with STK access report; data budget; five-year mission and drag-sail EOL with decay calculations. Screenshots, tables, references and appendix files all present. Link budget admittedly missing; eclipse duration treated as fixed."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations. First, Vega C has not yet flown"
+        }
+      ],
+      "reasoning": "Conclusions are specific and quantitative (revisit times, pass rates, decay lifetimes) and honestly identify four limitations with proposed next steps, showing genuine design insight rather than generic summary."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report presents the design of ZYZZsat"
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[11] D. A. Vallado, *Fundamentals of Astrodynamics and Applications*, 4th ed."
+        }
+      ],
+      "reasoning": "Clear structure with executive summary, numbered sections, consistently labelled figures/tables, all citations [1]-[15] matched to reference list, professional IEEE-style referencing, concise writing. Figures are legible STK outputs with captions. Minor: some figures low resolution; no table of contents page numbers shown."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction (Number of spacecraft)"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction (Users)"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit, Table 4"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit (Manoeuvres)"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications, Table 5"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3/2.4 (STK 11 plus hand calculations)"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Images 1-5, Appendix A (ZYZZsat_STK.zip file list)"
+    },
+    {
+      "id": "R11",
+      "met": "yes",
+      "where": "Whole report; Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.1 Table 1",
+      "issue": "Eclipse duration quoted as a fixed ~34 min per orbit without considering beta-angle variation; actual eclipse time varies over the year."
+    },
+    {
+      "where": "2.4 Table 6",
+      "issue": "X-band link budget (margin, antenna gains, data rates achievable) not performed, only data-volume budget; acknowledged by student."
+    },
+    {
+      "where": "2.5 Table 7",
+      "issue": "Decay analysis uses single mean density and scale height; sensitivity acknowledged but lifetime estimate is crude."
+    },
+    {
+      "where": "2.2 Launch",
+      "issue": "Vega C unflown at time of writing; fallback given, but rideshare orbit compatibility (altitude/injection) not guaranteed."
+    },
+    {
+      "where": "2.3 Orbit",
+      "issue": "GSD driven only by diffraction limit and pixel count; detector IFOV/sampling and pointing jitter effects on 5 m GSD not analysed."
+    }
+  ],
+  "overall": "Excellent, comprehensive mission design report. All task requirements met with verified hand calculations, STK evidence, well-justified trade-offs, honest limitations, and professional presentation. Minor gaps (link budget, eclipse/beta-angle, unflown launcher) are acknowledged by the student. Approximately 9/10 on each criterion."
+}

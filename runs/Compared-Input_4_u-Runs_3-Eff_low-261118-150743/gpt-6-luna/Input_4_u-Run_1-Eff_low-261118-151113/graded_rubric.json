@@ -1,0 +1,284 @@
+{
+  "total": 38.0,
+  "total_max": 40.0,
+  "percent": 95.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Selects and justifies two important scenario-specific attributes. Both scenarios identify source, stimulus, artefact, environment, response, and measurable response criteria.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail, and ordering works again within 1 minute of the provider recovering.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear recommendation with trade-offs tied to the five-person team, current VM-related performance and downtime, and the 12-month horizon. A relevant downside is acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite for the next 12 months.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "Series and active-active payment availability calculations are correct. Monthly downtimes round to 5.0 and 1.5 hours, and availabilities are given to two decimal places.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.03, so 5.0 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Names and accurately explains the pattern states, applies it to the payment-provider outage, and discusses threshold tuning and the consequence of blocking payments while open.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Too sensitive and it opens on a brief blip, rejecting payments that would have succeeded; too lax and threads are exhausted first.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Both choices are justified using partition behavior and CAP, and each has a concrete technique: cached menu data and payment idempotency keys. Idempotency helps prevent duplicate charges but is not, by itself, a consistency-enforcement technique for order/payment state.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "Menu browsing: I would favour availability.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "This is the AP choice, with eventual consistency.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "For payments I choose consistency (CP): the order is rejected with a clear error rather than risk an inconsistent charge.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Includes specific context and decision, plus positive and negative consequences relevant to the scenario.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ).",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "Answers use the required headings, are clear and within the 150-word limit, and include bracketed in-text citations and a reference list in substantially IEEE-style format.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "## Question 1",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "## Question 6",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 5",
+      "issue": "An idempotency key prevents duplicate processing of retries but does not alone ensure consistent order/payment state during a partition; a transactional or strongly consistent mechanism would make the consistency technique clearer."
+    },
+    {
+      "where": "Question 1",
+      "issue": "The availability scenario says payment calls fail fast and browsing is unaffected, but does not specify how order placement behaves when payment is unavailable; the measured criterion covers non-payment requests and recovery."
+    },
+    {
+      "where": "Question 6",
+      "issue": "The response-time benefit depends on how the system reports payment success and handles queue publication. The answer identifies at-least-once delivery and duplicate handling, but does not explain atomicity between payment completion and event publication."
+    }
+  ],
+  "overall": "Strong, scenario-specific submission with correct availability calculations and clear answers. The main weakness is that the payment idempotency key is not itself a consistency-enforcement mechanism. No assumptions are explicitly stated, so R7 is only partially met despite the citations and reference list.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 21,
+    "quotes_found": 21,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You produced a strong, scenario-specific submission, with correct availability calculations and clear architectural reasoning. Your recommendation, circuit-breaker explanation, and ADR meet the highest rubric level. To strengthen the work further, make your payment consistency mechanism more explicit, clarify what happens to order placement during a payment outage, and state your assumptions.",
+    "next_steps": [
+      "In Question 5, keep your availability choice for menu browsing and consistency choice for payments, but add a mechanism that enforces consistent order/payment state during a partition, such as a transactional or strongly consistent operation. Explain that an idempotency key prevents duplicate retries but does not enforce consistency by itself.",
+      "In Question 1, specify what happens when payment is unavailable—for example, whether order placement is rejected or deferred—and include that behaviour in the measurable response criterion. This makes the outage scenario’s response clearer.",
+      "In Question 6, explain how payment completion and publication of the OrderPaid event are coordinated, including how you avoid losing an event if payment succeeds. Also state relevant assumptions explicitly; your references are present, but the marking identifies assumptions as the remaining gap."
+    ],
+    "criteria": {
+      "C1": "Question 1 selects and justifies performance and availability, and both scenarios include the six required parts with measurable response criteria. Clarify the order-placement behaviour during payment outages to make the availability scenario more complete.",
+      "C2": "Question 2 gives a well-supported modular-monolith recommendation, linking trade-offs to the five-person team, current performance and downtime issues, and the 12-month horizon. You also acknowledge the downside of shared scaling and process failure.",
+      "C3": "Question 3 shows the availability working and gives correct results to the requested precision, including the series calculation, monthly downtime, and active-active payment availability.",
+      "C4": "Question 4 correctly explains and applies the circuit breaker to the provider outage. Your discussion of threshold tuning and rejecting payments while the breaker is open makes the trade-offs clear.",
+      "C5": "Question 5 justifies both choices and names techniques, but an idempotency key prevents duplicate retries rather than ensuring consistent order/payment state during a partition. Add a transactional or strongly consistent mechanism to reach the top rubric level.",
+      "C6": "Question 6 includes a scenario-specific context, decision, and positive and negative consequences. Strengthen it by explaining how payment completion and queue publication are made atomic or otherwise coordinated.",
+      "C7": "Your answers are clear, use the required headings, stay within the word limit, and include IEEE-style citations and references. State your assumptions explicitly to address the remaining gap noted in the marking."
+    }
+  }
+}

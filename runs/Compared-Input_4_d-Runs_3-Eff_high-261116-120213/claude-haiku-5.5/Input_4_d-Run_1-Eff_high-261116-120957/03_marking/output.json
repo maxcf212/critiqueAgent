@@ -1,0 +1,156 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are well justified from the lunch-hour and 4.2 s p95 scenario. The performance scenario has all six parts with a measurable response. The availability scenario's response measure ('stay up most of the time') is not measurable, so the scenarios are not fully complete."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The 20-minute weekly downtime is a deployment process problem and can be removed with rolling deployments."
+        }
+      ],
+      "reasoning": "Clear recommendation for a modular monolith. Two scenario-specific trade-offs are given: team size of five developers and the single-VM and deployment problems. The downside (no independent scaling, shared process failure) is acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3 (b)",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3 (c)",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "Part (a) is correct at 99.30%. Part (b) is an arithmetic error: 0.00699 × 720 is about 5.0 h, not 3.5 h. Part (c) omits the other three components, so the end-to-end availability should be about 99.80% and downtime about 1.5 h, not 99.9975% and 0.018 h."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed"
+        }
+      ],
+      "reasoning": "Circuit Breaker is an appropriate pattern. The state explanation is wrong: Open and Closed are swapped, and Half-Open is described as reopening on success. The outage application is asserted but the explanation is incorrect, and no drawback or tuning trade-off is given."
+    },
+    {
+      "id": "C5",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Menu browsing favouring availability is justified, with a concrete technique (Redis cache with TTL). The CAP usage is incorrect: partition tolerance is not optional in a distributed system, and the payment choice is misstated. No concrete technique is named for the payment case."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are all present and specific to the tablets and lunch peak. However, all consequences are positive; no negative consequence (for example duplicate delivery from retries or added broker operations) is given."
+    },
+    {
+      "id": "C7",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        }
+      ],
+      "reasoning": "Several answers, including Questions 1, 2 and 4, appear to exceed 150 words. Reference [2] is cited but absent from the reference list, so citations are incomplete. Headings are correct and the writing is clear."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3 (b)",
+      "issue": "0.00699 × 720 equals about 5.0 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3 (c)",
+      "issue": "End-to-end availability omits the other three components. Correct result is about 99.80%, with about 1.5 h monthly downtime, not 99.9975% and 0.018 h."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states are wrong: Open and Closed are swapped, and Half-Open should close on success, not reopen."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP is misapplied: partition tolerance is not optional in a distributed system, so the payment choice is misstated."
+    },
+    {
+      "where": "Question 5",
+      "issue": "No concrete consistency technique is named for placing and paying for an order (for example idempotency keys or transactional outbox)."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [2] is cited in Question 4 but missing from the reference list; no assumptions are stated."
+    }
+  ],
+  "overall": "Solid structure and a well-argued architecture recommendation, but Question 3 has two incorrect parts, Question 4 misstates the circuit breaker states, and Question 5 misapplies CAP. Several answers exceed 150 words, a reference is missing, and the ADR lacks a negative consequence."
+}

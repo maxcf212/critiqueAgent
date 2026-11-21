@@ -1,0 +1,195 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Coral reefs harbour some of the most diverse species of life on the planet"
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        },
+        {
+          "where": "Introduction",
+          "quote": "The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM) for research and/or education."
+        }
+      ],
+      "reasoning": "Primary mission, rationale, single-satellite justification and users (operator/customers) are addressed with reasonable detail and some references. Operator is vaguely stated (university or government) and referencing is partly via Wikipedia-free web links but lacks depth; still largely accomplished."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Mission Design - Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle"
+        },
+        {
+          "where": "Orbit",
+          "quote": "the satellite will be positioned at an altitude of 600km above Earth's surface"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "An average contact duration of almost ten minutes was achieved"
+        },
+        {
+          "where": "Orbit",
+          "quote": "Earth radius of 6371km plus a proposed altitude of 600km"
+        }
+      ],
+      "reasoning": "Covers launch, orbit with COE table, STK access tables and ground track screenshots. However, launch is inconsistent (piggyback vs dedicated Vega E, Vega E not yet built), RAAN and sun-synchronous logic contain errors, the 'retrograde' vs 'Vega launch from near equator' reasoning is muddled, and manoeuvre/EOL is weakly supported by calculations. Ground station pole-proximity claim contradicts Tasmania choice rationale. Adequate range."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet."
+        },
+        {
+          "where": "Conclusion",
+          "quote": "A polar sun-synchronous orbit allows for consistent illumination of the oceans"
+        }
+      ],
+      "reasoning": "Conclusions are reached and tie back to the mission, with acknowledged launch risk, but they are largely generic and do not summarise quantitative results such as the EOL decision or the access statistics in detail."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "However, the ZYZZsat is without thrust capability and so must use a ‘passive’ strategy."
+        },
+        {
+          "where": "Mission Design - Launch",
+          "quote": "Vega E"
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        }
+      ],
+      "reasoning": "Clear headings and a contents list, but the drag sail sentence is truncated, the Contents page numbers do not match, figures and tables lack proper numbering and titles, the executive summary is long, and a Wikipedia source is used despite being prohibited. Grammar errors appear throughout."
+    },
+    {
+      "id": "R-checks",
+      "level": "n/a",
+      "mark": 0,
+      "evidence": [],
+      "reasoning": "Requirements and technical issues are recorded in the requirements and technical_issues fields below."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Executive Summary"
+    },
+    {
+      "id": "R2",
+      "met": "partial",
+      "where": "Mission Design"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Mission Design - Launch"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R8",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R9",
+      "met": "partial",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R11",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R12",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R13",
+      "met": "partial",
+      "where": "Contents"
+    },
+    {
+      "id": "R14",
+      "met": "no",
+      "where": "Mission Design - Launch"
+    },
+    {
+      "id": "R15",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Orbit",
+      "issue": "A sun-synchronous orbit needs RAAN to precess about 360° per year (about 0.9856°/day eastward), which the text states as 1° per day and mixes with a full rotation per year; it also says RAAN is 'the initial value indicates the location of the launch facility', which is not how RAAN is defined."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Argument of latitude is described as the angle from ascending node, but the table gives u=0° while stating it changes with position, an internal inconsistency; the Keplerian element table lists only five elements, omitting true anomaly/mean anomaly."
+    },
+    {
+      "where": "Mission Design - Launch",
+      "issue": "Launch from Kourou at 5.05°N is said to be used for a retrograde near-polar orbit with a 'piggyback' ride, yet the text then selects a dedicated Vega E; the claim that Kourou's latitude below target inclination gives two windows per day is only loosely justified."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Claims a polar ground station maximises pass frequency and then selects Tasmania (about 42°S) without quantifying the trade-off; the 'verticality' claim about contact duration is unsupported."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Drag sail paragraph is truncated mid-sentence; the uncontrolled descent option is said to be chosen but then rejected for lack of thrust without a re-entry or lifetime calculation."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Altitude of 600 km was chosen by swath argument but the swath width and ground resolution are never calculated; the reef width of 250 km is not related to sensor swath numerically."
+    }
+  ],
+  "overall": "Solid concept with STK access data and an orbit table, but mission design contains several technical inconsistencies (RAAN precession, launch vehicle choice, ground station logic), missing figure numbering, a truncated EOL paragraph, and a prohibited Wikipedia source. Adequate overall with strengths in concept and communications results."
+}

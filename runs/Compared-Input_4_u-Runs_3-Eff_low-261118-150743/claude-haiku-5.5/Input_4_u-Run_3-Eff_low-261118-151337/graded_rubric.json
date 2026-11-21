@@ -1,0 +1,244 @@
+{
+  "total": 37.0,
+  "total_max": 40.0,
+  "percent": 92.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Two attributes are chosen and justified from the scenario (900 lunch orders, 4.2 s p95, payment outage). Both scenarios have all six parts, and both response measures are numeric and testable.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "A clear modular monolith recommendation is justified by scenario-specific trade-offs: five developers, the single-VM lunchtime slowness, and the 20-minute weekly downtime. The downside is explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "I rechecked all parts: 99.30%, 5.0 h, 99.80% and 1.5 h are correct with working shown. The intermediate values are correct to the precision used, and the requested precision is met.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_new = 0.9995 × 0.999 × 0.9995 × 0.999975 = 0.99798",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is appropriate and its Closed/Open/Half-Open mechanism is correct. It is applied to the 25-minute outage, with both a tuning consideration and a drawback given.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately, so request threads are not blocked",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "Both choices are justified and CAP is stated correctly (partition tolerance is not optional). Redis TTL caching and idempotency keys are named. The payment consistency technique is thin, so I did not award the top mark.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "(i) Menu browsing: I would favour availability.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are all present and specific to CampusEats. There are positive and negative consequences, including at-least-once delivery and the need for an alert on a stuck queue.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 4.0,
+      "points": 2.0,
+      "max": 4.0,
+      "reasoning": "Question 1, Question 2 and Question 4 each appear to exceed the 150-word limit, so several answers are over. Headings and IEEE-style references are correct. No assumptions section is given.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "First, independent scaling versus operational overhead.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "The scenarios use the six-part form from [1].",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 4",
+      "issue": "Claims the breaker 'would have opened within seconds' last month without supporting data or stated assumptions."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Payment consistency technique is limited to idempotency keys; no stronger consistency mechanism (e.g., transactional or quorum write) is discussed."
+    },
+    {
+      "where": "Assumptions",
+      "issue": "No explicit statement of assumptions, such as independence of failures, despite the requirement."
+    }
+  ],
+  "overall": "Strong technical work: Question 3 calculations are correct, and the Q1, Q2, Q4 and Q6 reasoning is scenario-specific. Main weaknesses: several answers exceed the 150-word limit and no assumptions are stated. Estimated total 37/40.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 13,
+    "quotes_found": 13,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You produced strong, scenario-specific work overall. Your Question 3 availability calculations are fully correct, and your modular monolith recommendation and Circuit Breaker answer are well grounded in CampusEats details. The main areas to improve are the word limits, the missing assumptions statement, and the depth of your payment consistency reasoning. The estimated mark is 37 out of 40.",
+    "next_steps": [
+      "Trim Questions 1, 2 and 4 to 150 words or fewer, keeping the key trade-offs and response measures.",
+      "Add a short assumptions section, for example stating whether component failures are independent, and check that your Question 3 and Question 4 reasoning is consistent with it.",
+      "Strengthen Question 5 by discussing a stronger payment consistency mechanism, such as transactional or quorum writes, and explain when idempotency keys alone are not enough. Also check that every reference is complete."
+    ],
+    "criteria": {
+      "C1": "You chose two attributes that clearly matter most for CampusEats, performance and availability, and tied them to the 900 lunch orders and the 4.2 s p95 problem. Both scenarios are in complete six-part form, and each response measure is numeric and testable, such as a p95 under 1.5 s. This is excellent work.",
+      "C2": "Your modular monolith recommendation is clear and well justified by scenario-specific trade-offs, including your five-developer team and the operational cost of running many services. You also honestly acknowledge the downside: modules cannot scale independently and one bug can crash the whole process. Keep this level of specificity in future answers.",
+      "C3": "All three parts are correct, with working shown: 99.30%, 5.0 h, 99.80% and 1.5 h. Your method and precision are sound. Continue showing each intermediate step clearly, as this is what secures full credit.",
+      "C4": "You correctly named the Circuit Breaker and explained the Closed, Open and Half-Open states. You applied it to the 25-minute outage and included a tuning consideration and a drawback. Your claim that the breaker would have opened within seconds last month needs supporting data or stated assumptions, otherwise it reads as unsupported.",
+      "C5": "Your CAP reasoning is correct, including the point that partition tolerance is not optional, and your choices for menu browsing and payments are justified. Redis TTL caching and idempotency keys are appropriate techniques. For payments, idempotency keys alone are limited, so discuss a stronger consistency mechanism such as transactional or quorum writes.",
+      "C6": "Your decision record has clear Context, Decision and Consequences sections that are specific to CampusEats. You include both positive and negative consequences, such as the need to alert on a stuck queue and the operational burden for five developers. This is a strong decision record.",
+      "C7": "Your headings are correct and your writing is clear. Several answers, including Questions 1, 2 and 4, appear to exceed the 150-word limit, so trim them. The references requirement was only partly met, so check that every source is complete. Add the explicit assumptions statement the brief asks for."
+    }
+  }
+}

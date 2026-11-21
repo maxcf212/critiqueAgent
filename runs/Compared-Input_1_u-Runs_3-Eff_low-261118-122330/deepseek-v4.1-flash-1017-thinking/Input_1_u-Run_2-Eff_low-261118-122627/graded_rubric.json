@@ -1,0 +1,161 @@
+{
+  "total": 87.0,
+  "total_max": 100.0,
+  "percent": 87.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 36.0,
+      "max": 40.0,
+      "reasoning": "Clear mission goal, objectives and preliminary requirements; explicit users (AIMS, GBRMPA, CSIRO/researchers, BoM) and needs. Strong rationale and literature links. Minor weakness: 10 m GSD is tied to an airborne-mapping news source rather than a satellite-resolution derivation.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 27.0,
+      "max": 30.0,
+      "reasoning": "Gantt chart, task descriptions, software choice and information sources are present. Plan is sequenced from mission requirements and includes meaningful risks/contingencies. Could be slightly stronger with more explicit milestones and source-to-task mapping, but robust.",
+      "evidence": [
+        {
+          "where": "Project Plan",
+          "quote": "The order follows the mission: the imaging requirements (objectives 1 and 2) fix the orbit altitude and local time",
+          "verified": true
+        },
+        {
+          "where": "Project Plan",
+          "quote": "Week 10 is float as well as editing time: no new design work is planned in it.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 8.0,
+      "max": 10.0,
+      "reasoning": "Good preliminary orbit calculations (period, orbits/day, SSO inclination, ground-track shift, swath), with interpretation of the coverage problem. STK setup is only briefly reported, not documented with outputs, but progress is clearly on track.",
+      "evidence": [
+        {
+          "where": "Preliminary Progress",
+          "quote": "A first STK scenario with this orbit has been set up, and its period agrees with the hand calculation.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 16.0,
+      "max": 20.0,
+      "reasoning": "Well structured and readable; headings, tables, figure and captions are clear. References are mostly consistent, but [6] is used for BoM SST while the listed [6] is a NOAA coral-climate page; some sources are weakly detailed. Presentation remains professional.",
+      "evidence": [
+        {
+          "where": "Preliminary Progress",
+          "quote": "Table 3: Preliminary hand calculations for the candidate orbit.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Project Plan; Preliminary Progress"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Project Plan"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Project Plan — Information sources"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Preliminary Progress"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "In-text [6] is used to support Bureau of Meteorology SST products, but reference [6] is a NOAA coral-reef climate page, not a BoM SST source."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "The 10 m GSD requirement is linked to [4], a news article about airborne mapping, not a satellite-resolution requirement or derivation."
+    },
+    {
+      "where": "Preliminary Progress",
+      "issue": "The swath calculation assumes 6,000 across-track pixels without stating detector/optics basis; the resulting 60 km swath conclusion depends on this assumption."
+    },
+    {
+      "where": "Preliminary Progress",
+      "issue": "The 'about 250 km wide' reef figure used in the coverage interpretation lacks a cited source."
+    }
+  ],
+  "overall": "Strong mission concept with clear users and requirements; robust Gantt, contingencies and source list; sound preliminary orbit/swath calculations. Presentation is professional. Main weaknesses are minor citation mismatches and unsupported assumptions in the resolution/swath argument.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 5,
+    "quotes_found": 5,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You present a strong, well-structured preliminary report. Your mission concept clearly identifies users and needs, and your project plan is robust with a Gantt chart, contingencies and sources. Preliminary orbit/swath work is sound and on track. To strengthen, tighten citation-to-claim links in the rationale and document the assumptions behind your swath and reef-width figures.",
+    "next_steps": [
+      "In Mission Concept & Rationale, replace or supplement [6] with a BoM SST source and replace [4] with a satellite-resolution reference or show your derivation of the 10 m GSD requirement.",
+      "In Preliminary Progress, state the detector/optics basis for the 6,000 across-track pixels in the swath calculation and cite a source for the 'about 250 km wide' reef figure.",
+      "In Project Plan, add explicit milestones and map each information source to the task it supports; in Preliminary Progress, include STK outputs or a short table to document the scenario beyond the period check."
+    ],
+    "criteria": {
+      "C1": "Your Mission Concept & Rationale gives a clear goal, objectives and preliminary requirements, with explicit users (AIMS, GBRMPA, CSIRO/researchers, BoM) and strong rationale. To secure the top of Accomplished, align citations with claims: [6] should support BoM SST, and the 10 m GSD should be tied to a satellite-resolution source or derivation rather than the airborne-mapping news article [4].",
+      "C2": "Your Project Plan is robust: the Gantt chart, task descriptions, software choice and information sources are present, and the sequence follows the mission requirements. Contingencies and float are meaningful. To strengthen within Accomplished, add explicit milestones and a source-to-task mapping so each source's role is clear.",
+      "C3": "Your Preliminary Progress includes good hand calculations (period, orbits/day, SSO inclination, ground-track shift, swath) and interpretation of coverage, and the STK period check shows you are on track. To strengthen, document the STK scenario with outputs and justify the 6,000-pixel assumption; cite the 'about 250 km wide' reef figure.",
+      "C4": "Your report is well structured and readable, with clear headings, tables, figure captions and mostly consistent references. Table 3 is clear. To strengthen within Accomplished, correct the [6] mismatch and add fuller source details; ensure every in-text citation matches the reference list and supports the specific claim."
+    }
+  }
+}

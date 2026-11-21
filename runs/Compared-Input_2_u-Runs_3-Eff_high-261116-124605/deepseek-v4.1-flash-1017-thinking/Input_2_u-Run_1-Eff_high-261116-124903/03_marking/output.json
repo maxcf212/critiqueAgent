@@ -1,0 +1,164 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution, so that bleaching is mapped directly"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS), which already runs the long-term monitoring program for the reef"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "One satellite is therefore used. This also simplifies communications, reduces cost, and requires less time to build and launch."
+        }
+      ],
+      "reasoning": "Mission, need, spacecraft count and users (operator AIMS; customers GBRMPA, CSIRO, BoM) all covered with reasoning and citations [1]-[6]. Rationale for direct bleaching detection is well argued. Minor: source [4] is vaguely cited (Nature news article)."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "sin β = cos 97.79° / cos 5.2° = −0.1355 / 0.9959 = −0.136, so β = −7.8°"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "cos i = −(1.991 × 10⁻⁷) / (1.5 × 1.0826 × 10⁻³ × 0.8354 × 1.0831 × 10⁻³) = −0.1355, so i = 97.79°"
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "With a 4 m² sail the satellite re-enters about two years after the end of the mission."
+        },
+        {
+          "where": "Appendix A: STK files and settings",
+          "quote": "The following STK 11 files are submitted with this report in ZYZZsat_STK.zip."
+        }
+      ],
+      "reasoning": "All major elements addressed with STK screenshots, access reports, hand calculations and file list. Checks verified: inclination, azimuth, period, aperture, decay rates (0.40 m/orbit, 2.2 km/yr; sail 5.8 m/orbit), data budget (115 Gbit → 29 Gbit vs 100 Gbit). Gaps: no X-band link budget (acknowledged); revisit estimate approximate; only one 60,000 km² strip/day is conservative."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "A 600 km sun-synchronous orbit at 97.79° inclination gives the same morning lighting on every pass, a 5 m image with a 60 km swath"
+        },
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations."
+        }
+      ],
+      "reasoning": "Conclusions are quantitative, drawn directly from the design sections, and include a candid limitations list (Vega C maturity, unproven fluid lensing at 5 m, ground-station equipment, 45-day mosaic). Slight improvement possible on recommendation detail."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report presents the design of ZYZZsat (Z-axis/Y-axis Zeroed Zoning Satellite), a single Earth observation microsatellite"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "Table 4: Orbital elements of ZYZZsat at the scenario epoch, 3 Feb 2025 00:00:00 UTCG (mean elements, J2000 frame)."
+        }
+      ],
+      "reasoning": "Clear structure, concise prose, well-captioned numbered figures/tables, executive summary, all references [1]-[15] cited in text. Deductions: vague references [4] and [15], Figure 2 generation method not stated, minor formatting/typographic slips (factor-of-ten expressions, unit style) and no table of figures."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction, Executive Summary"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit, Table 4"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit (Manoeuvres)"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications, Table 5"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3 Orbit, 2.4, Appendix A (STK 11)"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Figures 1, 3, 4; Appendix A"
+    },
+    {
+      "id": "R11",
+      "met": "yes",
+      "where": "Contents, Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "X-band link budget not performed; 50 Mbit/s downlink and ground-station sizing are asserted rather than demonstrated."
+    },
+    {
+      "where": "Table 6",
+      "issue": "Imaging plan assumes only 60,000 km² per day (one 1,000 km strip), far below the satellite's actual capability; revisit/mosaic logic is therefore conservative but internally inconsistent with a pushbroom imager."
+    },
+    {
+      "where": "2.3 Orbit",
+      "issue": "Revisit calculation (2,698 km / 560 km ≈ 5 days) ignores latitude convergence and assumes single-pass access; real coverage at 18°S uses ~2,570 km track spacing, giving ~4.6 days - acceptable but not stated."
+    },
+    {
+      "where": "2.2 Launch",
+      "issue": "Vega C status ('has not yet flown, first flight planned 2021') is accurate for 2020 but should be flagged as time-dependent; rideshare injection accuracy and exact release altitude are not specified."
+    },
+    {
+      "where": "Figure 2",
+      "issue": "Inclination-vs-altitude curve has no stated source or generation method (STK/MATLAB) and no data file reference."
+    },
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "Mount Pleasant is a VLBI/geodesy facility; addition of S/X-band hardware, licensing and cost are assumed rather than designed, with no elevation mask used in the access report."
+    }
+  ],
+  "overall": "A strong, technically sound and well-evidenced preliminary design: launch, SSO orbit, elements, manoeuvres, ground segment, duration and drag-sail EOL are all covered with verified calculations, STK outputs and files. Main gaps are the missing X-band link budget, an over-conservative imaging plan, and a few vague references."
+}

@@ -1,0 +1,17 @@
+{
+  "summary": "Outstanding work across all six questions. Your Q1 scenarios were complete and measurable, Q2 was justified with scenario-specific trade-offs, all Q3 calculations verified correct with working shown, and Q4–Q6 named appropriate patterns and techniques with drawbacks acknowledged. Communication was precise, within word limits, and properly cited in IEEE style. Full marks awarded on every criterion.",
+  "next_steps": [
+    "Quantify response measures like 'no requests are dropped' with an explicit figure (e.g. drop rate < 0.1%) so every measure is independently measurable.",
+    "Deepen trade-off analysis by quantifying the downside you accept, e.g. estimating the load at which the single-VM monolith would need to be split.",
+    "Practise applying these patterns beyond the scenario, e.g. sketch how the circuit breaker and idempotency keys would interact during a payment retry storm."
+  ],
+  "criteria": {
+    "C1": "Excellent. You chose performance and availability and justified both from scenario facts (900 orders/hour, 4.2 s p95, payment outage). Both scenarios contain all six parts with measurable response measures such as p95 thresholds and recovery time. To push further, make 'no requests are dropped' as precisely quantified as your other measures.",
+    "C2": "Excellent. Your modular monolith recommendation was justified by two scenario-specific trade-offs: the five-developer team's infrastructure overhead and the single-VM lunchtime bottleneck, with the weekly downtime window. You explicitly acknowledged the downside of independent scaling and crash propagation, which is exactly what the top level requires.",
+    "C3": "Excellent. All three parts verified correct with working shown: (a) 99.30%, (b) 5.0 hours, and (c) parallel payment availability 0.999975 giving 99.80% and 1.5 hours downtime. You met the requested precision throughout. Keep showing your working this clearly in future calculations.",
+    "C4": "Excellent. You named the Circuit Breaker, correctly explained the Closed/Open/Half-Open mechanism, applied it concretely to the 25-minute payment outage, and gave both a tuning consideration and the drawback that payments fail while open, requiring a fallback. This covers every element of the top band.",
+    "C5": "Excellent. Your AP choice for menu browsing (Redis cache with TTL) and CP choice for payments (idempotency keys) were both justified, and you used the CAP theorem correctly by noting partition tolerance is not optional. A concrete technique was named for each case, meeting the highest level fully.",
+    "C6": "Excellent. Your ADR contains Context, Decision and Consequences, all specific to CampusEats (4.2 s p95, offline tablets, five developers), with multiple positive and negative consequences including the at-least-once delivery requirement that the tablet must handle duplicate order IDs.",
+    "C7": "Excellent. Every answer stayed within 150 words, the required Question 1–6 headings were used in order, terminology was precise, and you provided IEEE-style citations with a reference list. Availability and downtime formats were followed as required. Maintain this standard of presentation."
+  }
+}

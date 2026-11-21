@@ -1,0 +1,140 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Two relevant attributes justified from lunch-peak. Performance scenario complete and measurable. Availability scenario has six parts but response measure is vague and not measurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "modules cannot be scaled independently, and a bug in one module can still crash"
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation. Two scenario-specific trade-offs: 5-person team overhead and single-VM plus deployment downtime. Downside acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "Parts (a) 99.30% and (b) 5.0 hours correct with working. Part (c) uses payment-only availability, omits other components; correct is ~99.80% and ~1.5h downtime."
+    },
+    {
+      "id": "C4",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "After a wait period the breaker goes Half-Open and lets a few trial calls through."
+        }
+      ],
+      "reasoning": "Circuit Breaker appropriate, mechanism correctly explained and applied to 25-min outage. No explicit drawback or tuning trade-off discussed."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both AP for menus and CP for payments choices reasonable with techniques. CAP misused: partition tolerance cannot be given up."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders at a steady rate."
+        }
+      ],
+      "reasoning": "Context and Decision specific to outlet notification. Consequences list only positives; no negative consequence like ops complexity or ordering."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months."
+        }
+      ],
+      "reasoning": "Headings and IEEE references present, writing clear, but Q2 ~182 words exceeds 150-word limit."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Part (c) incorrect: end-to-end availability must multiply 0.9995x0.999x0.9995x0.999975=~99.80%, downtime ~1.5h, not 99.9975% / 0.018h."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP statement incorrect; partitioned system must tolerate partitions and trades C vs A. Idempotency key does not provide consistency."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure not measurable, no target percentage/time."
+    }
+  ],
+  "overall": "Mostly strong analysis with correct series method but Q3c miscalculation, CAP error, missing measurable and ADR negative."
+}

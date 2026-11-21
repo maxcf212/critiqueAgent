@@ -1,0 +1,246 @@
+{
+  "total": 21.0,
+  "total_max": 40.0,
+  "percent": 52.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 6.0,
+      "points": 2.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are justified using the scenario, and the performance scenario has six parts with measurable response measures. The availability scenario's measure is not measurable, and its response does not clearly address payment failure.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "The modular-monolith recommendation is clear and tied to team size, existing performance and deployment problems, and the 12-month horizon. It gives multiple scenario-specific trade-offs and acknowledges a downside.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) and (b) are essentially correct to the requested precision. In (c), the redundant payment availability is calculated correctly, but it is not combined with the other required components; therefore end-to-end availability and downtime are wrong.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "The Circuit Breaker is appropriate and its intended application is clear, but its states are explained incorrectly: normal traffic passes in Closed, failures open the breaker, and trial calls occur in Half-Open. The outage discussion does not correct this mechanism error.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 6.0,
+      "points": 2.0,
+      "max": 6.0,
+      "reasoning": "The menu choice is justified with a concrete cache technique. The payment choice invokes CAP incorrectly: during a partition, a system cannot guarantee both consistency and availability. No concrete payment technique is named.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision, and Consequences are present and specific. The consequences are only positive; no negative consequence such as eventual delivery, duplicate handling, or queue-operation overhead is acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 4.0,
+      "points": 2.0,
+      "max": 4.0,
+      "reasoning": "The required question headings and order are used, and answers appear within the word limit. Citation and format requirements are incomplete: reference [2] is missing, and assumptions are not stated.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed. Upper Saddle River, NJ, USA: Addison-Wesley, 2012.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "no",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Part (c) gives payment-system availability (99.9975%) as end-to-end order-placement availability. Multiplying by the other required component availabilities gives approximately 99.80% end-to-end availability and 1.5 hours monthly downtime."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit Breaker state transitions are reversed: Closed permits calls, failures transition to Open, and Half-Open permits trial calls."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP is misstated. During a partition, a system must trade off consistency and availability; it cannot choose consistency and availability while giving up partition tolerance."
+    },
+    {
+      "where": "Question 5",
+      "issue": "No concrete consistency technique is named for placing and paying for an order."
+    },
+    {
+      "where": "Question 6",
+      "issue": "Consequences omit a negative consequence of introducing the queue."
+    },
+    {
+      "where": "References",
+      "issue": "Citation [2] is used but has no corresponding reference-list entry, and no assumptions are stated."
+    }
+  ],
+  "overall": "Total: 21/40. The recommendation and most calculations are sound, but the answer has important errors in the circuit-breaker states, CAP explanation, and end-to-end redundancy calculation. The availability scenario is not measurable, and citations and ADR consequences are incomplete.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 11,
+    "quotes_found": 11,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You give a strong, scenario-specific modular-monolith recommendation in Question 2 and show sound methods for most of Question 3. To reach the next rubric levels, make the availability measure measurable, correct the circuit-breaker and CAP explanations, and complete the end-to-end calculation. Also add a negative consequence to the ADR and complete your references and assumptions.",
+    "next_steps": [
+      "In Question 1, replace “stay up most of the time” with a measurable availability target and explain how the system should respond when payment fails; include all six scenario parts.",
+      "In Question 3(c), combine the redundant payment availability with every other required component before calculating end-to-end availability and monthly downtime. In Question 4, state that Closed permits calls, failures open the breaker, and Half-Open allows trial calls.",
+      "In Question 5, explain that a partition forces a trade-off between consistency and availability, and name a concrete payment consistency technique. In Question 6, add a negative queue consequence; complete the [2] reference and state your assumptions."
+    ],
+    "criteria": {
+      "C1": "Question 1 connects performance and availability to the scenario, and the performance scenario has six parts with measurable measures. The availability measure is vague (“stay up most of the time”) and does not clearly address payment failure. Use a measurable target and complete the scenario.",
+      "C2": "Question 2 earns 5/6. Your modular-monolith recommendation is tied to the five-person team, current problems and 12-month horizon; you explain relevant trade-offs and acknowledge a downside. To reach Excellent, make the trade-off justification fully satisfy the rubric.",
+      "C3": "Question 3(a) and (b) are essentially correct. In (c), you calculate redundant payment availability but do not combine it with the other required components. Recalculate end-to-end availability and downtime; the expected results are approximately 99.80% and 1.5 hours monthly.",
+      "C4": "Question 4 identifies an appropriate pattern and applies it to the outage, but reverses the Circuit Breaker states. Correctly explain Closed (calls pass), Open (calls blocked after failures) and Half-Open (trial calls). Include a drawback or tuning consideration for the next level.",
+      "C5": "Question 5 gives a justified menu choice and a concrete cache technique. Correct the CAP explanation: during a partition, consistency and availability must be traded off. Name a concrete consistency technique for placing and paying for an order.",
+      "C6": "Question 6 includes scenario-specific Context, Decision and Consequences. Your consequences are positive only; add a specific downside of the queue, such as eventual delivery, duplicate handling or operational overhead, to reach Excellent.",
+      "C7": "Your required headings are used and the answers appear within the word limit. Citation and format requirements are incomplete: add the reference-list entry for [2] and state your assumptions. These changes are needed to improve this criterion."
+    }
+  }
+}

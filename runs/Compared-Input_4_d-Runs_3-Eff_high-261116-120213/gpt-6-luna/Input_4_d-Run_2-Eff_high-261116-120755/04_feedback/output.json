@@ -1,0 +1,17 @@
+{
+  "summary": "You give a strong, scenario-specific recommendation in Question 2 and make relevant choices across the assignment. To strengthen your work, make every quality-attribute measure measurable, check the end-to-end availability calculations, explain the circuit-breaker states and CAP trade-off accurately, and complete the ADR consequences and references.",
+  "next_steps": [
+    "In Question 3, show and check each calculation: 0.00699 × 720 is about 5.0 hours, and the redundant payment component does not replace the other components in the end-to-end calculation.",
+    "In Questions 4 and 5, explain circuit-breaker transitions in the correct order and state that during a partition CAP requires a trade-off between consistency and availability; name a concrete technique for each consistency/availability choice.",
+    "In Questions 1 and 6 and your References, replace vague measures with measurable targets, add a negative ADR consequence, include the missing reference for citation [2], and state your assumptions. Check each answer against the 150-word limit."
+  ],
+  "criteria": {
+    "C1": "Question 1 identifies and justifies relevant attributes, and the performance scenario has a measurable target. For the next level, make the availability response measure measurable too—for example, specify an availability percentage or maximum downtime—and ensure both scenarios clearly include all six parts.",
+    "C2": "Question 2 gives a clear modular-monolith recommendation tied to your five-person team and current problems, and acknowledges the downside of limited independent scaling and shared failure risk. This meets the Excellent criteria; preserve this scenario-specific trade-off reasoning.",
+    "C3": "Your working in Question 3(a) is correct, but the downtime multiplication in (b) should give about 5.0 hours, not 3.5. In (c), include the other series components: the result is about 99.80% end-to-end availability and 1.5 hours of monthly downtime. Correct all parts to reach the next rubric level.",
+    "C4": "Question 4 names a relevant pattern and connects it to the outage, but reverses its states. Closed permits calls; failures move the breaker to Open; successful Half-Open trials return it to Closed. Correctly explain this mechanism, then add a drawback or tuning consideration to meet Excellent.",
+    "C5": "Question 5 makes reasonable choices and names Redis with a 60-second TTL for browsing. Correct the CAP explanation: during a partition, consistency and availability must be traded off. Name a concrete technique for the payment consistency choice as well as the browsing choice to meet Excellent.",
+    "C6": "Question 6 includes scenario-specific Context, Decision, and Consequences, with benefits of the durable queue. To reach Excellent, add a relevant negative consequence—for example, that queued outlet updates may be delayed—and explain how you would address it.",
+    "C7": "Your required headings are used and answers appear within the word limit. To reach Excellent, keep every answer within 150 words, use precise terminology, and ensure citations and references match in IEEE style: citation [2] needs a reference-list entry. Also state your assumptions."
+  }
+}

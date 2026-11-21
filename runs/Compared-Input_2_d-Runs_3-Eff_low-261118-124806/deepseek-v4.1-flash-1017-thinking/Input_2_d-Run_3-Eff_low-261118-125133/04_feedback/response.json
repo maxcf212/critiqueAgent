@@ -1,0 +1,290 @@
+{
+  "id": "chatcmpl-a2285994-8580-4c58-a086-55753a395e57",
+  "object": "chat.completion",
+  "created": 1794966735,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"Your report is well structured and covers most mission-design elements, with a clear rationale and useful STK screenshots. However, key technical errors (SSO inclination, Kourou latitude, contact duration) and missing software files weaken the design evidence. References and figure formatting also need work. The feedback below is specific and actionable; marks are unchanged.\",\"next_steps\":[\"Correct the orbital and launch-site errors: change the 600 km SSO inclination from 87.79° to about 97.8° retrograde, fix Kourou's latitude to ~5.2°N, and revise the launch-window reasoning accordingly.\",\"Recheck STK outputs: report mean access duration as ~9.7 min (580.786 s), not 'almost twenty minutes'; explain that RAAN depends on launch time and azimuth, note SSO eclipse periods, and remove the claim that low resolution is desirable.\",\"Strengthen evidence and presentation: supply STK/PIGI files, number and caption every figure and table (including Image 3), and replace Wikipedia and bare URLs with properly cited references.\"],\"criteria\":{\"C1\":\"You clearly explain the reef-monitoring need, justify a single spacecraft, and identify user groups with references. To reach the top of Accomplished, make the operator and customer roles explicit (e.g., who tasks the spacecraft and who receives data) and support each claim with specific literature rather than general statements.\",\"C2\":\"You cover launch, orbit, ground control, communications, duration and EOL with STK screenshots, but several technical errors undermine the design: the 600 km SSO inclination should be ~97.8° retrograde, Kourou is ~5.2°N not 45.05°N, and 580.786 s is ~9.7 min not 'almost twenty'. Correct these, explain RAAN and eclipse, remove the low-resolution-desirable contradiction, and include STK/PIGI files. That evidence is needed for Accomplished.\",\"C3\":\"Your conclusion summarises the launch vehicle, orbit and ground station, but it omits EOL, mission duration, the single-satellite rationale and users, and some statements are generic. To move to Accomplished, tie each conclusion directly to your evidence and cover all major design decisions, including limitations and why the design benefits Australia.\",\"C4\":\"Your structure, headings and executive summary are clear, but figure/table numbering is inconsistent, Image 3 lacks a caption, and the bibliography includes Wikipedia and bare URLs. For Accomplished, use consistent formatting, caption and number every figure/table, and ensure in-text citations match a properly formatted reference list without prohibited sources.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary, next_steps (3 strings), criteria object keyed by criterion id with feedback <=70 words each. Address student as \"you\". Be specific, cite sections/figures, name what they did well, state next rubric level requirements. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nWe need craft feedback for C1-C4. Summary <=80 words. Next steps 3 actionable strings.\n\nNeed be supportive, specific, actionable. Mention technical issues: SSO inclination 87.79 should ~97.8 retrograde; Kourou latitude 45.05 vs ~5.2; contact duration 580.786 s ~9.7 min not almost twenty; RAAN reasoning; SSO eclipse; resolution contradiction; missing STK/PIGI files; bibliography Wikipedia/bare URLs; figures/tables inconsistent numbering, Image 3 no caption.\n\nC1: Accomplished 7/10. Good mission need, rationale, single spacecraft, users with references. Operator/customer roles implicit. Next level: explicitly define operator and customers, perhaps table, stronger literature. <=70 words.\n\nC2: Adequate 5/10. Covers all major areas with STK screenshots, but technical flaws. Need correct SSO inclination, Kourou latitude, contact duration, RAAN explanation, eclipse, resolution statement, include STK/PIGI files. Next level requires accurate, well-supported evidence and persuasive design. <=70 words.\n\nC3: Adequate 5/10. Conclusion summarises launch/orbit/ground station but omits EOL, duration, single-sat rationale, users; generic. Next level: detailed conclusions tied to evidence, include all key design decisions and limitations. <=70 words.\n\nC4: Adequate 6/10. Structure/headings/exec summary clear; figures/tables inconsistently numbered, Image 3 lacks caption, references bare URLs incl Wikipedia. Next level: consistent formatting, all figures/tables captioned/numbered, proper citations matching list, no Wikipedia. <=70 words.\n\nSummary <=80 words: \"Your report is well structured and covers most mission-design elements, with a clear rationale and useful STK screenshots. However, key technical errors (SSO inclination, Kourou latitude, contact duration) and missing software files weaken the design evidence. References and figure formatting also need work. The feedback below is specific and actionable; marks are unchanged.\" Count ~55.\n\nNext steps 3 strings: \n1. \"Correct the orbital and launch-site errors: change the 600 km SSO inclination from 87.79° to about 97.8° retrograde, fix Kourou's latitude to ~5.2°N, and revise the launch-window reasoning accordingly.\"\n2. \"Recheck STK outputs: report mean access duration as ~9.7 min (580.786 s), not 'almost twenty minutes'; explain RAAN depends on launch time/azimuth; note SSO eclipse periods; remove the claim that low resolution is desirable.\"\n3. \"Strengthen evidence and presentation: supply STK/PIGI files, number and caption every figure/table (including Image 3), and replace Wikipedia/bare URLs with proper cited references.\"\n\nNeed ensure JSON only. Criteria keys C1 etc. Use <=70 words each. Let's draft.\n\nC1: \"You clearly explain the reef-monitoring need, justify a single spacecraft, and identify user groups with references. To reach the top of Accomplished, make the operator and customer roles explicit (e.g., who tasks the spacecraft and who receives data) and support each claim with specific literature rather than general statements.\" Count ~50.\n\nC2: \"You cover launch, orbit, ground control, communications, duration and EOL with STK screenshots, but several technical errors undermine the design: the 600 km SSO inclination should be ~97.8° retrograde, Kourou is ~5.2°N not 45.05°N, and 580.786 s is ~9.7 min not 'almost twenty'. Correct these, explain RAAN and eclipse, remove the low-resolution-desirable contradiction, and include STK/PIGI files. That evidence is needed for Accomplished.\" ~70? Count: You(1) cover2 launch3 orbit4 ground5 control6 communications7 duration8 and9 EOL10 with11 STK12 screenshots13 but14 several15 technical16 errors17 undermine18 the19 design20 the21 60022 km23 SSO24 inclination25 should26 be27 ~97.8°28 retrograde29 Kourou30 is31 ~5.2°N32 not33 45.05°N34 and35 580.78636 s37 is38 ~9.739 min40 not41 almost42 twenty43 Correct44 these45 explain46 RAAN47 and48 eclipse49 remove50 the51 low-resolution-desirable52 contradiction53 and54 include55 STK/PIGI56 files57 That58 evidence59 is60 needed61 for62 Accomplished63. Good.\n\nC3: \"Your conclusion summarises the launch vehicle, orbit and ground station, but it omits EOL, mission duration, the single-satellite rationale and users, and some statements are generic. To move to Accomplished, tie each conclusion directly to your evidence and cover all major design decisions, including limitations and why the design benefits Australia.\" ~55.\n\nC4: \"Your structure, headings and executive summary are clear, but figure/table numbering is inconsistent, Image 3 lacks a caption, and the bibliography includes Wikipedia and bare URLs. For Accomplished, use consistent formatting, caption and number every figure/table, and ensure in-text citations match a properly formatted reference list without prohibited sources.\" ~55.\n\nNeed mention \"Image 3\" maybe figure. Good.\n\nEnsure no markdown. JSON object only. Use double quotes. No trailing commas.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to produce JSON with summary, next_steps (3 strings), criteria object keyed by criterion id with feedback <=70 words each. Address student as \"you\". Be",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " specific, cite sections/figures, name what they did well, state next rubric level requirements. Don't change marks. Don't comment on conversion artefacts. Don't",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " make up explanations for unclear reasoning.\n\nWe need craft feedback for C1-C4. Summary <=80 words. Next steps 3 actionable strings.\n\nNeed be supportive",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", specific, actionable. Mention technical issues: SSO inclination 87.79 should ~97.8 retrograde; Kourou latitude 45.05 vs",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ~5.2; contact duration 580.786 s ~9.7 min not almost twenty; RAAN reasoning; SSO eclipse; resolution contradiction; missing STK",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "/PIGI files; bibliography Wikipedia/bare URLs; figures/tables inconsistent numbering, Image 3 no caption.\n\nC1: Accomplished 7/10. Good",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " mission need, rationale, single spacecraft, users with references. Operator/customer roles implicit. Next level: explicitly define operator and customers, perhaps table, stronger literature. <=",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "70 words.\n\nC2: Adequate 5/10. Covers all major areas with STK screenshots, but technical flaws. Need correct SSO inclination, K",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ourou latitude, contact duration, RAAN explanation, eclipse, resolution statement, include STK/PIGI files. Next level requires accurate, well-supported evidence",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and persuasive design. <=70 words.\n\nC3: Adequate 5/10. Conclusion summarises launch/orbit/ground station but omits EOL, duration, single",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-sat rationale, users; generic. Next level: detailed conclusions tied to evidence, include all key design decisions and limitations. <=70 words.\n\nC4: Adequate ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "6/10. Structure/headings/exec summary clear; figures/tables inconsistently numbered, Image 3 lacks caption, references bare URLs incl Wikipedia. Next level: consistent",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " formatting, all figures/tables captioned/numbered, proper citations matching list, no Wikipedia. <=70 words.\n\nSummary <=80 words: \"Your report is well structured",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and covers most mission-design elements, with a clear rationale and useful STK screenshots. However, key technical errors (SSO inclination, Kourou latitude, contact",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " duration) and missing software files weaken the design evidence. References and figure formatting also need work. The feedback below is specific and actionable; marks are unchanged.\" Count",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ~55.\n\nNext steps 3 strings: \n1. \"Correct the orbital and launch-site errors: change the 600 km SSO inclination from 87.79",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "° to about 97.8° retrograde, fix Kourou's latitude to ~5.2°N, and revise the launch-window reasoning accordingly.\"\n2. \"Recheck STK outputs: report mean access duration as ~9.7 min (580.786 s), not 'almost twenty minutes'; explain RAAN depends",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " on launch time/azimuth; note SSO eclipse periods; remove the claim that low resolution is desirable.\"\n3. \"Strengthen evidence and presentation: supply",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " STK/PIGI files, number and caption every figure/table (including Image 3), and replace Wikipedia/bare URLs with proper cited references.\"\n\nNeed ensure",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " JSON only. Criteria keys C1 etc. Use <=70 words each. Let's draft.\n\nC1: \"You clearly explain the reef-monitoring need, justify",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a single spacecraft, and identify user groups with references. To reach the top of Accomplished, make the operator and customer roles explicit (e.g., who",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " tasks the spacecraft and who receives data) and support each claim with specific literature rather than general statements.\" Count ~50.\n\nC2: \"You cover launch, orbit, ground",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " control, communications, duration and EOL with STK screenshots, but several technical errors undermine the design: the 600 km SSO inclination should be ~97.8",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "° retrograde, Kourou is ~5.2°N not 45.05°N, and 580.786 s is ~9.7",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " min not 'almost twenty'. Correct these, explain RAAN and eclipse, remove the low-resolution-desirable contradiction, and include STK/PIGI files. That",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " evidence is needed for Accomplished.\" ~70? Count: You(1) cover2 launch3 orbit4 ground5 control6 communications7 duration8 and9",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " EOL10 with11 STK12 screenshots13 but14 several15 technical16 errors17 undermine18 the19 design20 the21 60022 km23 SSO",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "24 inclination25 should26 be27 ~97.8°28 retrograde29 Kourou30 is31 ~5.2°N32 not33 45",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".05°N34 and35 580.78636 s37 is38 ~9.739 min40 not41 almost42 twenty43 Correct44 these45 explain46 RA",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "AN47 and48 eclipse49 remove50 the51 low-resolution-desirable52 contradiction53 and54 include55 STK/PIGI56 files57 That58 evidence59 is60 needed",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "61 for62 Accomplished63. Good.\n\nC3: \"Your conclusion summarises the launch vehicle, orbit and ground station, but it omits EOL",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", mission duration, the single-satellite rationale and users, and some statements are generic. To move to Accomplished, tie each conclusion directly to your",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " evidence and cover all major design decisions, including limitations and why the design benefits Australia.\" ~55.\n\nC4: \"Your structure, headings and executive summary are clear,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " but figure/table numbering is inconsistent, Image 3 lacks a caption, and the bibliography includes Wikipedia and bare URLs. For Accomplished, use consistent formatting",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", caption and number every figure/table, and ensure in-text citations match a properly formatted reference list without prohibited sources.\" ~55.\n\nNeed mention \"Image 3\" maybe",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " figure. Good.\n\nEnsure no markdown. JSON object only. Use double quotes. No trailing commas.",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1243,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 2243,
+    "completion_tokens": 1806,
+    "total_tokens": 4049,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 1024,
+    "cost": 0.0012098007999999999,
+    "currency": "USD",
+    "reasoning_tokens": 1243,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 1219
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_d0dd5066-5b5e-4bb3-8c4a-c175a8a975c1",
+  "x_nanogpt_pricing": {
+    "amount": 0.0012098007999999999,
+    "cost": 0.0012098007999999999,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 2243,
+    "outputTokens": 1806,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 1024,
+    "cacheCost": 4.3007999999999995e-06
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 1024,
+    "writeTokens": 0
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Both performance and availability are thoroughly justified from the scenario details. Each scenario correctly specifies all six parts with precise, measurable response measures.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Recommends a modular monolith with concrete, scenario-specific trade-offs addressing the 5-person team, single VM bottlenecks, and downtime. Accurately acknowledges inherent downsides.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "All calculations for parts (a), (b), and (c) are fully detailed with correct mathematical formulas, clear working, and accurate rounding to requested precision.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Correctly names the Circuit Breaker pattern, explains its three states, directly ties it to preventing thread pool starvation during payment outages, and discusses threshold tuning.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Makes appropriate AP vs CP choices for browsing and ordering, explains the CAP trade-off accurately, and specifies concrete mechanisms (Redis cache with TTL, idempotency keys).",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says that during a partition a system must give up either consistency or availability",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Contains Context, Decision, and Consequences structured specifically around the scenario. Clearly balances operational benefits against duplicate delivery and operational overhead.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ).",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "All sections strictly conform to the 150-word limit, employ accurate terminology, maintain required structure, and cite valid sources in IEEE format.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "An exemplary submission meeting all technical, architectural, calculation, and formatting requirements flawlessly.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You have submitted an exemplary assignment that earned full marks across all criteria. Your answers demonstrated rigorous architectural reasoning, highly accurate mathematical working, precise terminology, and strict adherence to formatting constraints. You effectively integrated scenario-specific context throughout each question, from quality attribute scenarios to architecture decision records.",
+    "next_steps": [
+      "Extend your architectural analysis by exploring quantitative modeling for circuit breaker failure rate thresholds and reset timeouts under varying traffic spikes.",
+      "Practice designing distributed transaction strategies, such as the Saga pattern, to handle complex multi-step failures across CP and AP boundaries.",
+      "Maintain this high standard of clear, balanced trade-off analysis and professional IEEE referencing in your future software architecture deliverables."
+    ],
+    "criteria": {
+      "C1": "You achieved the Excellent level. In Question 1, you clearly justified performance and availability using exact scenario metrics. Both scenarios comprehensively detailed all six parts with precise, measurable response measures.",
+      "C2": "You achieved the Excellent level. In Question 2, your modular monolith recommendation was strongly justified by scenario constraints—such as the five-developer team and infrastructure overhead—while candidly acknowledging the structural downsides.",
+      "C3": "You achieved the Excellent level. In Question 3, parts (a), (b), and (c) presented fully correct formulas, clear intermediate working, and precise rounding as required.",
+      "C4": "You achieved the Excellent level. In Question 4, you accurately detailed the Circuit Breaker pattern's mechanisms and states, applied it directly to thread pool starvation, and addressed threshold tuning.",
+      "C5": "You achieved the Excellent level. In Question 5, you applied the CAP theorem accurately to differentiate browsing and ordering, pairing each choice with concrete techniques like Redis caching and idempotency keys.",
+      "C6": "You achieved the Excellent level. In Question 6, your ADR clearly articulated Context, Decision, and Consequences, balancing asynchronous decoupled event publishing against operational overhead and duplicate message delivery.",
+      "C7": "You achieved the Excellent level. Across all questions and References, you strictly adhered to the 150-word limit per answer, maintained required headings, used precise terminology, and cited in proper IEEE format."
+    }
+  }
+}

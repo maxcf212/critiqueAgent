@@ -1,0 +1,17 @@
+{
+  "summary": "You demonstrated a strong grasp of architectural trade-offs, particularly in your modular monolith recommendation. However, marks were lost due to an incomplete end-to-end availability calculation in Question 3, a misconception regarding CAP theorem trade-offs in Question 5, an unmeasurable scenario metric in Question 1, one-sided ADR consequences in Question 6, and exceeding the word limit in Question 2.",
+  "next_steps": [
+    "Revisit availability mathematics to ensure subsystem calculations (parallel blocks) are integrated back into the overall end-to-end series formula.",
+    "Clarify your understanding of the CAP theorem: in distributed systems where network partitions are inevitable, trade-offs must be made between consistency and availability (CP vs AP).",
+    "Ensure all Architecture Decision Records (ADRs) present a balanced view by explicitly documenting negative trade-offs and operational overheads alongside benefits."
+  ],
+  "criteria": {
+    "C1": "You selected and justified relevant quality attributes well. However, the availability scenario's response measure ('stay up most of the time') was vague. To reach Excellent, ensure both scenarios include fully quantifiable, measurable response metrics (e.g., uptime percentages or maximum allowable downtime).",
+    "C2": "Excellent work. You provided a clear, scenario-tailored recommendation for a modular monolith, supported by concrete trade-offs around team size and operational overhead, while clearly acknowledging its architectural downsides.",
+    "C3": "Parts (a) and (b) were completed correctly. In part (c), you calculated the parallel payment block correctly but omitted multiplying it by the remaining series components to find total system availability. Showing full end-to-end working for all parts is required for Excellent.",
+    "C4": "You correctly identified the Circuit Breaker pattern, explained its states, and linked it well to the outage scenario. To reach Excellent, include specific tuning considerations (such as failure rate thresholds or timeout durations) or trade-offs/drawbacks.",
+    "C5": "Your chosen techniques were concrete and suitable. However, stating that a distributed system can choose CA and abandon partition tolerance misapplies CAP. To reach Excellent, correctly frame the theorem around choosing between consistency (CP) or availability (AP) during inevitable network partitions.",
+    "C6": "Context and Decision were well-articulated and relevant to the scenario. However, your Consequences section only listed positive impacts. To reach Excellent, include at least one negative consequence or trade-off (such as eventual consistency lag or broker operational overhead).",
+    "C7": "Your response was well-structured with precise terminology and IEEE referencing. To achieve Excellent, strictly adhere to the 150-word constraint across all sections, as Question 2 exceeded this limit."
+  }
+}

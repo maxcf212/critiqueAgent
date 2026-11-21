@@ -1,0 +1,1427 @@
+{
+  "id": "chatcmpl-4a343188-09ae-4988-b52c-e352dd80a51d",
+  "object": "chat.completion",
+  "created": 1794789775,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"id\":\"C1\",\"level\":\"Very good\",\"mark\":8,\"evidence\":[{\"where\":\"Introduction\",\"quote\":\"The relevant stakeholders in this scenario include Rachel, Rachel’s company, the chip contract company, the government health department\"},{\"where\":\"Introduction\",\"quote\":\"maintaining product quality safety while trying to succeed as a business in a competitive field\"}],\"reasoning\":\"Identifies the core ethical dilemma, links it to engineering design and competitive organisational context, and lists stakeholders. Significance and stakeholder interests are present but not developed enough for Excellent.\"},{\"id\":\"C2\",\"level\":\"Very good\",\"mark\":8,\"evidence\":[{\"where\":\"DICUSSION: To Ship or Not to Ship\",\"quote\":\"Arguments for Rachel shipping potentially defective servers are as follows.\"},{\"where\":\"The Most Ethical Path\",\"quote\":\"the short-term benefit trade-off is greatly outweighed by the potential risks of harm to end-users\"}],\"reasoning\":\"Provides structured for-and-against arguments and reaches a clear decision. Arguments have reasonable depth, though some are assertive and stakeholder decision-making is not fully explored.\"},{\"id\":\"C3\",\"level\":\"Very good\",\"mark\":8,\"evidence\":[{\"where\":\"The Most Ethical Path\",\"quote\":\"While there is some merit to shipping the products, such as economic benefits and maintaining a competitive advantage\"},{\"where\":\"Conclusion\",\"quote\":\"the decision to Not Ship is certainly the most ethical path.\"}],\"reasoning\":\"Logical structure supports the conclusion, and the argument is generally coherent. It is not fully systematic for all stakeholders, and the pro-shipping case is comparatively weak.\"},{\"id\":\"C4\",\"level\":\"Good\",\"mark\":6,\"evidence\":[{\"where\":\"The Most Ethical Path\",\"quote\":\"In late 2023, the Health Services Safety Investigations Body (HSSIB) investigated a series ofIT system failures in NHS hospitals across England.\"},{\"where\":\"The Most Ethical Path\",\"quote\":\"Volkswagen had installed “defeat devices” in a large amount of its electric vehicles worldwide to manipulate crash-safety tests [4].\"}],\"reasoning\":\"Uses relevant qualitative evidence and external cases, but references are few, one is incomplete, and the Volkswagen case is materially misrepresented. Research shows moderate rather than in-depth understanding.\"},{\"id\":\"C5\",\"level\":\"Satisfactory\",\"mark\":4,\"evidence\":[{\"where\":\"Overall\",\"quote\":\"ETHICS REPORT: To Ship or Not to Ship\"},{\"where\":\"DICUSSION: To Ship or Not to Ship\",\"quote\":\"DICUSSION: To Ship or Not to Ship\"},{\"where\":\"References\",\"quote\":\"References\"}],\"reasoning\":\"Missing the required abstract and visual elements. Writing has several errors and references are inconsistently formatted or incomplete. Structure is otherwise recognisable.\"}],\"requirements\":[{\"id\":\"R1\",\"met\":\"yes\",\"where\":\"Introduction; Discussion\"},{\"id\":\"R2\",\"met\":\"partial\",\"where\":\"Discussion; The Most Ethical Path; Recommendation\"},{\"id\":\"R3\",\"met\":\"partial\",\"where\":\"Discussion\"},{\"id\":\"R4\",\"met\":\"yes\",\"where\":\"Discussion; The Most Ethical Path\"},{\"id\":\"R5\",\"met\":\"partial\",\"where\":\"Introduction; Discussion\"},{\"id\":\"R6\",\"met\":\"partial\",\"where\":\"The Most Ethical Path; References\"},{\"id\":\"R7\",\"met\":\"yes\",\"where\":\"Conclusion; Recommendation\"}],\"technical_issues\":[{\"where\":\"The Most Ethical Path\",\"issue\":\"Volkswagen case misrepresented: text says electric vehicles and crash-safety tests; the actual scandal concerned diesel emissions cheating.\"},{\"where\":\"References\",\"issue\":\"Reference [3] lacks a URL and reference [4] is malformed; referencing is not consistently Harvard or IEEE.\"},{\"where\":\"Recommendation\",\"issue\":\"Accepting the contract while delaying launches and concluding Not Ship is inconsistent; no conditions for permissible shipping are specified.\"},{\"where\":\"Discussion\",\"issue\":\"Apple reference does not clearly support the claimed competitive advantage over Samsung and Google.\"},{\"where\":\"Discussion\",\"issue\":\"The 1 percent failure calculation is hypothetical and not presented as evidence-based risk data.\"},{\"where\":\"Overall\",\"issue\":\"No abstract of approximately 150 words is included.\"},{\"where\":\"Discussion\",\"issue\":\"Large-scale testing to inform future safety improvements is not explicitly evaluated.\"},{\"where\":\"Introduction; Discussion\",\"issue\":\"The chip contract company is listed as a stakeholder but its interests are not discussed.\"}],\"overall\":\"Clear structure and a justified do-not-ship conclusion, but missing abstract, limited and partly inaccurate references, weak stakeholder/trade-off analysis, and no conditions for shipping. Marks reflect good argument but only moderate research and format.\"}",
+        "refusal": null,
+        "reasoning": "We need to grade the student submission against rubric criteria C1-C5 and requirements R1-R7. Need produce JSON only. Need assess technical correctness, evidence, figures (none). Need choose level and whole-number mark within level range. Note rubric levels have weird marks: Excellent 10, Very good 8, Good 6, Satisfactory 4, None 0. So only even marks? \"whole-number mark within that level's range\" but ranges are single values. So choose 10,8,6,4,0. Need judge each criterion.\n\nNeed inspect submission. It's an ethics report. Need evaluate.\n\nLet's parse.\n\nTitle: ETHICS REPORT: To Ship or Not to Ship. Sections: Introduction, Discussion (misspelled DICUSSION), The Most Ethical Path, Conclusion, Recommendation, References. No abstract! Task requires abstract ~150 words. That's a major format issue. Word count? Intro/body/conclusion maybe around 1300? Need not exact. No figures/tables. References 4, some formatting issues, one reference incomplete (BBC no URL), one reference [4] misattributes Volkswagen emissions scandal: says \"electric vehicles\" and \"crash-safety tests\" but actual Volkswagen scandal was diesel emissions cheating, not electric vehicles or crash-safety tests. That's a technical factual error. Also [1] CNBC about psychology of new iPhone releases, supports product release cycle? Maybe okay but not strong. [3] BBC about NHS IT failures supports data loss harm. [2] Engineers Australia code. [4] NYT Volkswagen diesel emissions; student says \"defeat devices in a large amount of its electric vehicles worldwide to manipulate crash-safety tests\" — wrong: diesel vehicles, emissions tests. This undermines evidence. Also \"Volkswagen to Plead Guilty to U.S. Diesel Emissions Cheating Scheme\" reference title contradicts text. Need note.\n\nNeed assess C1 Introduction: identifies ethical issues and broad links to engineering design; discusses context in engineering organisations; identifies stakeholders. Intro does: ethics critical, engineering design ethical framework; Rachel QA engineer dilemma shipping defective products; common issue maintaining product quality safety while succeeding as business competitive field; stakeholders: Rachel, company, chip contract company, government health department, people using/affected/rely on services. Good. Several ethical issues? It identifies product quality safety vs business success, potential harm, responsibility. Context in engineering organisations: competitive field, product release cycle. Stakeholders identified. Could be Excellent? Need \"Several ethical issues and their significance identified, described, in context of engineering design, understanding of BOTH context in engineering organisations and stakeholder interest demonstrated.\" Intro is somewhat brief but does identify. Maybe Very good or Excellent. It doesn't deeply discuss significance? It says widespread impact. It identifies stakeholders but not detailed interests. C1 maybe Very good (8) because several issues and links, context and stakeholders but not deep. Could be Excellent? Need be fair. The intro is short but covers. \"Several ethical issues\" maybe only one main dilemma. It mentions maintaining product quality safety vs business success. Stakeholders listed. Context in engineering organisations: competitive technology industry. I'd say Very good (8) or Excellent (10). Since rubric Excellent requires \"Several ethical issues and their significance identified, described, in context of engineering design, understanding of BOTH context in engineering organisations and stakeholder interest is demonstrated.\" The intro lists stakeholders but doesn't discuss their interests in depth. It says potential harm to end-users and responsibility key. It doesn't discuss chip contract company interest. So Very good (8) likely.\n\nC2 Balanced Discussion: objective arguments for and against decisions; draws conclusion on how stakeholders should make decisions. The report has arguments for shipping: competitive advantage, revenue/job security, growth/resources, competitor might ship. Against: harm to end-users, data loss, professional code, reputational/legal. Conclusion: not ship. But \"how stakeholders should make decisions\" — conclusion recommends Rachel not ship and company actions. It doesn't explicitly discuss how different stakeholders should make decisions? It has recommendation for Rachel/company. Arguments are somewhat shallow, based on assertions, some unsupported. Balanced? It presents for and against, but \"for\" arguments are weak and not deeply objective. It does draw conclusion. C2 maybe Good (6) or Very good (8). Very good requires objective arguments with appropriate depth, conclusions on decision making though lack consideration of different stakeholders. It does consider stakeholders somewhat. But arguments lack depth? It has some depth in against. For arguments are superficial. It doesn't discuss \"how stakeholders should make decisions\" beyond recommendation. Could be Good (6): arguments made though lack depth or based on personal opinion; conclusions made though lack consideration of different stakeholders. But it does consider different stakeholders. Hmm. C2: \"Balanced Discussion — Discusses objective arguments for and against decisions on the ethical issues; draws a conclusion on how stakeholders should make decisions about the issues.\" The report has for/against and conclusion. It is balanced in structure. Depth moderate. I'd give Very good (8) maybe. But need not overmark. Let's evaluate all.\n\nC3 Compelling Argument that supports conclusion: report forms compelling argument justifies conclusion; body logical structure, linked paragraphs, content ordered; systematic understanding for all stakeholders. The report has logical structure: intro, for, against, most ethical path, conclusion, recommendation. Arguments support conclusion. But not systematic for all stakeholders; some stakeholders (chip contract company) barely mentioned. The \"for\" arguments are not compelling; some claims unsupported. The conclusion is supported by against arguments. Could be Good (6) or Very good (8). Very good: arguments compelling, supported by structure, support conclusion, sound understanding. Is it compelling? It has a clear argument, uses case studies. But factual error in VW case and weak for arguments. Maybe Good (6): logically structured though not compelling; conclusion not well supported? Actually conclusion is supported. But \"not compelling\" due to shallow. C3 maybe Good (6). Need decide.\n\nC4 Research and Evidence: arguments substantiated with adequate references and qualitative/quantitative evidence; balanced in-depth understanding. References: 4. Some evidence: 1% of 5000 = 500 failed servers (quantitative but hypothetical), HSSIB case, VW case, EA code. But references are few, one incomplete, one misrepresented. No external case study for shipping defective products? HSSIB and VW. Research moderate. C4 maybe Good (6) or Satisfactory (4). Good: some relevant references and qualitative OR quantitative evidence; moderate understanding. Very good requires adequate references and some qualitative/quantitative evidence, good understanding. Four references may be adequate? But one is incomplete, one misused. The VW error is significant. Also no references for competitive advantage beyond CNBC. I'd say Good (6) because some relevant references and qualitative/quantitative evidence, moderate understanding. Could be Satisfactory (4) due to limited references lacking relevance? But references are relevant mostly. So 6.\n\nC5 Report Structure, Format and Language: includes appropriate sections (abstract, introduction, body, conclusion); maps/figures/tables visual elements; writing grammatically correct, fluent, concise; references well-structured. Missing abstract. No figures/tables. Writing has typos: \"DICUSSION\", \"of could very well\", \"have her company might go under\", \"erosion ofprofessional\", \"Actin\", \"ofcompetence\", \"IT system failures\" etc. References poorly formatted, incomplete [3], [4] wrong. So C5 likely Satisfactory (4) or Good (6)? Good requires fluently written, no incorrect uses of language, limited visual elements, few relevant references. But there are incorrect uses and missing abstract. Satisfactory: fluently written, few incorrect uses, very limited visual elements, few mostly irrelevant references. It has no visual elements, missing abstract, several language errors, references few. Could be Satisfactory (4). None? No, it has references and some fluency. So 4.\n\nNeed requirements R1-R7 met/partial/no with where. Need map.\n\nR1: Analyse scenario Rachel QA limited time test servers decide ship known defects. Address distinction between possible physical harm and higher likelihood of failure causing customer data loss. The report does scenario, limited six-month QA, shipping defective. It discusses risk of harm to end-users, data loss especially healthcare. It says \"While Rachel might ship a product that malfunctions and directly causes harm to an end-user, the potential loss of data...\" It addresses both. Met yes. Where: Introduction/Discussion. Quote? For requirements we just need where, not evidence? Schema requirements: id, met, where. No quote. So provide where.\n\nR2: Discuss whether ethical way to conduct business and how Rachel should determine when product with known defects may be shipped. The report says \"Shipping potentially defective products is not an ethical way to conduct business.\" It recommends not ship, raise issue, delay. But does it discuss how to determine when a product with known defects may be shipped? It doesn't provide a decision framework/conditions under which shipping may be acceptable. It says not ship. It doesn't discuss threshold. So partial. Where: Discussion/Most Ethical Path/Recommendation. Met partial.\n\nR3: Evaluate decision trade-offs including time/testing constraints, competitive pressure, company revenue/growth, Rachel employment interests, potential for large-scale testing to inform future safety improvements. The report covers competitive advantage, revenue/job security, growth, six-month QA too short. It mentions \"grow large enough temporarily to improve speed... so 6-month window viable\" but not \"large-scale testing to inform future safety improvements\" exactly. It doesn't discuss large-scale testing informing future safety improvements. It mentions better products/new innovations. Partial. Where: Discussion. Met partial.\n\nR4: Address government health department contract and potential server failure causing improper health administration or catastrophic consequences for hospitals, emergency services, business. The report mentions government health department contract, hospitals, emergency services, patient care, data loss, deaths, business consequences. Yes. Where: Discussion/Most Ethical Path. Met yes.\n\nR5: Identify and discuss relevant ethical issues and stakeholder perspectives, considering arguments and consequences both for and against possible decisions. It identifies stakeholders and arguments for/against. But stakeholder perspectives not deeply discussed; chip contract company barely. Still partial/yes? It lists stakeholders and discusses consequences for Rachel, company, end-users, health department. It doesn't discuss chip contract company perspective. It considers for/against. I'd say partial because stakeholder perspectives limited. But requirement says identify and discuss relevant ethical issues and stakeholder perspectives, considering arguments and consequences both for and against. It does identify and discuss some. Could be yes? Need be fair. It identifies stakeholders in intro, discusses consequences. But \"perspectives\" of each not fully. Partial.\n\nR6: Research ethical considerations thoroughly and support all arguments with reputable evidence and external case studies. Conclusion based only on compliance with law/regulation insufficient. It uses external case studies (HSSIB, VW) and EA code. But not all arguments supported; VW misrepresented; references incomplete. Research not thorough. Partial. Where: Most Ethical Path/References. Met partial.\n\nR7: Conclude with holistic, evidence-based and justified recommended course of action for Rachel. It has conclusion and recommendation: not ship, accept contract, raise issue, delay launches, notify clients. Is it holistic/evidence-based? Some evidence. Recommendation is clear. But \"accept the contract\" while not shipping? It says Rachel should accept contract with government health department, then raise QA window too short, company delay launches. That's a bit contradictory: accept contract but delay? It recommends not ship but accept contract? Need parse: Recommendation 1 accept contract; 2 raise issue; 3 company delay launches or switch longer product cycle; 4 notify clients. It doesn't explicitly say \"do not ship the servers now\" in recommendation, but conclusion says Not Ship. The recommendation is somewhat justified. Could be partial because not fully holistic/evidence-based and some inconsistency. But it does conclude with recommended course. I'd say yes or partial. Requirement: \"Conclude with a holistic, evidence-based and justified recommended course of action for Rachel.\" The conclusion says Not Ship; recommendation gives actions. It is justified by arguments. But \"accept contract\" may conflict. I'd mark partial due to inconsistency and not fully evidence-based. Where: Conclusion/Recommendation.\n\nNeed technical issues list. Need include:\n- Missing abstract (required ~150 words).\n- No figures/tables (permitted not required? C5 mentions visual elements; task says figures permitted, not required. But C5 rubric expects visual elements. Technical issue? It's a format issue, not technical. Could list under C5 reasoning, not technical_issues? Technical issues should be engineering/technical correctness. But schema technical_issues can include any issue? It says technical_issues. We can include factual error VW, reference incomplete, recommendation inconsistency, word count? Need list.\n\nTechnical issues:\n1. Volkswagen case misrepresented: says electric vehicles and crash-safety tests; actual scandal was diesel emissions cheating. Where: The Most Ethical Path / References [4].\n2. Reference [3] BBC missing URL/access details; [4] author formatting odd; [1] URL broken. Where: References.\n3. Recommendation 1 \"accept contract\" conflicts with conclusion \"Not Ship\" and recommendation to delay launches; unclear conditions. Where: Recommendation.\n4. Quantitative claim \"1 percent of 5,000 = 500 failed servers\" is hypothetical and not tied to evidence; could be okay but not evidence. Where: Discussion.\n5. \"Apple Inc. strategy of regular product releases\" reference [1] is about psychology of iPhone releases, not necessarily competitive advantage over Samsung/Google; weak support. Where: Discussion.\n6. No abstract. Where: overall.\n7. No discussion of conditions under which known-defect product may be shipped (R2). Where: Discussion/Recommendation.\n8. No large-scale testing to inform future safety improvements (R3). Where: Discussion.\n9. Stakeholder chip contract company not discussed. Where: Introduction/Discussion.\n10. Language errors: \"DICUSSION\", \"of could\", \"have her company might\", \"Actin\", \"ofcompetence\", \"erosion ofprofessional\". Where: throughout. But technical_issues maybe not language. Could include under C5 reasoning.\n\nNeed overall <=60 words. Summarize.\n\nNeed ensure JSON only. Need no markdown. Need exact quotes <=25 words, no ellipses. For evidence, where = nearest section heading or \"Image N\"; quote exact contiguous text. Need provide evidence for each criterion. For C1, quote from Introduction: \"The relevant stakeholders in this scenario include Rachel, Rachel’s company, the chip contract company, the government health department\" (<=25 words? Count: The(1) relevant2 stakeholders3 in4 this5 scenario6 include7 Rachel8 Rachel’s9 company10 the11 chip12 contract13 company14 the15 government16 health17 department18. Good). Also maybe quote \"maintaining product quality safety while trying to succeed as a business in a competitive field\" (13 words). Need evidence array can have multiple. For C2, quote \"Arguments for Rachel shipping potentially defective servers are as follows.\" and \"the short-term benefit trade-off is greatly outweighed by the potential risks of harm to end-users\" (<=25). For C3, quote \"While there is some merit to shipping the products, such as economic benefits and maintaining a competitive advantage\" (18). Or \"the decision to Not Ship is certainly the most ethical path.\" For C4, quote \"In late 2023, the Health Services Safety Investigations Body (HSSIB) investigated a series ofIT system failures in NHS hospitals across England.\" (<=25? Count: In1 late2 2023,3 the4 Health5 Services6 Safety7 Investigations8 Body9 (HSSIB)10 investigated11 a12 series13 ofIT14 system15 failures16 in17 NHS18 hospitals19 across20 England21. Good). Also quote VW error? For C4 evidence maybe \"Volkswagen had installed “defeat devices” in a large amount of its electric vehicles worldwide to manipulate crash-safety tests [4].\" Count: Volkswagen1 had2 installed3 “defeat4 devices”5 in6 a7 large8 amount9 of10 its11 electric12 vehicles13 worldwide14 to15 manipulate16 crash-safety17 tests18 [4]19. Good. This shows evidence but also error. For C5, quote \"DICUSSION: To Ship or Not to Ship\" or \"References\". Need evidence for missing abstract? Can't quote absence. Use where \"Overall\" quote \"\"? Evidence can be empty? Schema says evidence array with where and quote. For missing abstract, no quote. Could use where \"Overall\" quote \"\"? It says quote exact contiguous text, \"\" for an image. For absence, maybe no evidence. But need evidence for criterion. We can quote \"ETHICS REPORT: To Ship or Not to Ship\" and \"DICUSSION: To Ship or Not to Ship\" to show structure. But missing abstract not evidenced by quote. Reasoning can mention absence. Evidence can include \"References\" quote? Hmm.\n\nNeed choose marks. Let's deliberate each criterion more carefully.\n\nC1: Introduction. The intro is about 200 words. It identifies ethical dilemma, context, stakeholders. It doesn't discuss \"several ethical issues\" in depth. It says \"maintaining product quality safety while trying to succeed as a business\" and \"potential harm to end-users and responsibility\". It identifies stakeholders. It demonstrates understanding of context in engineering organisations (competitive field, product release cycle) and stakeholder interest (lists stakeholders, says potential harm to end-users and responsibility). Is that Excellent? The descriptor: \"Several ethical issues and their significance identified, described, in the context of engineering design, understanding of BOTH context in engineering organisations and stakeholder interest is demonstrated.\" It does identify several? Maybe only one main issue. It doesn't describe significance of each. I'd give Very good 8. Could be Good 6? Good: \"Few ethical issues identified, described, and linked to engineering design, but understanding of context and stakeholders is limited.\" Here context and stakeholders are not limited; they are identified. So at least Very good. Excellent requires several issues and significance. Not quite. So 8.\n\nC2: Balanced Discussion. It has for and against. Arguments for: competitive advantage, revenue/job security, growth/resources, competitor might ship. Against: harm, data loss, professional code, reputation/legal. Conclusion: not ship. It does draw conclusion on decision making. Does it discuss how stakeholders should make decisions? It recommends Rachel/company. It doesn't explicitly say how government health department should decide. But conclusion is clear. Depth: moderate. Some arguments based on personal opinion (\"what's to say one of her competitors won't take the deal\"). But overall objective. Very good 8? Descriptor: \"Objective arguments are made with appropriate depth. Conclusions are made on decision making, though lack of consideration of different stakeholders.\" It does consider different stakeholders somewhat. Could be Excellent? Excellent requires \"significant depth, leading to conclusions on decision making recommendations for several different stakeholders.\" It gives recommendations for Rachel and company, not several stakeholders. So not Excellent. Very good 8. But if arguments lack depth, Good 6. The for arguments are shallow; against are better. I'd say Very good 8 because it is balanced and has conclusion. But \"appropriate depth\" maybe yes. Hmm.\n\nC3: Compelling Argument. The report structure supports argument. Conclusion well supported. Systematic understanding for all stakeholders? Not all. It doesn't discuss chip contract company. It has a logical flow. Is it compelling? The HSSIB case is compelling. But VW error undermines. The for arguments are weak. I'd give Good 6: logically structured, though not compelling; conclusion is supported? Descriptor Good says \"Conclusion is not well supported by the arguments presented.\" But here conclusion is supported. Very good says \"Arguments are compelling, supported by report structure. The arguments support the conclusion, demonstrating a sound understanding of ethical issues.\" It does support conclusion. Is it compelling? Maybe moderately. I'd lean Very good 8? Need not be too harsh. But \"systematic understanding for all stakeholders\" is Excellent; Very good only sound understanding. The report has sound understanding. It is logically structured. I'd give Very good 8. But the VW factual error and weak for arguments might reduce to Good 6. C3 is about argument compelling, not evidence accuracy (C4). The argument is clear and conclusion supported. I'd give 8. However, \"arguments are compelling\" — the for arguments are not compelling, but the overall argument is. The body follows logical structure. I'd say Very good 8.\n\nC4: Research and Evidence. Four references. One incomplete, one misrepresented. Quantitative evidence: 1% of 5000 = 500, but hypothetical. Qualitative: HSSIB, VW, EA code. Research demonstrates moderate understanding. Good 6. Could be Satisfactory 4 because limited references and one irrelevant/misused. But references are relevant. Good 6.\n\nC5: Structure, Format, Language. Missing abstract. No visual elements. Language errors. References poorly structured. Satisfactory 4. Could be Good 6? Good requires fluently written, no incorrect uses, limited visual elements, few relevant references. It has incorrect uses and no visual elements. Satisfactory: fluently written, few incorrect uses, very limited visual elements, few mostly irrelevant references. It has no visual elements, but \"very limited\" could include none? It has few references, some relevant. Language has several errors. So 4. None? No, it has references and some fluency. So 4.\n\nNeed maybe C5 mark 4. Overall maybe \"A clear, well-structured ethics report with a justified 'do not ship' conclusion, but missing abstract, limited references, factual error in VW case, and shallow stakeholder/trade-off analysis.\" <=60 words.\n\nNeed requirements met/partial/no. Let's decide:\nR1 yes.\nR2 partial.\nR3 partial.\nR4 yes.\nR5 partial.\nR6 partial.\nR7 partial? Or yes? Let's examine R7: \"Conclude with a holistic, evidence-based and justified recommended course of action for Rachel.\" The conclusion and recommendation are present. It is evidence-based (HSSIB, EA code, VW). It is justified. Holistic? It considers stakeholders. But recommendation has inconsistency. I'd mark partial because recommendation 1 accept contract conflicts with not shipping/delay. But the conclusion is clear. Maybe yes? The requirement doesn't demand perfect consistency. It says conclude with holistic, evidence-based and justified recommended course. The report does. I'd mark yes? Hmm. The recommendation is a course of action: accept contract, raise issue, delay launches, notify clients. It is justified by arguments. It is holistic enough. But \"accept contract\" while not shipping is confusing. I'd mark partial to reflect inconsistency. But if we mark partial, overall maybe. Need be fair. The conclusion says \"Not Ship\" and recommendation gives steps. It is a recommended course. I'd say yes, but note inconsistency in technical issues. The requirement is met in that there is a conclusion and recommendation. However \"holistic, evidence-based and justified\" — it is somewhat. I'd mark yes? Let's see R7: \"Conclude with a holistic, evidence-based and justified recommended course of action for Rachel.\" The report's conclusion is not just summary; it recommends not ship. The recommendation section gives actions. It is evidence-based. I'd mark yes. But the recommendation \"accept the contract\" is not clearly justified and conflicts. Still, the course of action is there. Maybe partial is safer. The task deliverable: \"A justified recommendation for Rachel on whether and under what conditions the servers should be shipped.\" The report recommends not ship, but does not specify conditions under which they should be shipped. So R7 partial? Actually R7 is conclusion with recommended course. It does. But deliverable also asks conditions. R2 covers conditions. R7 maybe yes. I'll mark R7 yes? Hmm.\n\nNeed maybe include \"where\" for requirements. For R1: \"Introduction; Discussion\". R2: \"Discussion; The Most Ethical Path; Recommendation\". R3: \"Discussion\". R4: \"Discussion; The Most Ethical Path\". R5: \"Introduction; Discussion\". R6: \"The Most Ethical Path; References\". R7: \"Conclusion; Recommendation\".\n\nNeed technical_issues with where and issue. Need not too many. Include:\n- \"The Most Ethical Path\" — Volkswagen case misstated as electric vehicles/crash-safety tests; actual scandal was diesel emissions cheating.\n- \"References\" — reference [3] lacks URL; [4] malformed; [1] URL broken; not consistent Harvard/IEEE.\n- \"Recommendation\" — accepting contract while delaying launches/not shipping is inconsistent; no conditions for shipping.\n- \"Discussion\" — Apple reference does not clearly support competitive advantage claim; weak evidence.\n- \"Discussion\" — 1% failure calculation is hypothetical, not evidence-based.\n- \"Overall\" — no abstract (~150 words) and no figures/tables (though figures optional).\n- \"Discussion\" — no discussion of large-scale testing to inform future safety improvements (R3).\n- \"Introduction/Discussion\" — chip contract company stakeholder listed but not discussed.\n\nNeed maybe not overdo. Technical issues should be technical correctness. The VW error is key. Reference issues. Recommendation inconsistency. Missing abstract is format not technical, but can include. The schema says technical_issues, but we can include format? It might be okay. Maybe include only technical/evidence issues. But C5 covers format. Technical issues can include \"No abstract\" as a deliverable issue. I'll include.\n\nNeed ensure JSON valid. No markdown. Use double quotes. Need escape quotes? We can avoid quotes in strings or use single quotes? JSON strings need double quotes; inside use apostrophes. Avoid double quotes inside. Use \"Volkswagen case misrepresented: text says electric vehicles and crash-safety tests; actual scandal was diesel emissions cheating.\" No double quotes. Good.\n\nNeed evidence quotes exact. Need be careful with OCR artefacts: \"DICUSSION\" is exact. \"ofIT\" exact? The text has \"series ofIT system failures\" (no space). We can quote exact. \"erosion ofprofessional\" exact. \"Actin\" exact. \"ofcompetence\" exact. Use exact contiguous text. For C5 evidence, quote \"DICUSSION: To Ship or Not to Ship\" exact. Also \"References\" exact. For C1 quote exact: \"The relevant stakeholders in this scenario include Rachel, Rachel’s company, the chip contract company, the government health department\" — check text: \"The relevant stakeholders in this scenario include Rachel, Rachel’s company, the chip contract company, the government health department, and the many people who will use, be affected by, or rely on the services of the government health department.\" Our quote is contiguous up to department. Good. Another quote: \"maintaining product quality safety while trying to succeed as a business in a competitive field\" exact? Text: \"the issue of maintaining product quality safety while trying to succeed as a business in a competitive field.\" Yes.\n\nC2 evidence: \"Arguments for Rachel shipping potentially defective servers are as follows.\" exact. \"the short-term benefit trade-off is greatly outweighed by the potential risks of harm to end-users\" exact? Text: \"the short-term benefit trade-off is greatly outweighed by the potential risks of harm to end-users, erosion ofprofessional integrity, and long-term reputational damage\" Yes. Good.\n\nC3 evidence: \"While there is some merit to shipping the products, such as economic benefits and maintaining a competitive advantage\" exact? Text: \"While there is some merit to shipping the products, such as economic benefits and maintaining a competitive advantage, the short-term benefit trade-off...\" Yes. \"the decision to Not Ship is certainly the most ethical path.\" exact. Good.\n\nC4 evidence: \"In late 2023, the Health Services Safety Investigations Body (HSSIB) investigated a series ofIT system failures in NHS hospitals across England.\" exact? Text: \"In late 2023, the Health Services Safety Investigations Body (HSSIB) investigated a series ofIT system failures in NHS hospitals across England.\" Yes. \"Volkswagen had installed “defeat devices” in a large amount of its electric vehicles worldwide to manipulate crash-safety tests [4].\" exact? Text: \"it was discovered that Volkswagen had installed “defeat devices” in a large amount of its electric vehicles worldwide to manipulate crash-safety tests [4].\" Our quote starts \"Volkswagen had installed...\" but text has \"that Volkswagen had installed\". If quote must be exact contiguous, we can quote \"Volkswagen had installed “defeat devices” in a large amount of its electric vehicles worldwide to manipulate crash-safety tests [4].\" Is that contiguous? The text: \"it was discovered that Volkswagen had installed “defeat devices” in a large amount of its electric vehicles worldwide to manipulate crash-safety tests [4].\" The substring \"Volkswagen had installed...\" is contiguous starting after \"that \". Yes, it's contiguous. Good. But includes curly quotes. JSON can include Unicode. Fine.\n\nC5 evidence: \"DICUSSION: To Ship or Not to Ship\" exact. \"References\" exact. Maybe \"ETHICS REPORT: To Ship or Not to Ship\" exact. Good.\n\nNeed maybe include \"Image N\" none. No figures.\n\nNeed overall <=60 words. \"Clear structure and a justified do-not-ship conclusion, but missing abstract, limited and partly inaccurate references, weak stakeholder/trade-off analysis, and no conditions for shipping. Marks reflect good argument but only moderate research and format.\" Count ~35. Good.\n\nNeed final JSON. Ensure criteria array with id, level, mark, evidence, reasoning. Level strings: \"Very good\", \"Good\", \"Satisfactory\". Mark numbers. For C1 8, C2 8, C3 8, C4 6, C5 4. Is C3 8? Let's revisit. If C3 8, overall maybe. But C3 descriptor Very good: \"Arguments are compelling, supported by the report structure. The arguments support the conclusion, demonstrating a sound understanding of ethical issues.\" The report's arguments are not fully compelling due to weak for side and factual error. But it is logically structured and conclusion supported. Could be Good 6: \"Arguments are logically structured, though are not compelling. Conclusion is not well supported by the arguments presented.\" The conclusion is well supported by the against arguments. So Good descriptor's second sentence doesn't fit. Very good fits better except \"compelling\". I'd keep 8. C2 8. C1 8. C4 6. C5 4. Total 34/50. Is that fair? Maybe.\n\nNeed maybe C2 could be 6 because arguments lack depth. But C2 descriptor Good: \"Arguments are made, though they lack depth or are based on personal opinion. Conclusions are made on decision making, though lack of consideration of different stakeholders.\" The report does consider different stakeholders. So Very good 8. Good.\n\nNeed C1 maybe 8. Good.\n\nNeed C5 maybe 4. Good.\n\nNeed requirements: R1 yes, R2 partial, R3 partial, R4 yes, R5 partial, R6 partial, R7 partial? Let's decide R7. The report has conclusion and recommendation. It is holistic? It considers stakeholders. Evidence-based? Some. Justified? Yes. But recommendation \"accept contract\" is inconsistent. I'd mark partial. But requirement R7 is \"Conclude with a holistic, evidence-based and justified recommended course of action for Rachel.\" The conclusion does recommend not ship. The recommendation section gives course. It is justified. I'd mark yes? Hmm. The task deliverable also asks \"justified recommendation for Rachel on whether and under what conditions the servers should be shipped.\" The report gives whether (not ship) but not under what conditions. R7 doesn't mention conditions. R2 does. So R7 yes. But \"holistic\" maybe not fully. I'd mark yes to acknowledge clear conclusion. But if R7 yes, then only R2/R3/R5/R6 partial. That's okay. However, the recommendation \"accept contract\" while not shipping is a flaw. Could mark partial. The schema allows partial. I think partial is more accurate because the recommended course is not fully coherent/justified. But the requirement is met in broad terms. Let's mark partial? Need be consistent with C3/C2. The conclusion is clear. I'd mark yes for R7 because it does conclude with a recommended course. The inconsistency is a technical issue. Hmm.\n\nLet's read R7: \"Conclude with a holistic, evidence-based and justified recommended course of action for Rachel.\" The report's conclusion: \"the decision to Not Ship is certainly the most ethical path.\" Recommendation: 1 accept contract, 2 raise issue, 3 delay launches, 4 notify clients. This is a course of action. It is evidence-based (EA code, HSSIB). It is holistic (stakeholders). So yes. I'll mark yes. But \"accept contract\" is odd. Still, it's a recommendation. I'll mark yes.\n\nR5: \"Identify and discuss relevant ethical issues and stakeholder perspectives, considering arguments and consequences both for and against possible decisions.\" It identifies stakeholders and arguments. It discusses consequences. But stakeholder perspectives? It doesn't discuss chip contract company perspective. It does discuss Rachel, company, end-users, health department. I'd mark partial because not all stakeholders and perspectives limited. Good.\n\nR6: \"Research the ethical considerations thoroughly and support all arguments with reputable evidence and external case studies. A conclusion based only on compliance with law or regulation is insufficient.\" It uses external case studies but not all arguments supported. Partial.\n\nR3: \"Evaluate decision trade-offs, including the time and testing constraints, competitive pressure, company revenue and growth, Rachel’s employment interests, and the potential for large-scale testing to inform future safety improvements.\" It covers most except large-scale testing. Partial.\n\nR2: \"Discuss whether this is an ethical way to conduct business and how Rachel should determine when a product with known defects may be shipped.\" It says not ethical, but no decision framework/conditions. Partial.\n\nR1 yes.\n\nR4 yes.\n\nNeed technical_issues maybe include \"No abstract\" but C5 already. The schema technical_issues can include. Need not include all. Let's craft.\n\nPotential issue: The report says \"Volkswagen had installed defeat devices in a large amount of its electric vehicles worldwide to manipulate crash-safety tests\" — actual was diesel emissions. This is a factual error. Where: \"The Most Ethical Path\". Good.\n\nReference [3] BBC missing URL. Where: \"References\". Reference [4] author \"J. & B. N. E. Ewing\" weird. Where: \"References\". Reference [1] URL broken \"https:/Avww.cnbc.com...\" due OCR? Could be OCR artefact. Don't penalise OCR. But reference [3] missing URL is likely student error. [4] malformed. We can mention.\n\nRecommendation inconsistency: \"accept the contract\" vs \"Not Ship\" and delay. Where: \"Recommendation\". Good.\n\nNo abstract: Where: \"Overall\". Good.\n\nNo conditions for shipping: Where: \"Discussion; Recommendation\". Good.\n\nNo large-scale testing: Where: \"Discussion\". Good.\n\nWeak Apple evidence: Where: \"Discussion\". Good.\n\nHypothetical 1% calculation: Where: \"Discussion\". Good.\n\nNeed maybe \"chip contract company stakeholder listed but not discussed\" where Introduction/Discussion. Good.\n\nNeed overall. Ensure JSON only. Let's produce.\n\nNeed check JSON syntax. Use arrays. No trailing commas. Use Unicode curly quotes? Fine. But JSON strings with curly quotes okay. Need escape newlines? No. Use plain.\n\nLet's write final.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to grade the student submission against rubric criteria C1-C5 and requirements R1-R7. Need produce JSON only. Need assess technical correctness, evidence, figures",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " (none). Need choose level and whole-number mark within level range. Note rubric levels have weird marks: Excellent 10, Very good 8, Good ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "6, Satisfactory 4, None 0. So only even marks? \"whole-number mark within that level's range\" but ranges are single values. So choose 10,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "8,6,4,0. Need judge each criterion.\n\nNeed inspect submission. It's an ethics report. Need evaluate.\n\nLet's parse.\n\nTitle: ETH",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ICS REPORT: To Ship or Not to Ship. Sections: Introduction, Discussion (misspelled DICUSSION), The Most Ethical Path, Conclusion, Recommendation, References. No abstract!",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Task requires abstract ~150 words. That's a major format issue. Word count? Intro/body/conclusion maybe around 1300? Need not exact. No",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " figures/tables. References 4, some formatting issues, one reference incomplete (BBC no URL), one reference [4] misattributes Volkswagen emissions scandal: says \"electric",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " vehicles\" and \"crash-safety tests\" but actual Volkswagen scandal was diesel emissions cheating, not electric vehicles or crash-safety tests. That's a technical factual",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " error. Also [1] CNBC about psychology of new iPhone releases, supports product release cycle? Maybe okay but not strong. [3] BBC about NHS IT",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " failures supports data loss harm. [2] Engineers Australia code. [4] NYT Volkswagen diesel emissions; student says \"defeat devices in a large amount",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " of its electric vehicles worldwide to manipulate crash-safety tests\" — wrong: diesel vehicles, emissions tests. This undermines evidence. Also \"Volkswagen to Ple",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ad Guilty to U.S. Diesel Emissions Cheating Scheme\" reference title contradicts text. Need note.\n\nNeed assess C1 Introduction: identifies ethical issues and broad",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " links to engineering design; discusses context in engineering organisations; identifies stakeholders. Intro does: ethics critical, engineering design ethical framework; Rachel QA engineer dilemma shipping defective products; common",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " issue maintaining product quality safety while succeeding as business competitive field; stakeholders: Rachel, company, chip contract company, government health department, people using/affected/rely on services. Good",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Several ethical issues? It identifies product quality safety vs business success, potential harm, responsibility. Context in engineering organisations: competitive field, product release cycle. Stake",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "holders identified. Could be Excellent? Need \"Several ethical issues and their significance identified, described, in context of engineering design, understanding of BOTH context in engineering organisations and stakeholder interest",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " demonstrated.\" Intro is somewhat brief but does identify. Maybe Very good or Excellent. It doesn't deeply discuss significance? It says widespread impact. It identifies stakeholders but",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " not detailed interests. C1 maybe Very good (8) because several issues and links, context and stakeholders but not deep. Could be Excellent? Need be fair",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". The intro is short but covers. \"Several ethical issues\" maybe only one main dilemma. It mentions maintaining product quality safety vs business success. Stakeholders listed",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Context in engineering organisations: competitive technology industry. I'd say Very good (8) or Excellent (10). Since rubric Excellent requires \"Several ethical issues and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " their significance identified, described, in context of engineering design, understanding of BOTH context in engineering organisations and stakeholder interest is demonstrated.\" The intro lists stakeholders but doesn't discuss",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " their interests in depth. It says potential harm to end-users and responsibility key. It doesn't discuss chip contract company interest. So Very good (8) likely",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".\n\nC2 Balanced Discussion: objective arguments for and against decisions; draws conclusion on how stakeholders should make decisions. The report has arguments for shipping: competitive advantage, revenue/j",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ob security, growth/resources, competitor might ship. Against: harm to end-users, data loss, professional code, reputational/legal. Conclusion: not ship. But",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " \"how stakeholders should make decisions\" — conclusion recommends Rachel not ship and company actions. It doesn't explicitly discuss how different stakeholders should make decisions? It has recommendation",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " for Rachel/company. Arguments are somewhat shallow, based on assertions, some unsupported. Balanced? It presents for and against, but \"for\" arguments are weak",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and not deeply objective. It does draw conclusion. C2 maybe Good (6) or Very good (8). Very good requires objective arguments with appropriate depth,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " conclusions on decision making though lack consideration of different stakeholders. It does consider stakeholders somewhat. But arguments lack depth? It has some depth in against. For arguments are superficial",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". It doesn't discuss \"how stakeholders should make decisions\" beyond recommendation. Could be Good (6): arguments made though lack depth or based on personal opinion; conclusions made",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " though lack consideration of different stakeholders. But it does consider different stakeholders. Hmm. C2: \"Balanced Discussion — Discusses objective arguments for and against decisions on the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ethical issues; draws a conclusion on how stakeholders should make decisions about the issues.\" The report has for/against and conclusion. It is balanced in structure. Depth moderate",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". I'd give Very good (8) maybe. But need not overmark. Let's evaluate all.\n\nC3 Compelling Argument that supports conclusion: report",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " forms compelling argument justifies conclusion; body logical structure, linked paragraphs, content ordered; systematic understanding for all stakeholders. The report has logical structure: intro, for,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " against, most ethical path, conclusion, recommendation. Arguments support conclusion. But not systematic for all stakeholders; some stakeholders (chip contract company) barely mentioned. The \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "for\" arguments are not compelling; some claims unsupported. The conclusion is supported by against arguments. Could be Good (6) or Very good (8). Very",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " good: arguments compelling, supported by structure, support conclusion, sound understanding. Is it compelling? It has a clear argument, uses case studies. But factual error",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " in VW case and weak for arguments. Maybe Good (6): logically structured though not compelling; conclusion not well supported? Actually conclusion is supported. But \"not",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " compelling\" due to shallow. C3 maybe Good (6). Need decide.\n\nC4 Research and Evidence: arguments substantiated with adequate references and qualitative/quantitative evidence; balanced",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " in-depth understanding. References: 4. Some evidence: 1% of 5000 = 500 failed servers (quantitative but hypothetical), HSS",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "IB case, VW case, EA code. But references are few, one incomplete, one misrepresented. No external case study for shipping defective products? H",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "SSIB and VW. Research moderate. C4 maybe Good (6) or Satisfactory (4). Good: some relevant references and qualitative OR quantitative evidence;",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " moderate understanding. Very good requires adequate references and some qualitative/quantitative evidence, good understanding. Four references may be adequate? But one is incomplete, one mis",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "used. The VW error is significant. Also no references for competitive advantage beyond CNBC. I'd say Good (6) because some relevant references and qualitative",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "/quantitative evidence, moderate understanding. Could be Satisfactory (4) due to limited references lacking relevance? But references are relevant mostly. So 6.\n\nC5 Report",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Structure, Format and Language: includes appropriate sections (abstract, introduction, body, conclusion); maps/figures/tables visual elements; writing grammatically correct, fluent",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", concise; references well-structured. Missing abstract. No figures/tables. Writing has typos: \"DICUSSION\", \"of could very well\", \"have",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " her company might go under\", \"erosion ofprofessional\", \"Actin\", \"ofcompetence\", \"IT system failures\" etc. References poorly formatted,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " incomplete [3], [4] wrong. So C5 likely Satisfactory (4) or Good (6)? Good requires fluently written, no incorrect uses of",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " language, limited visual elements, few relevant references. But there are incorrect uses and missing abstract. Satisfactory: fluently written, few incorrect uses, very limited",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " visual elements, few mostly irrelevant references. It has no visual elements, missing abstract, several language errors, references few. Could be Satisfactory (4). None? No, it",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " has references and some fluency. So 4.\n\nNeed requirements R1-R7 met/partial/no with where. Need map.\n\nR1: Analyse scenario Rachel",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " QA limited time test servers decide ship known defects. Address distinction between possible physical harm and higher likelihood of failure causing customer data loss. The report does scenario, limited",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " six-month QA, shipping defective. It discusses risk of harm to end-users, data loss especially healthcare. It says \"While Rachel might ship a product that malf",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "unctions and directly causes harm to an end-user, the potential loss of data...\" It addresses both. Met yes. Where: Introduction/Discussion. Quote?",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " For requirements we just need where, not evidence? Schema requirements: id, met, where. No quote. So provide where.\n\nR2: Discuss whether ethical way to conduct",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " business and how Rachel should determine when product with known defects may be shipped. The report says \"Shipping potentially defective products is not an ethical way to conduct business.\" It recommends",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " not ship, raise issue, delay. But does it discuss how to determine when a product with known defects may be shipped? It doesn't provide a decision framework/",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "conditions under which shipping may be acceptable. It says not ship. It doesn't discuss threshold. So partial. Where: Discussion/Most Ethical Path/Recommendation. Met",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " partial.\n\nR3: Evaluate decision trade-offs including time/testing constraints, competitive pressure, company revenue/growth, Rachel employment interests, potential for large-scale testing to inform future",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " safety improvements. The report covers competitive advantage, revenue/job security, growth, six-month QA too short. It mentions \"grow large enough temporarily to improve",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " speed... so 6-month window viable\" but not \"large-scale testing to inform future safety improvements\" exactly. It doesn't discuss large-scale testing informing future safety improvements. It mentions",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " better products/new innovations. Partial. Where: Discussion. Met partial.\n\nR4: Address government health department contract and potential server failure causing improper health administration or catastrophic consequences for",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " hospitals, emergency services, business. The report mentions government health department contract, hospitals, emergency services, patient care, data loss, deaths, business consequences. Yes",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Where: Discussion/Most Ethical Path. Met yes.\n\nR5: Identify and discuss relevant ethical issues and stakeholder perspectives, considering arguments and consequences both for and against possible",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " decisions. It identifies stakeholders and arguments for/against. But stakeholder perspectives not deeply discussed; chip contract company barely. Still partial/yes? It lists stakeholders and discusses consequences",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " for Rachel, company, end-users, health department. It doesn't discuss chip contract company perspective. It considers for/against. I'd say partial because stakeholder",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " perspectives limited. But requirement says identify and discuss relevant ethical issues and stakeholder perspectives, considering arguments and consequences both for and against. It does identify and discuss some. Could be yes",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "? Need be fair. It identifies stakeholders in intro, discusses consequences. But \"perspectives\" of each not fully. Partial.\n\nR6: Research ethical",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " considerations thoroughly and support all arguments with reputable evidence and external case studies. Conclusion based only on compliance with law/regulation insufficient. It uses external case studies (HSS",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "IB, VW) and EA code. But not all arguments supported; VW misrepresented; references incomplete. Research not thorough. Partial. Where: Most",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Ethical Path/References. Met partial.\n\nR7: Conclude with holistic, evidence-based and justified recommended course of action for Rachel. It has conclusion and recommendation:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " not ship, accept contract, raise issue, delay launches, notify clients. Is it holistic/evidence-based? Some evidence. Recommendation is clear. But \"accept",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the contract\" while not shipping? It says Rachel should accept contract with government health department, then raise QA window too short, company delay launches. That's a",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " bit contradictory: accept contract but delay? It recommends not ship but accept contract? Need parse: Recommendation 1 accept contract; 2 raise issue; 3 company delay",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " launches or switch longer product cycle; 4 notify clients. It doesn't explicitly say \"do not ship the servers now\" in recommendation, but conclusion says Not",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Ship. The recommendation is somewhat justified. Could be partial because not fully holistic/evidence-based and some inconsistency. But it does conclude with recommended course. I'd say yes",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " or partial. Requirement: \"Conclude with a holistic, evidence-based and justified recommended course of action for Rachel.\" The conclusion says Not Ship; recommendation gives actions",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". It is justified by arguments. But \"accept contract\" may conflict. I'd mark partial due to inconsistency and not fully evidence-based. Where: Conclusion/",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "Recommendation.\n\nNeed technical issues list. Need include:\n- Missing abstract (required ~150 words).\n- No figures/tables (permitted not required? C5 mentions",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " visual elements; task says figures permitted, not required. But C5 rubric expects visual elements. Technical issue? It's a format issue, not technical. Could list",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " under C5 reasoning, not technical_issues? Technical issues should be engineering/technical correctness. But schema technical_issues can include any issue? It says technical",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "_issues. We can include factual error VW, reference incomplete, recommendation inconsistency, word count? Need list.\n\nTechnical issues:\n1. Volkswagen case misrepresented",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": says electric vehicles and crash-safety tests; actual scandal was diesel emissions cheating. Where: The Most Ethical Path / References [4].\n2. Reference [",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "3] BBC missing URL/access details; [4] author formatting odd; [1] URL broken. Where: References.\n3. Recommendation 1 \"accept",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " contract\" conflicts with conclusion \"Not Ship\" and recommendation to delay launches; unclear conditions. Where: Recommendation.\n4. Quantitative claim \"1 percent of 5",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ",000 = 500 failed servers\" is hypothetical and not tied to evidence; could be okay but not evidence. Where: Discussion.\n5. \"Apple Inc",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". strategy of regular product releases\" reference [1] is about psychology of iPhone releases, not necessarily competitive advantage over Samsung/Google; weak support. Where: Discussion.\n6.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " No abstract. Where: overall.\n7. No discussion of conditions under which known-defect product may be shipped (R2). Where: Discussion/Recommendation.\n8.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " No large-scale testing to inform future safety improvements (R3). Where: Discussion.\n9. Stakeholder chip contract company not discussed. Where: Introduction/Discussion.\n10",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Language errors: \"DICUSSION\", \"of could\", \"have her company might\", \"Actin\", \"ofcompetence\", \"erosion of",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "professional\". Where: throughout. But technical_issues maybe not language. Could include under C5 reasoning.\n\nNeed overall <=60 words. Summarize.\n\nNeed ensure JSON only",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Need no markdown. Need exact quotes <=25 words, no ellipses. For evidence, where = nearest section heading or \"Image N\"; quote exact",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " contiguous text. Need provide evidence for each criterion. For C1, quote from Introduction: \"The relevant stakeholders in this scenario include Rachel, Rachel’s company, the chip",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " contract company, the government health department\" (<=25 words? Count: The(1) relevant2 stakeholders3 in4 this5 scenario6 include7 Rachel8 Rachel’",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "s9 company10 the11 chip12 contract13 company14 the15 government16 health17 department18. Good). Also maybe quote \"maintaining product quality safety while trying",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " to succeed as a business in a competitive field\" (13 words). Need evidence array can have multiple. For C2, quote \"Arguments for Rachel shipping potentially",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " defective servers are as follows.\" and \"the short-term benefit trade-off is greatly outweighed by the potential risks of harm to end-users\" (<=25). For C3,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " quote \"While there is some merit to shipping the products, such as economic benefits and maintaining a competitive advantage\" (18). Or \"the decision to Not Ship is certainly",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the most ethical path.\" For C4, quote \"In late 2023, the Health Services Safety Investigations Body (HSSIB) investigated a series ofIT",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " system failures in NHS hospitals across England.\" (<=25? Count: In1 late2 2023,3 the4 Health5 Services6 Safety7 Investigations8 Body",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "9 (HSSIB)10 investigated11 a12 series13 ofIT14 system15 failures16 in17 NHS18 hospitals19 across20 England21. Good).",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Also quote VW error? For C4 evidence maybe \"Volkswagen had installed “defeat devices” in a large amount of its electric vehicles worldwide to",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " manipulate crash-safety tests [4].\" Count: Volkswagen1 had2 installed3 “defeat4 devices”5 in6 a7 large8 amount9 of10 its11",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " electric12 vehicles13 worldwide14 to15 manipulate16 crash-safety17 tests18 [4]19. Good. This shows evidence but also error. For C5,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " quote \"DICUSSION: To Ship or Not to Ship\" or \"References\". Need evidence for missing abstract? Can't quote absence. Use where \"Overall",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\" quote \"\"? Evidence can be empty? Schema says evidence array with where and quote. For missing abstract, no quote. Could use where \"Overall\" quote",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " \"\"? It says quote exact contiguous text, \"\" for an image. For absence, maybe no evidence. But need evidence for criterion. We can quote \"ETH",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ICS REPORT: To Ship or Not to Ship\" and \"DICUSSION: To Ship or Not to Ship\" to show structure. But missing abstract not evidenced by",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " quote. Reasoning can mention absence. Evidence can include \"References\" quote? Hmm.\n\nNeed choose marks. Let's deliberate each criterion more carefully.\n\nC1",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": Introduction. The intro is about 200 words. It identifies ethical dilemma, context, stakeholders. It doesn't discuss \"several ethical issues\" in depth.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " It says \"maintaining product quality safety while trying to succeed as a business\" and \"potential harm to end-users and responsibility\". It identifies stakeholders. It demonstrates",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " understanding of context in engineering organisations (competitive field, product release cycle) and stakeholder interest (lists stakeholders, says potential harm to end-users and responsibility). Is that Excellent",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "? The descriptor: \"Several ethical issues and their significance identified, described, in the context of engineering design, understanding of BOTH context in engineering organisations and stakeholder interest",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is demonstrated.\" It does identify several? Maybe only one main issue. It doesn't describe significance of each. I'd give Very good 8. Could be Good",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 6? Good: \"Few ethical issues identified, described, and linked to engineering design, but understanding of context and stakeholders is limited.\" Here context and stakeholders are not limited;",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " they are identified. So at least Very good. Excellent requires several issues and significance. Not quite. So 8.\n\nC2: Balanced Discussion. It has for",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and against. Arguments for: competitive advantage, revenue/job security, growth/resources, competitor might ship. Against: harm, data loss, professional code, reputation",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "/legal. Conclusion: not ship. It does draw conclusion on decision making. Does it discuss how stakeholders should make decisions? It recommends Rachel/company. It doesn't explicitly",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " say how government health department should decide. But conclusion is clear. Depth: moderate. Some arguments based on personal opinion (\"what's to say one of her competitors won't take",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the deal\"). But overall objective. Very good 8? Descriptor: \"Objective arguments are made with appropriate depth. Conclusions are made on decision making, though",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " lack of consideration of different stakeholders.\" It does consider different stakeholders somewhat. Could be Excellent? Excellent requires \"significant depth, leading to conclusions on decision making recommendations for several",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " different stakeholders.\" It gives recommendations for Rachel and company, not several stakeholders. So not Excellent. Very good 8. But if arguments lack depth, Good ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "6. The for arguments are shallow; against are better. I'd say Very good 8 because it is balanced and has conclusion. But \"appropriate depth\" maybe yes",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Hmm.\n\nC3: Compelling Argument. The report structure supports argument. Conclusion well supported. Systematic understanding for all stakeholders? Not all. It doesn't discuss",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " chip contract company. It has a logical flow. Is it compelling? The HSSIB case is compelling. But VW error undermines. The for arguments are weak",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". I'd give Good 6: logically structured, though not compelling; conclusion is supported? Descriptor Good says \"Conclusion is not well supported by the arguments presented.\"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " But here conclusion is supported. Very good says \"Arguments are compelling, supported by report structure. The arguments support the conclusion, demonstrating a sound understanding of ethical issues.\" It",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " does support conclusion. Is it compelling? Maybe moderately. I'd lean Very good 8? Need not be too harsh. But \"systematic understanding for all stakeholders\" is Excellent",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "; Very good only sound understanding. The report has sound understanding. It is logically structured. I'd give Very good 8. But the VW factual error and weak",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " for arguments might reduce to Good 6. C3 is about argument compelling, not evidence accuracy (C4). The argument is clear and conclusion supported. I'd give ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "8. However, \"arguments are compelling\" — the for arguments are not compelling, but the overall argument is. The body follows logical structure. I'd say",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Very good 8.\n\nC4: Research and Evidence. Four references. One incomplete, one misrepresented. Quantitative evidence: 1% of 5000",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " = 500, but hypothetical. Qualitative: HSSIB, VW, EA code. Research demonstrates moderate understanding. Good 6. Could be Satisfactory 4 because",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " limited references and one irrelevant/misused. But references are relevant. Good 6.\n\nC5: Structure, Format, Language. Missing abstract. No visual",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " elements. Language errors. References poorly structured. Satisfactory 4. Could be Good 6? Good requires fluently written, no incorrect uses, limited visual elements, few relevant",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " references. It has incorrect uses and no visual elements. Satisfactory: fluently written, few incorrect uses, very limited visual elements, few mostly irrelevant references. It has no",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " visual elements, but \"very limited\" could include none? It has few references, some relevant. Language has several errors. So 4. None? No, it",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " has references and some fluency. So 4.\n\nNeed maybe C5 mark 4. Overall maybe \"A clear, well-structured ethics report with a justified '",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "do not ship' conclusion, but missing abstract, limited references, factual error in VW case, and shallow stakeholder/trade-off analysis.\" <=60 words.\n\nNeed requirements",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " met/partial/no. Let's decide:\nR1 yes.\nR2 partial.\nR3 partial.\nR4 yes.\nR5 partial.\nR6 partial",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".\nR7 partial? Or yes? Let's examine R7: \"Conclude with a holistic, evidence-based and justified recommended course of action for Rachel.\" The conclusion",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and recommendation are present. It is evidence-based (HSSIB, EA code, VW). It is justified. Holistic? It considers stakeholders. But recommendation has",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " inconsistency. I'd mark partial because recommendation 1 accept contract conflicts with not shipping/delay. But the conclusion is clear. Maybe yes? The requirement doesn't demand",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " perfect consistency. It says conclude with holistic, evidence-based and justified recommended course. The report does. I'd mark yes? Hmm. The recommendation is a",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " course of action: accept contract, raise issue, delay launches, notify clients. It is justified by arguments. It is holistic enough. But \"accept contract\" while",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " not shipping is confusing. I'd mark partial to reflect inconsistency. But if we mark partial, overall maybe. Need be fair. The conclusion says \"Not Ship",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\" and recommendation gives steps. It is a recommended course. I'd say yes, but note inconsistency in technical issues. The requirement is met in that there is a conclusion and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " recommendation. However \"holistic, evidence-based and justified\" — it is somewhat. I'd mark yes? Let's see R7: \"Conclude with a holistic, evidence",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-based and justified recommended course of action for Rachel.\" The report's conclusion is not just summary; it recommends not ship. The recommendation section gives actions. It is evidence",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-based. I'd mark yes. But the recommendation \"accept the contract\" is not clearly justified and conflicts. Still, the course of action is there. Maybe",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " partial is safer. The task deliverable: \"A justified recommendation for Rachel on whether and under what conditions the servers should be shipped.\" The report recommends not ship,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " but does not specify conditions under which they should be shipped. So R7 partial? Actually R7 is conclusion with recommended course. It does. But deliverable also",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " asks conditions. R2 covers conditions. R7 maybe yes. I'll mark R7 yes? Hmm.\n\nNeed maybe include \"where\" for requirements. For R1:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " \"Introduction; Discussion\". R2: \"Discussion; The Most Ethical Path; Recommendation\". R3: \"Discussion\". R4: \"Discussion; The Most Ethical",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Path\". R5: \"Introduction; Discussion\". R6: \"The Most Ethical Path; References\". R7: \"Conclusion; Recommendation\".\n\nNeed technical_",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "issues with where and issue. Need not too many. Include:\n- \"The Most Ethical Path\" — Volkswagen case misstated as electric vehicles/crash-safety tests; actual scandal",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " was diesel emissions cheating.\n- \"References\" — reference [3] lacks URL; [4] malformed; [1] URL broken; not consistent Harvard/I",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "EEE.\n- \"Recommendation\" — accepting contract while delaying launches/not shipping is inconsistent; no conditions for shipping.\n- \"Discussion\" — Apple reference does",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " not clearly support competitive advantage claim; weak evidence.\n- \"Discussion\" — 1% failure calculation is hypothetical, not evidence-based.\n- \"Overall\" — no",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " abstract (~150 words) and no figures/tables (though figures optional).\n- \"Discussion\" — no discussion of large-scale testing to inform future safety improvements (R3",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ").\n- \"Introduction/Discussion\" — chip contract company stakeholder listed but not discussed.\n\nNeed maybe not overdo. Technical issues should be technical correctness. The V",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "W error is key. Reference issues. Recommendation inconsistency. Missing abstract is format not technical, but can include. The schema says technical_issues, but we can include format?",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " It might be okay. Maybe include only technical/evidence issues. But C5 covers format. Technical issues can include \"No abstract\" as a deliverable issue. I",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'ll include.\n\nNeed ensure JSON valid. No markdown. Use double quotes. Need escape quotes? We can avoid quotes in strings or use single quotes? JSON strings need",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " double quotes; inside use apostrophes. Avoid double quotes inside. Use \"Volkswagen case misrepresented: text says electric vehicles and crash-safety tests; actual scandal",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " was diesel emissions cheating.\" No double quotes. Good.\n\nNeed evidence quotes exact. Need be careful with OCR artefacts: \"DICUSSION\" is exact. \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ofIT\" exact? The text has \"series ofIT system failures\" (no space). We can quote exact. \"erosion ofprofessional\" exact. \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "Actin\" exact. \"ofcompetence\" exact. Use exact contiguous text. For C5 evidence, quote \"DICUSSION: To Ship or Not to Ship\"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " exact. Also \"References\" exact. For C1 quote exact: \"The relevant stakeholders in this scenario include Rachel, Rachel’s company, the chip contract company, the government health",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " department\" — check text: \"The relevant stakeholders in this scenario include Rachel, Rachel’s company, the chip contract company, the government health department, and the many",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " people who will use, be affected by, or rely on the services of the government health department.\" Our quote is contiguous up to department. Good. Another quote: \"maintaining product",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " quality safety while trying to succeed as a business in a competitive field\" exact? Text: \"the issue of maintaining product quality safety while trying to succeed as a business in",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a competitive field.\" Yes.\n\nC2 evidence: \"Arguments for Rachel shipping potentially defective servers are as follows.\" exact. \"the short-term benefit trade-off is greatly",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " outweighed by the potential risks of harm to end-users\" exact? Text: \"the short-term benefit trade-off is greatly outweighed by the potential risks of",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " harm to end-users, erosion ofprofessional integrity, and long-term reputational damage\" Yes. Good.\n\nC3 evidence: \"While there is some merit to",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " shipping the products, such as economic benefits and maintaining a competitive advantage\" exact? Text: \"While there is some merit to shipping the products, such as economic benefits and maintaining",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a competitive advantage, the short-term benefit trade-off...\" Yes. \"the decision to Not Ship is certainly the most ethical path.\" exact. Good.\n\nC4 evidence: \"In",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " late 2023, the Health Services Safety Investigations Body (HSSIB) investigated a series ofIT system failures in NHS hospitals across England.\" exact? Text: \"In",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " late 2023, the Health Services Safety Investigations Body (HSSIB) investigated a series ofIT system failures in NHS hospitals across England.\" Yes. \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "Volkswagen had installed “defeat devices” in a large amount of its electric vehicles worldwide to manipulate crash-safety tests [4].\" exact? Text:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " \"it was discovered that Volkswagen had installed “defeat devices” in a large amount of its electric vehicles worldwide to manipulate crash-safety tests [4].\" Our quote starts \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "Volkswagen had installed...\" but text has \"that Volkswagen had installed\". If quote must be exact contiguous, we can quote \"Volkswagen had installed “defeat devices” in",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a large amount of its electric vehicles worldwide to manipulate crash-safety tests [4].\" Is that contiguous? The text: \"it was discovered that Volkswagen had installed “defeat devices",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "” in a large amount of its electric vehicles worldwide to manipulate crash-safety tests [4].\" The substring \"Volkswagen had installed...\" is contiguous starting",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " after \"that \". Yes, it's contiguous. Good. But includes curly quotes. JSON can include Unicode. Fine.\n\nC5 evidence: \"DICUSSION",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": To Ship or Not to Ship\" exact. \"References\" exact. Maybe \"ETHICS REPORT: To Ship or Not to Ship\" exact. Good.\n\nNeed maybe include \"Image N\" none. No figures.\n\nNeed overall <=60 words. \"Clear structure and a justified do-not-ship conclusion, but missing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " abstract, limited and partly inaccurate references, weak stakeholder/trade-off analysis, and no conditions for shipping. Marks reflect good argument but only moderate research and format.\" Count ~",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "35. Good.\n\nNeed final JSON. Ensure criteria array with id, level, mark, evidence, reasoning. Level strings: \"Very good\", \"Good\", \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "Satisfactory\". Mark numbers. For C1 8, C2 8, C3 8, C4 6, C5 4. Is",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " C3 8? Let's revisit. If C3 8, overall maybe. But C3 descriptor Very good: \"Arguments are compelling, supported by the report",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " structure. The arguments support the conclusion, demonstrating a sound understanding of ethical issues.\" The report's arguments are not fully compelling due to weak for side and factual error. But it",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is logically structured and conclusion supported. Could be Good 6: \"Arguments are logically structured, though are not compelling. Conclusion is not well supported by the arguments",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " presented.\" The conclusion is well supported by the against arguments. So Good descriptor's second sentence doesn't fit. Very good fits better except \"compelling\". I'd",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " keep 8. C2 8. C1 8. C4 6. C5 4. Total 34/50. Is that fair",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "? Maybe.\n\nNeed maybe C2 could be 6 because arguments lack depth. But C2 descriptor Good: \"Arguments are made, though they lack depth or are based on",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " personal opinion. Conclusions are made on decision making, though lack of consideration of different stakeholders.\" The report does consider different stakeholders. So Very good 8. Good.\n\nNeed C",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "1 maybe 8. Good.\n\nNeed C5 maybe 4. Good.\n\nNeed requirements: R1 yes, R2 partial, R3 partial, R4 yes",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", R5 partial, R6 partial, R7 partial? Let's decide R7. The report has conclusion and recommendation. It is holistic? It considers",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " stakeholders. Evidence-based? Some. Justified? Yes. But recommendation \"accept contract\" is inconsistent. I'd mark partial. But requirement R7 is \"Conclude with",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a holistic, evidence-based and justified recommended course of action for Rachel.\" The conclusion does recommend not ship. The recommendation section gives course. It is justified. I",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'d mark yes? Hmm. The task deliverable also asks \"justified recommendation for Rachel on whether and under what conditions the servers should be shipped.\" The report",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " gives whether (not ship) but not under what conditions. R7 doesn't mention conditions. R2 does. So R7 yes. But \"holistic\" maybe not",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " fully. I'd mark yes to acknowledge clear conclusion. But if R7 yes, then only R2/R3/R5/R6 partial. That's okay",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". However, the recommendation \"accept contract\" while not shipping is a flaw. Could mark partial. The schema allows partial. I think partial is more accurate because the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " recommended course is not fully coherent/justified. But the requirement is met in broad terms. Let's mark partial? Need be consistent with C3/C2. The",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " conclusion is clear. I'd mark yes for R7 because it does conclude with a recommended course. The inconsistency is a technical issue. Hmm.\n\nLet's read",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " R7: \"Conclude with a holistic, evidence-based and justified recommended course of action for Rachel.\" The report's conclusion: \"the decision to Not Ship is certainly",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the most ethical path.\" Recommendation: 1 accept contract, 2 raise issue, 3 delay launches, 4 notify clients. This is a course of action",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". It is evidence-based (EA code, HSSIB). It is holistic (stakeholders). So yes. I'll mark yes. But \"accept",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " contract\" is odd. Still, it's a recommendation. I'll mark yes.\n\nR5: \"Identify and discuss relevant ethical issues and stakeholder perspectives, considering arguments and consequences",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " both for and against possible decisions.\" It identifies stakeholders and arguments. It discusses consequences. But stakeholder perspectives? It doesn't discuss chip contract company perspective. It does discuss",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Rachel, company, end-users, health department. I'd mark partial because not all stakeholders and perspectives limited. Good.\n\nR6: \"Research the ethical considerations thoroughly and support all",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " arguments with reputable evidence and external case studies. A conclusion based only on compliance with law or regulation is insufficient.\" It uses external case studies but not all arguments supported",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Partial.\n\nR3: \"Evaluate decision trade-offs, including the time and testing constraints, competitive pressure, company revenue and growth, Rachel’s employment interests, and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the potential for large-scale testing to inform future safety improvements.\" It covers most except large-scale testing. Partial.\n\nR2: \"Discuss whether this is an ethical way to conduct",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " business and how Rachel should determine when a product with known defects may be shipped.\" It says not ethical, but no decision framework/conditions. Partial.\n\nR1",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " yes.\n\nR4 yes.\n\nNeed technical_issues maybe include \"No abstract\" but C5 already. The schema technical_issues can include. Need not include",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " all. Let's craft.\n\nPotential issue: The report says \"Volkswagen had installed defeat devices in a large amount of its electric vehicles worldwide to manipulate crash-s",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "afety tests\" — actual was diesel emissions. This is a factual error. Where: \"The Most Ethical Path\". Good.\n\nReference [3] BBC missing URL.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Where: \"References\". Reference [4] author \"J. & B. N. E. Ewing\" weird. Where: \"References\". Reference [1] URL",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " broken \"https:/Avww.cnbc.com...\" due OCR? Could be OCR artefact. Don't penalise OCR. But reference [3] missing URL",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is likely student error. [4] malformed. We can mention.\n\nRecommendation inconsistency: \"accept the contract\" vs \"Not Ship\" and delay.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Where: \"Recommendation\". Good.\n\nNo abstract: Where: \"Overall\". Good.\n\nNo conditions for shipping: Where: \"Discussion; Recommendation\". Good.\n\nNo",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " large-scale testing: Where: \"Discussion\". Good.\n\nWeak Apple evidence: Where: \"Discussion\". Good.\n\nHypothetical 1% calculation: Where: \"Discussion\".",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Good.\n\nNeed maybe \"chip contract company stakeholder listed but not discussed\" where Introduction/Discussion. Good.\n\nNeed overall. Ensure JSON only. Let's produce",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".\n\nNeed check JSON syntax. Use arrays. No trailing commas. Use Unicode curly quotes? Fine. But JSON strings with curly quotes okay. Need escape newlines",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "? No. Use plain.\n\nLet's write final.",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 7595,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 4157,
+    "completion_tokens": 8547,
+    "total_tokens": 12704,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cost": 0.0055439,
+    "currency": "USD",
+    "reasoning_tokens": 7595,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 4157
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_aac4571e-9fa1-47d7-a637-cd8113d91ff7",
+  "x_nanogpt_pricing": {
+    "amount": 0.0055439,
+    "cost": 0.0055439,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 4157,
+    "outputTokens": 8547,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0
+  }
+}

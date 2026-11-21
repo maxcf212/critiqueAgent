@@ -1,0 +1,156 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance scenario complete with measurable p95 under 1.5s. Availability scenario has six parts but response measure is vague and unmeasurable, so not Excellent. Exactly matches Proficient."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular monolith recommendation with two scenario-specific trade-offs: five-developer overhead and single-VM plus 20-min deployment fixes. Downside acknowledged. Word overrun penalised in C7."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "(a) 99.30% correct. (b) method correct but 0.00699x720 is 5.0h not 3.5h. (c) 0.999975 correct for payment only, but end-to-end should be ~99.80% ~1.5h, not 99.9975%. Two parts wrong."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        }
+      ],
+      "reasoning": "Circuit Breaker appropriate and applied to slow provider with tuning example, but Open/Closed reversed. Open is fail-fast, Closed is normal. Explanation therefore incorrect."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Choices reasonable, Redis 60-second TTL named for browsing, but no concrete technique for payment and CAP misused: during partition choose C or A, cannot give up partition tolerance."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision, Consequences present and specific to tablets and RabbitMQ OrderPaid. Multiple positives given but no negative consequence such as complexity or ops cost."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "References",
+          "quote": "L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed."
+        }
+      ],
+      "reasoning": "Headings in order and writing clear, but Q2 ~181 words exceeds 150, [2] cited but absent from list, and breaker/CAP terminology imprecise."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure unmeasurable, should specify percentage and time, e.g. degraded mode."
+    },
+    {
+      "where": "Question 3",
+      "issue": "(b) arithmetic error: 5.0h not 3.5h; (c) used payment availability as end-to-end, correct is ~99.80% ~1.5h."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit Breaker states reversed: Closed=normal, Open=fail-fast, Half-Open=trial."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP error: cannot forgo partition tolerance; must trade C vs A. No technique named for payment."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence stated for queue introduction."
+    }
+  ],
+  "overall": "Good scenario reasoning but repeated technical slips in calculations, breaker states and CAP, plus missing measurable, negative consequence and reference."
+}

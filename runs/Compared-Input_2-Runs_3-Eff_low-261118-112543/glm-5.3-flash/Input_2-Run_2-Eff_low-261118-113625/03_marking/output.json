@@ -1,0 +1,148 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required"
+        },
+        {
+          "where": "Introduction",
+          "quote": "The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM)"
+        }
+      ],
+      "reasoning": "Mission (GBR coral monitoring via fluid lensing), rationale, single-spacecraft justification, and users/operator/funding all addressed with literature references. Some depth lacking on customer specifics, but overall high standard."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of 97.7924°"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "Systems Tool Kit 11 (STK) was used to calculate access periods"
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "A span of five years is a sound estimate"
+        }
+      ],
+      "reasoning": "Launch site/vehicle (Vega E from Kourou) justified, orbit elements tabulated, STK screenshots and access reports included, ground station and contact frequency quantified, duration and EOL (drag sail) covered. Minor errors: contradictory resolution statement, muddled drag-sail rationale, RAAN value unexplained, inclination plot lacks shown hand calculation."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "a fully described satellite configuration has been constructed"
+        }
+      ],
+      "reasoning": "Conclusion summarises key design choices (launch, orbit, ground station, EOL) and notes risks (Vega E availability), but is largely a recap without deeper critical evaluation or quantitative outcomes."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "the Mount Pleasant Radio Observatory)."
+        }
+      ],
+      "reasoning": "Clear structure with headings, labelled figures and tables, executive summary present. However bibliography is bare URLs (no titles/dates), Wikipedia cited despite being disallowed, stray characters/typos, and figure captions are inconsistent (some text-only captions)."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Mission Design - Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Orbit / Ground Control (STK use)"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Images 1-5 and access table present; no explicit appendix listing STK files"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Structure clear, but Wikipedia cited and bibliography poorly formatted"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Orbit",
+      "issue": "Statement 'A very high altitude would yield low resolution images which is also desirable' contradicts the design logic (low resolution is undesirable)."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Confused reasoning: first says uncontrolled descent makes sense, then says satellite is 'without thrust capability' so must use passive strategy; drag sail deployment itself implies some mechanism, and the logic is circular."
+    },
+    {
+      "where": "Orbit",
+      "issue": "RAAN of 27.33° claimed to indicate launch facility location, but Kourou is at ~5°N; RAAN is not set by launch-site latitude, and no LTAN/local time of descending node is given for the SSO."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Inclination-altitude plot presented without the underlying hand calculation or equation (J2 nodal precession formula)."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Claim that contact duration is 'ensured by the proposed satellite's orbital inclination, which – because of its verticality' is loosely worded; also duplicate access number 13 in STK table."
+    }
+  ],
+  "overall": "A well-structured, mostly complete mission design report with good STK evidence and justified choices. Weakened by internal contradictions in orbit/EOL reasoning, an unexplained RAAN, use of Wikipedia, and bare-URL referencing."
+}

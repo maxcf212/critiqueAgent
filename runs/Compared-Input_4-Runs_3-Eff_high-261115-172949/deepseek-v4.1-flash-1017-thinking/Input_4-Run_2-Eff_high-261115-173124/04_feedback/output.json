@@ -1,0 +1,17 @@
+{
+  "summary": "You have strong Q2 and Q4, with correct Q3(a)(b). The main gaps are Q3(c) end-to-end availability, CAP misuse in Q5, a non-measurable availability response measure in Q1, one-sided consequences in Q6, and Q2 over the word limit. Fix these specific issues to move from Proficient to Excellent in those criteria.",
+  "next_steps": [
+    "Re-work Q3(c): compute end-to-end availability from all four components (not just the payment provider), show the full calculation, and report overall availability and downtime to the requested precision.",
+    "Revise Q5: state that partition tolerance is not optional; explain that during a partition you choose consistency or availability, and for payments consistency sacrifices availability—not partition tolerance.",
+    "Tighten Q1, Q6 and Q2: make the availability response measure measurable, add at least one negative consequence to Q6, and cut Q2 to 150 words or fewer while keeping the scenario-specific trade-offs."
+  ],
+  "criteria": {
+    "C1": "You justified performance and availability well from the lunch-peak scenario. Your performance scenario has all six parts and a measurable response measure. Your availability scenario has all parts, but “stay up most of the time” is not measurable. To reach Excellent, make both response measures measurable—for example, a specific uptime percentage or maximum downtime.",
+    "C2": "Excellent: your modular-monolith recommendation is clear, and your trade-offs are specific to the five-developer team and known problems, with the downside acknowledged. To stay at Excellent, keep trade-offs scenario-specific and continue acknowledging the downside. (Watch the separate 150-word limit for Q2.)",
+    "C3": "You got Q3(a) and (b) correct with working shown. In Q3(c) you used the payment-provider availability as the overall order-placement availability and ignored the other three components; the correct end-to-end availability is 99.80% with 1.5 h/month downtime. To reach Excellent, show the full end-to-end calculation for (c) combining all four components.",
+    "C4": "Excellent: you named Circuit Breaker, explained its mechanism correctly, applied it to the slow-provider outage, and included tuning via failure threshold and wait period. To stay at Excellent, keep the mechanism, outage application, and at least one tuning or drawback consideration explicit.",
+    "C5": "Your choices are reasonable and you named concrete techniques. However, CAP is misapplied: partition tolerance is not optional; during a partition you choose consistency or availability. For payments, favouring consistency sacrifices availability, not partition tolerance. To reach Excellent, correct the CAP explanation and tie each choice to the C-versus-A trade-off during a partition.",
+    "C6": "Context, Decision and Consequences are present and specific to the scenario. The consequences are one-sided: you list only positive outcomes. To reach Excellent, add at least one negative consequence (for example, a cost, risk, or trade-off) while keeping the positive consequence.",
+    "C7": "Headings and IEEE-style references are present. Question 2 is about 181 words, exceeding the 150-word limit. To reach Excellent, keep every answer within 150 words and maintain precise terminology and citations."
+  }
+}

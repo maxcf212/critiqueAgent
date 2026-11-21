@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-e426557f-0d43-4421-b5ae-432b1caffe7d",
+  "object": "chat.completion",
+  "created": 1794792694,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"criteria\": [\n    {\n      \"id\": \"C1\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"Mission Concept & Rationale\", \"quote\": \"Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef\"},\n        {\"where\": \"Mission Concept & Rationale\", \"quote\": \"The satellite would be operated by the Australian Institute of Marine Science (AIMS). Its customers are the Great Barrier Reef Marine Park Authority\"}\n      ],\n      \"reasoning\": \"Clear mission goal, four quantified objectives/requirements, explicit users (AIMS, GBRMPA, CSIRO, BoM) with needs traced to objectives, and literature support [1]-[6]. Only minor gap: no discussion of why a new satellite beats existing sensors quantitatively.\"\n    },\n    {\n      \"id\": \"C2\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"Project Plan / Image 1\", \"quote\": \"Project work is divided into weeks in the Gantt chart in Figure 1\"},\n        {\"where\": \"Project Plan\", \"quote\": \"The main risks and the planned responses are listed in Table 1.\"}\n      ],\n      \"reasoning\": \"Gantt chart with weeks 2-10, task descriptions, explicit contingencies table with triggers/responses, and rationale linking task order to mission logic (orbit before comms). Information sources table included. Robust and mission-integrated.\"\n    },\n    {\n      \"id\": \"C3\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"Preliminary Progress\", \"quote\": \"T = 2π√(a³/μ) | 5,801 s = 96.7 min\"},\n        {\"where\": \"Preliminary Progress\", \"quote\": \"Weekly coverage (objective 1) is therefore not guaranteed by one satellite at this altitude and resolution.\"}\n      ],\n      \"reasoning\": \"Hand calculations verified: a=6978 km gives T=5801 s (correct), 14.9 orbits/day, sun-sync inclination 97.8° at 600 km (correct), ground-track shift 24.2° (correct). Results interpreted (swath vs resolution trade) and linked to contingencies; STK tutorials done.\"\n    },\n    {\n      \"id\": \"C4\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"References\", \"quote\": \"[7] J. R. Wertz, D. F. Everett, and J. J. Puschell, Eds.,\"},\n        {\"where\": \"Project Plan\", \"quote\": \"Figure 1: Project Gantt chart, Weeks 2 to 10 (gold = completed, blue = planned, red lines = report deadlines).\"}\n      ],\n      \"reasoning\": \"Logical structure with headings, labelled figures/tables, consistent IEEE-style citations matching the reference list, professional tone, good grammar. Minor quibbles: 'MECH lab 204 licence' phrasing and slightly dense Gantt legend, but presentation is professional overall.\"\n    }\n  ],\n  \"requirements\": [\n    {\"id\": \"R1\", \"met\": \"yes\", \"where\": \"Mission Concept & Rationale\"},\n    {\"id\": \"R2\", \"met\": \"yes\", \"where\": \"Project Plan / Preliminary Progress — orbit, launch, ground segment tasks and orbit hand calculations\"},\n    {\"id\": \"R3\", \"met\": \"yes\", \"where\": \"Project Plan — 'The design will be completed in STK'; PIGI fallback notes registration\"},\n    {\"id\": \"R4\", \"met\": \"yes\", \"where\": \"Project Plan — Figure 1 Gantt chart\"},\n    {\"id\": \"R5\", \"met\": \"yes\", \"where\": \"Project Plan — Table 2 planned information sources\"},\n    {\"id\": \"R6\", \"met\": \"yes\", \"where\": \"Preliminary Progress — Table 3 orbit calculations and STK setup\"}\n  ],\n  \"technical_issues\": [\n    {\"where\": \"Mission Concept & Rationale\", \"issue\": \"10 m GSD at 600 km in visible bands is ambitious for a 'simple' mission (WorldView-class optics); no payload sizing check yet.\"},\n    {\"where\": \"Mission Concept & Rationale\", \"issue\": \"Weekly 'cloud-free' imaging of tropical Queensland is optimistic given persistent cloud; revisit requirement may be unachievable in practice.\"},\n    {\"where\": \"Mission Concept & Rationale\", \"issue\": \"Minor inconsistency: 'near-real-time relay' vs objective 3's 24-hour delivery window.\"}\n  ],\n  \"overall\": \"Excellent preliminary report: well-justified Australian reef-monitoring mission, quantified objectives, robust Gantt plan with contingencies, verified orbit calculations with interpretation, and consistent professional presentation. Minor payload/cloud feasibility concerns only.\"\n}\n```",
+        "refusal": null,
+        "reasoning": "Let me evaluate against the rubric.\n\nC1 Mission concept: Clear goals, objectives, requirements, users, needs, references. Accomplished. Mark 9.\n\nC2 Project plan: Gantt chart, task descriptions, contingencies, information sources, fits mission narrative. Accomplished. Mark 9.\n\nC3 Preliminary progress: Hand calculations for orbit, STK tutorials, interpretation of swath trade. Good preliminary results with interpretation. Accomplished. Mark 8-9. Check calculations: a = 6978 km, T = 2π√(6978³/398600). 6978³ = 3.398e11... let's compute: 6978³ = 6978² × 6978 = 48,692,484 × 6978 ≈ 3.3977e11. Divide by 398,600 → 852,434. sqrt → 923.3 s. ×2π → 5801 s. Correct. Orbits/day 14.9. Sun-sync inclination at 600 km: ~97.8°, correct. Ground track shift: 360 × 5801/86164 = 24.24°, correct. Swath 60 km. Interpretation good. Mark 9.\n\nC4 Presentation: Well structured, headings, figures/tables labelled, references match. Minor issues: \"MECH lab 204\" odd, but fine. Accomplished. Mark 8-9.\n\nRequirements: R1 yes; R2 yes (orbit, launch in plan, course material); R3 yes (STK selected, mentions PIGI fallback with registration); R4 yes; R5 yes; R6 yes.\n\nTechnical issues: minor — 10 m GSD at 600 km requires very large aperture (diffraction limit ~ 1.22λD/... for 10 m at 600 km in visible, D ≈ 0.15 m actually feasible-ish; 10 m GSD from 600 km is like WorldView-level, plausible but ambitious for \"simple\" mission). Weekly cloud-free imaging of tropical Queensland is optimistic (cloud). Also \"near-real-time relay\" vs 24h delivery slight inconsistency. Sun-sync 600 km gives ~14.9 orbits/day; fine. Also the claim \"Oceans have become 30 percent more acidic\" — surface oceans ~30% increase in acidity since industrial revolution, that's actually correct. Fine.\n\nOverall: strong submission."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5822,
+    "completion_tokens": 1619,
+    "total_tokens": 7441,
+    "reasoning_tokens": 533,
+    "completion_tokens_details": {
+      "reasoning_tokens": 533,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 5822,
+    "cost": 0.0010679,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_b64f7bff-aeae-4554-8879-60b8259f4787",
+  "x_nanogpt_pricing": {
+    "amount": 0.0010679,
+    "currency": "USD",
+    "cost": 0.0010679,
+    "inputTokens": 5822,
+    "outputTokens": 1619,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_0a969297-e710-427e-b997-3832f2e73142",
+    "costUsd": 0.0010679,
+    "usdCost": 0.0010679,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

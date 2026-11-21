@@ -1,0 +1,168 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Coral reefs, specifically the Great Barrier Reef, would immensely benefit from dedicated satellite monitoring."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        },
+        {
+          "where": "Introduction",
+          "quote": "allow marine and conservation scientists to more accurately predict and react to coral bleaching events"
+        }
+      ],
+      "reasoning": "Mission need, rationale, single-spacecraft choice and user groups are described with references. Operator/customer roles are only implicit, so not top of range."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of 87.7924° for the satellite to remain sun-synchronous."
+        },
+        {
+          "where": "Launch",
+          "quote": "with a latitude of $ 45.05^{\\circ} $N"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "An average contact duration of almost twenty minutes was achieved"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "Systems Tool Kit 11 (STK) was used to calculate access periods"
+        }
+      ],
+      "reasoning": "All major design areas are covered with STK screenshots, but the SSO inclination is wrong, Kourou latitude is wrong, contact duration is misread, and STK files are absent. Design logic is therefore only adequate."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet."
+        },
+        {
+          "where": "Conclusion",
+          "quote": "A polar sun-synchronous orbit allows for consistent illumination"
+        }
+      ],
+      "reasoning": "Conclusion summarises launch, orbit and ground station, but omits EOL, duration, single-satellite rationale and users; some statements are generic."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Image 3",
+          "quote": ""
+        }
+      ],
+      "reasoning": "Structure, headings and executive summary are clear, but figures/tables are inconsistently numbered, one plot lacks a caption, and references are bare URLs including prohibited Wikipedia."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Images 1-5"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Orbit",
+      "issue": "600 km SSO inclination is stated as 87.79°, but should be about 97.8° retrograde; 87.79° is prograde and not sun-synchronous."
+    },
+    {
+      "where": "Launch",
+      "issue": "Kourou latitude is given as 45.05°N; actual latitude is about 5.2°N, invalidating the launch-window reasoning."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Mean access duration 580.786 s is about 9.7 minutes, not 'almost twenty minutes'."
+    },
+    {
+      "where": "Orbit",
+      "issue": "RAAN 27.33° is said to indicate launch-site location; RAAN depends on launch time and azimuth, not site alone."
+    },
+    {
+      "where": "Orbit",
+      "issue": "SSO is described as having constant sunlight; sun-synchronous orbits still experience eclipse periods."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Text says high altitude gives low resolution 'which is also desirable', contradicting the design aim."
+    },
+    {
+      "where": "Report",
+      "issue": "No STK/PIGI files are supplied, and the bibliography uses Wikipedia and bare URLs."
+    }
+  ],
+  "overall": "The report is structured and covers most required elements, but the SSO inclination is wrong, Kourou latitude is wrong, contact duration is misread, STK files are missing, and references are weak. Adequate but technically flawed."
+}

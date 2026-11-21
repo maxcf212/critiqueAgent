@@ -1,0 +1,26 @@
+{
+  "model": "openai/gpt-6-luna",
+  "max_tokens": 8000,
+  "include_usage": true,
+  "messages": [
+    {
+      "role": "system",
+      "content": "Convert the marking rubric below into JSON. The document was converted to markdown by OCR: odd characters, broken LaTeX/tables and split paragraphs are usually conversion artefacts, not the author's errors.\n- ids C1..Cn in rubric order. Name stores title of criterion as well as any additional description. Marks are numbers; a single mark gives min=max.\n- level min/max = the score range exactly as printed for that level (may be a common band scale, e.g. 0-10).\n- weight = % of total if printed, else null. max = marks for the criterion if printed, else null. total = printed total marks, else null. Never infer or rescale numbers.\n- If only % bands are given, use 0-100 for level min/max.\nSchema: {\"title\":str,\"total\":num|null,\"criteria\":[{\"id\":\"C1\",\"name\":str,\"weight\":num|null,\"max\":num|null,\"levels\":[{\"label\":str,\"min\":num,\"max\":num,\"desc\":str}]}],\"notes\":str}\nReply with one JSON object only. No prose, no markdown."
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "RUBRIC:\n"
+        },
+        {
+          "type": "text",
+          "text": "# SWEN3204 Assignment 2 – Marking Rubric\n\nTotal: 40 marks. Award whole marks only. Each criterion is marked within the mark range of the level that best describes the answer.\n\n| Criterion | Marks | Excellent | Proficient | Developing | Missing |\n|---|---|---|---|---|---|\n| **Q1 Quality attributes** | 6 | **5–6 marks.** Two attributes that clearly matter most are chosen and justified from the scenario. Both scenarios have all six parts and both response measures are measurable. | **3–4 marks.** Suitable attributes are chosen with some justification. Scenarios are mostly complete but one is missing a part or has a response measure that is not measurable. | **1–2 marks.** Attributes are named with little or no justification, or the scenarios are not in six-part form or are not measurable. | **0 marks.** Not attempted or irrelevant. |\n| **Q2 Architectural style** | 6 | **5–6 marks.** A clear recommendation justified by at least two trade-offs that are specific to the scenario (team size, load profile, known problems). The downside of the recommendation is acknowledged. | **3–4 marks.** A clear recommendation with two trade-offs, but one is generic or not linked to the scenario, or no downside is acknowledged. | **1–2 marks.** A recommendation with only one trade-off, or with generic textbook advantages and disadvantages only. | **0 marks.** Not attempted or no recommendation. |\n| **Q3 Availability calculation** | 8 | **7–8 marks.** Parts (a), (b) and (c) are all correct with working shown, to the requested precision. | **5–6 marks.** The method is correct throughout but there is one arithmetic or rounding slip, or exactly one part is incorrect. | **1–4 marks.** The series calculation is attempted but two or more parts are incorrect, or working is not shown. | **0 marks.** Not attempted or no correct element. |\n| **Q4 Resilience pattern** | 5 | **5 marks.** An appropriate pattern is named, its mechanism is explained correctly, it is applied to the outage, and at least one drawback or tuning consideration is given. | **3–4 marks.** An appropriate pattern is named and explained correctly, but it is only loosely applied to the outage or no drawback or tuning consideration is given. | **1–2 marks.** A pattern is named but the explanation is incorrect or very thin. | **0 marks.** Not attempted or an unsuitable pattern. |\n| **Q5 Consistency and availability** | 6 | **5–6 marks.** Both choices are justified, the CAP theorem is used correctly, and a suitable concrete technique is named for each case. | **3–4 marks.** Both choices are reasonable and techniques are named, but the CAP theorem is explained incorrectly or imprecisely, or one technique is missing. | **1–2 marks.** Choices are stated with little justification, or the CAP theorem is not used. | **0 marks.** Not attempted. |\n| **Q6 Architecture decision record** | 5 | **5 marks.** Context, Decision and Consequences are all present and specific to the scenario, with at least one positive and one negative consequence. | **3–4 marks.** All three sections are present but the consequences are one-sided (no negative consequence) or the context is generic. | **1–2 marks.** One or more sections are missing or the record does not describe a decision. | **0 marks.** Not attempted. |\n| **Communication and format** | 4 | **4 marks.** Every answer is within 150 words, terminology is precise, the required headings are used and sources are cited in IEEE style. | **3 marks.** Clear writing, but one answer exceeds the word limit or there are minor citation or formatting problems. | **1–2 marks.** Several answers exceed the word limit, or the writing is hard to follow, or sources are not cited. | **0 marks.** Format requirements ignored. |"
+        }
+      ]
+    }
+  ],
+  "temperature": 0,
+  "reasoning_effort": "high"
+}

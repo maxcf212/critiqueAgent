@@ -1,0 +1,135 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        }
+      ],
+      "reasoning": "Performance and availability are clearly justified from scenario data (900 orders/hour, 4.2 s p95, payment outage). Both scenarios have all six parts with measurable response measures."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The lunchtime slowness comes from a single virtual machine and is fixed by running several instances"
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently"
+        }
+      ],
+      "reasoning": "Clear recommendation with two trade-offs tied to team size, load profile and known problems; downside explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        }
+      ],
+      "reasoning": "Verified: series product 0.99301 (99.30%), downtime 5.0 h; parallel payment 0.999975, new availability 99.80%, downtime 1.5 h. All parts correct with working and required precision."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data."
+        }
+      ],
+      "reasoning": "Circuit Breaker named, mechanism (Closed/Open/Half-Open) explained correctly, applied to the payment outage, with both a tuning consideration and a drawback."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "the order is rejected with a clear error rather than risk an inconsistent charge"
+        },
+        {
+          "where": "Question 5",
+          "quote": "Redis with a 60-second TTL"
+        }
+      ],
+      "reasoning": "Both choices justified, CAP theorem stated correctly (P not optional), concrete techniques named for each case (Redis TTL cache; idempotency keys)."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run"
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences all present and scenario-specific, with multiple positive and negative consequences."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite for the next 12 months."
+        }
+      ],
+      "reasoning": "Headings used in order, IEEE citations and reference list present, terminology precise. Question 2 appears marginally over the 150-word limit; no other format issues."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "A strong, technically accurate submission. All Q3 calculations verified correct with working shown. Every question is well justified with scenario-specific reasoning, correct CAP usage, and balanced consequences. Only minor issue is Question 2 possibly slightly exceeding the 150-word limit."
+}

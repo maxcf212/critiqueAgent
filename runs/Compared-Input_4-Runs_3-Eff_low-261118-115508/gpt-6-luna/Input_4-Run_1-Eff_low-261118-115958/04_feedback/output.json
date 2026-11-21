@@ -1,0 +1,17 @@
+{
+  "summary": "You demonstrate strong, scenario-specific architectural reasoning, especially in Question 2, and your clear, well-formatted answers meet the communication standard. To reach the next rubric level in several criteria, make the availability scenario measurable, calculate end-to-end availability across all components, explain CAP precisely, and include a downside in your ADR.",
+  "next_steps": [
+    "In Question 1, quantify the availability response measure and focus it on order availability—for example, set a target percentage of successful order requests over a stated period.",
+    "In Question 3(c), multiply the availability of all series components, including the redundant payment providers, before calculating monthly downtime; show the corrected working.",
+    "In Questions 4–6, add a circuit-breaker tuning trade-off, explain that a partition forces a consistency-versus-availability choice, and include a negative consequence of asynchronous queue-based notification in your ADR."
+  ],
+  "criteria": {
+    "C1": "In Question 1, you selected and justified relevant attributes and used six-part scenarios. Your performance measure is measurable, but “stay up most of the time” is not, and the availability response focuses on browsing rather than orders. Quantify order availability to reach Excellent.",
+    "C2": "In Question 2, your modular-monolith recommendation is supported by scenario-specific trade-offs involving the five-person team, VM, deployment downtime and rewrite cost. You also acknowledge that modules cannot be scaled independently. This meets the Excellent standard.",
+    "C3": "In Question 3, parts (a) and (b) are correct, and you calculate redundant payment availability correctly. In part (c), include the other series components in end-to-end availability before calculating downtime; the current payment-only calculation prevents an Excellent result.",
+    "C4": "In Question 4, you correctly explain and apply the Circuit Breaker to the slow-provider outage. To reach Excellent, add a drawback or tuning consideration, such as how thresholds or trial-call timing affect false trips and recovery.",
+    "C5": "In Question 5, your choices are reasonable, and you name concrete techniques for caching menus and preventing duplicate charges. Clarify that partition tolerance is assumed and a partition requires a consistency-versus-availability trade-off; state that payment operations are deferred or rejected to preserve consistency.",
+    "C6": "In Question 6, your scenario-specific ADR includes Context, Decision and positive consequences. To reach Excellent, add a negative consequence of asynchronous queue-based notification, such as delayed outlet notification or the need to handle duplicate delivery.",
+    "C7": "Your answers use the required headings, stay within the word limit, and cite sources in IEEE style with a reference list. Your writing and terminology are clear, meeting the Excellent standard."
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "id": "chatcmpl-8c9a165c-c645-4220-ba88-d691b96bb2b2",
+  "object": "chat.completion",
+  "created": 1794975036,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You delivered a strong, well-targeted submission: Q1 attributes and six-part scenarios are measurable, Q2 trade-offs are scenario-specific with an acknowledged downside, Q3 arithmetic is correct, Q4–Q6 reasoning is precise, and C7 formatting/citations are clean. To strengthen future work, make assumptions explicit—especially independence in Q3 and the hypothetical service count in Q2.\",\"next_steps\":[\"In Q3, add one sentence before the multiplication: 'I assume component failures are independent and the two payment providers fail independently,' then show the same working.\",\"In Q2, label 'eight or more services' as an assumption about a hypothetical microservices design, e.g. 'assuming a microservices split into eight or more services...'.\",\"Keep the current discipline: every answer within 150 words, headings in order, and IEEE citations; for future ADRs, continue pairing positive and negative consequences as you did in Q6.\"],\"criteria\":{\"C1\":\"Q1 is excellent: you chose performance and availability from concrete scenario facts (900 lunch orders, 4.2 s p95, payment outage) and both scenarios have all six parts with measurable response measures (p95 <1.5 s; menu p95 <2 s, <0.1% non-payment failures). To stay at this level, keep tying each part to a scenario fact.\",\"C2\":\"Q2 is excellent: your modular-monolith recommendation is justified by team size, single-VM lunchtime load, and weekly downtime, and you explicitly accept the downside that modules cannot scale independently and one bug can crash the process. Next time, flag the 'eight or more services' figure as an assumption about a hypothetical microservices design.\",\"C3\":\"Q3 is excellent: the series product 0.99301 (99.30%), 5.0 h downtime, and parallel payment 0.999975 giving 0.99798 (99.80%) and 1.5 h are all correct with working. To strengthen, state the independence assumption explicitly before multiplying; the arithmetic and precision already meet the Excellent descriptor.\",\"C4\":\"Q4 is excellent: you name circuit breaker, explain Open-state fail-fast behaviour, apply it to the 25-minute hang, and give both a tuning consideration (threshold from real latency data) and a drawback (no payments while open, so fallback needed). Keep this pattern of mechanism + application + trade-off.\",\"C5\":\"Q5 is excellent: AP for browsing with Redis 60-second TTL and CP for payments with idempotency keys are both justified from scenario risk; CAP is stated correctly and a concrete technique is named for each case. Continue linking each choice to the specific failure risk.\",\"C6\":\"Q6 is excellent: Context, Decision and Consequences are all present and scenario-specific, with two positive and three negative consequences. The ADR clearly describes the synchronous tablet call and the RabbitMQ OrderPaid decision. Keep balancing positive and negative consequences in future ADRs.\",\"C7\":\"C7 is excellent: every answer is within 150 words, terminology is precise, headings are in order, and IEEE-style citations/reference list are present. The only improvement is to add an explicit assumptions statement where relevant (Q3 independence, Q2 service count); this will make your reasoning fully transparent.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON formative feedback. Need address student as \"you\". Specific, supportive, actionable, cite sections/figures, name what done well, state next rubric level requires. Do not change marks. Do not comment on document-conversion artefacts. Do not make up explanations for reasoning unclear/incomplete. Schema summary <=80 words, next_steps array of 3 strings, criteria object with criterion ids C1-C7 each <=70 words.\n\nNeed craft feedback. All criteria Excellent. Need next steps likely focus on technical issues: explicit assumptions statement in Q3, flag assumption in Q2, maybe maintain. Since all excellent, next steps should be actionable to sustain/strengthen: state independence assumptions explicitly in Q3; label hypothetical microservices service count as assumption in Q2; perhaps continue concise IEEE citations and word limits. Need not change marks. Criteria feedback each <=70 words, cite evidence. Need mention what did well and next level? Since at Excellent, next level is maintaining Excellent; can say to stay at Excellent ensure explicit assumptions. But rubric descriptor for C7 doesn't include assumptions; technical issue not criterion. We can mention in summary/next steps. For criteria, each should be supportive and specific. Need not overdo.\n\nNeed ensure JSON only. Summary <=80 words. Let's draft.\n\nSummary: \"You delivered a strong, well-targeted submission: Q1 attributes and six-part scenarios are measurable, Q2 trade-offs are scenario-specific with an acknowledged downside, Q3 arithmetic is correct, Q4–Q6 reasoning is precise, and Q7 formatting/citations are clean. To strengthen future work, make assumptions explicit—especially independence in Q3 and the hypothetical service count in Q2.\" Count words ~55. Good.\n\nNext steps 3:\n1. \"In Q3, add one sentence before the multiplication: 'I assume component failures are independent and the two payment providers fail independently,' then show the same working.\"\n2. \"In Q2, label 'eight or more services' as an assumption about a hypothetical microservices design, e.g. 'assuming a microservices split into eight or more services...'.\"\n3. \"Keep the current discipline: every answer within 150 words, headings in order, and IEEE citations; for future ADRs, continue pairing positive and negative consequences as you did in Q6.\"\n\nCriteria:\nC1 <=70: \"Q1 is excellent: you chose performance and availability from concrete scenario facts (900 lunch orders, 4.2 s p95, payment outage) and both scenarios have all six parts with measurable response measures (p95 <1.5 s; menu p95 <2 s, <0.1% non-payment failures). To stay at this level, keep tying each part to a scenario fact.\" Count ~60. Good.\n\nC2: \"Q2 is excellent: your modular-monolith recommendation is justified by team size, single-VM lunchtime load, and weekly downtime, and you explicitly accept the downside that modules cannot scale independently and one bug can crash the process. Next time, flag the 'eight or more services' figure as an assumption about a hypothetical microservices design.\" ~55.\n\nC3: \"Q3 is excellent: the series product 0.99301 (99.30%), 5.0 h downtime, and parallel payment 0.999975 giving 0.99798 (99.80%) and 1.5 h are all correct with working. To strengthen, state the independence assumption explicitly before multiplying; the arithmetic and precision already meet the Excellent descriptor.\" ~50.\n\nC4: \"Q4 is excellent: you name circuit breaker, explain Open-state fail-fast behaviour, apply it to the 25-minute hang, and give both a tuning consideration (threshold from real latency data) and a drawback (no payments while open, so fallback needed). Keep this pattern of mechanism + application + trade-off.\" ~50.\n\nC5: \"Q5 is excellent: AP for browsing with Redis 60-second TTL and CP for payments with idempotency keys are both justified from scenario risk; CAP is stated correctly and a concrete technique is named for each case. Continue linking each choice to the specific failure risk.\" ~48.\n\nC6: \"Q6 is excellent: Context, Decision and Consequences are all present and scenario-specific, with two positive and three negative consequences. The ADR clearly describes the synchronous tablet call and the RabbitMQ OrderPaid decision. Keep balancing positive and negative consequences in future ADRs.\" ~45.\n\nC7: \"C7 is excellent: every answer is within 150 words, terminology is precise, headings are in order, and IEEE-style citations/reference list are present. The only improvement is to add an explicit assumptions statement where relevant (Q3 independence, Q2 service count); this is not a C7 descriptor issue but will make your reasoning fully transparent.\" ~55. Need not mention \"not a C7 descriptor issue\"? It's okay. But criterion C7 feedback should focus communication. Could mention assumptions as next step. Fine.\n\nNeed ensure no markdown, one JSON object. Use exact criterion ids. Strings. No extra. Need maybe \"next_steps\" exactly 3. Good.\n\nNeed be careful \"Do not make up explanations for reasoning given by marking agent unclear/incomplete\" We are not. Good.\n\nNeed maybe mention \"Q7\" typo? Rubric C7 communication. Use C7.\n\nNeed final JSON only."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2767,
+    "completion_tokens": 1816,
+    "total_tokens": 4583,
+    "reasoning_tokens": 1123,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1123,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 1408,
+    "cache_read_input_tokens": 1280,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280,
+      "cache_write_tokens": 1408,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 79,
+    "cost": 0.001243676,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_d76dc30b-81db-4c33-9ff9-7d1c5554b788",
+  "x_nanogpt_pricing": {
+    "amount": 0.001243676,
+    "currency": "USD",
+    "cost": 0.001243676,
+    "inputTokens": 2767,
+    "outputTokens": 1816,
+    "cacheCreationInputTokens": 1408,
+    "cacheReadInputTokens": 1280,
+    "cacheCost": 0.000146176,
+    "requestId": "req_4a24e636-07d3-4795-a1b1-ef0a9205258f",
+    "costUsd": 0.001243676,
+    "usdCost": 0.001243676,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "hit_and_write",
+      "readTokens": 1280,
+      "writeTokens": 1408
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit_and_write",
+    "readTokens": 1280,
+    "writeTokens": 1408
+  }
+}

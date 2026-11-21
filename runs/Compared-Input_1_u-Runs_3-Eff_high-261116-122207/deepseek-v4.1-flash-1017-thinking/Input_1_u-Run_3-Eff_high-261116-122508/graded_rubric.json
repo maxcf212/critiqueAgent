@@ -1,0 +1,179 @@
+{
+  "total": 87.0,
+  "total_max": 100.0,
+  "percent": 87.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 36.0,
+      "max": 40.0,
+      "reasoning": "Clear goal, four numbered objectives/requirements, named users with distinct needs, and rationale grounded in bleaching evidence and cited literature. Objectives are traced back to user needs. Slight weakness: requirement values (10 m, weekly, 24 h) are asserted rather than derived from sources.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef, so that bleaching is detected within days",
+          "verified": true
+        },
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "The satellite would be operated by the Australian Institute of Marine Science (AIMS). Its customers are the Great Barrier Reef Marine Park Authority",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 27.0,
+      "max": 30.0,
+      "reasoning": "Gantt chart with dated weeks, per-task descriptions, sequencing justified by mission logic, a risk/contingency table with triggers and responses, and a source table. Software choice (STK) justified against mission questions. Minor: STK Simulations bar runs into Week 10 despite text saying completion by Week 9.",
+      "evidence": [
+        {
+          "where": "Project Plan",
+          "quote": "The order follows the mission: the imaging requirements (objectives 1 and 2) fix the orbit altitude and local time",
+          "verified": true
+        },
+        {
+          "where": "Project Plan",
+          "quote": "Week 10 is float as well as editing time: no new design work is planned in it.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 8.0,
+      "max": 10.0,
+      "reasoning": "Hand calculations for a, T, orbits/day, SSO inclination, ground-track shift and swath are numerically correct and interpreted, exposing a genuine coverage shortfall that feeds the contingency plan. Inclination is stated without working, and the coverage conclusion is qualitative rather than quantified.",
+      "evidence": [
+        {
+          "where": "Preliminary Progress",
+          "quote": "the reef is up to about 250 km wide, so a 60 km swath needs at least five neighbouring passes",
+          "verified": true
+        },
+        {
+          "where": "Preliminary Progress",
+          "quote": "A first STK scenario with this orbit has been set up, and its period agrees with the hand calculation.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 16.0,
+      "max": 20.0,
+      "reasoning": "Logical structure, clear headings, readable prose, labelled figure and tables, consistent formatting, and in-text citations matching the reference list. Deductions: reference [6] (NOAA climate-change page) is cited for BoM sea-surface-temperature products, and [4] is a news article rather than the primary method source.",
+      "evidence": [
+        {
+          "where": "Image 1",
+          "quote": ""
+        },
+        {
+          "where": "Project Plan",
+          "quote": "Figure 1: Project Gantt chart, Weeks 2 to 10 (gold = completed, blue = planned, red lines = report deadlines).",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Project Plan"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Project Plan / Image 1"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Project Plan (Table 2)"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Preliminary Progress"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Preliminary Progress (Table 3)",
+      "issue": "Sun-synchronous inclination of 97.8° is stated without the J2 nodal-precession working, so the key orbit assumption cannot be checked."
+    },
+    {
+      "where": "Preliminary Progress",
+      "issue": "Coverage conclusion is qualitative; no explicit swath-count or revisit calculation (e.g. passes needed vs daylight passes per week) is shown to prove weekly coverage fails."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "Requirement values (10 m GSD, weekly revisit, 24 h delivery) are asserted rather than derived from the cited sources or sensor trade."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [6] is a NOAA climate-change page but is cited as the source of BoM sea-surface-temperature products; no BoM source is listed."
+    },
+    {
+      "where": "Project Plan (Image 1)",
+      "issue": "Gantt shows STK Simulations running through Week 10, contradicting the text that final design and simulation finish by end of Week 9."
+    }
+  ],
+  "overall": "Strong, well-structured preliminary report: a well-argued Australian reef-monitoring mission with clear users, a justified STK-based plan with contingencies and sources, and correct preliminary orbit calculations that honestly expose a coverage shortfall. Main gaps are unshown inclination working, unquantified revisit analysis, and one mismatched citation.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "Your reef-monitoring mission is well argued and clearly structured. You name users and needs, justify an STK-based plan with contingencies and sources, and your orbit calculations correctly expose a coverage shortfall. To reach the top of the Accomplished band, show the inclination working, quantify the revisit shortfall, derive requirement values, and fix the [6] citation and Gantt Week 10 inconsistency.",
+    "next_steps": [
+      "In Preliminary Progress, add the J2 nodal-precession calculation that yields the 97.8° sun-synchronous inclination, so the key orbit assumption can be checked.",
+      "Quantify the coverage shortfall: count required swaths/passes versus daylight passes per week to show explicitly why weekly revisit fails, rather than concluding qualitatively.",
+      "Reconcile the Gantt (Image 1) with the text: STK Simulations runs to Week 10 while the text says design and simulation finish by Week 9; also replace reference [6] with a BoM sea-surface-temperature source."
+    ],
+    "criteria": {
+      "C1": "You give a clear goal, four numbered objectives and named users (AIMS, GBRMPA) with distinct needs, grounded in bleaching evidence and cited literature. To secure full marks, derive the 10 m GSD, weekly revisit and 24 h delivery values from your sources or a sensor trade, rather than asserting them, and tie each requirement explicitly back to the user need it serves.",
+      "C2": "Your Gantt (Figure 1) has dated weeks, per-task descriptions and mission-driven sequencing, plus a risk/contingency table with triggers and a source table; STK is justified against mission questions. For full marks, align the Gantt with your text: the STK Simulations bar runs to Week 10 although you state design and simulation finish by Week 9. Clarify whether Week 10 is float only.",
+      "C3": "Your hand calculations for a, T, orbits/day, SSO inclination, ground-track shift and swath are numerically correct and interpreted, and they honestly expose a coverage shortfall that feeds your contingency plan. To reach full marks, show the J2 nodal-precession working behind the 97.8° inclination, and quantify the revisit failure by counting required swaths/passes against daylight passes per week rather than concluding qualitatively.",
+      "C4": "The report is logically structured with clear headings, readable prose, labelled Figure 1 and Tables 2–3, consistent formatting, and in-text citations that match the reference list. For full marks, correct reference [6]: it is a NOAA climate-change page cited for BoM sea-surface-temperature products, so add the actual BoM source. Consider replacing news article [4] with the primary method source."
+    }
+  }
+}

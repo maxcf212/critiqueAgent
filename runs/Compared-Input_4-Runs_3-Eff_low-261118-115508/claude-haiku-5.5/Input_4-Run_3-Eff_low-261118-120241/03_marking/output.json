@@ -1,0 +1,164 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are well justified from the lunch-peak scenario. The performance scenario is complete and measurable. The availability response measure ('stay up most of the time') is not measurable, which places this in Proficient."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation with scenario-specific trade-offs (five-person team, single-VM and deployment-downtime problems) and an acknowledged downside. Strong, though the trade-offs could be sharper on load profile."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "(a) 99.30% and (b) 5.0 h are correct. Part (c) is wrong: it gives payment-only availability 99.9975% as end-to-end, ignoring the other components. Correct end-to-end is about 99.80% and about 1.5 h/month. Downtime is also not given to one decimal place."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open"
+        },
+        {
+          "where": "Question 4",
+          "quote": "After a wait period the breaker goes Half-Open and lets a few trial calls through."
+        }
+      ],
+      "reasoning": "Circuit breaker is correctly explained with states and threshold tuning, and applied to the slow-provider outage. Tuning considerations are present. The claim about 'the outage last month' is asserted without supporting detail."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both choices are reasonable and techniques are named (cache with TTL, idempotency keys). However, the CAP application is imprecise: partition tolerance cannot be given up in a distributed network, so the CAP explanation is incorrect."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are present and fairly specific. Consequences are entirely positive, with no negative consequence (e.g., added infrastructure, duplicate or ordering issues, queue failure risk), so it falls to the upper-middle of Proficient."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed."
+        }
+      ],
+      "reasoning": "Headings are used in order, answers are within limits, and IEEE-style references are provided and cited in text. Minor precision issues exist, such as the CAP wording and downtime precision in Q3."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3 (c)",
+      "issue": "End-to-end availability should combine the other components with the 99.9975% payment availability, giving about 99.80% and about 1.5 h/month. The answer reports payment-only availability as the system figure."
+    },
+    {
+      "where": "Question 3 (c)",
+      "issue": "Monthly downtime given as 0.018 hours rather than to one decimal place as required."
+    },
+    {
+      "where": "Question 5 (ii)",
+      "issue": "CAP is misapplied: partition tolerance is not optional in a distributed system, so the choice is between consistency and availability during a partition."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable."
+    },
+    {
+      "where": "Question 6",
+      "issue": "Consequences list only benefits; no negative consequence such as added broker operations, delivery ordering, or duplicate notifications."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Claims the breaker would have opened within seconds during last month's outage without supporting data or stated assumptions."
+    }
+  ],
+  "overall": "A solid submission with a clear modular-monolith recommendation and a correct circuit-breaker explanation. Key errors: the end-to-end availability in Q3(c) is wrong, the CAP reasoning in Q5 is misapplied, the availability measure is not measurable, and the ADR omits negative consequences. No explicit assumptions section."
+}

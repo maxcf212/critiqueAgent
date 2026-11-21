@@ -1,0 +1,61 @@
+{
+  "id": "chatcmpl-3bfe2b45-20b8-45d3-becb-e324fadc145d",
+  "object": "chat.completion",
+  "created": 1794425119,
+  "model": "google/gemini-3.8-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"criteria\": [\n    {\n      \"id\": \"C1\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9.0,\n      \"evidence\": [\n        {\n          \"where\": \"Introduction\",\n          \"quote\": \"A newer technology called fluid lensing has been used in combination with AI analysis to detect colour/tone changes to the seafloor\"\n        },\n        {\n          \"where\": \"Introduction\",\n          \"quote\": \"Thus, only one satellite is required. This also just allows for simplicity in communications, reduces cost\"\n        },\n        {\n          \"where\": \"Introduction\",\n          \"quote\": \"The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM) for research and/or education.\"\n        }\n      ],\n      \"reasoning\": \"The mission rationale is articulated exceptionally well. The primary purpose (fluid lensing for coral reef monitoring), rationale for a single spacecraft, and relevant Australian operators/stakeholders (CSIRO, BOM) are all clearly identified and justified.\"\n    },\n    {\n      \"id\": \"C2\",\n      \"level\": \"Adequate\",\n      \"mark\": 6.0,\n      \"evidence\": [\n        {\n          \"where\": \"Orbit\",\n          \"quote\": \"Specifically, an altitude of 600km requires a mean inclination of 97.7924° for the satellite to remain sun-synchronous.\"\n        },\n        {\n          \"where\": \"Ground Control & Communications\",\n          \"quote\": \"Systems Tool Kit 11 (STK) was used to calculate access periods as seen below\"\n        },\n        {\n          \"where\": \"Mission Duration & EOL\",\n          \"quote\": \"It acts like a regular sail, utilising a large surface area to ‘ and is suitable for low-earth orbit altitudes [10].\"\n        }\n      ],\n      \"reasoning\": \"Key mission elements (Vega E, Kourou, 600 km SSO, Mt Pleasant ground station) are identified with STK access data. However, launch options copy unedited Wikipedia tables, inclination vs altitude is lifted from external websites rather than derived, the EOL sentence is broken, and no de-orbit lifetime sizing is calculated.\"\n    },\n    {\n      \"id\": \"C3\",\n      \"level\": \"Accomplished\",\n      \"mark\": 7.5,\n      \"evidence\": [\n        {\n          \"where\": \"Conclusion\",\n          \"quote\": \"A specific launch vehicle – the Vega E – has been selected although it has not been built yet.\"\n        },\n        {\n          \"where\": \"Conclusion\",\n          \"quote\": \"The Mt Pleasant Radio Observatory is well-located to receive data from this orbit type constantly and for long durations.\"\n        }\n      ],\n      \"reasoning\": \"The conclusion provides an appropriate summary drawn directly from the mission analysis, accurately reflecting launch risks, orbit selection, and ground station capability for Great Barrier Reef monitoring.\"\n    },\n    {\n      \"id\": \"C4\",\n      \"level\": \"Adequate\",\n      \"mark\": 5.0,\n      \"evidence\": [\n        {\n          \"where\": \"Bibliography\",\n          \"quote\": \"https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online].\"\n        },\n        {\n          \"where\": \"Orbit\",\n          \"quote\": \"STK 3D view of orbit: 12 hours apart\"\n        },\n        {\n          \"where\": \"Bibliography\",\n          \"quote\": \"[10 d. ] https://www.thespacereview.com/article/3887/1\"\n        }\n      ],\n      \"reasoning\": \"Formatting lacks professional polish. Figures and tables lack formal captions and numbering. Tables copied from Wikipedia retain raw footnote hyperlinks ([50], [67]). References consist solely of bare URLs, include broken formatting, and explicitly cite Wikipedia contrary to instructions.\"\n    }\n  ],\n  \"requirements\": [\n    {\"id\": \"R1\", \"met\": \"yes\", \"where\": \"Introduction\"},\n    {\"id\": \"R2\", \"met\": \"yes\", \"where\": \"Mission Design\"},\n    {\"id\": \"R3\", \"met\": \"yes\", \"where\": \"Introduction\"},\n    {\"id\": \"R4\", \"met\": \"yes\", \"where\": \"Introduction\"},\n    {\"id\": \"R5\", \"met\": \"yes\", \"where\": \"Introduction\"},\n    {\"id\": \"R6\", \"met\": \"yes\", \"where\": \"Mission Design\"},\n    {\"id\": \"R7\", \"met\": \"yes\", \"where\": \"Orbit\"},\n    {\"id\": \"R8\", \"met\": \"yes\", \"where\": \"Orbit\"},\n    {\"id\": \"R9\", \"met\": \"yes\", \"where\": \"Ground Control & Communications\"},\n    {\"id\": \"R10\", \"met\": \"yes\", \"where\": \"Mission Duration & EOL\"},\n    {\"id\": \"R11\", \"met\": \"partial\", \"where\": \"Orbit\"},\n    {\"id\": \"R12\", \"met\": \"partial\", \"where\": \"Ground Control & Communications\"},\n    {\"id\": \"R13\", \"met\": \"yes\", \"where\": \"Contents\"},\n    {\"id\": \"R14\", \"met\": \"no\", \"where\": null},\n    {\"id\": \"R15\", \"met\": \"no\", \"where\": \"Bibliography\"}\n  ],\n  \"technical_issues\": [\n    {\n      \"where\": \"Mission Duration & EOL\",\n      \"issue\": \"Incomplete sentence cut off mid-thought: 'utilising a large surface area to ‘ and is suitable'.\"\n    },\n    {\n      \"where\": \"Mission Duration & EOL\",\n      \"issue\": \"No ballistic coefficient, drag area, or orbit decay calculations provided to demonstrate that the drag sail can deorbit from 600 km within the 25-year standard.\"\n    },\n    {\n      \"where\": \"Mission Design\",\n      \"issue\": \"Flight manifest tables are raw copy-pastes from Wikipedia with orphaned citation markers.\"\n    }\n  ],\n  \"overall\": \"A well-conceived mission with strong Australian relevance and solid STK orbit/access analysis. However, report presentation is hindered by uncaptioned figures, incomplete sentences, bare URLs, raw copied Wikipedia tables, and using Wikipedia as a source.\"\n}\n```",
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 14265,
+    "completion_tokens": 3317,
+    "total_tokens": 17582,
+    "reasoning_tokens": 1865,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1865,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 14265,
+    "cost": 0.0231375,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_0ff30bb6-c672-447f-997e-84e303953bda",
+  "x_nanogpt_pricing": {
+    "amount": 0.0231375,
+    "currency": "USD",
+    "cost": 0.0231375,
+    "inputTokens": 14265,
+    "outputTokens": 3317,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_645974e4-fb8d-4ab7-b877-e28e26f00575",
+    "costUsd": 0.0231375,
+    "usdCost": 0.0231375,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        }
+      ],
+      "reasoning": "Two attributes are chosen and justified from the scenario. Both scenarios have all six parts, and both response measures are numeric and testable. Word count may slightly exceed 150, which is handled under C7."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The lunchtime slowness comes from a single virtual machine and is fixed by running several instances"
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently"
+        }
+      ],
+      "reasoning": "Clear recommendation with trade-offs tied to team size, the single VM and the 20-minute weekly downtime. The downside is acknowledged. The answer is likely over 150 words, which is penalised under C7 rather than here."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A_new = 0.9995 × 0.999 × 0.9995 × 0.999975 = 0.99798"
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99798) × 720 = 0.00202 × 720 = 1.46, so 1.5 hours per month."
+        }
+      ],
+      "reasoning": "Recomputed: (a) 99.30%, 5.0 h; (b) 5.0 h; (c) 0.999975 and 99.80%, 1.5 h. All correct with working and the requested precision."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data."
+        }
+      ],
+      "reasoning": "Circuit Breaker is appropriate and its states are explained correctly. It is applied to the 25-minute outage, and tuning and drawback considerations are given."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "This is the AP choice, with eventual consistency."
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge."
+        }
+      ],
+      "reasoning": "Both choices are justified and CAP is used correctly. Caching with TTL is named for browsing. The payment technique is weaker, since an idempotency key is more about duplicate handling than consistency, so 5 rather than 6."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor."
+        },
+        {
+          "where": "Question 6",
+          "quote": "If a tablet is offline the order is lost, and these calls add to the 4.2 s p95."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are all present and specific. Both positive and negative consequences are given."
+    },
+    {
+      "id": "C7",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "First, independent scaling versus operational overhead."
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice"
+        }
+      ],
+      "reasoning": "Question 2 is clearly over 150 words, and Question 1 is likely also over. Multiple answers exceed the limit. Headings and IEEE references are present, and the writing is clear."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 5",
+      "issue": "An idempotency key prevents duplicate charges but is not a consistency technique. A stronger choice would be a consensus or quorum-based write, or a single-leader transaction for payments."
+    },
+    {
+      "where": "Question 1",
+      "issue": "The availability scenario bundles three response measures into one line, which makes it harder to test."
+    }
+  ],
+  "overall": "Strong, accurate calculations and a well-argued ADR and resilience answer. Main deductions: several answers exceed 150 words, assumptions are not explicitly stated, and the idempotency key is a weak consistency technique. Estimated total 37/40."
+}

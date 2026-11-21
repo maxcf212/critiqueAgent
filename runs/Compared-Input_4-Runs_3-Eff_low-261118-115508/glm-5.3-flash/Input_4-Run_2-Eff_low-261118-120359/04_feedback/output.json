@@ -1,0 +1,19 @@
+{
+  "summary": "A strong submission overall. Your modular monolith recommendation in Q2 is excellent, and Q3(a)(b) show correct working. To reach higher marks: make Q1's availability response measure measurable, fix the Q3(c) series calculation, apply CAP correctly in Q5, add a negative consequence in Q6, and trim Q2 to 150 words.",
+  "next_steps": [
+    "Rewrite the availability response measure in Q1 as a measurable target, e.g. '99.9% uptime measured monthly', and check both scenarios' response measures are quantified.",
+    "In Q3(c), multiply the order-path availability (0.998001) by the new payment-pair availability (0.999975) to get ≈99.80% end-to-end, giving ≈1.5 h downtime per month; show the working.",
+    "In Q5, restate CAP correctly: during a partition you must choose C or A, so frame the payment choice as CP (sacrificing availability during the partition), and add a technique for the other case.",
+    "Add at least one negative consequence to your Q6 ADR, e.g. delayed order confirmation or added queue infrastructure complexity.",
+    "Trim Q2 to within 150 words while keeping both scenario-specific trade-offs and the acknowledged downside."
+  ],
+  "criteria": {
+    "C1": "You chose suitable attributes (performance, availability) with good scenario justification and six-part scenarios. To reach Excellent, both response measures must be measurable — 'stay up most of the time' is not. Replace it with a quantified target such as a percentage uptime over a stated period, and double-check the other scenario's measures too.",
+    "C2": "Excellent work. Your modular monolith recommendation is justified with two scenario-specific trade-offs (five-developer team overhead; problems traced to the single VM and deployment process) and you explicitly acknowledge the downside of independent scaling. This fully meets the Excellent level — keep this standard for future justifications.",
+    "C3": "Parts (a) and (b) are correct with working shown. In part (c) you report 99.9975% (the payment-pair availability) as the end-to-end availability. The method requires multiplying the series: 0.998001 × 0.999975 ≈ 99.80%, giving ≈1.5 h downtime per month, not 0.018 h. Fixing this single slip moves you toward Excellent.",
+    "C4": "You correctly named and explained the circuit breaker (Closed/Open/Half-Open) and applied it to the outage with a sensible user-facing message. For the full 5 marks, add an explicit drawback or tuning consideration — e.g. payments fail while the breaker is Open, or how the threshold should be tuned to avoid tripping on transient faults.",
+    "C5": "Your choices (Redis TTL cache, idempotency keys) are concrete and reasonable, but CAP is misapplied: you claim choosing both consistency and availability and giving up partition tolerance. During a partition only C or A can be kept — frame payments as CP, sacrificing availability during the partition. Correcting this and ensuring a technique for each case reaches Excellent.",
+    "C6": "Your ADR has scenario-specific Context, Decision and Consequences, but the consequences are one-sided — only benefits are listed. Add at least one negative consequence, such as eventual notification delay or added message-queue infrastructure complexity. With that, all three sections plus balanced consequences meet the Excellent level.",
+    "C7": "Your writing is clear, headings are used correctly, and IEEE citations and a reference list are present. However, Question 2 clearly exceeds the 150-word limit, which prevents the Excellent level. Keep answers within limits while preserving the quality of your trade-off discussion."
+  }
+}

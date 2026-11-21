@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "A near-real-time relay to monitoring stations on the ground would allow marine and conservation scientists to more accurately predict and react to coral bleaching events."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        }
+      ],
+      "reasoning": "Mission need, rationale, and single-spacecraft choice are well explained with references. Users are implied as marine/conservation scientists and Australian facilities, but operator and customers are not explicitly identified, so not all C1 requirements are fully met."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of 87.7924° for the satellite to remain sun-synchronous."
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "An average contact duration of almost twenty minutes was achieved"
+        },
+        {
+          "where": "Launch",
+          "quote": "with a latitude of $ 45.05^{\\circ} $N"
+        }
+      ],
+      "reasoning": "Launch, orbit, ground station, duration and EOL are covered with STK screenshots and an access table. However, major technical errors exist: SSO inclination is wrong/prograde, Kourou latitude is wrong, and mean contact is ~9.7 min not ~20 min. STK files are not evident."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet."
+        },
+        {
+          "where": "Conclusion",
+          "quote": "A polar sun-synchronous orbit allows for consistent illumination of the oceans while maintaining a constant sun angle."
+        }
+      ],
+      "reasoning": "Conclusions are reached and linked to launch, orbit and ground station choices, but they are somewhat generic and omit EOL and mission-duration outcomes. Some claims repeat design errors rather than resolving them."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report outlines the intended designs and procedures involved in the construction of a Earth observation satellite"
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        }
+      ],
+      "reasoning": "Report has clear structure, headings, executive summary and figures. Presentation is not professional: bare-URL references, Wikipedia source, unnumbered tables, inconsistent figure captions, and several grammar/typo errors. References are cited but poorly formatted."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Launch"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Launch",
+      "issue": "Kourou latitude is stated as 45.05°N; actual latitude is about 5.2°N."
+    },
+    {
+      "where": "Orbit",
+      "issue": "SSO inclination at 600 km is stated as 87.79°, which is prograde; correct SSO inclination is about 97.8° and the graph contradicts the text."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Mean access duration 580.786 s is about 9.7 min, not 'almost twenty minutes'; maximum is about 12.8 min."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Text says 'A very high altitude would yield low resolution images which is also desirable'; likely should be undesirable."
+    },
+    {
+      "where": "Launch",
+      "issue": "Claim of two launch windows per day because site latitude is less than inclination is not adequately justified."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Mt Pleasant Radio Observatory is a radio astronomy facility; its use as a satellite TT&C/data ground station needs justification."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "Wikipedia is used as a source and references are bare URLs without titles/authors."
+    }
+  ],
+  "overall": "Good structure and broad coverage, but major technical errors in SSO inclination, Kourou latitude and contact duration undermine the design. STK screenshots are present but files are missing, and referencing is weak. Overall adequate, not accomplished."
+}

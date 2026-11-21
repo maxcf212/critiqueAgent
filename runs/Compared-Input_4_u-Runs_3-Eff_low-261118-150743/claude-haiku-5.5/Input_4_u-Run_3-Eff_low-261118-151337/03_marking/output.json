@@ -1,0 +1,164 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        }
+      ],
+      "reasoning": "Two attributes are chosen and justified from the scenario (900 lunch orders, 4.2 s p95, payment outage). Both scenarios have all six parts, and both response measures are numeric and testable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "A clear modular monolith recommendation is justified by scenario-specific trade-offs: five developers, the single-VM lunchtime slowness, and the 20-minute weekly downtime. The downside is explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_new = 0.9995 × 0.999 × 0.9995 × 0.999975 = 0.99798"
+        }
+      ],
+      "reasoning": "I rechecked all parts: 99.30%, 5.0 h, 99.80% and 1.5 h are correct with working shown. The intermediate values are correct to the precision used, and the requested precision is met."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately, so request threads are not blocked"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data."
+        }
+      ],
+      "reasoning": "Circuit Breaker is appropriate and its Closed/Open/Half-Open mechanism is correct. It is applied to the 25-minute outage, with both a tuning consideration and a drawback given."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "(i) Menu browsing: I would favour availability."
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge."
+        }
+      ],
+      "reasoning": "Both choices are justified and CAP is stated correctly (partition tolerance is not optional). Redis TTL caching and idempotency keys are named. The payment consistency technique is thin, so I did not award the top mark."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are all present and specific to CampusEats. There are positive and negative consequences, including at-least-once delivery and the need for an alert on a stuck queue."
+    },
+    {
+      "id": "C7",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "First, independent scaling versus operational overhead."
+        },
+        {
+          "where": "Question 1",
+          "quote": "The scenarios use the six-part form from [1]."
+        }
+      ],
+      "reasoning": "Question 1, Question 2 and Question 4 each appear to exceed the 150-word limit, so several answers are over. Headings and IEEE-style references are correct. No assumptions section is given."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 4",
+      "issue": "Claims the breaker 'would have opened within seconds' last month without supporting data or stated assumptions."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Payment consistency technique is limited to idempotency keys; no stronger consistency mechanism (e.g., transactional or quorum write) is discussed."
+    },
+    {
+      "where": "Assumptions",
+      "issue": "No explicit statement of assumptions, such as independence of failures, despite the requirement."
+    }
+  ],
+  "overall": "Strong technical work: Question 3 calculations are correct, and the Q1, Q2, Q4 and Q6 reasoning is scenario-specific. Main weaknesses: several answers exceed the 150-word limit and no assumptions are stated. Estimated total 37/40."
+}

@@ -1,0 +1,17 @@
+{
+  "summary": "You submitted strong, scenario-grounded answers (31/40). Q2 and Q4 are excellent; Q1, Q3, Q5, Q6 and communication are proficient. Main losses: Q3(c) never recomputes end-to-end availability, Q5 misstates CAP, Q6 lacks a negative consequence, Q2 exceeds the word limit, and Q1's availability measure is unmeasurable. Address these to move up.",
+  "next_steps": [
+    "Recompute Q3(c) end-to-end: multiply 0.9995 × 0.999 × 0.9995 × 0.999975, show the working, and report 99.80% with about 1.5 hours monthly downtime to two decimals.",
+    "Correct Q5's CAP framing: partition tolerance cannot be given up; during a partition choose consistency or availability, then tie your Redis TTL and idempotency-key techniques to that choice.",
+    "Tighten Q1 and Q6: make the availability response measure measurable and tied to order placement, add a negative ADR consequence, and cut Q2 to 150 words."
+  ],
+  "criteria": {
+    "C1": "You chose performance and availability well, grounded in 900 orders and 4.2 s p95. The performance scenario is complete and measurable. The availability scenario has all six parts, but 'stay up most of the time' is not measurable and the response drifts from the order-placement artefact. For Excellent, make both response measures measurable and align the availability response with the order service.",
+    "C2": "Strong modular monolith recommendation with scenario-specific trade-offs: five developers versus infrastructure overhead, and known problems stemming from the single VM and deployment process rather than the monolith shape. You explicitly acknowledge the downside (no independent scaling, one module can crash the process). This meets Excellent; keep tying trade-offs to scenario evidence.",
+    "C3": "Parts (a) 99.30% and (b) 5.0 hours are correct with working shown. In (c) you correctly combine payment to 0.999975 but never recombine it with the other three components. End-to-end availability should be 99.80% with about 1.5 hours monthly downtime, not 99.9975% and 0.018 hours. For Excellent, recompute the full series and carry rounding to two decimals.",
+    "C4": "Circuit breaker is named and its Closed/Open/Half-Open mechanism, including failure counting and timeouts, is explained correctly. You apply it concretely to the 25-minute outage with a user-visible fallback and give a tuning consideration (failure threshold and window). This meets Excellent; keep the concrete outage application.",
+    "C5": "Both choices are sensible and justified, with concrete techniques (Redis cache with 60-second TTL; idempotency keys). However, your CAP explanation is wrong: a partition-tolerant system cannot give up partition tolerance and keep both C and A; during a partition it must sacrifice one. For Excellent, correct the CAP framing and tie each choice to partition behaviour.",
+    "C6": "Context, Decision and Consequences are all present and specific (offline tablet, synchronous call, 4.2 s p95, RabbitMQ, retrying worker). The consequences are entirely positive, so the record is one-sided. For Excellent, add at least one negative consequence, such as duplicate notifications, eventual consistency for outlets, or queue operations burden.",
+    "C7": "Writing is clear and precise, with headings and IEEE-style references and a reference list. Q1, Q4, Q5 and Q6 appear within 150 words. Q2 is roughly 195 words and exceeds the limit. For Excellent, bring every answer within 150 words and keep citations precise."
+  }
+}

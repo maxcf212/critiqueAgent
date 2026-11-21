@@ -1,0 +1,201 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are well justified from the scenario (900 orders/hour, 4.2 s p95, payment outage). Both scenarios have all six named parts with measurable response measures.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular monolith recommendation with two scenario-specific trade-offs (team size, single-VM lunchtime slowness, weekly downtime) and the downside explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "All three parts correct with working shown: series product 99.30%, 5.0 h downtime, parallel payment pair 0.999975 giving 99.80% and 1.5 h. Precision and units as required.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A_new = 0.9995 × 0.999 × 0.9995 × 0.999975 = 0.99798",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit breaker named, mechanism (Closed/Open/Half-Open) explained correctly, applied to the 25-minute outage, with both a tuning consideration and a drawback given.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "AP for browsing and CP for payments, both justified; CAP theorem stated correctly (P not optional); concrete techniques named (Redis TTL cache, idempotency keys).",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "ADR has scenario-specific Context, a clear Decision, and multiple positive and negative consequences including at-least-once delivery and alerting.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "Required headings used in order; answers appear within 150 words; precise terminology; IEEE-style citations and reference list included; assumptions stated where needed.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "A strong, technically accurate submission. All Q3 calculations verified correct (99.30%, 5.0 h; 99.80%, 1.5 h). Every question is complete, scenario-specific, and well justified; formatting, headings, and IEEE citations are all in place.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "An outstanding submission. Every question is complete, scenario-specific and well justified: your Q1 scenarios are fully six-part with measurable response measures, Q3 calculations are all correct with working shown, and your Q2, Q4, Q5 and Q6 answers each name the concept, apply it to CampusEats and acknowledge downsides. Formatting, headings and IEEE citations are all in place. You are at the top rubric level throughout; focus next on sustaining this depth in more open-ended, design-heavy tasks.",
+    "next_steps": [
+      "Practise applying the same six-part scenario structure to quality attributes beyond performance and availability (e.g. security, modifiability) so the method transfers to new contexts.",
+      "Extend your trade-off analysis by quantifying downsides where possible (e.g. estimating the operational cost of the queue for five developers) to strengthen future ADRs and recommendations.",
+      "Explore tuning trade-offs in resilience patterns further, such as how circuit-breaker thresholds interact with retry budgets and cascading failure risk."
+    ],
+    "criteria": {
+      "C1": "Excellent (6/6). You chose performance and availability and justified both from the scenario (900 orders/hour, 4.2 s p95, payment outage). Both scenarios contain all six parts with measurable response measures, e.g. 'p95 response time under 1.5 s and no requests dropped'. To stay at this level, keep justifying attribute choice from scenario evidence rather than naming attributes alone.",
+      "C2": "Excellent (6/6). Your modular monolith recommendation is backed by two scenario-specific trade-offs (five developers vs eight-plus services; single-VM lunchtime slowness and weekly downtime) and you explicitly acknowledge the downside. Maintain this by always tying trade-offs to concrete scenario facts like team size and load profile.",
+      "C3": "Excellent (8/8). All three parts correct with working shown: series product 99.30%, 5.0 h downtime, parallel payment pair 0.999975 giving 99.80% and 1.5 h, at the required precision and units. Keep showing intermediate working as you did; it protects marks against small slips.",
+      "C4": "Excellent (5/5). Circuit breaker named, Closed/Open/Half-Open mechanism explained correctly, applied to the 25-minute outage, with a tuning consideration (thresholds from real latency data) and a drawback. This full combination is exactly what the top level requires; keep pairing mechanisms with tuning and drawbacks.",
+      "C5": "Excellent (6/6). AP for browsing and CP for payments, both justified; CAP stated correctly with P not optional; concrete techniques named (Redis TTL cache, idempotency keys). Your idempotency-key example is a strong, concrete touch; continue naming specific mechanisms rather than generic ones.",
+      "C6": "Excellent (5/5). Your ADR has scenario-specific Context, a clear Decision, and both positive and negative consequences, including at-least-once delivery and the queue as extra operational burden. Balanced consequences are what distinguishes the top level; keep including at least one of each.",
+      "C7": "Excellent (4/4). Required headings used in order, answers within 150 words, precise terminology, IEEE-style citations and reference list, and assumptions stated where needed. Sustain this discipline in longer assignments where word limits and citation expectations typically tighten."
+    }
+  }
+}

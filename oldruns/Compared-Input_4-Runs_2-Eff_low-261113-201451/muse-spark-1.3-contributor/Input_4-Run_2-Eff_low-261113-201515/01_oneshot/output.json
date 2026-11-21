@@ -1,0 +1,62 @@
+{
+  "criteria": [
+    {
+      "name": "Q1 Quality attributes",
+      "level": "Proficient",
+      "mark": 4,
+      "max": 6,
+      "feedback": "Good choice of performance and availability linked to 900-orders lunch peak and 4.2s p95 abandonment. Performance scenario has full six parts and measurable measure (p95 <1.5s). Availability scenario has six parts but Response Measure 'should stay up most of the time' is not measurable - needs e.g., % uptime or max detection/recovery time."
+    },
+    {
+      "name": "Q2 Architectural style",
+      "level": "Excellent",
+      "mark": 6,
+      "max": 6,
+      "feedback": "Clear recommendation: keep modular monolith, not microservices rewrite. Two specific trade-offs: 5-dev team vs operational overhead of 8-10 services, and known problems (single VM p95, 20-min deploys) fixable with horizontal monolith instances + rolling deploys. Downside acknowledged (no independent scaling, single-process crash)."
+    },
+    {
+      "name": "Q3 Availability calculation",
+      "level": "Proficient",
+      "mark": 5,
+      "max": 8,
+      "feedback": "(a) Correct: 0.9995*0.999*0.9995*0.995 = 0.99301 = 99.30%. (b) Correct: 720h *0.00699 = 5.0h (5.03h). (c) Incorrect final combination: Apay=1-(0.005)^2=0.999975 correct, but new system availability must multiply all four: 0.9995*0.999*0.9995*0.999975 = 99.80% not 99.9975%, and downtime ~1.5h not 0.0h. Method understood but arithmetic for combined availability wrong."
+    },
+    {
+      "name": "Q4 Resilience pattern",
+      "level": "Excellent",
+      "mark": 5,
+      "max": 5,
+      "feedback": "Circuit Breaker correctly chosen for problem 2 (thread-pool exhaustion). Explains Closed/Open/Half-Open, fast-fail to protect browsing, and applies to 25-min slow payment case with user message. Includes tuning consideration: 50% failure in 10s threshold and wait period."
+    },
+    {
+      "name": "Q5 Consistency and availability",
+      "level": "Proficient",
+      "mark": 3,
+      "max": 6,
+      "feedback": "(i) Menu browsing favouring availability with stale cache (Redis 60s TTL) and eventual consistency is appropriate. (ii) Payment favouring consistency is appropriate and idempotency key is useful, but CAP explanation is incorrect: you cannot give up partition tolerance in a distributed system; during partition you choose CP and sacrifice availability. Should state strong consistency via ACID transaction/payment provider."
+    },
+    {
+      "name": "Q6 Architecture decision record",
+      "level": "Proficient",
+      "mark": 3,
+      "max": 5,
+      "feedback": "ADR has Status, Context (sync call loses order when tablet offline + adds to p95), Decision (publish OrderPaid to RabbitMQ with retrying worker). Positive consequences given (lower latency, durability, smoothing peak). Missing required negative consequence, e.g., operational complexity, need for DLQ, at-least-once duplicates, eventual consistency for kitchen."
+    },
+    {
+      "name": "Communication and format",
+      "level": "Proficient",
+      "mark": 3,
+      "max": 4,
+      "feedback": "Headings used, terminology precise, IEEE citations for Bass and Nygard. Q2 exceeds 150-word limit (~190 words) so per rubric max 3 for communication."
+    }
+  ],
+  "total": 29,
+  "total_max": 40,
+  "summary": "Strong applied reasoning for style and resilience patterns. Main gaps: measurable availability scenario, correct recombination for second payment provider in Q3c, correct CAP reasoning, and explicit negative consequences in ADR plus word-count compliance.",
+  "next_steps": [
+    "Make all response measures quantifiable: e.g., 'API Gateway health stays 99.9% and browse requests succeed within 2s during payment slowness'",
+    "Recompute availability as product of all components including redundant payment: A_new = 0.9995*0.999*0.9995*0.999975 = 99.80% => downtime ~1.5h",
+    "Correct CAP statement: partition tolerance is mandatory; for menu choose AP (cached eventual), for orders choose CP (refuse new payments during partition)",
+    "Add at least one negative consequence to ADR: e.g., infrastructure to operate, duplicate delivery requires idempotency at tablet, added latency for delivery semantics"
+  ]
+}

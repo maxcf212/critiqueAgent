@@ -1,0 +1,17 @@
+{
+  "summary": "You made a strong, scenario-specific case for a modular monolith in Question 2, linking your recommendation to the five-person team and the single-VM load issue. To strengthen the other answers, focus on measurable quality-attribute responses, accurate availability calculations, and precise explanations of resilience and CAP. Your ADR has a specific context and decision; add a negative consequence to make the trade-offs clear.",
+  "next_steps": [
+    "In Question 1, make both response measures measurable. For availability, specify a target and ensure the scenario covers placing orders, not only browsing; check that the performance response remains realistic during a payment-provider outage.",
+    "In Question 3, show each calculation and verify the arithmetic: part (b) is about 5.0 hours; in part (c), multiply redundant payment availability by the other component availabilities to find end-to-end availability, then calculate downtime.",
+    "In Questions 4–6, correct the circuit-breaker state sequence, explain CAP’s consistency/availability trade-off during a partition and name a payment-consistency technique. Add a negative consequence to the ADR and complete the references and assumptions."
+  ],
+  "criteria": {
+    "C1": "In Question 1, you chose relevant attributes and linked them to the lunch peak and slow payment provider. To reach the next level, make the availability response measurable and address order placement; check that the performance scenario does not promise accepting every order during a provider outage.",
+    "C2": "Your Question 2 recommendation is clear and grounded in the five-person team, single-VM load issue, and deployment downtime. You also acknowledge shared scaling and process-failure downsides. Keep this scenario-specific trade-off reasoning, and clarify how your deployment approach addresses downtime.",
+    "C3": "You used the series-product method and an appropriate redundancy formula. In Question 3(b), the downtime is about 5.0 hours, not 3.5. In (c), include the other components in end-to-end availability: it is about 99.80%, or 1.5 hours of monthly downtime. Show and check each calculation.",
+    "C4": "You selected an appropriate circuit-breaker pattern, applied it to the slow-provider outage, and gave a tuning example. In Question 4, correct the states: Closed permits normal calls, Open fails fast, and Half-Open admits trial calls. Explain how the corrected sequence limits impact and recovery.",
+    "C5": "Your menu choice in Question 5 is reasonable and includes a cache with a TTL. CAP does not allow choosing consistency and availability while giving up partition tolerance during a partition; explain the consistency/availability trade-off under partition, and name a concrete technique for payment consistency.",
+    "C6": "Your Question 6 context and decision are specific, and you identify benefits such as smoothing the lunch peak. To reach the next level, add a negative consequence, such as delayed notifications, duplicate-delivery handling, or queue operations, and explain its relevance.",
+    "C7": "Your headings and clear, concise writing support the response. Citation [2] in Question 4 has no matching reference. Complete the reference list and state assumptions so your citations and format meet the requirements."
+  }
+}

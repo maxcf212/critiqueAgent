@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Coral reefs, specifically the Great Barrier Reef, would immensely benefit from dedicated satellite monitoring."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        }
+      ],
+      "reasoning": "The mission purpose and need are explained with relevant context, and the single-spacecraft choice is justified. However, the operator and customer groups are not identified explicitly; saying the satellite is operated and accessed from Australian ground facilities does not name its operator or customers. Referencing is present but uneven."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle – launched from the Guiana Space Centre Spaceport."
+        },
+        {
+          "where": "Orbit",
+          "quote": "Specifically, an altitude of 600km requires a mean inclination of $ 87.7924^{\\circ} $"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "An average contact duration of almost twenty minutes was achieved"
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "A span of five years is a sound estimate of the useful lifespan of the proposed satellite."
+        }
+      ],
+      "reasoning": "The report covers launch, orbit, manoeuvres, ground access, duration and disposal, and includes STK-derived figures and access data. But the SSO inclination is technically incorrect: at 600 km, a sun-synchronous orbit requires roughly 97.8° retrograde, not 87.79°. Launch-site latitude is also misstated, orbital elements are incomplete, and the disposal plan lacks quantified compliance or decay time. Software files are not evidenced."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "After analysis of each mission segment, a fully described satellite configuration has been constructed."
+        }
+      ],
+      "reasoning": "The conclusion summarizes the selected launch, orbit and ground station and acknowledges launch-vehicle uncertainty. It is relevant but mostly restates design choices and does not draw detailed conclusions from the evidence or address key uncertainties such as imaging performance and the incorrect SSO inclination."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report outlines the intended designs and procedures involved in the construction of a Earth observation satellite"
+        },
+        {
+          "where": "Launch",
+          "quote": "To compare existing spaceflight mission plans, a wiki sorted directory – ‘Timeline of spaceflight’ – will be referred to throughout the report [6]."
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        }
+      ],
+      "reasoning": "The report has a recognizable structure, contents, executive summary, figures and bibliography. However, the writing and formatting are inconsistent, figures lack formal numbering/titles in the text, and the bibliography is incomplete and inconsistently formatted. It relies on Wikipedia despite the task explicitly disallowing it. These weaknesses prevent professional-level presentation."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Executive Summary"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Launch"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Orbit; Mission Duration & EOL"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "partial",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Images 1–5; Ground Control & Communications"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Orbit",
+      "issue": "A 600 km circular sun-synchronous orbit requires a retrograde inclination near 97.8°; the stated 87.7924° is not sun-synchronous at this altitude."
+    },
+    {
+      "where": "Launch",
+      "issue": "Guiana Space Centre is near 5° N latitude, not 45.05° N. Its latitude is lower than the target inclination, but the report's stated value is erroneous."
+    },
+    {
+      "where": "Orbit",
+      "issue": "The explanation that the orbit passes over almost the entire Earth is overstated: a near-polar orbit does not provide coverage to all latitudes, and the stated inclination also excludes latitudes beyond about 87.8°."
+    },
+    {
+      "where": "Orbit",
+      "issue": "The COE set is incomplete as an epoch and a defined position/phase are needed to specify the orbit. Argument of latitude is a valid alternative for a circular orbit, but the stated RAAN rationale does not establish that its value is the launch-site location."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "The access table appears to cover only a short, selected interval; the reported mean contact time should not be interpreted as an average daily contact duration without specifying the analysis interval and access assumptions."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "A passive drag sail is proposed, but no sail sizing, expected deorbit time, or demonstration that the disposal approach meets applicable debris-mitigation guidelines is provided."
+    }
+  ],
+  "overall": "A coherent Australian reef-monitoring concept is presented with useful STK access outputs and a plausible single-satellite rationale. Important gaps remain in user identification, orbital accuracy, completeness of design evidence and EOL substantiation. The SSO inclination error is a major technical flaw; presentation and referencing also need improvement."
+}

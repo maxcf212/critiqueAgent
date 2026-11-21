@@ -1,0 +1,188 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail"
+        }
+      ],
+      "reasoning": "Two attributes tied directly to scenario facts (lunch peak, 4.2 s p95, payment outage). Both scenarios have all six parts and measurable response measures."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The lunchtime slowness comes from a single virtual machine and is fixed by running several instances of the monolith behind a load balancer."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation with two scenario-specific trade-offs (team size, single VM, weekly downtime) and an explicit acknowledged downside."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.03, so 5.0 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975"
+        }
+      ],
+      "reasoning": "All three parts correct with working: series product 0.99301 (99.30%), 5.0 h downtime, parallel payment 0.999975 giving 0.99798 (99.80%) and 1.5 h. Precision as requested."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately, so request threads are not blocked"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data."
+        },
+        {
+          "where": "Question 4",
+          "quote": "Drawback: nobody can pay while it is open, so a fallback is needed."
+        }
+      ],
+      "reasoning": "Circuit breaker named, states and transitions explained correctly, applied to the 25-minute hang, with both a tuning consideration and a drawback."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "it is better to show a slightly stale menu from a cache (Redis with a 60-second TTL) than an error page"
+        },
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says that during a partition a system must give up either consistency or availability"
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge."
+        }
+      ],
+      "reasoning": "AP for browsing and CP for payments, both justified from scenario risk; CAP stated correctly and a concrete technique named for each case."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor."
+        }
+      ],
+      "reasoning": "All three ADR sections present and scenario-specific, with two positive and three negative consequences."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "(a) Placing an order needs all four components, so the availabilities multiply:"
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed."
+        }
+      ],
+      "reasoning": "All answers at or under 150 words, precise terminology, required headings in order, IEEE-style citations and reference list. No explicit assumptions statement, but that is not part of this descriptor."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "No explicit statement of the independence assumption (component failures independent, providers independent); it is implied by the multiplication but the task asks for assumptions to be stated."
+    },
+    {
+      "where": "Question 2",
+      "issue": "'eight or more services' is an unstated assumption about a hypothetical microservices design; harmless but should be flagged as an assumption."
+    }
+  ],
+  "overall": "Strong submission: correct availability arithmetic, well-targeted trade-offs, correct CAP and circuit-breaker reasoning, and a complete ADR. Only gap is the missing explicit assumptions statement; all answers respect the word limit and citation format."
+}

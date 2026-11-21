@@ -1,0 +1,188 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time"
+        },
+        {
+          "where": "Question 1",
+          "quote": "The two most important quality attributes are performance and availability"
+        }
+      ],
+      "reasoning": "Performance and availability are chosen with scenario-based justification (lunch peak, 4.2 s p95). The performance scenario has all six parts and a measurable response measure. The availability scenario's response measure ('stay up most of the time') is not measurable, and its response is vague, so the scenarios are not fully compliant."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently"
+        }
+      ],
+      "reasoning": "Clear recommendation for a modular monolith. Trade-offs are tied to CampusEats specifics: five-developer team size and the single-VM lunchtime slowdown and deployment downtime. The downside is acknowledged. The second trade-off is somewhat argumentative rather than a full trade-off analysis, so the mark is not the top of the band."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "Part (a) is correct (99.30%) with working shown. Part (b) is an arithmetic error: 0.00699 × 720 is about 5.0 h, not 3.5 h. Part (c) ignores the other three components, so the end-to-end availability (about 99.80%, about 1.5 h/month) is wrong. Two parts are incorrect, placing it in Developing."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        },
+        {
+          "where": "Question 4",
+          "quote": "If they succeed it opens again, otherwise it stays closed."
+        }
+      ],
+      "reasoning": "Circuit Breaker is an appropriate pattern and is applied to the outage. However, the state mechanism is wrong: Closed should pass calls through and Open should fail fast, and Half-Open success should close the breaker, not reopen it. Tuning parameters are mentioned, but the explanation is incorrect and no clear drawback is given."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance"
+        },
+        {
+          "where": "Question 5",
+          "quote": "a slightly stale menu from a cache (for example Redis with a 60-second TTL)"
+        }
+      ],
+      "reasoning": "Choices are reasonable and justified. Menu browsing uses a named concrete technique (Redis cache with TTL). The CAP explanation is wrong: partition tolerance cannot be dropped in a distributed system, and the trade-off is between C and A during a partition. No concrete consistency technique is named for payments, so one technique is missing."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are all present, and the context is specific (4.2 s p95, offline tablets). The Decision is clear. The Consequences section lists only positive outcomes; no negative consequence (added complexity, eventual delivery, broker operations) is stated, so it is one-sided."
+    },
+    {
+      "id": "C7",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "Question 1",
+          "quote": "The scenarios below use the six-part form from [1]."
+        }
+      ],
+      "reasoning": "Headings are correct and the reference list is present. However, [2] is cited but absent from the reference list. Several answers, including Questions 1 and 2, appear to exceed 150 words. Assumptions are not stated anywhere, and this affects the writing standard."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "no",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3(b)",
+      "issue": "Arithmetic error: 0.00699 × 720 ≈ 5.0 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3(c)",
+      "issue": "Ignores the other three serial components; end-to-end availability should be about 99.80% (≈1.5 h/month), not 99.9975%."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states are described incorrectly: Closed passes calls through and Open fails fast; Half-Open success should close the breaker."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP theorem misstated: partition tolerance is not optional in distributed systems; the trade-off is C versus A during a partition."
+    },
+    {
+      "where": "Question 5",
+      "issue": "No concrete consistency technique named for payments (e.g., idempotency keys, strongly consistent DB transactions)."
+    },
+    {
+      "where": "Question 6",
+      "issue": "Consequences are one-sided; no negative consequence is stated."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure is not measurable."
+    },
+    {
+      "where": "References",
+      "issue": "[2] is cited in Question 4 but missing from the reference list."
+    },
+    {
+      "where": "Overall",
+      "issue": "No assumptions stated, and several answers appear to exceed the 150-word limit."
+    }
+  ],
+  "overall": "Solid structure and a sound modular-monolith recommendation, but Question 3(b) and (c) contain calculation errors, the circuit breaker mechanism and CAP explanation are wrong, and assumptions and citations are incomplete. Several answers also exceed the word limit."
+}

@@ -1,0 +1,261 @@
+{
+  "total": 27.0,
+  "total_max": 40.0,
+  "percent": 67.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are chosen and justified from the scenario. The performance scenario has all six parts with a measurable p95 target. The availability scenario's response measure ('stay up most of the time') is not measurable, so this level applies.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "the business depends on the lunch hour: 900 orders arrive between 12:00 and 13:00",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "The modular monolith recommendation is clear. Two scenario-specific trade-offs are given: team size versus operational overhead, and the single-VM and deployment-downtime problems. The downside (no independent scaling, shared process failure) is acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) 99.30% and (b) 5.0 h are correct with working. Part (c) is wrong: it reports payment-only availability as end-to-end. The correct end-to-end value is about 99.80% and about 1.5 h/month. Results also break the two-decimal and one-decimal precision rules.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "which reduces the downtime to 0.000025 × 720 = 0.018 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is an appropriate pattern and its states are explained correctly. It is applied to the outage. No drawback is given. The threshold mention is an example, not a tuning trade-off. The claim that it would have opened within seconds is unsupported.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "the breaker would have opened within seconds of the provider slowing down",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds)",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Both choices are reasonable and each has a concrete technique (Redis TTL cache, idempotency keys). The CAP explanation is wrong: partition tolerance cannot be given up in a distributed system, and the choice is between consistency and availability during a partition.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "for example Redis with a 60-second TTL",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are present and specific to the scenario. The consequences list only positive effects, with no negative consequence such as duplicate delivery, ordering issues or added queue operations.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 4.0,
+      "points": 2.0,
+      "max": 4.0,
+      "reasoning": "Several answers exceed 150 words, including Questions 2, 4 and 5. Headings are correct and IEEE references [1] and [2] are cited with a reference list. No assumptions section is given, although the task requires one.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Part (c) reports payment-only availability (99.9975%) as end-to-end availability. End-to-end is about 99.80% (0.99797630), with about 1.5 h monthly downtime, not 0.018 h."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Results 99.9975% and 0.018 hours break the required precision of two decimals for percentages and one decimal for hours."
+    },
+    {
+      "where": "Question 5",
+      "issue": "States that payments give up partition tolerance. Partitions cannot be avoided in a distributed system, so the choice is consistency or availability during a partition."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure ('stay up most of the time') is not measurable."
+    },
+    {
+      "where": "Question 6",
+      "issue": "Consequences omit negative effects such as duplicate deliveries, message ordering and extra operational load of RabbitMQ."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Claims the breaker would have opened within seconds during the outage without supporting data."
+    }
+  ],
+  "overall": "Solid structure and a sound modular monolith recommendation, but Question 3(c) is wrong and Question 5 misstates CAP. Q1 availability measure is not measurable, the ADR lacks a negative consequence, several answers exceed 150 words, and assumptions are not stated. Total 27/40.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You have a solid structure and a sensible modular monolith recommendation in Question 2, which is your strongest answer. The main gaps are the accuracy of Question 3(c), the CAP explanation in Question 5, and the measurability of the availability measure in Question 1. Tightening these and bringing several answers within 150 words would raise your mark considerably.",
+    "next_steps": [
+      "Recalculate Question 3(c) using end-to-end availability (about 99.80% and about 1.5 hours monthly downtime), and report percentages to two decimals and hours to one decimal.",
+      "Rewrite the Question 1 availability response measure as a numeric target (for example, a percentage of uptime over a stated period), and revise the Question 5 CAP explanation so that partition tolerance is treated as unavoidable, with the real choice being consistency or availability during a partition.",
+      "Trim Questions 2, 4 and 5 to 150 words or fewer, add a negative consequence to the Question 6 ADR (such as duplicate deliveries, ordering or RabbitMQ operational load), and add a stated assumptions section."
+    ],
+    "criteria": {
+      "C1": "Performance and availability are sensibly chosen and justified from the lunch-hour load in the scenario. The performance scenario has all six parts and a measurable p95 target. The availability response measure, 'stay up most of the time', is not measurable, so state a numeric target and its time window to reach the top band.",
+      "C2": "Your modular monolith recommendation is clear and well grounded. Team size against operational overhead and the single-VM and deployment-downtime problems are scenario-specific trade-offs, and you acknowledge the downside of losing independent scaling. Keep this level of specificity while trimming the answer to 150 words.",
+      "C3": "Parts (a) at 99.30% and (b) at 5.0 hours are correct and well worked. Part (c) reports payment-only availability as end-to-end; the correct end-to-end figure is about 99.80% with about 1.5 hours monthly downtime. Also round results to the required precision (two decimals for percentages, one for hours).",
+      "C4": "Circuit Breaker is an appropriate pattern and its states are explained correctly, with a clear link to the provider outage. Add at least one drawback or tuning consideration, such as threshold choice or false trips. Remove the unsupported claim that it would have opened within seconds, or justify it with the timing data.",
+      "C5": "Both choices are reasonable, and you name concrete techniques: a Redis TTL cache for the menu and idempotency keys for payments. The CAP explanation needs correcting, since partitions cannot be avoided, so the trade-off is consistency versus availability during a partition. Make this precise.",
+      "C6": "Context, Decision and Consequences are all present and specific to the outlet tablet problem. The consequences currently list only benefits. Add at least one negative consequence, such as duplicate deliveries, message ordering issues, or the operational load of running RabbitMQ.",
+      "C7": "Your headings and IEEE citations [1] and [2] with a reference list are correct. Several answers, including Questions 2, 4 and 5, exceed 150 words, so tighten them. Also add the required assumptions section, which is currently missing."
+    }
+  }
+}

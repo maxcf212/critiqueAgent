@@ -1,0 +1,140 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Suitable attributes with scenario justification. Performance scenario complete and measurable. Availability measure is vague and not measurable, fitting Proficient one missing measure."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation with two scenario-specific trade-offs team size overhead and single-VM plus deployment causes, plus explicit downside acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        }
+      ],
+      "reasoning": "(a) 99.30% correct. (b) arithmetic wrong: 0.00699x720 is 5.0h not 3.5h. (c) 99.9975% is payment-only, end-to-end should be ~99.80% ~1.5h. Two parts incorrect."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        }
+      ],
+      "reasoning": "Circuit Breaker appropriate and applied to outage, but open/closed states reversed, half-open transition reversed. No explicit drawback, only threshold example. Explanation incorrect."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both choices reasonable with Redis TTL for browsing. CAP misused: cannot give up partition tolerance. No concrete technique named for payment consistency."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Outlets that are briefly offline still receive their orders when they reconnect."
+        }
+      ],
+      "reasoning": "Context Decision Consequences present and specific, with multiple positives but no negative consequence such as eventual consistency or operational complexity."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice,"
+        }
+      ],
+      "reasoning": "Clear writing with headings, but Q2 exceeds 150 words and [2] cited in text has no reference entry, plus IEEE list incomplete."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "(b) 0.00699*720=5.0h not 3.5h; (c) end-to-end is 0.9995*0.999*0.9995*0.999975≈99.80% ~1.5h, not 99.9975% ~0.018h; wrong precision."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Breaker states reversed: Closed is normal pass-through, Open is fail-fast; Half-Open on success closes, not opens."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP: during partition must choose C or A; cannot弃 partition tolerance; payment technique missing."
+    }
+  ],
+  "overall": "Modular monolith and Q3(a) strong, but availability math, breaker states, CAP and ADR negatives need correction."
+}

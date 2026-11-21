@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-6b05cc59-64f6-42cb-99bd-1c85a0679370",
+  "object": "chat.completion",
+  "created": 1794795954,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"criteria\": [\n    {\n      \"id\": \"C1\",\n      \"level\": \"Excellent\",\n      \"mark\": 10,\n      \"evidence\": [\n        {\n          \"where\": \"Introduction\",\n          \"quote\": \"Three ethical issues follow. First, test coverage is being set by the release calendar instead of by risk\"\n        },\n        {\n          \"where\": \"Table 1\",\n          \"quote\": \"Stakeholders, their interests and the decision each controls.\"\n        }\n      ],\n      \"reasoning\": \"Several ethical issues (test coverage by schedule, data-loss rule, conflict of interest) are identified and linked to engineering design; organisational context is explicit and stakeholders are tabulated with interests and decision rights.\"\n    },\n    {\n      \"id\": \"C2\",\n      \"level\": \"Excellent\",\n      \"mark\": 10,\n      \"evidence\": [\n        {\n          \"where\": \"Arguments for shipping\",\n          \"quote\": \"Shipping on time protects a real competitive advantage.\"\n        },\n        {\n          \"where\": \"Recommendations\",\n          \"quote\": \"Rachel should withhold quality sign-off for the health contract, record the untested failure modes in writing and escalate to management.\"\n        }\n      ],\n      \"reasoning\": \"Objective for/against arguments with depth, each weakened analytically for this contract; conclusions give distinct decision recommendations for Rachel, management, health department, chip supplier and engineers.\"\n    },\n    {\n      \"id\": \"C3\",\n      \"level\": \"Excellent\",\n      \"mark\": 10,\n      \"evidence\": [\n        {\n          \"where\": \"The Most Ethical Path\",\n          \"quote\": \"Options B and C respect every stakeholder's interests better than either extreme.\"\n        },\n        {\n          \"where\": \"Conclusion\",\n          \"quote\": \"The ethical course is to ship only when the risk has been measured, reduced where practical and accepted by an informed customer.\"\n        }\n      ],\n      \"reasoning\": \"Logical structure (for/against, decision rule, options table) builds directly to the conclusion; arguments address all stakeholders systematically and the conclusion follows from the evidence presented.\"\n    },\n    {\n      \"id\": \"C4\",\n      \"level\": \"Excellent\",\n      \"mark\": 10,\n      \"evidence\": [\n        {\n          \"where\": \"Arguments against shipping\",\n          \"quote\": \"at least 81 of 236 hospital trusts in England were disrupted, an estimated 19,000 appointments were cancelled\"\n        },\n        {\n          \"where\": \"References\",\n          \"quote\": \"[3] National Audit Office, \\\"Investigation: WannaCry cyber attack and the NHS\\\"\"\n        }\n      ],\n      \"reasoning\": \"Eight credible references (NAO, Leveson & Turner, HBR, DOJ, Standards Australia, Engineers Australia) combine quantitative data (81/236 trusts, $475M, $4.3B) with qualitative case analysis across four external case studies.\"\n    },\n    {\n      \"id\": \"C5\",\n      \"level\": \"Excellent\",\n      \"mark\": 10,\n      \"evidence\": [\n        {\n          \"where\": \"Figure 1\",\n          \"quote\": \"\"\n        },\n        {\n          \"where\": \"Table 2\",\n          \"quote\": \"Options for the health contract.\"\n        }\n      ],\n      \"reasoning\": \"Fluent, concise writing; abstract, introduction, body, conclusion and recommendations all serve their functions; two tables and a decision-flowchart figure used competently; IEEE-style references are consistent and relevant.\"\n    }\n  ],\n  \"requirements\": [\n    {\n      \"id\": \"R1\",\n      \"met\": \"yes\",\n      \"where\": \"Introduction / Arguments against shipping\"\n    },\n    {\n      \"id\": \"R2\",\n      \"met\": \"yes\",\n      \"where\": \"The Most Ethical Path / How should Rachel decide when to ship?\"\n    },\n    {\n      \"id\": \"R3\",\n      \"met\": \"yes\",\n      \"where\": \"Arguments for shipping / Table 2\"\n    },\n    {\n      \"id\": \"R4\",\n      \"met\": \"yes\",\n      \"where\": \"Arguments against shipping (WannaCry/NHS)\"\n    },\n    {\n      \"id\": \"R5\",\n      \"met\": \"yes\",\n      \"where\": \"Table 1 / Discussion\"\n    },\n    {\n      \"id\": \"R6\",\n      \"met\": \"yes\",\n      \"where\": \"References [1]-[8] and case studies\"\n    },\n    {\n      \"id\": \"R7\",\n      \"met\": \"yes\",\n      \"where\": \"Recommendations\"\n    }\n  ],\n  \"technical_issues\": [\n    {\n      \"where\": \"Abstract\",\n      \"issue\": \"Slightly over the ~150-word target (roughly 160 words), though 'approximately' gives latitude.\"\n    },\n    {\n      \"where\": \"Arguments against shipping\",\n      \"issue\": \"WannaCry is a cyberattack, not a hardware defect; the student acknowledges this limitation, so the analogy is used appropriately.\"\n    }\n  ],\n  \"overall\": \"An outstanding report: clearly identified ethical issues, balanced and well-evidenced arguments, a defensible decision rule, and stakeholder-specific recommendations. All task requirements are met with strong research and excellent presentation. 50/50.\"\n}\n```",
+        "refusal": null,
+        "reasoning": "Let me evaluate against the rubric.\n\nC1: Introduction identifies three ethical issues, links to engineering design, discusses organisational context, stakeholder table. Excellent — 10.\n\nC2: Balanced discussion — arguments for and against, conclusions with recommendations for multiple stakeholders (Rachel, management, health department, chip supplier, engineers). Excellent — 10.\n\nC3: Compelling argument, logical structure, systematic understanding for all stakeholders. Very good to excellent. The structure is strong, conclusion well supported. I'd say 10 or 8. Arguments are compelling and structured; systematic understanding for all stakeholders demonstrated. Give 10? The rubric excellent: \"Arguments are compelling, supported by the report structure. The conclusion is well supported by the arguments. The arguments demonstrate a systematic understanding of the ethical issues for all stakeholders.\" This seems met. 10.\n\nC4: Research and evidence — references [1]-[8], quantitative evidence (81 of 236 trusts, 19,000 appointments, $475M, $4.3B, 11M vehicles), qualitative. Excellent — 10.\n\nC5: Structure, format, language — abstract, intro, body, conclusion, tables, figure, IEEE references, fluent writing. Excellent — 10. Any issues? Minor: \"DISCUSSION\" heading style, but fine. 10.\n\nRequirements:\nR1: yes — scenario analysed, physical harm vs data loss distinction addressed.\nR2: yes — \"Shipping on the current basis is therefore not an ethical way to conduct business\" and decision rule.\nR3: yes — trade-offs in Table 2 and arguments.\nR4: yes — health department contract, WannaCry, hospitals, emergency services.\nR5: yes — stakeholder table, arguments for/against.\nR6: yes — external case studies, references.\nR7: yes — recommendations section.\n\nWord limit: intro+body+conclusion appears within 1500 words — roughly fine. Abstract ~150 words? The abstract is about 160 words — approximately fine.\n\nTechnical issues: minor — WannaCry case is a cyberattack not hardware defect, student acknowledges this. Intel $475M charge correct. VW $4.3B correct. Stalk 1988 correct. No real technical issues. Maybe note the abstract slightly exceeds 150 words (~160), minor.\n\nOverall: excellent report, ~50/50."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5820,
+    "completion_tokens": 1619,
+    "total_tokens": 7439,
+    "reasoning_tokens": 494,
+    "completion_tokens_details": {
+      "reasoning_tokens": 494,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 5820,
+    "cost": 0.0010677,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c4924e79-04da-4b91-8342-ab028302ac0f",
+  "x_nanogpt_pricing": {
+    "amount": 0.0010677,
+    "currency": "USD",
+    "cost": 0.0010677,
+    "inputTokens": 5820,
+    "outputTokens": 1619,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_b3dbfb12-657b-4f8c-9c39-14e9e9d9b740",
+    "costUsd": 0.0010677,
+    "usdCost": 0.0010677,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

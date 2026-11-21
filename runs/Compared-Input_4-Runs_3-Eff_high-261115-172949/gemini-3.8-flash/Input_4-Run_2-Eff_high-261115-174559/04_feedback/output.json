@@ -1,0 +1,17 @@
+{
+  "summary": "You demonstrated strong architectural reasoning throughout your answers, especially in your well-justified style recommendation in Question 2 and resilience mechanism in Question 4. To push your work to the highest level across all criteria, ensure your quality attribute response measures are quantitatively measurable, verify end-to-end system calculations rather than subsystem metrics, correctly apply theoretical models like CAP, and present balanced trade-offs including negative consequences in your architecture decision records.",
+  "next_steps": [
+    "Ensure all quality attribute response measures are specific and quantitatively measurable rather than subjective (e.g., in Question 1, specify an exact uptime percentage or recovery time limit).",
+    "In end-to-end availability calculations like Question 3(c), incorporate the redundant subsystem back into the overall series equation rather than treating subsystem availability as total system availability.",
+    "Review the constraints of the CAP theorem for distributed systems, recognizing that network partitions are inevitable and the trade-off is strictly between consistency (CP) and availability (AP)."
+  ],
+  "criteria": {
+    "C1": "You selected two relevant quality attributes and provided a complete, measurable performance scenario. However, your availability response measure ('stay up most of the time') was subjective. To reach Excellent, ensure both response measures use objective, quantified metrics (such as target percentage uptime or MTTR).",
+    "C2": "Excellent work recommending a modular monolith. You grounded your justification in realistic scenario constraints (team size of five, single VM bottleneck) and explicitly addressed architectural trade-offs, including whole-process failure and coupled scaling.",
+    "C3": "You showed clear working and achieved full marks on parts (a) and (b). In part (c), you correctly calculated parallel redundancy for payments, but equated it to total system availability. To reach Excellent, multiply the parallel subsystem result by the remaining series components for end-to-end availability.",
+    "C4": "You correctly identified the Circuit Breaker pattern, explained its three states clearly, and applied it effectively to the payment outage scenario. To achieve Excellent, discuss at least one drawback or tuning consideration, such as threshold configuration or fallback complexity.",
+    "C5": "You made sensible choices for browsing and ordering, supported by concrete techniques like Redis caching and idempotency keys. However, your CAP theorem explanation was inaccurate; network partitions cannot be forfeited. To reach Excellent, correctly apply CAP by choosing between consistency and availability (CP vs AP) under partition conditions.",
+    "C6": "Your ADR successfully includes Context, Decision, and Consequences specific to CampusEats. However, your consequences only highlighted positive outcomes. To reach Excellent, provide a balanced view by including at least one negative consequence, such as message broker operational overhead or handling asynchronous failures.",
+    "C7": "Your submission was clearly structured, used required headings, and properly cited sources in IEEE format. However, Question 2 exceeded the strict 150-word limit at approximately 179 words. To reach Excellent, ensure every individual response adheres to the word constraints."
+  }
+}

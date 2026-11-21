@@ -1,0 +1,17 @@
+{
+  "summary": "You made a strong, scenario-specific case for a modular monolith in Q2, and your answers are generally clear and within the word limit. To strengthen the rest, focus on checking calculations, explaining patterns accurately, applying CAP correctly, and making your measures and ADR consequences complete.",
+  "next_steps": [
+    "In Q1 and Q3, check units and show each calculation: 900 orders per hour is 15 per minute, and calculate end-to-end availability by multiplying all required components.",
+    "In Q4 and Q5, verify the technical mechanisms before applying them: state what each circuit-breaker state does, and explain the consistency–availability choice during a network partition.",
+    "In Q1, Q6, and References, make the availability target measurable, add a negative ADR consequence, and include a reference-list entry for every cited source."
+  ],
+  "criteria": {
+    "C1": "In Q1, you chose relevant attributes and gave a measurable performance target. To reach Excellent, make the availability response measure measurable too, and correct the workload rate: 900 orders per hour is 15 per minute, not 150.",
+    "C2": "Your Q2 modular-monolith recommendation is well tailored to the five-person team, the single-VM performance issue, and deployment downtime. You explain scenario-specific trade-offs and acknowledge shared scaling and process-failure risks; maintain this level of specificity.",
+    "C3": "In Q3(a), you showed the correct series calculation. For Excellent, correct Q3(b) to about 5.0 hours of monthly downtime and, in Q3(c), multiply payment-provider availability by the other required components; the resulting end-to-end availability is about 99.80%, with about 1.5 hours of monthly downtime.",
+    "C4": "In Q4, you chose an appropriate pattern and identified its containment benefit, but reversed the states. Closed allows calls, Open short-circuits them, and Half-Open permits trial calls. Explain how this handles the outage and add a drawback or tuning consideration to reach Excellent.",
+    "C5": "Your Q5 choices are reasonable, and the Redis cache with a 60-second TTL is a concrete browsing technique. To reach Excellent, explain that during a partition the system must tolerate the partition and choose between consistency and availability, then name a concrete payment technique.",
+    "C6": "Your Q6 Context, Decision, and Consequences are specific to CampusEats, and you describe benefits of a durable queue. To reach Excellent, add a negative consequence, such as queue operations, delayed delivery, or duplicate notifications requiring idempotent handling.",
+    "C7": "Your answers are clear, use the required headings, and appear within the word limit. To reach Excellent, ensure all sources are listed in IEEE style: Q4 cites reference [2], but there is no corresponding entry in your reference list."
+  }
+}

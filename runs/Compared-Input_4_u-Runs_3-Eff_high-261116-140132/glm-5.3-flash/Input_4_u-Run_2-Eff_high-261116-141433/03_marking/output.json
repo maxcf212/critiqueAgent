@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail"
+        }
+      ],
+      "reasoning": "Performance and availability are well justified from scenario facts (900 orders/hour, 4.2 s p95, payment outage). Both scenarios have all six labelled parts with measurable response measures."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently"
+        }
+      ],
+      "reasoning": "Clear modular monolith recommendation with two scenario-specific trade-offs (team size, single-VM lunchtime slowness, 20-minute downtime) and an explicit downside acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975"
+        }
+      ],
+      "reasoning": "All three parts verified correct: series product 0.99301 (99.30%), downtime 5.0 h, parallel payment pair 0.999975 giving 99.80% and 1.5 h. Working shown, precision as requested."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Drawback: nobody can pay while it is open, so a fallback is needed."
+        }
+      ],
+      "reasoning": "Circuit Breaker correctly named and its Closed/Open/Half-Open mechanism explained, applied to the 25-minute payment outage, with both a tuning consideration and a drawback given."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "during a partition a system must give up either consistency or availability"
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge."
+        }
+      ],
+      "reasoning": "AP for menu browsing (Redis cache with TTL) and CP for payments (idempotency keys), both justified; CAP theorem used correctly, noting partition tolerance is not optional."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "If a tablet is offline the order is lost, and these calls add to the 4.2 s p95."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Delivery is at-least-once, so the tablet must ignore duplicate order IDs."
+        }
+      ],
+      "reasoning": "ADR has scenario-specific Context, a clear Decision (durable queue with retrying worker), and both positive and negative consequences including duplicate delivery and operational burden."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed."
+        }
+      ],
+      "reasoning": "All answers appear within 150 words, headings Question 1–6 used in order, terminology precise, IEEE-style citations and reference list present."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "Question 3 / References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Whole document",
+      "issue": "No explicit assumptions statement; independence of component failures in Q3 is implied by the calculation but never stated as an assumption, contrary to the task instruction."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability scenario response measure bundles three measures; still measurable but slightly over-specified for a single six-part scenario."
+    }
+  ],
+  "overall": "An excellent submission: correct availability mathematics with working, well-justified quality-attribute scenarios, scenario-specific trade-offs, a correctly explained circuit breaker, sound CAP reasoning, and a complete ADR. Only minor gap is an explicit assumptions statement."
+}

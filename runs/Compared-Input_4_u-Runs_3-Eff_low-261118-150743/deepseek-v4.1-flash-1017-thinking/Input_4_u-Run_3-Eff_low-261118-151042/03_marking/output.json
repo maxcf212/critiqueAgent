@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        }
+      ],
+      "reasoning": "Both attributes are justified from scenario facts (lunch load, 4.2 s p95, payment outage). Both scenarios contain all six parts and give measurable response measures (p95, failure %, recovery time)."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite"
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear recommendation with two scenario-specific trade-offs (five developers vs many services; single VM and 20-minute weekly downtime fixed without a rewrite) and an explicit acknowledged downside."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975"
+        }
+      ],
+      "reasoning": "Series product 0.99301 (99.30%), downtime 5.03→5.0 h, parallel payment 0.999975, new availability 0.99798 (99.80%), downtime 1.46→1.5 h. All correct, working shown, correct precision."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Drawback: nobody can pay while it is open, so a fallback is needed."
+        }
+      ],
+      "reasoning": "Circuit breaker named, states and transitions explained correctly, applied to the 25-minute payment hang, with both a tuning consideration (threshold from latency data) and a drawback."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "For payments I choose consistency (CP): the order is rejected with a clear error"
+        },
+        {
+          "where": "Question 5",
+          "quote": "it is better to show a slightly stale menu from a cache (Redis with a 60-second TTL)"
+        }
+      ],
+      "reasoning": "AP for browsing and CP for payment, both justified; CAP stated correctly (partition tolerance not optional); concrete techniques given (Redis TTL cache, idempotency key)."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences all present and scenario-specific (synchronous tablet calls, lost orders, 4.2 s p95), with both positive and negative consequences including at-least-once duplicates."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed."
+        }
+      ],
+      "reasoning": "Required headings used in order, all answers at or under 150 words (Q1 is exactly at the limit), precise terminology, IEEE-style citations and reference list present."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Word count is right at the 150-word limit; any additional sentence would breach the format rule."
+    },
+    {
+      "where": "Whole document",
+      "issue": "No explicit assumptions section is included, although the brief asks for assumptions to be stated (e.g. independence of component failures, 30-day month)."
+    }
+  ],
+  "overall": "An excellent, technically accurate submission: all availability calculations are correct to the requested precision, patterns and CAP reasoning are sound, and the ADR is well formed. Only the missing explicit assumptions statement is a minor gap."
+}

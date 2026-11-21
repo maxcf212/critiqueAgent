@@ -1,0 +1,201 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "The two most critical attributes (performance and availability) are selected and well justified with quantitative details from the scenario. Both quality attribute scenarios strictly follow the six-part specification format and specify clear, measurable response measures.",
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "The student provides a clear recommendation for a modular monolith, justified by two specific, context-relevant trade-offs (small team operational overhead and monolith horizontal scaling vs rewrite costs). Realistic downsides (lack of independent process scaling and shared failure domain) are explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "## Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "Calculations for parts (a), (b), and (c) are completely accurate. Series and parallel availability formulas are correctly applied with clear intermediate working shown, and results are appropriately rounded to the requested precision (two decimal places for percentages, one for hours).",
+      "evidence": [
+        {
+          "where": "## Question 3",
+          "quote": "The availability of placing an order is 99.30%.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "The circuit breaker pattern is correctly identified and explained via closed, open, and half-open state transitions. It is directly tied to the scenario's cascading failure and thread starvation. Both tuning parameters (latency thresholds) and drawbacks (fallback requirement) are thoroughly covered.",
+      "evidence": [
+        {
+          "where": "## Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure. Calls to the payment provider are wrapped in a breaker",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Both menu browsing and payment scenarios are evaluated with sound architectural choices (AP vs CP). The CAP theorem is accurately interpreted regarding network partitions, and concrete implementation techniques (Redis caching with TTL and idempotency keys) are provided.",
+      "evidence": [
+        {
+          "where": "## Question 5",
+          "quote": "For payments I choose consistency (CP): the order is rejected with a clear error rather than risk an inconsistent charge.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "The ADR adheres to the required template and contains scenario-specific context (tablet outages and latency), a clear architectural decision (RabbitMQ queue), and balanced consequences covering both concrete latency/resilience benefits and negative operational/at-least-once delivery overheads.",
+      "evidence": [
+        {
+          "where": "## Question 6",
+          "quote": "The queue is one more component for five developers to run and monitor. Delivery is at-least-once, so the tablet must ignore duplicate order IDs.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "All responses strictly adhere to the 150-word limit. Headings follow the requested structure and sequence, technical terminology is precise, and external sources are cited and referenced in proper IEEE style.",
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "The scenarios use the six-part form from [1].",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "## Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "## Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "## Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "## Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "## Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "## Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "## References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "An exemplary submission that fully satisfies all rubric criteria and assignment requirements. The architectural analyses are rigorous, scenario-specific, and concise, with completely accurate calculations, well-justified decisions, and flawless communication formatting throughout.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You delivered an outstanding submission, achieving full marks across all criteria. Your architectural decisions, trade-off analyses, and availability calculations were exceptionally thorough and grounded in the CampusEats scenario. Throughout Questions 1 to 6, you demonstrated rigorous application of architectural concepts, balanced positive and negative consequences, and adhered strictly to word counts, required structures, and IEEE referencing standards.",
+    "next_steps": [
+      "Continue utilizing six-part scenarios and concrete response measures in future software design tasks to define precise service level objectives.",
+      "Explore advanced resilience and data patterns, such as combining circuit breakers with bulkheads or implementing saga patterns for distributed transactions.",
+      "Maintain your balanced ADR documentation practice by capturing architectural reversibility and migration strategies alongside positive and negative trade-offs."
+    ],
+    "criteria": {
+      "C1": "In Question 1, you clearly justified performance and availability using quantitative scenario metrics. You achieved the Excellent standard by providing complete six-part scenarios with clear, measurable response measures. To sustain this standard in future work, always ensure that your stimulus and response measures remain strictly quantifiable and verifiable against system telemetry.",
+      "C2": "In Question 2, you provided a well-reasoned recommendation for a modular monolith. You successfully reached the Excellent level by grounding trade-offs in scenario constraints—such as team size and operational overhead—while explicitly addressing realistic downsides like shared failure domains. Continue to emphasize these operational realities and organizational scaling factors in future architectural evaluations.",
+      "C3": "In Question 3, your availability calculations for parts (a), (b), and (c) met the Excellent tier. You showed all working clearly, correctly applied series and parallel system availability formulas, and adhered strictly to the requested rounding precision. Keep displaying step-by-step intermediate working to ensure transparent, verifiable calculations in complex system topologies.",
+      "C4": "In Question 4, you met the Excellent rubric level by recommending the Circuit Breaker pattern, detailing its state transitions, and mapping it directly to the payment thread starvation issue. You also thoughtfully addressed tuning thresholds and fallback requirements. In future designs, consider pairing circuit breakers with bulkheads to isolate resource pools even further.",
+      "C5": "In Question 5, you achieved the Excellent level by correctly applying the CAP theorem under network partitions to justify AP for menu browsing and CP for payments. Naming concrete techniques—Redis caching with TTL and idempotency keys—solidified your technical depth. Continue linking theoretical distributed system limits directly to practical application-level mitigation strategies.",
+      "C6": "In Question 6, your ADR fulfilled all Excellent criteria by including scenario-specific Context, Decision, and Consequences. You identified practical benefits and acknowledged negative impacts, such as running a RabbitMQ queue and managing at-least-once delivery deduplication. Maintain this rigor by always detailing both positive architectural gains and ongoing operational trade-offs.",
+      "C7": "In your document structure and References section, you satisfied all Excellent requirements. Every response remained under the 150-word limit, the required question headings were followed, technical terminology was precise, and citations followed IEEE style. Continue applying this concise, structured communication style to professional technical documentation."
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "chatcmpl-222cdafd-a301-43ca-a687-d6d05f88a25f",
+  "object": "chat.completion",
+  "created": 1794787759,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"criteria\": [\n    {\n      \"id\": \"C1\",\n      \"level\": \"Accomplished\",\n      \"mark\": 8,\n      \"evidence\": [\n        {\n          \"where\": \"Mission Concept & Rationale\",\n          \"quote\": \"A near-real-time relay to monitoring stations on the ground would allow marine and conservation scientists to more accurately predict and react to coral bleaching events.\"\n        },\n        {\n          \"where\": \"Mission Concept & Rationale\",\n          \"quote\": \"Reef-monitoring satellites could also be used to report sea surface temperatures, thermal stress on coral, and bathymetry\"\n        }\n      ],\n      \"reasoning\": \"Clear mission purpose (GBR bleaching monitoring), explicit users (marine/conservation scientists), strong need justification with four literature citations. Functions listed. Slightly weak on formal objectives/requirements, but overall accomplished.\"\n    },\n    {\n      \"id\": \"C2\",\n      \"level\": \"Accomplished\",\n      \"mark\": 7,\n      \"evidence\": [\n        {\n          \"where\": \"Project Plan & Preliminary Progress\",\n          \"quote\": \"Project work will be divided into weeks via a Gantt Chart. Detailed task descriptions can be found on the next page.\"\n        },\n        {\n          \"where\": \"Project Plan & Preliminary Progress\",\n          \"quote\": \"In addition to my own research, the syllabus work on astrodynamics will help me to understand and design an optimal mission.\"\n        }\n      ],\n      \"reasoning\": \"Detailed weekly Gantt chart with task-by-task narrative tied to mission stages (launch, orbit, ground, comms, EOL) and sources cited. However, no explicit contingency/variation provision, so not fully robust.\"\n    },\n    {\n      \"id\": \"C3\",\n      \"level\": \"Adequate\",\n      \"mark\": 5,\n      \"evidence\": [\n        {\n          \"where\": \"Project Plan & Preliminary Progress\",\n          \"quote\": \"I have read the brief of Asner’s monitoring system in Hawaii, researched into how coral bleaching occurs and its severity, and also completed STK tutorials 1, 2, 3 & 4.\"\n        }\n      ],\n      \"reasoning\": \"Genuine progress: background research, mission concept drafted, four STK tutorials completed. But no preliminary technical results (no orbit, link, or coverage calculations) and the stated orbit choice contains a fundamental error, so interpretation is thin.\"\n    },\n    {\n      \"id\": \"C4\",\n      \"level\": \"Accomplished\",\n      \"mark\": 8,\n      \"evidence\": [\n        {\n          \"where\": \"Project Plan & Preliminary Progress\",\n          \"quote\": \"Completed stages are gold. Incomplete stages are blue. Deadlines are indicated by red lines.\"\n        }\n      ],\n      \"reasoning\": \"Logical structure with clear headings, well-written prose, consistent formatting, labelled and explained Gantt chart, and numbered citations matching the listed URLs. Minor deduction: URLs given as footnotes rather than a formal, complete reference list.\"\n    }\n  ],\n  \"requirements\": [\n    {\n      \"id\": \"R1\",\n      \"met\": \"yes\",\n      \"where\": \"Mission Concept & Rationale\"\n    },\n    {\n      \"id\": \"R2\",\n      \"met\": \"partial\",\n      \"where\": \"Project Plan & Preliminary Progress — Launch/Orbit Specifics tasks relate to space segment, but the orbit choice is technically wrong\"\n    },\n    {\n      \"id\": \"R3\",\n      \"met\": \"yes\",\n      \"where\": \"Project Plan & Preliminary Progress — 'STK Design' and 'STK Simulations' tasks; STK tutorials completed\"\n    },\n    {\n      \"id\": \"R4\",\n      \"met\": \"yes\",\n      \"where\": \"Image 1 — Gantt chart with weekly schedule and task descriptions\"\n    },\n    {\n      \"id\": \"R5\",\n      \"met\": \"yes\",\n      \"where\": \"Mission Concept & Rationale — four cited URLs (NOAA, National Geographic, Deepreef, Nature)\"\n    },\n    {\n      \"id\": \"R6\",\n      \"met\": \"partial\",\n      \"where\": \"Project Plan & Preliminary Progress — research and STK tutorials done, but no preliminary technical results presented\"\n    }\n  ],\n  \"technical_issues\": [\n    {\n      \"where\": \"Project Plan & Preliminary Progress — Orbit Specifics\",\n      \"issue\": \"'Geostationary orbit at an altitude of 600 km' is incorrect: GEO requires ~35,786 km altitude; a 600 km orbit is LEO and cannot keep the satellite fixed above the reef. Also GEO imaging of the reef raises resolution/latitude coverage questions unaddressed.\"\n    },\n    {\n      \"where\": \"Mission Concept & Rationale\",\n      \"issue\": \"No quantitative mission requirements (e.g. spatial resolution, revisit time, swath) despite citing 100 m/pixel bathymetry gap; sensor feasibility (Asner's airborne imaging spectrometer) for a satellite not examined.\"\n    }\n  ],\n  \"overall\": \"A well-presented, well-referenced preliminary report with a clear mission concept, detailed Gantt chart and genuine progress. Weakened by a fundamental orbit error (600 km 'geostationary') and limited preliminary technical results.\"\n}\n```",
+        "refusal": null,
+        "reasoning": "Let me evaluate.\n\nC1: Mission concept and rationale. The student describes coral reef monitoring satellite for Great Barrier Reef, users (marine/conservation scientists), needs, references. Good but lacks specific mission goals/objectives/requirements (no explicit requirements, no orbit details correct). \"geostationary orbit at an altitude of 600 km\" — technical error (GEO is 35,786 km). That's a technical issue. C1: Accomplished or Adequate? Description is clear and relates function to users, references literature. But mission requirements not explicitly stated. I'd say Adequate-to-Accomplished. The rationale is well referenced and users identified. I'd give 8/10 Accomplished, or 6 Adequate. The mission goals are described (monitoring bleaching, SST, bathymetry) with users. I'll give 8.\n\nC2: Project plan with Gantt chart, information sources. Gantt chart present, detailed task descriptions, references listed (URLs). Plan fits mission narrative. Contingencies? Not much provision for variations. Adequate-Accomplished. Plan is robust with weekly breakdown; references included. I'd give 7-8. Lack of contingency provision — give 7.\n\nC3: Preliminary progress: completed STK tutorials 1-4, background research, mission concept. Some work done but no technical results (no calculations, no orbit analysis — and the orbit statement is wrong). Minor work completed; interpretation insufficient. Adequate: 5. Actually \"completed STK tutorials\" and research is some work; no preliminary results. Give 4-5. I'll say 5.\n\nC4: Presentation: clear structure, headings, well-written, references cited with footnotes matching list. Figures labelled (Image 1 Gantt chart, described). Good. Minor: footnote-style URLs rather than formal reference list; but text citations match. Accomplished: 8.\n\nRequirements:\nR1: yes — mission concept benefits Australia, users, rationale.\nR2: partial — plan mentions launch/orbit but \"geostationary at 600 km\" error; relates to space segment partially.\nR3: yes — STK selected (\"STK Design\", \"STK Simulations\").\nR4: yes — Gantt chart.\nR5: yes — four URLs listed as sources; though these are used sources rather than \"plan to use\" — still listed. Met.\nR6: partial — only tutorials and research, no technical results.\n\nTechnical issues: GEO altitude error (600 km is LEO, not geostationary; a 600 km orbit can't be geostationary and wouldn't keep satellite fixed above reef). Also \"Oceans have become 30 percent more acidic\" — actually surface ocean acidity increased ~30% since industrial revolution, that's fine. \"bleaching killed 60 percent... 2017 another 50 percent\" — roughly matches reports. Also near-real-time relay from GEO for imaging — resolution issues, but main error is orbit.\n\nOverall: solid report with one notable technical error."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4068,
+    "completion_tokens": 1774,
+    "total_tokens": 5842,
+    "reasoning_tokens": 641,
+    "completion_tokens_details": {
+      "reasoning_tokens": 641,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 3840,
+    "prompt_tokens_details": {
+      "cached_tokens": 3840,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 228,
+    "cost": 0.0006509999999999999,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_dfbfd7d8-7860-4607-a4da-b6495f9c499f",
+  "x_nanogpt_pricing": {
+    "amount": 0.0006509999999999999,
+    "currency": "USD",
+    "cost": 0.0006509999999999999,
+    "inputTokens": 4068,
+    "outputTokens": 1774,
+    "cacheReadInputTokens": 3840,
+    "cacheCost": 9.6e-05,
+    "requestId": "req_e0c76bc5-85a1-420a-a466-0a611730e291",
+    "costUsd": 0.0006509999999999999,
+    "usdCost": 0.0006509999999999999,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "hit",
+      "readTokens": 3840
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 3840
+  }
+}

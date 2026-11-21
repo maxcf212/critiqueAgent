@@ -1,0 +1,192 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The two most important quality attributes are performance and availability"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Both attributes are relevant and justified using the lunch peak and current response time. The performance scenario has a measurable response measure, but the availability measure is not measurable and its response does not clearly address order placement."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clearly recommends a modular monolith and supports it with scenario-specific trade-offs involving the five-person team, single-VM load issue, and deployment downtime. It also acknowledges the reduced independent scalability and shared-process failure risk."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "Part (a) uses the correct series method and gives 99.30%. Part (b) has an arithmetic error: downtime is about 5.0 hours. Part (c) reports provider-pair availability rather than end-to-end availability; including the other components gives about 99.80% and 1.5 hours of monthly downtime."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        },
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed"
+        }
+      ],
+      "reasoning": "The circuit breaker is appropriate and the fail-fast containment idea is relevant, but the Closed/Open transitions are reversed, as are the stated recovery transitions. No drawback or tuning consideration is given. The threshold example does show some tuning awareness, so this earns partial credit."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "I would favour availability."
+        },
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "The menu choice is justified and names a cache with a TTL. Consistency is a reasonable priority for payment, but the CAP explanation is incorrect and no concrete consistency technique is given for payment processing."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision, and Consequences are present and scenario-specific. The consequences describe benefits only; no negative consequence, such as duplicate delivery or added operational complexity, is acknowledged."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months."
+        },
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman"
+        }
+      ],
+      "reasoning": "The headings and writing are clear, but Question 2 exceeds the 150-word limit. Numeric citations are used, but citation [2] has no corresponding reference-list entry."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "Question 3; References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "900 orders per hour is 15 orders per minute on average, not about 150 per minute."
+    },
+    {
+      "where": "Question 1",
+      "issue": "The availability response measure, “stay up most of the time,” is not measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "The downtime arithmetic in part (b) is incorrect: the displayed availability yields about 5.0 hours per 30-day month."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) uses payment-pair availability as end-to-end availability. Multiplying by the other components gives approximately 99.80% availability and 1.5 hours of monthly downtime."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit-breaker states are reversed: Closed normally permits calls; failures open the breaker; successful half-open probes close it."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP does not permit choosing consistency and availability while giving up partition tolerance; during a partition a system must trade off consistency and availability."
+    },
+    {
+      "where": "Question 6",
+      "issue": "Retrying queue delivery can produce duplicate notifications; idempotent consumption is a relevant consideration."
+    }
+  ],
+  "overall": "24/40. The architectural recommendation is well matched to the scenario, but availability calculations, the circuit-breaker state explanation, and CAP reasoning need correction. The availability scenario is not measurable, and communication loses credit for an overlength answer and an incomplete reference list."
+}

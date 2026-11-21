@@ -1,0 +1,17 @@
+{
+  "summary": "You submitted a strong, complete response: all six questions are answered, Q3 calculations are correct, and your Q1 scenarios are fully six-part with measurable measures. Q2's modular monolith recommendation is well justified, and Q4–Q6 apply patterns and CAP precisely. The only gap is an explicit assumptions section beyond the 30-day month statement. Keep this standard.",
+  "next_steps": [
+    "Add a brief 'Assumptions' subsection to Q3 (e.g., component independence, 30-day month, constant failure rates) so your availability model is fully auditable; this addresses the partial R7 without altering your correct results.",
+    "In Q1, keep the measurable response measures; for future work, add a one-line note on why other attributes (e.g., security, modifiability) were ranked lower to make the prioritisation even more defensible.",
+    "For Q2 and Q6, continue naming scenario-specific trade-offs and both positive and negative consequences; to secure top marks every time, explicitly link each consequence back to the five-developer team or the 20-minute outage."
+  ],
+  "criteria": {
+    "C1": "You chose performance and availability and justified them with the lunch peak, 4.2 s p95 and payment outage. Both Q1 scenarios have all six parts and measurable response measures (p95 < 1.5 s; menu p95 < 2 s; <0.1% non-payment failures; recovery within 1 minute). You are at Excellent; to stay there, keep every scenario measurable and add a brief note on why lower-ranked attributes were excluded.",
+    "C2": "Your modular monolith recommendation in Q2 is clear and scenario-specific: five developers versus service overhead, and the known single-VM/20-minute downtime versus rewrite cost. You also acknowledge the downside (no independent scaling; one module can crash the process). Excellent level. To maintain it, keep linking each trade-off to the team size, load profile or known outage.",
+    "C3": "All three parts of Q3 are correct with working: series product 99.30%, 5.0 h downtime, active-active payment pair 99.9975%, end-to-end 99.80%, 1.5 h downtime. Rounding matches the requested precision. You are at Excellent. To strengthen auditability, add an explicit assumptions subsection (independence, 30-day month, constant failure rates) alongside your calculations.",
+    "C4": "You named circuit breaker, explained closed/open/half-open correctly, applied it to the 25-minute payment hang, and gave a tuning/fallback drawback ('nobody can pay while it is open'). This is Excellent. To keep it, continue pairing each pattern with a concrete outage and at least one operational drawback or tuning consideration.",
+    "C5": "You chose AP for menu with Redis 60-second TTL and CP for payments with rejection/idempotency keys. CAP is stated correctly, and both choices are justified by user impact. Excellent. To stay there, keep naming a concrete technique for each case and explicitly tie the consistency choice to the payment risk.",
+    "C6": "Your ADR has specific Context, Decision and Consequences, with both positive and negative consequences (operational load; at-least-once duplicate handling). Excellent. To maintain it, keep consequences two-sided and scenario-specific, and avoid generic context statements.",
+    "C7": "Required headings appear in order, answers are at or under 150 words, terminology is precise, and IEEE-style references are present. Excellent. To stay there, keep every answer within the limit and add the missing explicit assumptions note to Q3; this also addresses the partial R7."
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are well justified from the scenario and performance scenario is fully six-part and measurable, but the availability response measure ('stay up most of the time') is not measurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear recommendation (modular monolith) with two scenario-specific trade-offs (team size, root causes of known problems) and the downside of the recommendation explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 3 (c)",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "Parts (a) and (b) are correct with working (99.30%, 5.0 h). Part (c) is wrong: the student reports only the payment-pair availability (99.9975%) and omits the other three components; correct end-to-end is ~99.80% with ~1.5 h downtime. One part incorrect, method otherwise correct."
+    },
+    {
+      "id": "C4",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "Students would have seen \"payment temporarily unavailable, please try again or pay at the counter\""
+        }
+      ],
+      "reasoning": "Circuit breaker correctly named and explained (states, thresholds) and applied to the outage, but no explicit drawback or tuning consideration is given beyond an example threshold."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance"
+        }
+      ],
+      "reasoning": "Both choices justified with concrete techniques (Redis TTL cache; idempotency keys), but CAP is applied incorrectly: partition tolerance cannot be given up; during a partition one must trade C against A."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are present and scenario-specific, but consequences are one-sided; no negative consequence (e.g. eventual notification, extra infrastructure, duplicate handling) is stated."
+    },
+    {
+      "id": "C7",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "First, team size versus operational overhead."
+        },
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        }
+      ],
+      "reasoning": "Headings, order and IEEE citations/references are correct, but at least two answers (Q2 ~200 words, Q4 ~160 words) exceed the 150-word limit, and no assumptions are stated."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3 (c)"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3 (c)",
+      "issue": "End-to-end availability after adding the second payment provider is computed as the payment-pair availability alone (99.9975%); the other three components (0.9995×0.999×0.9995) were dropped. Correct: 0.9980010×0.999975 ≈ 99.80%, downtime ≈ 1.5 h/month."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP theorem misapplied: 'give up partition tolerance' is not a valid choice; partitions must be tolerated, forcing a C-vs-A choice during a partition."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence given in the ADR."
+    }
+  ],
+  "overall": "Strong, well-argued answers for Q1, Q2 and Q4. Q3(c) drops the non-payment components, Q5 misapplies CAP, Q6 lacks a negative consequence, and Q2/Q4 exceed the word limit with no assumptions stated. Overall a good submission with fixable technical slips."
+}

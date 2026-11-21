@@ -1,0 +1,196 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        },
+        {
+          "where": "Introduction",
+          "quote": "The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM) for research and/or education."
+        }
+      ],
+      "reasoning": "Primary mission, rationale (bleaching, fluid lensing), single-spacecraft choice and customers are all addressed with reasoned detail. The operator is vague ('operated and accessed from Australia ground facilities') and funding is speculative. Introduction references are present, but the bibliography is URL-only and incomplete, so referencing is only partly adequate."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Mission Design – Launch",
+          "quote": "The most efficient rocket launches are from locations close to the equator as this is where maximum rotational velocity can be experienced [5]."
+        },
+        {
+          "where": "Mission Design – Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle"
+        },
+        {
+          "where": "Orbit – orbital elements table",
+          "quote": "The initial value indicates the location of the launch facility."
+        },
+        {
+          "where": "Orbit",
+          "quote": "the only orbital manoeuvre occurs at the EOL segment of the satellite's mission."
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "However, the ZYZZsat is without thrust capability and so must use a ‘passive’ strategy."
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "The first fifteen access periods are listed above."
+        }
+      ],
+      "reasoning": "Strengths: SSO inclination for 600 km (about 97.8°) checks out, and STK access data and orbit screenshots are provided. Weaknesses: equatorial-launch logic is inverted for a retrograde orbit; the Vega E is unbuilt; the RAAN explanation is wrong; no local time of descending node, period or swath/GSD sizing; manoeuvre statements contradict; no decay analysis; EOL drag-sail text is truncated; the access table is mis-numbered."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A polar sun-synchronous orbit allows for consistent illumination of the oceans while maintaining a constant sun angle."
+        },
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet."
+        }
+      ],
+      "reasoning": "The conclusion draws some reasonable points, including the launch-vehicle risk and the ground-station choice. However, it largely restates the design without quantitative evidence such as contact durations, pass counts or EOL lifetime. It does not acknowledge the unresolved issues in the body, so it is somewhat generic."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Mission Design – Launch",
+          "quote": "It’s first launch will occur in 2024"
+        },
+        {
+          "where": "Introduction",
+          "quote": "construction of a Earth observation satellite"
+        },
+        {
+          "where": "Mission Design – Launch table",
+          "quote": "February (TBD)"
+        }
+      ],
+      "reasoning": "Headings and a clear section structure with an executive summary are present, and most figures carry captions. Citations are seriously inconsistent: in-text numbers run to [74] but the bibliography lists only [1]–[10], [10] is used twice, entries are garbled, and Wikipedia is cited. Frequent grammar and typo errors, unnumbered tables and an uncaptioned Image 3 further reduce quality."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Mission Design – Launch"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Orbit; Mission Duration & EOL"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "partial",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Orbit and Ground Control (Images 1–5); STK files not evident"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Whole document"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Mission Design – Launch",
+      "issue": "Equatorial launch is argued to be most efficient, but Earth-rotation benefit largely disappears for a retrograde ~98° orbit. Plane-change penalty from 5°N is not analysed."
+    },
+    {
+      "where": "Orbit – orbital elements table",
+      "issue": "RAAN is said to indicate the launch facility location. RAAN depends on launch time/epoch and site longitude; no epoch is given. Table also uses Earth radius 6371 km, inconsistent with STK's 6378 km."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Sun-synchronous daytime imaging is claimed but local time of descending node is never specified. Orbit period, swath width and ground sample distance are not calculated, so 600 km and 'daily' coverage are unsupported."
+    },
+    {
+      "where": "Orbit / Mission Duration & EOL",
+      "issue": "The only orbital manoeuvre is said to occur at EOL, yet the satellite is stated to have no thrusters, so manoeuvre claims are contradictory."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "A five-year life at 600 km with passive disposal is asserted without decay or lifetime analysis. STK run 2025–2030 is mentioned but no results are shown; executive summary cites perturbation calculations that are absent."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Drag-sail sentence is truncated ('to ‘ and is suitable...'), leaving the EOL description incomplete and the drag sail unsized."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Access table lists two entries numbered 13 and 14 rows in total despite text claiming fifteen periods; pass frequency per day is not stated explicitly."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Mount Pleasant radio telescopes are used as an Earth-observation downlink without frequency, link budget, data rate or antenna suitability justification."
+    },
+    {
+      "where": "Orbit – Image 3",
+      "issue": "Inclination-altitude plot has no source citation and appears to be borrowed material."
+    },
+    {
+      "where": "Mission Design – Launch",
+      "issue": "Wikipedia is used as a source ('Timeline of spaceflight'), which the task explicitly prohibits."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "In-text citations run to [74] but only [1]–[10] are listed; [10] is used for both the Falcon 9 manifest and the drag-sail reference; entries [5] and [10] are garbled."
+    }
+  ],
+  "overall": "Plausible single-satellite sun-synchronous concept with correct 600 km inclination (about 97.8°) and STK access analysis. However, launch reasoning is inverted for retrograde orbit, RAAN and manoeuvre statements are wrong or contradictory, EOL is truncated and unsupported, and citations are broken and include Wikipedia. Approximately 50% weighted."
+}

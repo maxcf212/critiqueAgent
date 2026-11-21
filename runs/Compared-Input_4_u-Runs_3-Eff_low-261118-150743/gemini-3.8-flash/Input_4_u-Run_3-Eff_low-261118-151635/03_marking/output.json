@@ -1,0 +1,163 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders"
+        },
+        {
+          "where": "## Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        }
+      ],
+      "reasoning": "Both quality attributes are thoroughly justified using specific scenario details. Each scenario includes all six required parts with clear, concrete, and measurable response measures."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "## Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite for the next 12 months."
+        },
+        {
+          "where": "## Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "A clear recommendation is provided and justified with two scenario-specific trade-offs (team size/overhead and VM/deployment issues vs rewrite costs), with explicit downsides acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "## Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301\n\nThe availability of placing an order is 99.30%."
+        },
+        {
+          "where": "## Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.03, so 5.0 hours per month."
+        },
+        {
+          "where": "## Question 3",
+          "quote": "The new availability of placing an order is 99.80%.\n\nDowntime = (1 − 0.99798) × 720 = 0.00202 × 720 = 1.46, so 1.5 hours per month."
+        }
+      ],
+      "reasoning": "Parts (a), (b), and (c) are fully correct. All mathematical workings are shown clearly, and values are rounded accurately to the requested precision (two decimals for availability, one for downtime)."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "## Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "## Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data. Too sensitive and it opens on a brief blip, rejecting payments that would have succeeded"
+        }
+      ],
+      "reasoning": "Circuit Breaker is appropriately selected. The mechanism across closed, open, and half-open states is clearly explained, directly applied to the scenario outage, and includes tuning considerations and drawbacks."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "## Question 5",
+          "quote": "Menu browsing: I would favour availability. If a partition separates an application server from the database, it is better to show a slightly stale menu"
+        },
+        {
+          "where": "## Question 5",
+          "quote": "For payments I choose consistency (CP): the order is rejected with a clear error rather than risk an inconsistent charge."
+        }
+      ],
+      "reasoning": "Both choices (AP for menu browsing, CP for ordering/payments) are soundly justified with clear reference to CAP theorem implications. Concrete techniques (Redis cache with TTL, idempotency keys) are provided."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "## Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply."
+        },
+        {
+          "where": "## Question 6",
+          "quote": "Consequences (positive): Placing an order no longer waits for the outlet, so the response time improves."
+        },
+        {
+          "where": "## Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor. Delivery is at-least-once"
+        }
+      ],
+      "reasoning": "The ADR is structured cleanly with Context, Decision, and both positive and negative consequences that are specific and relevant to the scenario."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "The scenarios use the six-part form from [1]."
+        },
+        {
+          "where": "## References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed. Upper Saddle River, NJ, USA: Addison-Wesley, 2012."
+        }
+      ],
+      "reasoning": "All answers are well within the 150-word limit. Headings strictly follow the required structure, writing is concise and precise, and external sources are cited properly in IEEE style."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "## Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "## Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "## Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "## Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "## Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "## Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "## References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "Exemplary submission across all criteria. Calculations are accurate and clear, architectural reasoning is scenario-grounded and nuanced, and formatting strictly adheres to all constraints."
+}

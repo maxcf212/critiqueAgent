@@ -1,0 +1,491 @@
+{
+  "id": "chatcmpl-b17db5ca-a3d9-4157-9d00-a7da767c5e4c",
+  "object": "chat.completion",
+  "created": 1794792281,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"Your preliminary report is strong and well structured: the mission concept, users and requirements are clear and referenced, your Gantt chart, contingencies and source table form a credible plan, and your hand calculations are correct and interpreted. The main gaps are a few citation–content mismatches and limited STK work so far. Addressing the next steps will move you from 9 to 10 within the Accomplished band.\",\"next_steps\":[\"Fix the citation–content mismatches in Mission Concept & Rationale: replace [6] with a source that actually supports BoM combining imagery with SST products, and cite the primary Asner method paper rather than news article [4] so the 10 m GSD requirement is traceable.\",\"In Preliminary Progress, show the J2 nodal-precession calculation behind the 97.8° sun-synchronous inclination, and justify the 60 km swath from the 6,000 cross-track pixels/detector pixel size, referencing the 250 km reef width.\",\"Extend the STK work beyond the first scenario—ground tracks, coverage and revisit—so your preliminary progress is clearly on track for completion.\"],\"criteria\":{\"C1\":\"You set a clear goal, four numbered objectives and named users (AIMS, GBRMPA, CSIRO, BoM) with needs mapped to objectives, and the rationale is well referenced. For full marks, replace [6] with a source that actually supports BoM combining imagery with SST products, cite the primary Asner method paper instead of news article [4] so the 10 m GSD is traceable, and correct '30% more acidic' to the ~0.1 pH-unit drop.\",\"C2\":\"Your Gantt chart with completed/planned coding and deadlines, per-task descriptions, risk/contingency table with triggers and responses, and sources table make a robust, feasible plan. You justify the order against the mission sequence (orbit before comms, EOL after orbit) and build in Week 10 float. To secure full marks, make each contingency trigger and source-to-task link explicit in the Gantt so the plan's robustness is visible at a glance.\",\"C3\":\"Your hand calculations are correct (T=5801 s, 14.9 rev/day, 24.2°, 60 km), and you interpret the swath/coverage trade and link it to a contingency; your first STK scenario's period agrees. For full marks, show the J2 nodal-precession calculation behind the 97.8° inclination, justify the 6,000 cross-track pixels/pixel size for the 60 km swath and reference the 250 km reef width, and extend STK to ground tracks, coverage and revisit.\",\"C4\":\"Your report has a clear, logical structure with headings, professional prose and consistent formatting; Figure 1 and Tables 1–3 are labelled and captioned, and all eleven references are cited in text and listed consistently. To reach full marks, resolve the citation–content mismatches in Mission Concept & Rationale so every in-text citation supports its claim, and keep the same citation discipline as you add STK results.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary (<=80 words), next_steps (3 strings), criteria object with each criterion id mapped to feedback <=70 words each. Address student as \"you\". Be specific, cite sections/figures, name what they did well, state what next rubric level requires. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nMarks: C1 9/10 Accomplished, C2 9/10, C3 8/10, C4 9/10. All Accomplished. Next rubric level? They're at Accomplished top band; next level would be... within Accomplished higher (10/10) essentially. We can say to reach the top of the Accomplished band / full marks. Be careful: \"state what the next rubric level requires\" — since already Accomplished, next is full Accomplished (10). We can phrase \"to move from 9 to 10 within Accomplished\".\n\nSummary <=80 words: supportive, specific.\n\nNext steps: 3 actionable items: fix citation mismatches ([6] NOAA for BoM claim; [4] news article vs primary Asner paper; trace 10 m GSD to technical source), show J2 nodal precession calculation for 97.8° and justify 60 km swath (detector/pixel size, reference 250 km reef width), expand STK work (ground tracks, coverage, revisit) to strengthen preliminary progress.\n\nCriteria feedback:\n\nC1 (<=70 words): Praise clear goal, four numbered objectives, named users AIMS/GBRMPA/CSIRO/BoM mapped to needs, well referenced. To reach full Accomplished: replace [6] with a source that actually supports BoM combining imagery with SST products; cite primary Asner method paper rather than [4] news article so 10 m GSD is traceable; correct \"30% more acidic\" to ~0.1 pH unit drop / ~30% rise in H+.\n\nC2: Praise Gantt chart with completed/planned coding and deadlines, per-task descriptions, risk/contingency table with triggers/responses, sources table; plan justified against mission sequence (orbit before comms, EOL after orbit); week 10 float. To reach full: maybe add explicit milestones/dependencies? But don't invent. We can say strengthen by linking contingency triggers to specific Gantt tasks and noting how source table entries feed each task. Hmm, that's a suggestion not from marking. The marking says robust and feasible. Next level requires... full Accomplished. We can say \"to secure full marks, make the contingency triggers and source-to-task links explicit in the Gantt so the plan's robustness is visible at a glance.\" That's reasonable and actionable, not changing marks.\n\nC3: Praise hand calcs correct (T=5801 s, 14.9 rev/day, 24.2°, 60 km), interpretation of swath/coverage trade linked to contingency, STK scenario period agrees. To reach full: show J2 nodal precession calculation behind 97.8° inclination; justify 6,000 cross-track pixels / detector pixel size for 60 km swath and reference the 250 km reef width; extend STK to ground tracks/coverage/revisit.\n\nC4: Praise logical structure, clear headings, professional prose, consistent formatting, Figure 1 and Tables 1–3 labelled/captioned, all 11 references cited and listed consistently. To reach full: resolve the citation-content mismatches in Mission Concept & Rationale (same as C1) so every in-text citation supports its claim; check that each figure/table is referenced in text before it appears. Hmm, marking didn't say figures not referenced. Avoid inventing. Just say fix citation-content mismatches; that's the only minor issue noted.\n\nNeed JSON only. Ensure word counts. Let's draft.\n\nSummary: \"Your preliminary report is strong and well structured: the mission concept, users and requirements are clear and referenced, your Gantt chart, contingencies and source table form a credible plan, and your hand calculations are correct and interpreted. The main gaps are a few citation–content mismatches and limited STK work so far. Addressing the next steps will move you from 9 to 10 within the Accomplished band.\" Count ~70 words. Good.\n\nNext steps array of 3 strings.\n\nC1 <=70 words. Draft: \"You set a clear goal, four numbered objectives and named users (AIMS, GBRMPA, CSIRO, BoM) with needs mapped to objectives, and the rationale is well referenced. For full marks, replace [6] with a source that actually supports BoM combining imagery with SST products, cite the primary Asner method paper instead of news article [4] so the 10 m GSD is traceable, and correct '30% more acidic' to the ~0.1 pH-unit drop.\" Count ~75? Let's count: You(1) set2 a3 clear4 goal5 four6 numbered7 objectives8 and9 named10 users11 AIMS12 GBRMPA13 CSIRO14 BoM15 with16 needs17 mapped18 to19 objectives20 and21 the22 rationale23 is24 well25 referenced26 For27 full28 marks29 replace30 [6]31 with32 a33 source34 that35 actually36 supports37 BoM38 combining39 imagery40 with41 SST42 products43 cite44 the45 primary46 Asner47 method48 paper49 instead50 of51 news52 article53 [4]54 so55 the56 10m57 GSD58 is59 traceable60 and61 correct62 30%63 more64 acidic65 to66 the67 ~0.1 68 pH-unit69 drop70. 70 words exactly. Good.\n\nC2: \"Your Gantt chart with completed/planned coding and deadlines, per-task descriptions, risk/contingency table with triggers and responses, and sources table make a robust, feasible plan. You justify the order against the mission sequence (orbit before comms, EOL after orbit) and build in Week 10 float. To secure full marks, make each contingency trigger and source-to-task link explicit in the Gantt so the plan's robustness is visible at a glance.\" Count ~70? Let's count: Your1 Gantt2 chart3 with4 completed/planned5 coding6 and7 deadlines8 per-task9 descriptions10 risk/contingency11 table12 with13 triggers14 and15 responses16 and17 sources18 table19 make20 a21 robust22 feasible23 plan24 You25 justify26 the27 order28 against29 the30 mission31 sequence32 orbit33 before34 comms35 EOL36 after37 orbit38 and39 build40 in41 Week42 10 43 float44 To45 secure46 full47 marks48 make49 each50 contingency51 trigger52 and53 source-to-task54 link55 explicit56 in57 the58 Gantt59 so60 the61 plan's62 robustness63 is64 visible65 at66 a67 glance68. 68 words. Good.\n\nC3: \"Your hand calculations are numerically correct (T=5801 s, 14.9 rev/day, 24.2°, 60 km), and you interpret the swath/coverage trade and link it to a contingency; your first STK scenario's period agrees with the hand calculation. For full marks, show the J2 nodal-precession calculation behind the 97.8° inclination, justify the 6,000 cross-track pixels/pixel size for the 60 km swath and reference the 250 km reef width, and extend STK to ground tracks, coverage and revisit.\" Count: Your1 hand2 calculations3 are4 numerically5 correct6 T=5801 7 s8 14.9 9 rev/day10 24.2°11 60 12 km13 and14 you15 interpret16 the17 swath/coverage18 trade19 and20 link21 it22 to23 a24 contingency25 your26 first27 STK28 scenario's29 period30 agrees31 with32 the33 hand34 calculation35 For36 full37 marks38 show39 the40 J2 41 nodal-precession42 calculation43 behind44 the45 97.8°46 inclination47 justify48 the49 6,000 50 cross-track51 pixels/pixel52 size53 for54 the55 60 56 km57 swath58 and59 reference60 the61 250 62 km63 reef64 width65 and66 extend67 STK68 to69 ground70 tracks71 coverage72 and73 revisit74. 74 words — too long. Trim. \"Your hand calculations are correct (T=5801 s, 14.9 rev/day, 24.2°, 60 km), and you interpret the swath/coverage trade and link it to a contingency; your first STK scenario's period agrees. For full marks, show the J2 nodal-precession calculation behind the 97.8° inclination, justify the 6,000 cross-track pixels/pixel size for the 60 km swath and reference the 250 km reef width, and extend STK to ground tracks, coverage and revisit.\" Count: Your1 hand2 calculations3 are4 correct5 T=5801 6 s7 14.9 8 rev/day9 24.2°10 60 11 km12 and13 you14 interpret15 the16 swath/coverage17 trade18 and19 link20 it21 to22 a23 contingency24 your25 first26 STK27 scenario's28 period29 agrees30 For31 full32 marks33 show34 the35 J2 36 nodal-precession37 calculation38 behind39 the40 97.8°41 inclination42 justify43 the44 6,000 45 cross-track46 pixels/pixel47 size48 for49 the50 60 51 km52 swath53 and54 reference55 the56 250 57 km58 reef59 width60 and61 extend62 STK63 to64 ground65 tracks66 coverage67 and68 revisit69. 69 words. Good.\n\nC4: \"Your report has a clear, logical structure with headings, professional prose and consistent formatting; Figure 1 and Tables 1–3 are labelled and captioned, and all eleven references are cited in text and listed consistently. To reach full marks, resolve the citation–content mismatches in Mission Concept & Rationale so every in-text citation supports its claim, and keep the same citation discipline as you add STK results.\" Count: Your1 report2 has3 a4 clear5 logical6 structure7 with8 headings9 professional10 prose11 and12 consistent13 formatting14 Figure15 1 16 and17 Tables18 1–3 19 are20 labelled21 and22 captioned23 and24 all25 eleven26 references27 are28 cited29 in30 text31 and32 listed33 consistently34 To35 reach36 full37 marks38 resolve39 the40 citation–content41 mismatches42 in43 Mission44 Concept45 &46 Rationale47 so48 every49 in-text50 citation51 supports52 its53 claim54 and55 keep56 the57 same58 citation59 discipline60 as61 you62 add63 STK64 results65. 65 words. Good.\n\nEnsure JSON valid. Use criterion ids C1..C4. Summary <=80 words. Next steps strings.\n\nFinal JSON only.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to produce JSON with summary (<=80 words), next_steps (3 strings), criteria object with each criterion id mapped to feedback <=70 words each.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Address student as \"you\". Be specific, cite sections/figures, name what they did well, state what next rubric level requires. Don't change marks. Don",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'t comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nMarks: C1 9/10 Accomplished, C2 9/10, C3",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 8/10, C4 9/10. All Accomplished. Next rubric level? They're at Accomplished top band; next level would",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " be... within Accomplished higher (10/10) essentially. We can say to reach the top of the Accomplished band / full marks. Be",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " careful: \"state what the next rubric level requires\" — since already Accomplished, next is full Accomplished (10). We can phrase \"to move",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " from 9 to 10 within Accomplished\".\n\nSummary <=80 words: supportive, specific.\n\nNext steps: 3 actionable items: fix citation mismatches ([",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "6] NOAA for BoM claim; [4] news article vs primary Asner paper; trace 10 m GSD to technical source), show J2 nodal pre",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "cession calculation for 97.8° and justify 60 km swath (detector/pixel size, reference 250 km reef width), expand STK",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " work (ground tracks, coverage, revisit) to strengthen preliminary progress.\n\nCriteria feedback:\n\nC1 (<=70 words): Praise clear goal, four numbered objectives,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " named users AIMS/GBRMPA/CSIRO/BoM mapped to needs, well referenced. To reach full Accomplished: replace [6] with a",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " source that actually supports BoM combining imagery with SST products; cite primary Asner method paper rather than [4] news article so 10 m GSD is",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " traceable; correct \"30% more acidic\" to ~0.1 pH unit drop / ~30% rise in H+.\n\nC2: Praise G",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "antt chart with completed/planned coding and deadlines, per-task descriptions, risk/contingency table with triggers/responses, sources table; plan justified against mission sequence (orbit before comm",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "s, EOL after orbit); week 10 float. To reach full: maybe add explicit milestones/dependencies? But don't invent. We can say strengthen",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " by linking contingency triggers to specific Gantt tasks and noting how source table entries feed each task. Hmm, that's a suggestion not from marking. The marking",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " says robust and feasible. Next level requires... full Accomplished. We can say \"to secure full marks, make the contingency triggers and source-to-task links",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " explicit in the Gantt so the plan's robustness is visible at a glance.\" That's reasonable and actionable, not changing marks.\n\nC3: Praise hand cal",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "cs correct (T=5801 s, 14.9 rev/day, 24.2°, 60 km), interpretation of swath/coverage trade linked",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " to contingency, STK scenario period agrees. To reach full: show J2 nodal precession calculation behind 97.8° inclination; justify 6,000 cross",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-track pixels / detector pixel size for 60 km swath and reference the 250 km reef width; extend STK to ground tracks/coverage/revisit.\n\nC4: Praise",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " logical structure, clear headings, professional prose, consistent formatting, Figure 1 and Tables 1–3 labelled/captioned, all 11 references cited and listed",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " consistently. To reach full: resolve the citation-content mismatches in Mission Concept & Rationale (same as C1) so every in-text citation supports its claim; check",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " that each figure/table is referenced in text before it appears. Hmm, marking didn't say figures not referenced. Avoid inventing. Just say fix citation-content mismatches; that",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'s the only minor issue noted.\n\nNeed JSON only. Ensure word counts. Let's draft.\n\nSummary: \"Your preliminary report is strong and well structured: the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " mission concept, users and requirements are clear and referenced, your Gantt chart, contingencies and source table form a credible plan, and your hand calculations are correct and interpreted",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". The main gaps are a few citation–content mismatches and limited STK work so far. Addressing the next steps will move you from 9 to 10 within",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the Accomplished band.\" Count ~70 words. Good.\n\nNext steps array of 3 strings.\n\nC1 <=70 words. Draft: \"You set",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a clear goal, four numbered objectives and named users (AIMS, GBRMPA, CSIRO, BoM) with needs mapped to objectives, and the rationale",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is well referenced. For full marks, replace [6] with a source that actually supports BoM combining imagery with SST products, cite the primary Asner method paper",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " instead of news article [4] so the 10 m GSD is traceable, and correct '30% more acidic' to the ~0.1 pH-unit",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " drop.\" Count ~75? Let's count: You(1) set2 a3 clear4 goal5 four6 numbered7 objectives8 and9 named10 users11",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " AIMS12 GBRMPA13 CSIRO14 BoM15 with16 needs17 mapped18 to19 objectives20 and21 the22 rationale23 is24 well25 referenced",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "26 For27 full28 marks29 replace30 [6]31 with32 a33 source34 that35 actually36 supports37 BoM38 combining39 imagery40 with41 SST42 products",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "43 cite44 the45 primary46 Asner47 method48 paper49 instead50 of51 news52 article53 [4]54 so55 the56 10",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "m57 GSD58 is59 traceable60 and61 correct62 30%63 more64 acidic65 to66 the67 ~0.1 68 pH-unit69",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " drop70. 70 words exactly. Good.\n\nC2: \"Your Gantt chart with completed/planned coding and deadlines, per-task descriptions, risk/con",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "tingency table with triggers and responses, and sources table make a robust, feasible plan. You justify the order against the mission sequence (orbit before comms, E",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "OL after orbit) and build in Week 10 float. To secure full marks, make each contingency trigger and source-to-task link explicit in the Gantt",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " so the plan's robustness is visible at a glance.\" Count ~70? Let's count: Your1 Gantt2 chart3 with4 completed/planned5 coding6 and7",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " deadlines8 per-task9 descriptions10 risk/contingency11 table12 with13 triggers14 and15 responses16 and17 sources18 table19 make20 a21 robust",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "22 feasible23 plan24 You25 justify26 the27 order28 against29 the30 mission31 sequence32 orbit33 before34 comms35 EOL36 after37 orbit",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "38 and39 build40 in41 Week42 10 43 float44 To45 secure46 full47 marks48 make49 each50 contingency51 trigger52 and53 source",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-to-task54 link55 explicit56 in57 the58 Gantt59 so60 the61 plan's62 robustness63 is64 visible65 at66 a67 glance68.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 68 words. Good.\n\nC3: \"Your hand calculations are numerically correct (T=5801 s, 14.9 rev/day, 24.2°, ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "60 km), and you interpret the swath/coverage trade and link it to a contingency; your first STK scenario's period agrees with the hand calculation. For",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " full marks, show the J2 nodal-precession calculation behind the 97.8° inclination, justify the 6,000 cross-track pixels/pixel size for the 60",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " km swath and reference the 250 km reef width, and extend STK to ground tracks, coverage and revisit.\" Count: Your1 hand2 calculations3",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " are4 numerically5 correct6 T=5801 7 s8 14.9 9 rev/day10 24.2°11 60 12 km13 and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "14 you15 interpret16 the17 swath/coverage18 trade19 and20 link21 it22 to23 a24 contingency25 your26 first27 STK28 scenario's",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "29 period30 agrees31 with32 the33 hand34 calculation35 For36 full37 marks38 show39 the40 J2 41 nodal-precession42 calculation43",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " behind44 the45 97.8°46 inclination47 justify48 the49 6,000 50 cross-track51 pixels/pixel52 size53 for54 the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "55 60 56 km57 swath58 and59 reference60 the61 250 62 km63 reef64 width65 and66 extend67 STK68 to69",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ground70 tracks71 coverage72 and73 revisit74. 74 words — too long. Trim. \"Your hand calculations are correct (T=5801 s, 14",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".9 rev/day, 24.2°, 60 km), and you interpret the swath/coverage trade and link it to a contingency; your",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " first STK scenario's period agrees. For full marks, show the J2 nodal-precession calculation behind the 97.8° inclination, justify the 6",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ",000 cross-track pixels/pixel size for the 60 km swath and reference the 250 km reef width, and extend STK to ground tracks,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " coverage and revisit.\" Count: Your1 hand2 calculations3 are4 correct5 T=5801 6 s7 14.9 8 rev/day9 ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "24.2°10 60 11 km12 and13 you14 interpret15 the16 swath/coverage17 trade18 and19 link20 it21 to",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "22 a23 contingency24 your25 first26 STK27 scenario's28 period29 agrees30 For31 full32 marks33 show34 the35 J2 36 nodal",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-precession37 calculation38 behind39 the40 97.8°41 inclination42 justify43 the44 6,000 45 cross-track46 pixels/p",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ixel47 size48 for49 the50 60 51 km52 swath53 and54 reference55 the56 250 57 km58 reef59 width60 and61 extend",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "62 STK63 to64 ground65 tracks66 coverage67 and68 revisit69. 69 words. Good.\n\nC4: \"Your report has a clear,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " logical structure with headings, professional prose and consistent formatting; Figure 1 and Tables 1–3 are labelled and captioned, and all eleven references are cited in text",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and listed consistently. To reach full marks, resolve the citation–content mismatches in Mission Concept & Rationale so every in-text citation supports its claim, and keep the same",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " citation discipline as you add STK results.\" Count: Your1 report2 has3 a4 clear5 logical6 structure7 with8 headings9 professional10 prose",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "11 and12 consistent13 formatting14 Figure15 1 16 and17 Tables18 1–3 19 are20 labelled21 and22 captioned23 and24 all",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "25 eleven26 references27 are28 cited29 in30 text31 and32 listed33 consistently34 To35 reach36 full37 marks38 resolve39 the40 citation–content41 mism",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "atches42 in43 Mission44 Concept45 &46 Rationale47 so48 every49 in-text50 citation51 supports52 its53 claim54 and55 keep56 the57 same",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "58 citation59 discipline60 as61 you62 add63 STK64 results65. 65 words. Good.\n\nEnsure JSON valid. Use criterion ids C1..C4. Summary",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " <=80 words. Next steps strings.\n\nFinal JSON only.",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2390,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 2199,
+    "completion_tokens": 3049,
+    "total_tokens": 5248,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cost": 0.0020493,
+    "currency": "USD",
+    "reasoning_tokens": 2390,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 2199
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_472cef7f-02c1-4f1f-a1cb-60f07c10a99f",
+  "x_nanogpt_pricing": {
+    "amount": 0.0020493,
+    "cost": 0.0020493,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 2199,
+    "outputTokens": 3049,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0
+  }
+}

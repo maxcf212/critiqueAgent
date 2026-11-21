@@ -1,0 +1,148 @@
+{
+  "total": 52.0,
+  "total_max": 100.0,
+  "percent": 52.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Adequate",
+      "mark": 6.0,
+      "scale": 10.0,
+      "points": 24.0,
+      "max": 40.0,
+      "reasoning": "The rationale and target users (marine scientists) are well articulated with clear environmental context. However, the proposal lacks formal quantitative mission requirements (such as spectral bands, revisit frequency, and spatial resolution), and references are provided only as bare web links.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Coral reefs, specifically the Great Barrier Reef, would immensely benefit from dedicated satellite monitoring.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Adequate",
+      "mark": 5.0,
+      "scale": 10.0,
+      "points": 15.0,
+      "max": 30.0,
+      "reasoning": "A clear weekly Gantt chart and task descriptions demonstrate project feasibility. However, the plan lacks provisions for contingencies or schedule variations, and future information sources are not explicitly listed.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "Project work will be divided into weeks via a Gantt Chart.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Deficient",
+      "mark": 3.0,
+      "scale": 10.0,
+      "points": 3.0,
+      "max": 10.0,
+      "reasoning": "No preliminary technical calculations, orbital trade-offs, or STK outputs are included. Furthermore, the only engineering choice proposed—a 600 km geostationary orbit—violates basic astrodynamics, as GEO exists solely at ~35,786 km over the equator.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "My current choice is a geostationary orbit at an altitude of 600 km, which keeps the satellite fixed above the reef",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Adequate",
+      "mark": 5.0,
+      "scale": 10.0,
+      "points": 10.0,
+      "max": 20.0,
+      "reasoning": "The document is readable and logically organised with clear subheadings. However, formatting is weakened by raw URL citations, an uncaptioned figure, and a contradiction between the Gantt chart (editing in Weeks 9–10) and narrative text (Weeks 7–8).",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "¹ https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-acidification",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "partial",
+      "where": "Project Plan & Preliminary Progress"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan & Preliminary Progress"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Project Plan & Preliminary Progress"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R6",
+      "met": "no",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Project Plan & Preliminary Progress",
+      "issue": "Claiming a geostationary orbit at 600 km altitude is physically impossible. Geostationary orbits exist only near 35,786 km in the equatorial plane, whereas 600 km is Low Earth Orbit (LEO) with an orbital period of roughly 96 minutes."
+    },
+    {
+      "where": "Project Plan & Preliminary Progress",
+      "issue": "Text states editing and finalisation occur in Weeks 7 and 8, but the Gantt chart depicts this task in Weeks 9 and 10."
+    }
+  ],
+  "overall": "The report provides a compelling mission rationale for Great Barrier Reef monitoring and a structured project plan. However, it lacks genuine preliminary technical design work, contains major astrodynamics errors regarding orbit selection, and relies on incomplete URL citations.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 4,
+    "quotes_found": 4,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You have established a compelling, well-motivated mission rationale for monitoring the Great Barrier Reef and presented an organised project schedule. To elevate your work for the final submission, focus on defining quantified technical requirements, resolving key astrodynamics principles in your orbit design, incorporating concrete preliminary calculations or simulations, and polishing your academic presentation with complete formal references and consistent scheduling.",
+    "next_steps": [
+      "Redesign your orbital architecture to reflect correct astrodynamics, replacing the 600 km geostationary concept with a physically viable LEO constellation or repeating ground-track orbit, verified via preliminary calculations or STK.",
+      "Define formal, quantitative engineering requirements in your concept section, detailing parameters such as ground sample distance (resolution), spectral bands for coral monitoring, and required revisit frequency.",
+      "Refine report consistency and formatting by aligning your narrative text with your Gantt chart milestones, adding figure captions, and converting bare URL links into formal bibliographic citations."
+    ],
+    "criteria": {
+      "C1": "In 'Mission Concept & Rationale', you articulated a strong environmental need and clearly identified marine scientists as end users. To achieve 'Accomplished', define quantitative mission requirements—such as spatial resolution, spectral bands, and revisit frequency—and replace bare URLs with formal academic citations to support your mission goals.",
+      "C2": "Your weekly Gantt chart and task breakdown in 'Project Plan & Preliminary Progress' clearly show project feasibility. To reach 'Accomplished', add explicit contingency plans for potential technical delays, clarify how individual tasks connect directly to your mission narrative, and identify specific literature and software sources you plan to use.",
+      "C3": "While you identified orbit selection as a priority, claiming a 600 km geostationary orbit violates fundamental orbital mechanics (GEO requires ~35,786 km over the equator). To reach 'Adequate' or 'Accomplished', conduct viable preliminary trade-offs (e.g., LEO vs. GEO), and include concrete technical calculations or preliminary STK simulation results.",
+      "C4": "Your report has a clear, readable structure with helpful subheadings. To attain 'Accomplished', ensure visual figures include descriptive captions, eliminate scheduling discrepancies between your text (Weeks 7–8) and Gantt chart (Weeks 9–10), and adopt consistent, standard bibliographic referencing instead of bare URLs."
+    }
+  }
+}

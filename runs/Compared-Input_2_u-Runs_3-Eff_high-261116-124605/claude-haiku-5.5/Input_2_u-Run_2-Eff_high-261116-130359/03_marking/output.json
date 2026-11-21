@@ -1,0 +1,172 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The customers are the Great Barrier Reef Marine Park Authority, which uses bleaching maps to direct in-water surveys and management responses"
+        }
+      ],
+      "reasoning": "Covers primary mission, rationale against existing aerial and satellite monitoring, single-spacecraft justification, and operator and customers in detail. Claims are referenced to literature [1]-[6]. Minor gaps: some background claims (e.g. reliance on reefs) are uncited, and the introduction is a little verbose."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "sin β = cos 97.79° / cos 5.2° = −0.1355 / 0.9959 = −0.136, so β = −7.8°"
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "With a 4 m² sail the satellite re-enters about two years after the end of the mission."
+        },
+        {
+          "where": "Figure 1",
+          "quote": "STK 3D view of the ZYZZsat orbit at two times 12 hours apart (generated in STK 11)."
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "the part of an overhead pass above 10° is 510 s of 771 s"
+        }
+      ],
+      "reasoning": "Thorough, largely accurate design: launch options compared, J2 inclination and period verified, drag decay reproduced, access report and STK figures supplied, and EOL justified. Weaknesses: the 510 s/10° contact calculation and the 34-minute eclipse are asserted without working, the daily data volume assumes an unexplained 1,000 km strip, and only one ground station is considered."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations."
+        },
+        {
+          "where": "3 Conclusion",
+          "quote": "a second satellite in the same orbit plane would halve it."
+        }
+      ],
+      "reasoning": "Recaps key quantitative results and draws appropriate conclusions. It identifies specific limitations (Vega C status, fluid lensing at 5 m, missing X-band link budget, 45-day mapping) and next steps. It is somewhat summary-heavy, with less analysis of trade-offs beyond what the body already gives."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "Hundreds of millions of humans rely on reefs for food, natural protection, jobs, and tourism."
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "but this is not even the full extent of their nurture."
+        },
+        {
+          "where": "Figure 2",
+          "quote": "Figure 2: Inclination required for a sun-synchronous orbit as a function of altitude."
+        }
+      ],
+      "reasoning": "Clear structure with executive summary, numbered sections, labelled tables and figures, and a bibliography whose 15 entries all match in-text citations. Deductions: some claims are uncited, Figure 2 has no source, and a few phrasings are informal or awkward."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "Hundreds of millions of humans rely on reefs for food, natural protection, jobs, and tourism."
+        }
+      ],
+      "reasoning": "Placeholder duplicate; see C4 above."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction: Number of spacecraft"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction: Users"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit: Manoeuvres"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3 Orbit; Appendix A"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Appendix A: STK files and settings"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "1 Introduction; Figure 2"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.2 Launch",
+      "issue": "Vega is quoted for a 700 km polar orbit, but the design uses 600 km. The mismatch is not addressed, and the dispenser release altitude is unconfirmed."
+    },
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "The 10° elevation contact fraction is stated as 510 s of 771 s (about 66%), not the 'about 60 percent' claimed, and no working is shown."
+    },
+    {
+      "where": "Table 6",
+      "issue": "The daily data budget assumes one 60 km × 1,000 km strip per day without justification, and 2,000 s is used for '34 minutes' (2,040 s)."
+    },
+    {
+      "where": "2.3 Orbit",
+      "issue": "The 34-minute eclipse duration and battery sizing are asserted without calculation, despite the eclipse depending on beta angle at the 08:45 node."
+    },
+    {
+      "where": "2.5 Mission Duration & EOL",
+      "issue": "Lifetime ≈ H/rate is a crude estimate, and the stated range of months to years is not derived from the density variation."
+    }
+  ],
+  "overall": "Strong, technically grounded preliminary design with verified orbit and drag calculations, STK support and clear structure. Main deductions are unexplained assumptions in the data budget and contact-time figures, a Vega altitude mismatch, and several uncited claims."
+}

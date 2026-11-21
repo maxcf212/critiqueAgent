@@ -1,0 +1,144 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are well chosen and justified. However, the availability scenario's response measure ('stay up most of the time') is vague and not objectively measurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "## Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear recommendation of a modular monolith justified by two detailed, scenario-specific trade-offs (team size/overhead and root cause of performance issues), with explicit downsides acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "## Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "Parts (a) and (b) are correct (99.30% and 5.03/3.5 depending on hours; 720*0.00699 ≈ 5.03h, student calculated 3.5h due to arithmetic error). In (c), the student forgot to multiply A_pay by the other series components."
+    },
+    {
+      "id": "C4",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "## Question 4",
+          "quote": "In the Open state calls pass through normally. When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed"
+        }
+      ],
+      "reasoning": "The student inverted the fundamental states of the Circuit Breaker (stated Open passes calls and Closed blocks them). Furthermore, no drawback or tuning consideration was provided."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "## Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "The student misinterprets CAP by claiming a distributed network can 'give up partition tolerance' (CA) during network partitions; one must choose CP (sacrificing availability)."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "## Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision, and Consequences are present and specific, but Consequences are entirely positive; no negative consequence or trade-off (e.g. operational complexity, eventual consistency) is stated."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "## Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "## References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed. Upper Saddle River, NJ, USA: Addison-Wesley, 2012."
+        }
+      ],
+      "reasoning": "Clear writing within word limits, but citation [2] is cited in Question 4 without appearing in the References section."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "## Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "## Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "## Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "## Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "## Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "## Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "## References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "## Question 3",
+      "issue": "Arithmetic error in (b): 0.00699 * 720 = 5.03 hours, not 3.5 hours. In (c), only the payment subsystem availability was reported instead of multiplying by the other series components (0.9995 * 0.999 * 0.9995 * 0.999975 = 99.80%)."
+    },
+    {
+      "where": "## Question 4",
+      "issue": "Circuit Breaker states are inverted: Closed is normal operation where calls pass through; Open trips and fails fast."
+    },
+    {
+      "where": "## Question 5",
+      "issue": "Network partitions cannot be 'given up' in distributed systems under CAP; when a partition occurs, one must trade off Availability for Consistency (CP)."
+    }
+  ],
+  "overall": "A well-structured submission with strong architectural reasoning in Q2. However, there are conceptual errors in Circuit Breaker states and CAP theorem, calculation errors in Q3, and missing negative consequences in the ADR."
+}

@@ -1,0 +1,155 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "menu p95 stays under 2 s, under 0.1% of non-payment requests fail"
+        }
+      ],
+      "reasoning": "Performance and availability justified from lunch peak, p95 and outage. Both scenarios list all six parts with measurable response measures including p95 thresholds, failure rates and recovery time."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets)"
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently"
+        }
+      ],
+      "reasoning": "Clear modular monolith recommendation. Two scenario-specific trade-offs: 5-developer operational overhead and single-VM plus rolling-deployment fixes. Downside of shared fate and scaling explicitly accepted."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975"
+        }
+      ],
+      "reasoning": "Series multiplication, parallel payment calculation and downtime using 720 hours all correct. Results 99.30% 5.0h and 99.80% 1.5h to requested precision with working shown."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Too sensitive and it opens on a brief blip"
+        }
+      ],
+      "reasoning": "Circuit Breaker correctly described with Closed Open Half-Open, applied to payment hang preserving browsing, plus tuning threshold and open-state drawback."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "show a slightly stale menu from a cache (Redis with a 60-second TTL)"
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create"
+        }
+      ],
+      "reasoning": "Menu AP vs order CP both justified, CAP partition trade-off stated correctly, concrete techniques Redis TTL and idempotency key with fail-fast CP behaviour named."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "The queue is one more component for five developers to run and monitor."
+        }
+      ],
+      "reasoning": "ADR has specific Context on synchronous tablet loss and p95, Decision RabbitMQ worker retry, positive latency and offline benefits and negative ops at-least-once and paid-before-seen consequences."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman,"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Source: students using the mobile app."
+        }
+      ],
+      "reasoning": "Headings Question 1 through Question 6 in order, all answers within 150 words, precise terminology, in-text [1][2] citations and IEEE reference list."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "Outstanding submission. All calculations correct, trade-offs scenario-specific, patterns and CAP correctly applied. Meets word, heading and IEEE requirements. No technical errors."
+}

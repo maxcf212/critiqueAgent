@@ -1,0 +1,250 @@
+{
+  "total": 37.0,
+  "total_max": 40.0,
+  "percent": 92.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Two attributes are chosen and justified from the scenario. Both scenarios have all six parts, and both response measures are numeric and testable. Word count may slightly exceed 150, which is handled under C7.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear recommendation with trade-offs tied to team size, the single VM and the 20-minute weekly downtime. The downside is acknowledged. The answer is likely over 150 words, which is penalised under C7 rather than here.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The lunchtime slowness comes from a single virtual machine and is fixed by running several instances",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "Recomputed: (a) 99.30%, 5.0 h; (b) 5.0 h; (c) 0.999975 and 99.80%, 1.5 h. All correct with working and the requested precision.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A_new = 0.9995 × 0.999 × 0.9995 × 0.999975 = 0.99798",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99798) × 720 = 0.00202 × 720 = 1.46, so 1.5 hours per month.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is appropriate and its states are explained correctly. It is applied to the 25-minute outage, and tuning and drawback considerations are given.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "Both choices are justified and CAP is used correctly. Caching with TTL is named for browsing. The payment technique is weaker, since an idempotency key is more about duplicate handling than consistency, so 5 rather than 6.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "This is the AP choice, with eventual consistency.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are all present and specific. Both positive and negative consequences are given.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "If a tablet is offline the order is lost, and these calls add to the 4.2 s p95.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 4.0,
+      "points": 2.0,
+      "max": 4.0,
+      "reasoning": "Question 2 is clearly over 150 words, and Question 1 is likely also over. Multiple answers exceed the limit. Headings and IEEE references are present, and the writing is clear.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "First, independent scaling versus operational overhead.",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 5",
+      "issue": "An idempotency key prevents duplicate charges but is not a consistency technique. A stronger choice would be a consensus or quorum-based write, or a single-leader transaction for payments."
+    },
+    {
+      "where": "Question 1",
+      "issue": "The availability scenario bundles three response measures into one line, which makes it harder to test."
+    }
+  ],
+  "overall": "Strong, accurate calculations and a well-argued ADR and resilience answer. Main deductions: several answers exceed 150 words, assumptions are not explicitly stated, and the idempotency key is a weak consistency technique. Estimated total 37/40.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 15,
+    "quotes_found": 15,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You scored strongly on the core content: well-chosen quality attributes, correct availability calculations, a well-applied Circuit Breaker answer and a clear, specific decision record. Your main deductions come from answers that exceed the 150-word limit, unstated assumptions, and a weak consistency technique for payments. Your estimated total is 37/40.",
+    "next_steps": [
+      "Trim Questions 1 and 2 (and check the others) to 150 words or fewer, keeping the trade-offs and scenario-specific reasoning.",
+      "Replace the idempotency key in Question 5 with a true consistency technique for payments, such as a single-leader transaction or a quorum-based write, and explain how it preserves consistency.",
+      "State your assumptions explicitly in the calculations and design answers, and make each Question 1 response measure a separate, testable statement."
+    ],
+    "criteria": {
+      "C1": "You chose two attributes, performance and availability, and justified them clearly from the lunchtime load of 900 orders and the 4.2 s p95 that causes abandoned orders. Both scenarios have all six parts and numeric response measures. The availability measure bundles three measures into one line, which makes it harder to test. Separating them would strengthen this answer. Scored 6/6.",
+      "C2": "Your recommendation is clear and tied to the scenario: five developers running eight or more services, the single virtual machine behind the lunchtime slowness, and the 20-minute weekly downtime. You also acknowledge the downside that modules cannot be scaled independently. Scored 6/6.",
+      "C3": "All three parts are correct, with working shown to the requested precision: 99.30% and 5.0 h for (a), 5.0 h for (b), and 99.80% and 1.5 h for (c). Scored 8/8.",
+      "C4": "Circuit Breaker is an appropriate choice. You explained its mechanism correctly, applied it to the 25-minute outage and gave a tuning consideration, noting that the threshold must come from real latency data. Scored 5/5.",
+      "C5": "Your browsing choice (AP with eventual consistency, supported by caching with TTL) is justified and your CAP reasoning is correct. The payment technique is the weak point: an idempotency key prevents duplicate charges but is not a consistency technique. Scored 5/6.",
+      "C6": "Context, Decision and Consequences are all present and specific to CampusEats. You give both positive and negative consequences, including the extra queue component for five developers and the lost orders from offline tablets. Scored 5/5.",
+      "C7": "Your writing is clear and you use the required headings and IEEE-style references. However, several answers exceed the 150-word limit, with Question 2 clearly over. The references criterion is only partially met, so check that every source follows IEEE style fully. Scored 2/4."
+    }
+  }
+}

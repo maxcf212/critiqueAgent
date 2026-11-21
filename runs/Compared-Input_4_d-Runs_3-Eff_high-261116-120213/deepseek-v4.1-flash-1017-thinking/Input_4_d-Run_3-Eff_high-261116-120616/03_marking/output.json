@@ -1,0 +1,180 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are well justified and the performance scenario is measurable. The availability scenario has all six parts but its response measure is vague, so it is not measurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation with two scenario-specific trade-offs (team size/ops overhead, known problems not caused by monolith) and an acknowledged downside."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "Part (a) is correct, but (b) should be 5.0 hours and (c) should multiply all components, giving about 99.80% and 1.5 hours. Two parts are wrong."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        },
+        {
+          "where": "Question 4",
+          "quote": "the breaker would have closed within seconds of the provider slowing down."
+        }
+      ],
+      "reasoning": "Circuit Breaker is named and applied, but the Open/Closed states are reversed: Open should fail fast and Closed should pass calls. The outage application is therefore also wrong."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both choices are reasonable and menu caching is a concrete technique. However, CAP is misused (partition tolerance cannot be given up) and no concrete payment technique is named."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are present and specific, but the consequences are one-sided: only positive outcomes are listed, with no negative consequence."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed. Upper Saddle River, NJ, USA: Addison-Wesley, 2012."
+        }
+      ],
+      "reasoning": "Writing is clear and headings are used, but Q2 is about 182 words (over 150) and reference [2] is cited without a corresponding entry in the reference list."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Part (b): 0.00699 × 720 = 5.03 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c): new availability must multiply all components; result is about 99.80% and 1.5 hours downtime, not 99.9975% and 0.018 hours."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit Breaker states reversed: Open should fail fast, Closed should pass calls; 'closed within seconds' should be 'opened'."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP misuse: cannot give up partition tolerance in a distributed system; during partition choose CP or AP. No concrete payment technique named."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence in ADR."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure is not measurable."
+    },
+    {
+      "where": "Question 2",
+      "issue": "Answer exceeds 150-word limit (about 182 words)."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [2] is cited but missing from reference list."
+    },
+    {
+      "where": "Question 1",
+      "issue": "No explicit assumptions section despite task requirement."
+    }
+  ],
+  "overall": "Strong Q2 and clear structure, but Q3 has two calculation errors, Q4 reverses circuit-breaker states, Q5 misuses CAP and omits a payment technique, Q6 lacks a negative consequence, Q1 has a non-measurable measure, Q2 exceeds 150 words, and [2] is missing from references."
+}

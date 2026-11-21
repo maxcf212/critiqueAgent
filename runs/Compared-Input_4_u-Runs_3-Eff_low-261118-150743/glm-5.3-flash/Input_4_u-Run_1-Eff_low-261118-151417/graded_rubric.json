@@ -1,0 +1,211 @@
+{
+  "total": 39.0,
+  "total_max": 40.0,
+  "percent": 97.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are clearly justified from scenario data (900 orders/hour, 4.2 s p95, payment outage). Both scenarios have all six parts with measurable response measures.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear recommendation with two trade-offs tied to team size, load profile and known problems; downside explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The lunchtime slowness comes from a single virtual machine and is fixed by running several instances",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "Verified: series product 0.99301 (99.30%), downtime 5.0 h; parallel payment 0.999975, new availability 99.80%, downtime 1.5 h. All parts correct with working and required precision.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker named, mechanism (Closed/Open/Half-Open) explained correctly, applied to the payment outage, with both a tuning consideration and a drawback.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Both choices justified, CAP theorem stated correctly (P not optional), concrete techniques named for each case (Redis TTL cache; idempotency keys).",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "the order is rejected with a clear error rather than risk an inconsistent charge",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Redis with a 60-second TTL",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences all present and scenario-specific, with multiple positive and negative consequences.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Headings used in order, IEEE citations and reference list present, terminology precise. Question 2 appears marginally over the 150-word limit; no other format issues.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite for the next 12 months.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "A strong, technically accurate submission. All Q3 calculations verified correct with working shown. Every question is well justified with scenario-specific reasoning, correct CAP usage, and balanced consequences. Only minor issue is Question 2 possibly slightly exceeding the 150-word limit.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 9,
+    "quotes_found": 9,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "Excellent work across all six questions. Your Q1 scenarios were complete and measurable, Q3 calculations were fully correct with working shown, and your Q2, Q4, Q5 and Q6 answers showed scenario-specific reasoning, correct CAP usage and balanced consequences. The only gap is format: Question 2 appears marginally over the 150-word limit, which held Communication at Proficient. Tighten word counts to reach the top level there.",
+    "next_steps": [
+      "Trim Question 2 to 150 words or fewer by cutting general background and keeping the recommendation and trade-offs",
+      "Check every answer against the word limit before submission, as one overrun cost a mark here",
+      "Keep citing sources in IEEE style and using the required headings, which you did well"
+    ],
+    "criteria": {
+      "C1": "Excellent. You chose performance and availability and justified them from scenario data (900 orders/hour, 4.2 s p95, payment outage). Both scenarios had all six parts with measurable response measures, e.g. 'p95 response time under 1.5 s and no requests dropped'. This is exactly what the top rubric level requires; maintain this standard.",
+      "C2": "Excellent. Your modular monolith recommendation was justified by two scenario-specific trade-offs (team size, lunchtime load from a single VM) and you explicitly acknowledged the downside that modules cannot be scaled independently. To stay at this level, keep trade-offs anchored to the scenario rather than textbook points.",
+      "C3": "Excellent. All parts verified correct: series availability 0.99301 (99.30%), downtime 5.0 h; parallel payment 0.999975 giving 99.80% and 1.5 h downtime. Working was shown to the requested precision. Keep showing your working step by step, as this is what full marks depend on.",
+      "C4": "Excellent. You named the Circuit Breaker pattern, explained the Closed/Open/Half-Open mechanism correctly, applied it to the payment outage, and gave both a tuning consideration (thresholds from real latency data) and a drawback. This covers every element of the top level; sustain this completeness in future answers.",
+      "C5": "Excellent. Both consistency/availability choices were justified, CAP was used correctly (P not optional), and concrete techniques were named for each case (Redis with 60-second TTL; idempotency keys). Your framing of rejecting orders with a clear error rather than risking inconsistent charges was strong applied reasoning.",
+      "C6": "Excellent. Context, Decision and Consequences were all present and scenario-specific, with both positive and negative consequences, e.g. the queue being one more component for five developers to run. Balanced consequences are what distinguish Excellent from Proficient; you did this well.",
+      "C7": "Proficient. Headings were used in order, IEEE citations and a reference list were present, and terminology was precise. The single issue was Question 2 appearing marginally over the 150-word limit. To reach Excellent, ensure every answer is within 150 words and double-check counts before submitting."
+    }
+  }
+}

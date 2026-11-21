@@ -1,0 +1,140 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "A near-real-time relay to monitoring stations on the ground would allow marine and conservation scientists to more accurately predict and react to coral bleaching events."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        }
+      ],
+      "reasoning": "Primary mission, rationale (monitoring Great Barrier Reef bleaching via fluid lensing), and constellation size (1 spacecraft) are clearly stated. However, specific users, including commercial/government operators and paying customers, are vaguely addressed."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Mission Design",
+          "quote": "The Vega VV flights launch from the Guiana Space Centre’s Spaceport, in Kourou, French Guiana."
+        },
+        {
+          "where": "Orbit",
+          "quote": "Specifically, an altitude of 600km requires a mean inclination of 87.7924^{\\circ} for the satellite to remain sun-synchronous."
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "a Tasmanian facility is selected – the Mount Pleasant Radio Observatory)."
+        }
+      ],
+      "reasoning": "Launch details and ground station access are reasonably simulated using STK. However, major technical errors exist: Kourou's latitude is stated as 45.05°N (actually ~5.2°N), and SSO inclination at 600 km is given as 87.8° (prograde, physically impossible; SSO requires ~97.8°). EOL section cuts off mid-sentence."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A polar sun-synchronous orbit allows for consistent illumination of the oceans while maintaining a constant sun angle."
+        }
+      ],
+      "reasoning": "The conclusion summarizes the main body findings but remains fairly generic and reiterates basic design choices without addressing limitations or technical trade-offs."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "It acts like a regular sail, utilising a large surface area to ‘ and is suitable for low-earth orbit altitudes [10]."
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        }
+      ],
+      "reasoning": "The layout has standard headings and STK visuals, but suffers from broken text (e.g. cut-off sentence in EOL), malformed bibliography entries, and explicitly prohibited sources (Wikipedia cited as source [6])."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Mission Design"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R11",
+      "met": "no",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Mission Design",
+      "issue": "Stated Kourou latitude as 45.05°N instead of ~5.23°N."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Incorrect SSO inclination: 87.79° is prograde; a 600 km circular SSO requires approximately 97.79° retrograde inclination (even though MATLAB plot correctly shows ~97.8°)."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Sentence terminates prematurely in the drag sail description."
+    }
+  ],
+  "overall": "The submission addresses most rubric requirements, applying STK analysis to launch, ground passes, and orbits for an Australian reef-monitoring mission. However, serious technical mistakes (wrong launch site latitude, prograde inclination for SSO) and formatting/referencing flaws (incomplete sentences, Wikipedia citation) reduce the technical quality to an adequate standard."
+}

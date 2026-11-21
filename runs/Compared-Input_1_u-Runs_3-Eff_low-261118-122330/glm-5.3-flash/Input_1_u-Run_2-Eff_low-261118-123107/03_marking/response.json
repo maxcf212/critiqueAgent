@@ -1,0 +1,76 @@
+{
+  "id": "chatcmpl-c3304ce3-33b9-48c4-9475-92bb0145adc4",
+  "object": "chat.completion",
+  "created": 1794965473,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"id\":\"C1\",\"level\":\"Accomplished\",\"mark\":9,\"evidence\":[{\"where\":\"Mission Concept & Rationale\",\"quote\":\"Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef\"},{\"where\":\"Mission Concept & Rationale\",\"quote\":\"Its customers are the Great Barrier Reef Marine Park Authority, which needs up-to-date bleaching maps\"}],\"reasoning\":\"Clear goal, four quantified objectives, users (AIMS, GBRMPA, CSIRO, BoM) tied explicitly to needs, and literature cited throughout. Only minor gap: no explicit requirements table with verifiable thresholds beyond the objectives.\"},{\"id\":\"C2\",\"level\":\"Accomplished\",\"mark\":9,\"evidence\":[{\"where\":\"Project Plan\",\"quote\":\"Project work is divided into weeks in the Gantt chart in Figure 1\"},{\"where\":\"Project Plan\",\"quote\":\"Relax objective 1 to fortnightly coverage, or assess a second satellite in the same orbit plane\"}],\"reasoning\":\"Detailed Gantt chart with task descriptions, explicit logic linking plan order to mission dependencies, a float week, and a risk/contingency table. Information sources tabulated with planned use. Very robust.\"},{\"id\":\"C3\",\"level\":\"Accomplished\",\"mark\":8,\"evidence\":[{\"where\":\"Preliminary Progress\",\"quote\":\"Period | T = 2π√(a³/μ) | 5,801 s = 96.7 min\"},{\"where\":\"Preliminary Progress\",\"quote\":\"Weekly coverage (objective 1) is therefore not guaranteed by one satellite at this altitude and resolution.\"}],\"reasoning\":\"Completed background research, STK tutorials, and correct hand calculations (period, SSO inclination, ground-track shift all check out) plus interpretation of the swath/coverage trade and an initial STK scenario. Strong, on-track progress.\"},{\"id\":\"C4\",\"level\":\"Accomplished\",\"mark\":9,\"evidence\":[{\"where\":\"References\",\"quote\":\"[7] J. R. Wertz, D. F. Everett, and J. J. Puschell, Eds., Space Mission Engineering: The New SMAD.\"},{\"where\":\"Project Plan\",\"quote\":\"Figure 1: Project Gantt chart, Weeks 2 to 10 (gold = completed, blue = planned, red lines = report deadlines).\"}],\"reasoning\":\"Logical structure, clear writing, labelled figures/tables with captions, consistent IEEE-style citations matching the reference list. Minor issues: some references lack titles/complete details, and reference [11] is a weak source.\"}],\"requirements\":[{\"id\":\"R1\",\"met\":\"yes\",\"where\":\"Mission Concept & Rationale\"},{\"id\":\"R2\",\"met\":\"yes\",\"where\":\"Preliminary Progress — orbit hand calculations, launch/orbit tasks in plan\"},{\"id\":\"R3\",\"met\":\"yes\",\"where\":\"Project Plan — 'The design will be completed in STK'\"},{\"id\":\"R4\",\"met\":\"yes\",\"where\":\"Project Plan — Figure 1 Gantt chart\"},{\"id\":\"R5\",\"met\":\"yes\",\"where\":\"Project Plan — Table 2 planned information sources\"},{\"id\":\"R6\",\"met\":\"yes\",\"where\":\"Preliminary Progress — Table 3 hand calculations and STK setup\"}],\"technical_issues\":[{\"where\":\"Preliminary Progress\",\"issue\":\"Ground-track shift quoted at the equator (24.2°) but reef is at ~18–20°S where tracks converge; the five-pass coverage conclusion is conservative but the reasoning should note latitude scaling.\"},{\"where\":\"References\",\"issue\":\"References [8] and [11] lack full titles/authors; [11] (ResearchGate) is a low-quality source.\"}],\"overall\":\"Excellent preliminary report: well-justified Australian reef-monitoring mission, quantified objectives, robust Gantt plan with contingencies, correct orbit calculations, and consistent presentation. Minor referencing and latitude-scaling caveats only.\"}",
+        "refusal": null,
+        "reasoning": "Strong submission. C1: accomplished, 9. C2: accomplished, 9. C3: accomplished, 8. C4: accomplished, 9. Requirements all met. Technical check: period calc: a=6978, a³/μ = 6978³/398600 ≈ 3.398e11/398600 ≈ 852,900 s²? sqrt ≈ 923.5 s? Wait: T=2π√(a³/μ). a³=6978³≈3.398e11 km³. /398600 = 852,700. sqrt=923.4. ×2π=5802 s. ✓ 96.7 min, 14.9 orbits/day ✓. Ground track shift: 360×5801/86164=24.25° ✓. SSO inclination ~97.8° at 600km ✓. Swath 60 km reasonable. Good."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5822,
+    "completion_tokens": 1033,
+    "total_tokens": 6855,
+    "reasoning_tokens": 215,
+    "completion_tokens_details": {
+      "reasoning_tokens": 215,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 5632,
+    "prompt_tokens_details": {
+      "cached_tokens": 5632,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 190,
+    "cost": 0.0004697,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_37ee2c72-df80-4fdb-9b5a-bba0666f53c2",
+  "x_nanogpt_pricing": {
+    "amount": 0.0004697,
+    "currency": "USD",
+    "cost": 0.0004697,
+    "inputTokens": 5822,
+    "outputTokens": 1033,
+    "cacheReadInputTokens": 5632,
+    "cacheCost": 0.0001408,
+    "requestId": "req_5aeb9b5b-7fb2-418b-bfd4-3cbd4f8f317b",
+    "costUsd": 0.0004697,
+    "usdCost": 0.0004697,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "hit",
+      "readTokens": 5632
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 5632
+  }
+}

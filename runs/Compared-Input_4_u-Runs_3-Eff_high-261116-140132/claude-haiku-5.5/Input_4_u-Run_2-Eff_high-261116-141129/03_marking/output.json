@@ -1,0 +1,172 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        }
+      ],
+      "reasoning": "Two attributes are chosen and tied to scenario facts (900 orders, 4.2 s p95, payment slowdown). Both scenarios have all six parts, and both response measures are quantified and testable. Word count is at the limit but compliant."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The lunchtime slowness comes from a single virtual machine and is fixed by running several instances"
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation with two trade-offs tied to team size and known problems (single VM, weekly downtime). The downside is explicitly acknowledged. The 'eight or more services' figure is an unstated assumption, which slightly weakens it but does not lower the level."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "The availability of placing an order is 99.30%."
+        },
+        {
+          "where": "Question 3",
+          "quote": "The new availability of placing an order is 99.80%."
+        }
+      ],
+      "reasoning": "Recomputed: (a) 0.99301 gives 99.30%; (b) 0.00699×720 = 5.03, so 5.0 h; (c) A_pay = 0.999975, A_new = 0.997976 gives 99.80%, and downtime 1.46 gives 1.5 h. All correct, working shown, precision as requested."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data."
+        }
+      ],
+      "reasoning": "Circuit Breaker is an appropriate pattern with correct Closed/Open/Half-Open mechanics. It is applied directly to the 25-minute payment hang, and tuning and drawback are discussed. The claim 'opened within seconds' is asserted without support."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says that during a partition a system must give up either consistency or availability"
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge."
+        }
+      ],
+      "reasoning": "Both choices are justified and CAP is stated correctly. Redis TTL caching is a concrete AP technique. The idempotency key is concrete but mainly prevents duplicate charges rather than providing partition-time consistency, so the CP mechanism is weakly named."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Delivery is at-least-once, so the tablet must ignore duplicate order IDs."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are all present and specific to CampusEats (4.2 s p95, offline tablets, five developers). Positive and negative consequences are both given, including the at-least-once and 'paid before outlet sees it' risks."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman"
+        },
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        }
+      ],
+      "reasoning": "Headings are correct, citations are IEEE-style and in-text, and the writing is clear. Answers are at or near the 150-word limit (Q1 and Q5 are borderline). No assumptions statement is provided despite the explicit requirement, so this falls to Proficient."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Assumes the four component availabilities are independent and in series without stating this assumption, and does not state the component mapping."
+    },
+    {
+      "where": "Question 2",
+      "issue": "'Eight or more services' is an unstated assumption not derived from the scenario."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Idempotency keys prevent duplicate charges but do not themselves enforce consistency during a partition; the CP mechanism (e.g., quorum or consensus) is not named."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Claim that the breaker 'would have opened within seconds' is asserted without a supporting threshold or timing calculation."
+    }
+  ],
+  "overall": "A strong, well-reasoned submission with correct availability calculations and a sound ADR. Main gaps: no explicit statement of assumptions as required, a weak consistency technique for the CP choice, and some unsupported figures. Answers sit at the word limit."
+}

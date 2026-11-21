@@ -1,0 +1,265 @@
+{
+  "total": 29.0,
+  "total_max": 40.0,
+  "percent": 72.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Attributes are well justified and the performance scenario is measurable, but the availability response measure is not measurable, so it fits Proficient rather than Excellent.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The two most important quality attributes are performance and availability",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation with scenario-specific trade-offs on team size, load, and deployment problems, plus an acknowledged downside.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) and (b) are correct with working. Part (c) wrongly treats payment availability as end-to-end availability; correct end-to-end is about 99.80% and downtime about 1.5 hours/month.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is correctly explained and applied to the outage, but no explicit drawback or tuning consideration is given.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds)",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Both choices are reasonable and techniques are named, but CAP is misused: partition tolerance cannot simply be given up in a distributed system; payments should be CP during partition.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "each order request carries an idempotency key",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision, and Consequences are present and specific, but consequences are one-sided with no negative consequence.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Writing is clear and IEEE-style references are present, but Question 2 exceeds the 150-word limit.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months.",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) uses payment availability as end-to-end availability; correct end-to-end is about 99.80% with about 1.5 hours/month downtime."
+    },
+    {
+      "where": "Question 4",
+      "issue": "No explicit drawback or tuning consideration is stated for Circuit Breaker."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP theorem is misused; partition tolerance cannot be given up, and payments should favour consistency during a partition."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence is included in the ADR."
+    },
+    {
+      "where": "Question 2",
+      "issue": "Answer exceeds the 150-word limit."
+    },
+    {
+      "where": "References",
+      "issue": "No assumptions are stated as required."
+    }
+  ],
+  "overall": "Strong scenario-based answers and a sound modular-monolith recommendation. Main errors are Q3(c) end-to-end availability, Q5 CAP misuse, Q6 missing a negative consequence, Q2 exceeding the word limit, and missing measurable/tuning detail in Q1/Q4.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You gave strong scenario-based answers, especially Q2’s modular-monolith recommendation with specific trade-offs and an acknowledged downside. Main fixes: Q3(c) end-to-end availability, Q5 CAP misuse, Q6 missing negative consequence, Q2 over the word limit, and missing measurable/tuning detail in Q1/Q4. These are targeted revisions rather than a rewrite.",
+    "next_steps": [
+      "Recompute Q3(c) end-to-end availability as the product of all relevant components (about 99.80%, about 1.5 hours/month downtime) and show the working to the requested precision.",
+      "Revise Q5 so CAP is used correctly: partition tolerance cannot be given up; during a partition payments should favour consistency, and each case needs a concrete technique.",
+      "Make Q1’s availability response measure measurable, add an explicit Circuit Breaker drawback/tuning consideration in Q4, add a negative consequence in Q6, and trim Q2 to 150 words."
+    ],
+    "criteria": {
+      "C1": "You justified performance and availability well, and your performance scenario is measurable. To reach Excellent, make the availability response measure measurable too (Q1 currently says “stay up most of the time”) and ensure both scenarios have all six parts. Keep the scenario-specific justification.",
+      "C2": "Excellent: your modular-monolith recommendation is clear and tied to team size, load profile and deployment problems, and you acknowledge the downside that modules cannot scale independently. Keep linking trade-offs to the CampusEats scenario. Note the 150-word limit is addressed under C7.",
+      "C3": "You showed correct working for Q3(a) and (b). In Q3(c), you used payment availability as end-to-end availability; the correct end-to-end figure is about 99.80% with about 1.5 hours/month downtime. For Excellent, recompute the full chain, show working, and report to the requested precision.",
+      "C4": "You correctly named and explained Circuit Breaker and applied it to the outlet-tablet outage, including a threshold example. To reach Excellent, add at least one explicit drawback or tuning consideration (for example, how you choose the failure threshold/window or what risk the breaker introduces).",
+      "C5": "Your choices are reasonable and you name idempotency keys. However, Q5 misuses CAP: partition tolerance cannot simply be given up in a distributed system, and payments should favour consistency during a partition. For Excellent, correct the CAP explanation and name a suitable concrete technique for each case.",
+      "C6": "Your ADR has specific Context, Decision and Consequences for the synchronous tablet call. To reach Excellent, add at least one negative consequence alongside the positive response-time consequence—state what becomes harder or what new risk you accept.",
+      "C7": "Your writing is clear and IEEE-style references are present. Q2 exceeds the 150-word limit, so to reach Excellent keep every answer within 150 words, use precise terminology and required headings, and include the required assumptions in References."
+    }
+  }
+}

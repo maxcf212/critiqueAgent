@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-2620f36a-8c8f-477e-bb3f-1224ad7cfa3b",
+  "object": "chat.completion",
+  "created": 1794975260,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"id\":\"C1\",\"level\":\"Excellent\",\"mark\":6,\"evidence\":[{\"where\":\"Question 1\",\"quote\":\"Response measure: the p95 response time is under 1.5 s and no requests are dropped.\"}],\"reasoning\":\"Performance and availability are clearly justified from scenario data (900 orders/hour, 4.2 s p95, payment outage). Both scenarios have all six parts with measurable response measures.\"},{\"id\":\"C2\",\"level\":\"Excellent\",\"mark\":6,\"evidence\":[{\"where\":\"Question 2\",\"quote\":\"The lunchtime slowness comes from a single virtual machine and is fixed by running several instances\"},{\"where\":\"Question 2\",\"quote\":\"The downside I accept is that modules cannot be scaled independently\"}],\"reasoning\":\"Clear recommendation with two trade-offs tied to team size, load profile and known problems; downside explicitly acknowledged.\"},{\"id\":\"C3\",\"level\":\"Excellent\",\"mark\":8,\"evidence\":[{\"where\":\"Question 3\",\"quote\":\"A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301\"}],\"reasoning\":\"Verified: series product 0.99301 (99.30%), downtime 5.0 h; parallel payment 0.999975, new availability 99.80%, downtime 1.5 h. All parts correct with working and required precision.\"},{\"id\":\"C4\",\"level\":\"Excellent\",\"mark\":5,\"evidence\":[{\"where\":\"Question 4\",\"quote\":\"Tuning consideration: the threshold must come from real latency data.\"}],\"reasoning\":\"Circuit Breaker named, mechanism (Closed/Open/Half-Open) explained correctly, applied to the payment outage, with both a tuning consideration and a drawback.\"},{\"id\":\"C5\",\"level\":\"Excellent\",\"mark\":6,\"evidence\":[{\"where\":\"Question 5\",\"quote\":\"the order is rejected with a clear error rather than risk an inconsistent charge\"},{\"where\":\"Question 5\",\"quote\":\"Redis with a 60-second TTL\"}],\"reasoning\":\"Both choices justified, CAP theorem stated correctly (P not optional), concrete techniques named for each case (Redis TTL cache; idempotency keys).\"},{\"id\":\"C6\",\"level\":\"Excellent\",\"mark\":5,\"evidence\":[{\"where\":\"Question 6\",\"quote\":\"Consequences (negative): The queue is one more component for five developers to run\"}],\"reasoning\":\"Context, Decision and Consequences all present and scenario-specific, with multiple positive and negative consequences.\"},{\"id\":\"C7\",\"level\":\"Proficient\",\"mark\":3,\"evidence\":[{\"where\":\"Question 2\",\"quote\":\"I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite for the next 12 months.\"}],\"reasoning\":\"Headings used in order, IEEE citations and reference list present, terminology precise. Question 2 appears marginally over the 150-word limit; no other format issues.\"}],\"requirements\":[{\"id\":\"R1\",\"met\":\"yes\",\"where\":\"Question 1\"},{\"id\":\"R2\",\"met\":\"yes\",\"where\":\"Question 2\"},{\"id\":\"R3\",\"met\":\"yes\",\"where\":\"Question 3\"},{\"id\":\"R4\",\"met\":\"yes\",\"where\":\"Question 4\"},{\"id\":\"R5\",\"met\":\"yes\",\"where\":\"Question 5\"},{\"id\":\"R6\",\"met\":\"yes\",\"where\":\"Question 6\"},{\"id\":\"R7\",\"met\":\"yes\",\"where\":\"References\"}],\"technical_issues\":[],\"overall\":\"A strong, technically accurate submission. All Q3 calculations verified correct with working shown. Every question is well justified with scenario-specific reasoning, correct CAP usage, and balanced consequences. Only minor issue is Question 2 possibly slightly exceeding the 150-word limit.\"}",
+        "refusal": null,
+        "reasoning": "Check Q3 numbers: 0.9995×0.999×0.9995×0.995. 0.9995×0.999=0.9985005; ×0.9995=0.9980010; ×0.995=0.99301. Yes 99.30%. Downtime 5.03→5.0 ✓. (c): 0.9980010×0.999975=0.9979760 → 99.80% ✓. Downtime 0.002024×720=1.457→1.5 ✓. All correct.\n\nWord limits: Q1 ~150? Count roughly: Q1 body ~140 words, ok. Q2 ~150? Count: roughly 150—maybe slightly over. Q4 ~150. Q5 ~150. Q6 ~140. Q2: \"I recommend a modular monolith... modules: orders, menu, payments, outlets... rather than a microservices rewrite for the next 12 months.\" (~20) First para ~55, second ~55, downside ~25 → ~155. Slightly over possibly. Minor. Give Proficient 3 for C7? Citations IEEE style present, headings used. Q2 possibly slightly over 150 — Proficient 3.\n\nC1: Excellent — two attributes justified, six-part scenarios, measurable. 6? Response measures measurable yes. Give 6.\n\nC2: Excellent — two scenario-specific trade-offs, downside acknowledged. 6? Trade-offs specific. Give 6.\n\nC3: 8.\n\nC4: Excellent 5 — pattern, mechanism, applied, drawback+tuning.\n\nC5: Excellent 5 or 6 — CAP used correctly, techniques named (Redis TTL, idempotency key). 6.\n\nC6: Excellent 5 — context, decision, consequences both positive and negative.\n\nC7: 3 (Q2 possibly over limit; minor)."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3407,
+    "completion_tokens": 1208,
+    "total_tokens": 4615,
+    "reasoning_tokens": 419,
+    "completion_tokens_details": {
+      "reasoning_tokens": 419,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 3407,
+    "cost": 0.0007031,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c3a70430-b5c1-4624-b08a-a0d780e255de",
+  "x_nanogpt_pricing": {
+    "amount": 0.0007031,
+    "currency": "USD",
+    "cost": 0.0007031,
+    "inputTokens": 3407,
+    "outputTokens": 1208,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_2a702704-00e0-4c23-a41b-7cb27b3583c1",
+    "costUsd": 0.0007031,
+    "usdCost": 0.0007031,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

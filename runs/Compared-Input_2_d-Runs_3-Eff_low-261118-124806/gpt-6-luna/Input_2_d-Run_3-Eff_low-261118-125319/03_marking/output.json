@@ -1,0 +1,168 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "The spacecraft is intended to image and send data to ground stations for collation and analysis."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        }
+      ],
+      "reasoning": "The mission purpose and Australian conservation rationale are explained, and a single spacecraft is justified in terms of coverage needs, simplicity and cost. The operator and customer groups are not clearly identified, and the rationale and user discussion are not supported consistently by formal literature citations."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle"
+        },
+        {
+          "where": "Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of $ 87.7924^{\\circ} $"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "An average contact duration of almost twenty minutes was achieved"
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "A span of five years is a sound estimate of the useful lifespan"
+        }
+      ],
+      "reasoning": "The report covers launch, orbit, STK access analysis, ground station, duration and disposal, with useful simulation outputs. However, the stated inclination is inconsistent with a 600 km sun-synchronous orbit: it should be about 97.8°, not 87.79°. The launch-site latitude is also wrong, launch timing is inconsistent, and the maneuver/EOL discussion lacks a quantified disposal plan. No software files are supplied."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "After analysis of each mission segment, a fully described satellite configuration has been constructed."
+        }
+      ],
+      "reasoning": "The conclusion summarizes the proposed launcher, orbit and ground station and notes launch uncertainty. It is relevant but mostly restates design choices, does not assess key limitations or uncertainties in the evidence, and repeats the incorrect characterization of the orbit as suitable for consistent illumination."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report outlines the intended designs and procedures involved in the construction of a Earth observation satellite"
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "utilising a large surface area to ‘ and is suitable for low-earth orbit altitudes"
+        }
+      ],
+      "reasoning": "The report has a recognizable structure, executive summary, figures, tables and bibliography. However, grammar and editing problems remain, the EOL sentence is incomplete, and figure/table presentation and citations are inconsistent. The bibliography is mostly bare URLs and includes Wikipedia, which the task explicitly disallows. These issues reduce professionalism and traceability."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Launch"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "partial",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Launch",
+      "issue": "Kourou is approximately 5.2° N, not 45.05° N. The latitude comparison and launch-window reasoning therefore rely on an incorrect site coordinate."
+    },
+    {
+      "where": "Launch",
+      "issue": "The report proposes a 2025 launch using Vega E, while also stating its first launch will occur in 2024. Vega E was not an established available launcher for the proposed schedule; the launch choice and schedule require verification and contingency planning."
+    },
+    {
+      "where": "Orbit",
+      "issue": "At 600 km altitude, a circular sun-synchronous orbit requires a retrograde inclination near 97.8°. The reported 87.7924° is not sun-synchronous and conflicts with the claim of a retrograde orbit."
+    },
+    {
+      "where": "Orbit",
+      "issue": "RAAN does not indicate the launch facility's location; it specifies the inertial direction of the ascending node at a stated epoch. The orbital elements omit an epoch and use argument of latitude without specifying the reference frame or epoch."
+    },
+    {
+      "where": "Orbit",
+      "issue": "A 600 km orbit does not by itself establish adequate imaging resolution or swath coverage. No instrument resolution, swath, pointing, spectral requirements or coverage analysis is provided to substantiate reef-monitoring performance."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "The reported access durations depend on the modeled ground-station coordinates, antenna masks and link assumptions, none of which are supplied. Pass access alone does not establish communications capacity or data downlink sufficiency."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "A drag sail is proposed but its area, deployment reliability, post-mission orbit lifetime and compliance with disposal guidance are not quantified. A passive sail does not guarantee prompt re-entry from 600 km."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "The report cites Wikipedia, which is explicitly unacceptable under the task instructions; several references are incomplete bibliographic entries."
+    }
+  ],
+  "overall": "A coherent Australian reef-monitoring concept is presented with substantial mission-segment coverage and STK access outputs. Important orbital and launch-site errors undermine the design’s central claims, while users, disposal performance and supporting files are insufficiently documented. Citation and editing weaknesses also limit report quality."
+}

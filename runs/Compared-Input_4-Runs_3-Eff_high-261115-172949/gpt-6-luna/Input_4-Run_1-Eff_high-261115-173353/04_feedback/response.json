@@ -1,0 +1,63 @@
+{
+  "id": "chatcmpl-f2d9d678-8038-40f9-ba39-76735f110179",
+  "object": "chat.completion",
+  "created": 1794724480,
+  "model": "openai/gpt-6-luna",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You earned 29/40. Your strongest work is the scenario-specific modular-monolith recommendation in Q2 and the circuit-breaker explanation in Q4. To progress, make Q1’s availability target measurable, correct the end-to-end calculation in Q3(c), apply CAP precisely in Q5, and add balanced consequences in Q6. Also reduce Q2 to the 150-word limit.\",\"next_steps\":[\"Revise Q1’s availability scenario with a numerical target, correct Q3(c) by including all end-to-end components, and show the resulting availability and monthly downtime to the requested precision.\",\"Correct Q5’s CAP explanation: during a partition, consistency-focused behaviour sacrifices availability for affected requests; retain concrete techniques such as menu caching and payment idempotency.\",\"Add a negative consequence and distinguish order persistence from notification delivery in Q6; then edit Q2 to 150 words or fewer and check IEEE citation and formatting requirements.\"],\"criteria\":{\"C1\":\"You appropriately justified performance using lunch-hour demand and the p95 response target in Q1. Your availability scenario is relevant and has six parts, but “stay up most of the time” is not measurable. The Excellent level requires measurable response measures for both scenarios, such as a numerical availability target and time period.\",\"C2\":\"Your modular-monolith recommendation is excellent: Q2 links the five-person team, infrastructure overhead, VM and deployment problems, and rewrite cost to clear trade-offs, while acknowledging shared-process risk. Maintain this scenario-specific reasoning; ensure the answer also remains within the 150-word communication limit.\",\"C3\":\"Parts (a) and (b) in Q3 are correctly calculated and rounded. In part (c), you correctly calculated redundant payment availability but treated it as end-to-end availability. Recalculate using all required components, report approximately 99.80% and 1.5 hours monthly downtime, and show working to reach Excellent.\",\"C4\":\"Your Q4 circuit-breaker answer is excellent. You correctly explain the states and mechanism, apply them to the slow payment-provider outage, and give a threshold and time window as tuning considerations. Continue linking the pattern’s behaviour directly to the CampusEats failure scenario.\",\"C5\":\"Your choices and techniques in Q5 are reasonable, including cached menus and payment idempotency. However, CAP is stated imprecisely. During a partition, consistency and availability cannot both be guaranteed; consistency-focused behaviour sacrifices availability for affected requests. Correct this explanation to reach Excellent.\",\"C6\":\"Q6 includes a scenario-specific Context, Decision and Consequences, and correctly identifies faster responses. To reach Excellent, add a negative consequence such as eventual delivery, queue or worker operations, or duplicate handling. Also distinguish persistence of the paid order from delivery of its notification when discussing an offline tablet.\",\"C7\":\"Your headings, generally clear writing, numbered citations and reference list are effective. Q2 is approximately 180 words, so it exceeds the limit. The Excellent level requires every answer to be within 150 words, use precise terminology, retain the required headings, and use IEEE-style citations.\"}}",
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2620,
+    "completion_tokens": 1148,
+    "total_tokens": 3768,
+    "reasoning_tokens": 516,
+    "completion_tokens_details": {
+      "reasoning_tokens": 516,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 2620,
+    "cost": 0.0008359999999999999,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_fb799a05-c97a-4986-b9b0-d5bb4e6a18b9",
+  "x_nanogpt_pricing": {
+    "amount": 0.0008359999999999999,
+    "currency": "USD",
+    "cost": 0.0008359999999999999,
+    "inputTokens": 2620,
+    "outputTokens": 1148,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_58b5dfb6-23fc-4954-853e-d5fa3e045393",
+    "costUsd": 0.0008359999999999999,
+    "usdCost": 0.0008359999999999999,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

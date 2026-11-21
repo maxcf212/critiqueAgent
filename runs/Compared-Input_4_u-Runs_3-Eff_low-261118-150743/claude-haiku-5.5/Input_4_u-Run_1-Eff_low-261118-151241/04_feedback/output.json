@@ -1,0 +1,17 @@
+{
+  "summary": "You scored strongly on the core content: well-chosen quality attributes, correct availability calculations, a well-applied Circuit Breaker answer and a clear, specific decision record. Your main deductions come from answers that exceed the 150-word limit, unstated assumptions, and a weak consistency technique for payments. Your estimated total is 37/40.",
+  "next_steps": [
+    "Trim Questions 1 and 2 (and check the others) to 150 words or fewer, keeping the trade-offs and scenario-specific reasoning.",
+    "Replace the idempotency key in Question 5 with a true consistency technique for payments, such as a single-leader transaction or a quorum-based write, and explain how it preserves consistency.",
+    "State your assumptions explicitly in the calculations and design answers, and make each Question 1 response measure a separate, testable statement."
+  ],
+  "criteria": {
+    "C1": "You chose two attributes, performance and availability, and justified them clearly from the lunchtime load of 900 orders and the 4.2 s p95 that causes abandoned orders. Both scenarios have all six parts and numeric response measures. The availability measure bundles three measures into one line, which makes it harder to test. Separating them would strengthen this answer. Scored 6/6.",
+    "C2": "Your recommendation is clear and tied to the scenario: five developers running eight or more services, the single virtual machine behind the lunchtime slowness, and the 20-minute weekly downtime. You also acknowledge the downside that modules cannot be scaled independently. Scored 6/6.",
+    "C3": "All three parts are correct, with working shown to the requested precision: 99.30% and 5.0 h for (a), 5.0 h for (b), and 99.80% and 1.5 h for (c). Scored 8/8.",
+    "C4": "Circuit Breaker is an appropriate choice. You explained its mechanism correctly, applied it to the 25-minute outage and gave a tuning consideration, noting that the threshold must come from real latency data. Scored 5/5.",
+    "C5": "Your browsing choice (AP with eventual consistency, supported by caching with TTL) is justified and your CAP reasoning is correct. The payment technique is the weak point: an idempotency key prevents duplicate charges but is not a consistency technique. Scored 5/6.",
+    "C6": "Context, Decision and Consequences are all present and specific to CampusEats. You give both positive and negative consequences, including the extra queue component for five developers and the lost orders from offline tablets. Scored 5/5.",
+    "C7": "Your writing is clear and you use the required headings and IEEE-style references. However, several answers exceed the 150-word limit, with Question 2 clearly over. The references criterion is only partially met, so check that every source follows IEEE style fully. Scored 2/4."
+  }
+}

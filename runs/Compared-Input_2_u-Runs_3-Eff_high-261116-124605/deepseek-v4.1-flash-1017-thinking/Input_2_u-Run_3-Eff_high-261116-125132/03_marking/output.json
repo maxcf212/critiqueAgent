@@ -1,0 +1,172 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "One satellite is therefore used. This also simplifies communications, reduces cost, and requires less time to build and launch."
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS)"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The customers are the Great Barrier Reef Marine Park Authority"
+        }
+      ],
+      "reasoning": "Mission need, rationale, spacecraft count and users are all clearly and specifically addressed, with appropriate literature citations and a convincing Australian-benefit framing."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "No orbital manoeuvres are required."
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "There are six passes each day"
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "The mission lasts five years."
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "a drag sail is deployed at the end of the mission"
+        }
+      ],
+      "reasoning": "All major design elements are covered with STK screenshots, access data and hand calculations. Some technical weaknesses remain, notably the optimistic revisit calculation and missing link budget/ground-segment verification, so not top of level."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "ZYZZsat meets the mission needs set out in the introduction with one 50 kg satellite."
+        },
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations."
+        }
+      ],
+      "reasoning": "Conclusion is specific, quantitative and clearly derived from the design evidence; it also records key limitations and next steps."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report presents the design of ZYZZsat (Z-axis/Y-axis Zeroed Zoning Satellite), a single Earth observation microsatellite for monitoring coral bleaching on the Great Barrier Reef."
+        },
+        {
+          "where": "Table 1",
+          "quote": "Table 1: ZYZZsat spacecraft summary."
+        },
+        {
+          "where": "Bibliography",
+          "quote": "Bibliography"
+        }
+      ],
+      "reasoning": "Clear engineering-report structure, concise executive summary, labelled figures/tables and consistent citations. Writing is generally professional, with only minor awkward phrasing and small labelling ambiguities."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction; 2.1 Spacecraft overview"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit; Table 4"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications; Table 5"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3 Orbit; 2.4 Ground Control & Communications; Appendix A"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Appendix A; Figures 1–4"
+    },
+    {
+      "id": "R11",
+      "met": "yes",
+      "where": "Contents; 1–3; Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.3 Orbit",
+      "issue": "Revisit calculation divides 2,698 km track spacing by the full 560 km roll-swath width to give about 5 days. The daily track shift is only about 134 km at the equator and the half-swath is about 280 km, so maximum revisit is likely longer (order 8–20 days depending target). The 5-day claim is optimistic."
+    },
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "No X-band link budget is provided, and the design assumes S-band/X-band equipment can be added to the Mount Pleasant 12 m radio telescope. This is an unverified ground-segment implementation assumption and a gap in communications design."
+    },
+    {
+      "where": "1 Introduction",
+      "issue": "The statement that existing satellite products/depths are mapped at 100 m/pixel conflates a bathymetry model [3] with satellite imagery; the rationale should distinguish bathymetric mapping from satellite remote sensing."
+    },
+    {
+      "where": "2.2 Launch",
+      "issue": "The design assumes rideshare release directly into the 600 km, 97.79° operational orbit, while also noting a possible lower release. A lower release would require a different SSO inclination and likely orbit trim, which is not designed."
+    },
+    {
+      "where": "2.4 Ground Control & Communications; Table 5",
+      "issue": "Passes are described as 'three in evening and three in morning (UTC)', but the UTC times correspond to evening/morning in Hobart local time, not UTC; the wording is misleading."
+    }
+  ],
+  "overall": "Strong, well-structured mission design with all major elements and good STK/hand-calculation support. Main weaknesses are the optimistic revisit-time calculation, no link budget/ground-segment verification, and minor rationale/labelling issues. STK files are listed but only externally referenced, so provision is partly verifiable."
+}

@@ -1,0 +1,275 @@
+{
+  "total": 20.0,
+  "total_max": 40.0,
+  "percent": 50.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are relevant and are justified using the lunch peak and slow payment-provider scenario. Both scenarios include the six parts, but availability's response measure is not measurable, and its response is limited to browsing rather than order placement. The performance scenario also promises every order is accepted, which is not clearly compatible with a payment-provider outage.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "The modular-monolith recommendation is clear and supported by scenario-specific trade-offs involving the five-person team, single-VM load issue, and deployment downtime. It acknowledges the downside of shared scaling and process failure. The proposed rolling deployments do not by themselves establish zero-downtime deployment, but the overall reasoning is strong.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The slow lunchtime responses come from running on a single virtual machine",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "The series-product method and payment-provider redundancy formula are appropriate, but the downtime calculation in (b) is arithmetically wrong: it is about 5.0 hours. In (c), the redundant payment availability is not the end-to-end availability; the other three components must still be included. Correct end-to-end availability is about 99.80%, with about 1.5 hours of monthly downtime.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "Circuit breaker is an appropriate pattern and the answer applies it to the slow-provider outage and gives a tuning example. However, its states are reversed: Closed normally permits calls, Open rejects or fails fast, and Half-Open allows trial calls. The incorrect mechanism undermines the explanation.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 6.0,
+      "points": 2.0,
+      "max": 6.0,
+      "reasoning": "The menu choice is reasonable and names a cache with a TTL, but the payment choice has no concrete technique. CAP is misstated: under a network partition, a distributed system must trade off consistency and availability while tolerating the partition; it cannot simply give up partition tolerance. The answer does not explain how payment behavior handles a partition.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "I would favour consistency",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context and decision are specific, and the consequences describe several benefits. No negative consequence is stated, so the ADR is one-sided and fits the proficient level. It would also be useful to address delivery guarantees, duplicate events, or eventual notification delay.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ).",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders at a steady rate.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 4.0,
+      "points": 2.0,
+      "max": 4.0,
+      "reasoning": "The required headings are used, writing is generally clear, and answers appear within the word limit. However, citation [2] has no corresponding reference, and no assumptions are stated. The reference list is incomplete, so the citation and format requirements are not met.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "no",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Part (b): (1 - 0.99301) × 720 is approximately 5.0 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) reports payment availability as end-to-end availability. Multiplying 0.999975 by the other component availabilities gives approximately 99.80% end-to-end availability and 1.5 hours of monthly downtime."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit-breaker states are reversed: Closed permits normal calls, Open fails fast, and Half-Open admits trial calls."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP does not permit choosing consistency and availability while giving up partition tolerance during a partition; the consistency/availability trade-off applies when a partition occurs."
+    },
+    {
+      "where": "Question 5",
+      "issue": "No concrete technique is given for the order-and-payment consistency choice."
+    },
+    {
+      "where": "Question 6",
+      "issue": "The ADR omits negative consequences, such as eventual notification, duplicate delivery handling, or queue operations."
+    },
+    {
+      "where": "References",
+      "issue": "Citation [2] is used in Question 4 but no corresponding reference is listed."
+    }
+  ],
+  "overall": "The submission is well organized and gives a strong, scenario-specific architectural recommendation. Marks are reduced by an incomplete availability scenario, incorrect downtime and end-to-end calculations, reversed circuit-breaker states, and a CAP misunderstanding. The ADR lacks a negative consequence, and the references and assumptions are incomplete.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 16,
+    "quotes_found": 16,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You made a strong, scenario-specific case for a modular monolith in Question 2, linking your recommendation to the five-person team and the single-VM load issue. To strengthen the other answers, focus on measurable quality-attribute responses, accurate availability calculations, and precise explanations of resilience and CAP. Your ADR has a specific context and decision; add a negative consequence to make the trade-offs clear.",
+    "next_steps": [
+      "In Question 1, make both response measures measurable. For availability, specify a target and ensure the scenario covers placing orders, not only browsing; check that the performance response remains realistic during a payment-provider outage.",
+      "In Question 3, show each calculation and verify the arithmetic: part (b) is about 5.0 hours; in part (c), multiply redundant payment availability by the other component availabilities to find end-to-end availability, then calculate downtime.",
+      "In Questions 4–6, correct the circuit-breaker state sequence, explain CAP’s consistency/availability trade-off during a partition and name a payment-consistency technique. Add a negative consequence to the ADR and complete the references and assumptions."
+    ],
+    "criteria": {
+      "C1": "In Question 1, you chose relevant attributes and linked them to the lunch peak and slow payment provider. To reach the next level, make the availability response measurable and address order placement; check that the performance scenario does not promise accepting every order during a provider outage.",
+      "C2": "Your Question 2 recommendation is clear and grounded in the five-person team, single-VM load issue, and deployment downtime. You also acknowledge shared scaling and process-failure downsides. Keep this scenario-specific trade-off reasoning, and clarify how your deployment approach addresses downtime.",
+      "C3": "You used the series-product method and an appropriate redundancy formula. In Question 3(b), the downtime is about 5.0 hours, not 3.5. In (c), include the other components in end-to-end availability: it is about 99.80%, or 1.5 hours of monthly downtime. Show and check each calculation.",
+      "C4": "You selected an appropriate circuit-breaker pattern, applied it to the slow-provider outage, and gave a tuning example. In Question 4, correct the states: Closed permits normal calls, Open fails fast, and Half-Open admits trial calls. Explain how the corrected sequence limits impact and recovery.",
+      "C5": "Your menu choice in Question 5 is reasonable and includes a cache with a TTL. CAP does not allow choosing consistency and availability while giving up partition tolerance during a partition; explain the consistency/availability trade-off under partition, and name a concrete technique for payment consistency.",
+      "C6": "Your Question 6 context and decision are specific, and you identify benefits such as smoothing the lunch peak. To reach the next level, add a negative consequence, such as delayed notifications, duplicate-delivery handling, or queue operations, and explain its relevance.",
+      "C7": "Your headings and clear, concise writing support the response. Citation [2] in Question 4 has no matching reference. Complete the reference list and state assumptions so your citations and format meet the requirements."
+    }
+  }
+}

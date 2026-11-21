@@ -1,0 +1,179 @@
+{
+  "total": 57.0,
+  "total_max": 100.0,
+  "percent": 57.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Adequate",
+      "mark": 6.0,
+      "scale": 10.0,
+      "points": 24.0,
+      "max": 40.0,
+      "reasoning": "Clear mission purpose, users and rationale with references. Lacks quantified mission requirements (resolution, revisit, spectral bands, data latency) and formal literature citations.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Coral reefs, specifically the Great Barrier Reef, would immensely benefit from dedicated satellite monitoring.",
+          "verified": true
+        },
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "A near-real-time relay to monitoring stations on the ground would allow marine and conservation scientists to more accurately predict and react to coral bleaching events.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Adequate",
+      "mark": 5.0,
+      "scale": 10.0,
+      "points": 15.0,
+      "max": 30.0,
+      "reasoning": "Gantt chart and task descriptions show a feasible plan, but no contingency/variation provision, no explicit planned information-source list, and internal inconsistency between text and chart dates.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "Project work will be divided into weeks via a Gantt Chart.",
+          "verified": true
+        },
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "Completed stages are gold. Incomplete stages are blue. Deadlines are indicated by red lines.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Adequate",
+      "mark": 4.0,
+      "scale": 10.0,
+      "points": 4.0,
+      "max": 10.0,
+      "reasoning": "Some background research and STK tutorials completed, but no technical results, calculations or simulation outputs are presented to demonstrate design progress.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "completed STK tutorials 1, 2, 3 & 4.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Accomplished",
+      "mark": 7.0,
+      "scale": 10.0,
+      "points": 14.0,
+      "max": 20.0,
+      "reasoning": "Well-structured, readable and consistent formatting. Gantt is clear and labelled; footnotes match in-text citations. Minor issues: no formal reference list and figure caption absent.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "Project work will be divided into weeks via a Gantt Chart.",
+          "verified": true
+        },
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "Completed stages are gold. Incomplete stages are blue. Deadlines are indicated by red lines.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "partial",
+      "where": "Orbit Specifics"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "STK Design & Simulations"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Project Plan & Preliminary Progress"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Project Plan & Preliminary Progress"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Orbit Specifics",
+      "issue": "States a geostationary orbit at 600 km altitude; GEO altitude is ~35,786 km, and GEO cannot remain fixed above the non-equatorial Great Barrier Reef."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "Bleaching mortality figures (60% in 2016, 50% in 2017) are not qualified as applying mainly to shallow-water northern GBR corals, not the entire reef."
+    },
+    {
+      "where": "Project Plan & Preliminary Progress",
+      "issue": "Gantt chart shows Editing & Finalisation in Weeks 9–10, but text says Weeks 7–8; final report due 20/11 but chart ends 16/11."
+    },
+    {
+      "where": "Project Plan & Preliminary Progress",
+      "issue": "No contingency or risk provision in the project plan."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "No quantified mission requirements (spatial resolution, revisit time, spectral bands, data latency) are specified."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "References are web URLs in footnotes without formal citation details or access dates."
+    }
+  ],
+  "overall": "Strong mission rationale and readable report, but technical design is weak: incorrect GEO/600 km orbit, no preliminary technical results, and an incomplete project plan without contingencies or planned source list. Weighted score approximately 57/100.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You present a clear, well-written mission rationale for Great Barrier Reef monitoring and a readable, well-structured report. However, the technical design is weak: the 600 km GEO orbit is incorrect, no quantified requirements or preliminary technical results are given, and the plan lacks contingencies and a source list. Weighted score approximately 57/100.",
+    "next_steps": [
+      "Correct the orbit: GEO is ~35,786 km and cannot stay fixed over the non-equatorial GBR; select and justify an appropriate orbit (e.g. LEO) and derive altitude, revisit and coverage.",
+      "Add quantified mission requirements (spatial resolution, revisit time, spectral bands, data latency) tied to user needs, and replace footnote URLs with formal citations including access dates.",
+      "Strengthen the plan with contingency/risk provision, an explicit information-source list, and reconcile Gantt dates with the text and 20/11 due date; include preliminary STK/technical results with interpretation."
+    ],
+    "criteria": {
+      "C1": "You clearly explain mission purpose, users and rationale with references. To reach Accomplished, quantify mission requirements—spatial resolution, revisit time, spectral bands, data latency—and tie each to user needs. Qualify bleaching mortality figures as mainly shallow-water northern GBR, not the whole reef. Replace footnote URLs with formal citations including access dates.",
+      "C2": "Your Gantt chart and task breakdown make the plan credible. For Accomplished, add contingency/risk provision and an explicit list of planned information sources. Reconcile inconsistencies: text says editing Weeks 7–8 but chart shows Weeks 9–10; chart ends 16/11 while the final report is due 20/11. Explain plan choices in the context of the mission.",
+      "C3": "You completed STK tutorials 1–4 and background research. To move from Adequate to Accomplished, present preliminary technical results—e.g. STK orbit/sensor outputs, coverage/revisit calculations, link or data-rate estimates—with brief interpretation showing you are on track. Currently no calculations or simulation outputs demonstrate design progress.",
+      "C4": "Well-structured, readable and consistent; the Gantt is clear and labelled, and footnotes match in-text citations. To secure Accomplished, add a formal reference list and a figure caption for the Gantt chart. Minor formatting refinements only."
+    }
+  }
+}

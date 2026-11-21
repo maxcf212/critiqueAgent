@@ -1,0 +1,17 @@
+{
+  "summary": "You demonstrated strong architectural reasoning in Question 2, effectively tailoring your modular monolith recommendation to CampusEats. Questions 1, 5, and 6 also showed solid situational understanding. To reach higher bands across all areas, focus on precise calculation modeling for composite systems, ensure resilience pattern state mechanics are accurate, verify all response measures are quantifiable, and always balance design decisions with explicit negative consequences.",
+  "next_steps": [
+    "In Question 3, review availability calculations for composite systems: compute parallel redundancy first, then multiply upstream series components to determine end-to-end availability.",
+    "Review the state lifecycle of resilience patterns like the Circuit Breaker in Question 4, ensuring you distinguish normal operating states (Closed) from tripped states (Open).",
+    "Audit your ADRs and scenarios in Questions 1 and 6 to ensure quality attribute response measures are numerically measurable and consequences include negative trade-offs."
+  ],
+  "criteria": {
+    "C1": "You chose well-justified attributes, and your performance scenario was well-defined. However, your availability response measure ('stay up most of the time') was unmeasurable. To reach Excellent, ensure both response measures specify concrete, quantifiable metrics, such as a target MTTR, percentage uptime (e.g., 99.9%), or maximum allowed minutes of downtime.",
+    "C2": "You achieved an Excellent mark here. Your recommendation for a modular monolith was strongly argued using realistic CampusEats trade-offs, particularly team size and operational overhead, and you appropriately acknowledged its downsides. Keep applying this level of context-specific justification to all design questions.",
+    "C3": "You calculated part (a) accurately. To reach Proficient or Excellent, ensure arithmetic in part (b) is checked (0.00699 × 720 = 5.03 hours) and correctly model system topology in part (c) by chaining the parallel payment availability in series with the upstream order-placement components.",
+    "C4": "Circuit Breaker was an appropriate pattern choice. To reach Proficient or Excellent, ensure the operational states are correctly described: Closed represents normal traffic flow, while Open trips to block calls. Additionally, discuss practical tuning considerations or drawbacks, such as timeout thresholds and fallback responses.",
+    "C5": "Your choices and the Redis caching technique for menu browsing were sound. To reach Excellent, address CAP theorem mechanics accurately—network partitions cannot be 'given up' in distributed systems—and provide a concrete implementation technique for payment consistency, such as two-phase commit or a saga pattern.",
+    "C6": "Your Context, Decision, and positive Consequences were clearly articulated and relevant to the scenario. To reach Excellent, avoid one-sided consequences by explicitly documenting negative trade-offs, such as message broker operational overhead, eventual consistency delays, or handling duplicate order events.",
+    "C7": "Your response was well-structured with clear headings. To achieve Excellent, ensure all answers stay strictly within the 150-word limit (Question 2 reached 179 words), verify that every in-text citation (such as [2]) appears in your reference list, and maintain precise terminology throughout."
+  }
+}

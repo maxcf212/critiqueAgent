@@ -1,0 +1,168 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Both attributes are justified using the scenario, and both scenarios include the six parts. The performance measure is measurable, but the availability measure is vague and has no target."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "The modular-monolith recommendation is clear and supported by trade-offs specific to team size, the single-VM performance problem, and deployment downtime. It also acknowledges the downside of the recommendation."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "Parts (a) and (b) are correctly calculated and rounded. Part (c) correctly calculates redundant payment-provider availability but reports it as end-to-end availability, omitting the other required components."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open and calls fail immediately without waiting"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Students would have seen \"payment temporarily unavailable, please try again or pay at the counter\" instead of the whole app hanging for 25 minutes."
+        }
+      ],
+      "reasoning": "The circuit breaker mechanism and states are explained accurately, and the response applies it to the slow-provider outage. The failure threshold and time window provide a relevant tuning consideration."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "The worst case is that a student sees an item that sold out a minute ago, which the outlet can handle by rejecting that order."
+        },
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says a system can only provide two of consistency, availability and partition tolerance, so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "The availability choice for browsing and consistency-oriented payment choice are reasonable, and concrete techniques are named. However, the CAP explanation is incorrect: during a partition, the system must choose between consistency and availability; it cannot give up partition tolerance in that situation."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ). A notification worker consumes the events and pushes them to the outlet tablets, retrying until each one is acknowledged."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision, and Consequences are present and specific. The consequences describe several benefits, but omit the required negative consequence, such as duplicate delivery, delayed notification, or added queue operations."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The scenarios below use the six-part form from [1]."
+        },
+        {
+          "where": "References",
+          "quote": "[2] M. T. Nygard, Release It! Design and Deploy Production-Ready Software, 2nd ed. Raleigh, NC, USA: Pragmatic Bookshelf, 2018."
+        }
+      ],
+      "reasoning": "The required question headings are used, the writing is clear, and citations and a reference list are present in a broadly IEEE-style format. The CAP explanation is imprecise, so terminology is not consistently precise."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "Questions 1–6; References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "The availability scenario's response measure, “stay up most of the time,” is not measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) reports redundant payment-provider availability as end-to-end availability. Including the other components gives approximately 99.80% availability and 1.5 hours of monthly downtime."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP does not permit choosing consistency and availability while giving up partition tolerance during an actual network partition. An idempotency key prevents duplicate retries but does not itself provide consistency across a partition."
+    }
+  ],
+  "overall": "29/40. Strong scenario-specific architectural reasoning and a well-explained resilience pattern. The main technical errors are the end-to-end availability calculation in Question 3(c) and the CAP explanation in Question 5; Question 1 also needs a measurable availability target."
+}

@@ -1,0 +1,380 @@
+{
+  "id": "chatcmpl-1d31f483-68f8-4ad2-b6e1-802b6d167707",
+  "object": "chat.completion",
+  "created": 1794798343,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You submitted a strong, complete response: all six questions are answered, Q3 calculations are correct, and your Q1 scenarios are fully six-part with measurable measures. Q2's modular monolith recommendation is well justified, and Q4–Q6 apply patterns and CAP precisely. The only gap is an explicit assumptions section beyond the 30-day month statement. Keep this standard.\",\"next_steps\":[\"Add a brief 'Assumptions' subsection to Q3 (e.g., component independence, 30-day month, constant failure rates) so your availability model is fully auditable; this addresses the partial R7 without altering your correct results.\",\"In Q1, keep the measurable response measures; for future work, add a one-line note on why other attributes (e.g., security, modifiability) were ranked lower to make the prioritisation even more defensible.\",\"For Q2 and Q6, continue naming scenario-specific trade-offs and both positive and negative consequences; to secure top marks every time, explicitly link each consequence back to the five-developer team or the 20-minute outage.\"],\"criteria\":{\"C1\":\"You chose performance and availability and justified them with the lunch peak, 4.2 s p95 and payment outage. Both Q1 scenarios have all six parts and measurable response measures (p95 < 1.5 s; menu p95 < 2 s; <0.1% non-payment failures; recovery within 1 minute). You are at Excellent; to stay there, keep every scenario measurable and add a brief note on why lower-ranked attributes were excluded.\",\"C2\":\"Your modular monolith recommendation in Q2 is clear and scenario-specific: five developers versus service overhead, and the known single-VM/20-minute downtime versus rewrite cost. You also acknowledge the downside (no independent scaling; one module can crash the process). Excellent level. To maintain it, keep linking each trade-off to the team size, load profile or known outage.\",\"C3\":\"All three parts of Q3 are correct with working: series product 99.30%, 5.0 h downtime, active-active payment pair 99.9975%, end-to-end 99.80%, 1.5 h downtime. Rounding matches the requested precision. You are at Excellent. To strengthen auditability, add an explicit assumptions subsection (independence, 30-day month, constant failure rates) alongside your calculations.\",\"C4\":\"You named circuit breaker, explained closed/open/half-open correctly, applied it to the 25-minute payment hang, and gave a tuning/fallback drawback ('nobody can pay while it is open'). This is Excellent. To keep it, continue pairing each pattern with a concrete outage and at least one operational drawback or tuning consideration.\",\"C5\":\"You chose AP for menu with Redis 60-second TTL and CP for payments with rejection/idempotency keys. CAP is stated correctly, and both choices are justified by user impact. Excellent. To stay there, keep naming a concrete technique for each case and explicitly tie the consistency choice to the payment risk.\",\"C6\":\"Your ADR has specific Context, Decision and Consequences, with both positive and negative consequences (operational load; at-least-once duplicate handling). Excellent. To maintain it, keep consequences two-sided and scenario-specific, and avoid generic context statements.\",\"C7\":\"Required headings appear in order, answers are at or under 150 words, terminology is precise, and IEEE-style references are present. Excellent. To stay there, keep every answer within the limit and add the missing explicit assumptions note to Q3; this also addresses the partial R7.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each. Address student as \"you\". Be specific, supportive, actionable, cite sections/figures, name what they did well, state what next rubric level requires. Do not change marks. Do not comment on document-conversion artefacts. Do not make up explanations for reasoning given by marking agent that is unclear/incomplete.\n\nAll criteria are Excellent full marks. So feedback should praise and indicate how to maintain/extend? \"Next rubric level\" — since at top level, next level is maintaining excellence; but we can state what would be needed to secure full marks consistently / what top level requires. Need be careful: \"state what the next rubric level requires\" — for Excellent, there is no higher level; we can say \"you are at the top level; to keep it, ...\" or \"the next level up doesn't exist; continue...\" But schema expects feedback. We can phrase: \"You are at Excellent; to stay there, ...\" That's acceptable.\n\nNeed mention R7 partial: no explicit assumptions section beyond 30-day month statement. But C7 is Excellent. We can mention in summary or next steps: add explicit assumptions section (e.g., independence of components, 30-day month) to strengthen. But don't change marks. R7 partial relates to Q3/References. We can mention in C3 or C7 feedback? C7 is communication/format; R7 partial is about assumptions and references. We can mention in next_steps: \"Add a short Assumptions subsection to Q3...\" That's actionable. But C3 is Excellent; still can say \"Your Q3 working is correct; to make the assumptions explicit, add...\" That doesn't change marks.\n\nNeed cite their sections/figures: Q1, Q2, Q3, Q4, Q5, Q6, References. Use quotes? We can reference.\n\nNeed each criterion feedback <=70 words. Summary <=80 words. Next steps exactly 3 strings. JSON only.\n\nLet's draft.\n\nSummary: \"You submitted a strong, complete response: all six questions are answered, calculations in Q3 are correct, and your Q1 scenarios are fully six-part with measurable measures. Q2's modular monolith recommendation is well justified, and Q4–Q6 apply patterns and CAP precisely. The only gap is an explicit assumptions section beyond the 30-day month statement. Keep this standard.\" Count words ~60. Good.\n\nNext steps:\n1. \"Add a brief 'Assumptions' subsection to Q3 (e.g., component independence, 30-day month, constant failure rates) so your availability model is fully auditable; this addresses the partial R7 without altering your correct results.\"\n2. \"In Q1, keep the measurable response measures; for future work, add a one-line note on why other attributes (e.g., security, modifiability) were ranked lower to make the prioritisation even more defensible.\"\n3. \"For Q2 and Q6, continue naming scenario-specific trade-offs and both positive and negative consequences; to secure top marks every time, explicitly link each consequence back to the five-developer team or the 20-minute outage.\"\n\nNeed not mention \"next rubric level\" in next steps? Criteria feedback should state next level. Since all Excellent, say \"You are at Excellent; the next level up does not exist, so focus on consistency...\" But rubric levels: Excellent max. We can say \"To stay at Excellent...\" That's fine.\n\nCriteria:\nC1: \"You chose performance and availability and justified them with the lunch peak, 4.2 s p95 and payment outage. Both Q1 scenarios have all six parts and measurable response measures (p95 < 1.5 s; menu p95 < 2 s; <0.1% non-payment failures; recovery within 1 minute). You are at Excellent; to stay there, keep every scenario measurable and add a brief note on why lower-ranked attributes were excluded.\" ~65 words. Good.\n\nC2: \"Your modular monolith recommendation in Q2 is clear and scenario-specific: five developers versus service overhead, and the known single-VM/20-minute downtime versus rewrite cost. You also acknowledge the downside (no independent scaling; one module can crash the process). Excellent level. To maintain it, keep linking each trade-off to the team size, load profile or known outage.\" ~60.\n\nC3: \"All three parts of Q3 are correct with working: series product 99.30%, 5.0 h downtime, active-active payment pair 99.9975%, end-to-end 99.80%, 1.5 h downtime. Rounding matches the requested precision. You are at Excellent. To strengthen auditability, add an explicit assumptions subsection (independence, 30-day month, constant failure rates) alongside your calculations.\" ~60.\n\nC4: \"You named circuit breaker, explained closed/open/half-open correctly, applied it to the 25-minute payment hang, and gave a tuning/fallback drawback ('nobody can pay while it is open'). This is Excellent. To keep it, continue pairing each pattern with a concrete outage and at least one operational drawback or tuning consideration.\" ~55.\n\nC5: \"You chose AP for menu with Redis 60-second TTL and CP for payments with rejection/idempotency keys. CAP is stated correctly, and both choices are justified by user impact. Excellent. To stay there, keep naming a concrete technique for each case and explicitly tie the consistency choice to the payment risk.\" ~55.\n\nC6: \"Your ADR has specific Context, Decision and Consequences, with both positive and negative consequences (operational load; at-least-once duplicate handling). Excellent. To maintain it, keep consequences two-sided and scenario-specific, and avoid generic context statements.\" ~40.\n\nC7: \"Required headings appear in order, answers are at or under 150 words, terminology is precise, and IEEE-style references are present. Excellent. To stay there, keep every answer within the limit and add the missing explicit assumptions note to Q3; this also addresses the partial R7.\" ~50.\n\nNeed ensure no markdown. JSON object only. Use double quotes. No trailing commas. Good.\n\nNeed \"Do not make up explanations for reasoning given by the marking agent, that is unclear or incomplete.\" We are not. We can mention R7 partial from marking. Good.\n\nNeed \"Do not comment on document-conversion artefacts.\" None.\n\nNeed \"Do not change marks.\" We don't.\n\nNeed \"Address the student as 'you'.\" Yes.\n\nNeed \"Be specific, supportive and actionable: cite their sections/figures, name what they did well, and state what the next rubric level requires.\" For Excellent, next level doesn't exist; we say \"to stay at Excellent\". That's acceptable. Maybe phrase \"You are at the top rubric level; the requirement to maintain it is...\" Good.\n\nNeed summary <=80 words. Count: \"You submitted a strong, complete response: all six questions are answered, Q3 calculations are correct, and your Q1 scenarios are fully six-part with measurable measures. Q2's modular monolith recommendation is well justified, and Q4–Q6 apply patterns and CAP precisely. The only gap is an explicit assumptions section beyond the 30-day month statement. Keep this standard.\" Words: You(1) submitted2 a3 strong4 complete5 response6 all7 six8 questions9 are10 answered11 Q3 12 calculations13 are14 correct15 and16 your17 Q1 18 scenarios19 are20 fully21 six-part22 with23 measurable24 measures25 Q2's26 modular27 monolith28 recommendation29 is30 well31 justified32 and33 Q4–Q6 34 apply35 patterns36 and37 CAP38 precisely39 The40 only41 gap42 is43 an44 explicit45 assumptions46 section47 beyond48 the49 30-day50 month51 statement52 Keep53 this54 standard55. Good.\n\nNeed JSON only. Ensure criteria keys exactly \"C1\" etc. Good.\n\nLet's produce.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to produce JSON with summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each. Address student",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " as \"you\". Be specific, supportive, actionable, cite sections/figures, name what they did well, state what next rubric level requires. Do not change marks. Do",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " not comment on document-conversion artefacts. Do not make up explanations for reasoning given by marking agent that is unclear/incomplete.\n\nAll criteria are Excellent full marks. So feedback",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " should praise and indicate how to maintain/extend? \"Next rubric level\" — since at top level, next level is maintaining excellence; but we can state what would",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " be needed to secure full marks consistently / what top level requires. Need be careful: \"state what the next rubric level requires\" — for Excellent, there is no",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " higher level; we can say \"you are at the top level; to keep it, ...\" or \"the next level up doesn't exist; continue...\"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " But schema expects feedback. We can phrase: \"You are at Excellent; to stay there, ...\" That's acceptable.\n\nNeed mention R7 partial: no",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " explicit assumptions section beyond 30-day month statement. But C7 is Excellent. We can mention in summary or next steps: add explicit assumptions section (e.g., independence",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " of components, 30-day month) to strengthen. But don't change marks. R7 partial relates to Q3/References. We can mention in C",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "3 or C7 feedback? C7 is communication/format; R7 partial is about assumptions and references. We can mention in next_steps: \"Add a",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " short Assumptions subsection to Q3...\" That's actionable. But C3 is Excellent; still can say \"Your Q3 working is correct; to make the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " assumptions explicit, add...\" That doesn't change marks.\n\nNeed cite their sections/figures: Q1, Q2, Q3, Q4, Q5,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Q6, References. Use quotes? We can reference.\n\nNeed each criterion feedback <=70 words. Summary <=80 words. Next steps exactly 3 strings.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " JSON only.\n\nLet's draft.\n\nSummary: \"You submitted a strong, complete response: all six questions are answered, calculations in Q3 are correct, and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " your Q1 scenarios are fully six-part with measurable measures. Q2's modular monolith recommendation is well justified, and Q4–Q6 apply patterns and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " CAP precisely. The only gap is an explicit assumptions section beyond the 30-day month statement. Keep this standard.\" Count words ~60. Good.\n\nNext steps:\n1. \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "Add a brief 'Assumptions' subsection to Q3 (e.g., component independence, 30-day month, constant failure rates) so your availability model is fully",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " auditable; this addresses the partial R7 without altering your correct results.\"\n2. \"In Q1, keep the measurable response measures; for future work, add a one",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-line note on why other attributes (e.g., security, modifiability) were ranked lower to make the prioritisation even more defensible.\"\n3. \"For",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Q2 and Q6, continue naming scenario-specific trade-offs and both positive and negative consequences; to secure top marks every time, explicitly link each consequence back to the five",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-developer team or the 20-minute outage.\"\n\nNeed not mention \"next rubric level\" in next steps? Criteria feedback should state next level. Since all Excellent",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", say \"You are at Excellent; the next level up does not exist, so focus on consistency...\" But rubric levels: Excellent max. We can say \"To",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " stay at Excellent...\" That's fine.\n\nCriteria:\nC1: \"You chose performance and availability and justified them with the lunch peak, 4.2 s p",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "95 and payment outage. Both Q1 scenarios have all six parts and measurable response measures (p95 < 1.5 s; menu p95 < 2",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " s; <0.1% non-payment failures; recovery within 1 minute). You are at Excellent; to stay there, keep every scenario measurable and add a brief",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " note on why lower-ranked attributes were excluded.\" ~65 words. Good.\n\nC2: \"Your modular monolith recommendation in Q2 is clear and scenario-specific: five",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " developers versus service overhead, and the known single-VM/20-minute downtime versus rewrite cost. You also acknowledge the downside (no independent scaling; one module can crash the process",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "). Excellent level. To maintain it, keep linking each trade-off to the team size, load profile or known outage.\" ~60.\n\nC3: \"All",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " three parts of Q3 are correct with working: series product 99.30%, 5.0 h downtime, active-active payment pair 99.997",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "5%, end-to-end 99.80%, 1.5 h downtime. Rounding matches the requested precision. You are at Excellent. To strengthen audit",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ability, add an explicit assumptions subsection (independence, 30-day month, constant failure rates) alongside your calculations.\" ~60.\n\nC4: \"You",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " named circuit breaker, explained closed/open/half-open correctly, applied it to the 25-minute payment hang, and gave a tuning/fallback drawback ('nobody can pay",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " while it is open'). This is Excellent. To keep it, continue pairing each pattern with a concrete outage and at least one operational drawback or tuning consideration.\" ~55.\n\nC5",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": \"You chose AP for menu with Redis 60-second TTL and CP for payments with rejection/idempotency keys. CAP is stated correctly, and both choices are justified by",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " user impact. Excellent. To stay there, keep naming a concrete technique for each case and explicitly tie the consistency choice to the payment risk.\" ~55.\n\nC6:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " \"Your ADR has specific Context, Decision and Consequences, with both positive and negative consequences (operational load; at-least-once duplicate handling). Excellent",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". To maintain it, keep consequences two-sided and scenario-specific, and avoid generic context statements.\" ~40.\n\nC7: \"Required headings appear in order, answers are at",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " or under 150 words, terminology is precise, and IEEE-style references are present. Excellent. To stay there, keep every answer within the limit and add the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " missing explicit assumptions note to Q3; this also addresses the partial R7.\" ~50.\n\nNeed ensure no markdown. JSON object only. Use double quotes. No trailing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " commas. Good.\n\nNeed \"Do not make up explanations for reasoning given by the marking agent, that is unclear or incomplete.\" We are not. We can mention R7 partial",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " from marking. Good.\n\nNeed \"Do not comment on document-conversion artefacts.\" None.\n\nNeed \"Do not change marks.\" We don't.\n\nNeed \"Address",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the student as 'you'.\" Yes.\n\nNeed \"Be specific, supportive and actionable: cite their sections/figures, name what they did well, and state what",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the next rubric level requires.\" For Excellent, next level doesn't exist; we say \"to stay at Excellent\". That's acceptable. Maybe phrase \"You are at",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the top rubric level; the requirement to maintain it is...\" Good.\n\nNeed summary <=80 words. Count: \"You submitted a strong, complete response: all six questions",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " are answered, Q3 calculations are correct, and your Q1 scenarios are fully six-part with measurable measures. Q2's modular monolith recommendation is well justified,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and Q4–Q6 apply patterns and CAP precisely. The only gap is an explicit assumptions section beyond the 30-day month statement. Keep this standard.\" Words",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": You(1) submitted2 a3 strong4 complete5 response6 all7 six8 questions9 are10 answered11 Q3 12 calculations13 are14 correct",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "15 and16 your17 Q1 18 scenarios19 are20 fully21 six-part22 with23 measurable24 measures25 Q2's26 modular27 monolith",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "28 recommendation29 is30 well31 justified32 and33 Q4–Q6 34 apply35 patterns36 and37 CAP38 precisely39 The40 only41 gap42 is",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "43 an44 explicit45 assumptions46 section47 beyond48 the49 30-day50 month51 statement52 Keep53 this54 standard55. Good.\n\nNeed JSON",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " only. Ensure criteria keys exactly \"C1\" etc. Good.\n\nLet's produce.",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 1280,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1691,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 2602,
+    "completion_tokens": 2446,
+    "total_tokens": 5048,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 1280,
+    "cost": 0.0016051759999999998,
+    "currency": "USD",
+    "reasoning_tokens": 1691,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 1322
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_88189320-d989-4dfa-86f4-41ccbafa87c9",
+  "x_nanogpt_pricing": {
+    "amount": 0.0016051759999999998,
+    "cost": 0.0016051759999999998,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 2602,
+    "outputTokens": 2446,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 1280,
+    "cacheCost": 5.376e-06
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 1280,
+    "writeTokens": 0
+  }
+}

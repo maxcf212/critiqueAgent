@@ -1,0 +1,245 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Two attributes are chosen and tied to scenario facts (900 orders, 4.2 s p95, payment slowdown). Both scenarios have all six parts and measurable response measures (p95 under 1.5 s, under 0.1% failures, 1 minute recovery).",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular monolith recommendation with two trade-offs tied to the scenario: team size and the single-VM lunchtime slowness and weekly downtime. The downside is explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "All three parts recomputed and correct: 99.30%, 5.0 h, 99.80%, 1.5 h. Working is shown to the requested precision.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99798) × 720 = 0.00202 × 720 = 1.46, so 1.5 hours per month.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is correctly explained with states, applied to the slow payment outage, and includes both a tuning consideration and a drawback.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately, so request threads are not blocked",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Drawback: nobody can pay while it is open, so a fallback is needed.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Both choices are justified, CAP is applied correctly with partition tolerance treated as mandatory, and concrete techniques are named (Redis TTL cache, idempotency keys).",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "This is the AP choice, with eventual consistency.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are all present and scenario-specific, with both positive and negative consequences.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "Headings are used in order, answers are within limits, terminology is precise and IEEE-style citations and reference list are present. No explicit assumptions section is included, which is a gap against R7 but not a format-level deduction here.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 2",
+      "issue": "The claim of 'eight or more services' is an unstated assumption about the planned microservice split, not stated as an assumption."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Independence of the component failures and of the two payment providers is assumed but not explicitly stated as an assumption."
+    }
+  ],
+  "overall": "A strong, accurate submission. All Question 3 calculations check out, and the answers are scenario-specific with good trade-offs and a clear ADR. The main gap is the absence of an explicit assumptions statement, required by R7.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You produced a strong, accurate submission. Your Question 3 availability calculations are correct, and your answers are closely tied to the CampusEats scenario. Your trade-offs in Question 2 and your Architecture Decision Record in Question 6 are clear and specific. The main gap is the absence of an explicit assumptions statement, which R7 requires and which would have made two of your claims easier to verify.",
+    "next_steps": [
+      "Add a short, explicit assumptions section. State that the planned split is eight or more services, and that the component failures and the two payment providers fail independently in your Question 3 calculation.",
+      "In Question 3, state the independence assumption before you multiply the availabilities, so the reader can see why the series calculation is valid.",
+      "Check that every in-text citation matches an entry in your References list, and that all entries follow IEEE style, so R7 is fully met."
+    ],
+    "criteria": {
+      "C1": "You chose performance and availability and justified them with scenario facts: 900 lunchtime orders and the 4.2 s p95 response time. Both scenarios have all six parts, and each response measure is measurable (p95 under 1.5 s, under 0.1% failures, one-minute recovery). This is an excellent answer.",
+      "C2": "You recommended a modular monolith and linked it to the scenario through team size and the lunchtime slowness and weekly downtime of the single VM. You also acknowledged the downside: modules cannot be scaled independently and a bug can crash the whole process. The one weakness is the unstated assumption behind 'eight or more services', which should be an explicit assumption.",
+      "C3": "All three parts (a), (b) and (c) are correct, and your working is shown to the requested precision. Your use of series multiplication and conversion to monthly downtime is clear. The independence assumption behind the multiplication is not stated explicitly, and stating it would make the answer complete.",
+      "C4": "You correctly explained the Circuit Breaker's states and applied it to the slow payment outage. You also gave a tuning consideration (the threshold should come from real latency data) and a drawback (nobody can pay while it is open, so a fallback is needed). This is an excellent answer.",
+      "C5": "You justified both your consistency and availability choices. You applied CAP correctly, treating partition tolerance as mandatory, and named concrete techniques: a Redis TTL cache and idempotency keys. This is an excellent answer.",
+      "C6": "Your Architecture Decision Record has Context, Decision and Consequences, all specific to CampusEats. It includes both positive and negative consequences, such as the extra queue component for five developers to run and monitor. This is an excellent answer.",
+      "C7": "Your headings are in order, your answers are within the word limits, your terminology is precise, and your references follow IEEE style. The missing explicit assumptions statement is a content gap against R7, not a format deduction, but adding it would fully meet the requirement."
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "chatcmpl-6743d265-786f-4b32-8e8c-524f7d443fc9",
+  "object": "chat.completion",
+  "created": 1794795005,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"criteria\": [\n    {\n      \"id\": \"C1\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"1 Introduction\", \"quote\": \"The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution\"},\n        {\"where\": \"1 Introduction\", \"quote\": \"The operator is the Australian Institute of Marine Science (AIMS)\"},\n        {\"where\": \"1 Introduction\", \"quote\": \"One satellite is therefore used.\"}\n      ],\n      \"reasoning\": \"All required elements addressed: primary mission, need (bleaching statistics, limitations of existing products), single-spacecraft justification, operator and multiple customers, funding. Detailed, well-referenced ([1]-[6]). Only minor gap: no discussion of alternative mission concepts.\"\n    },\n    {\n      \"id\": \"C2\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"2.2 Launch\", \"quote\": \"The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025\"},\n        {\"where\": \"2.3 Orbit\", \"quote\": \"cos i = −0.1355, so i = 97.79°\"},\n        {\"where\": \"2.4 Ground Control & Communications\", \"quote\": \"There are six passes each day, three in the evening and three in the morning\"},\n        {\"where\": \"2.5 Mission Duration & EOL\", \"quote\": \"With a 4 m² sail the satellite re-enters about two years after the end of the mission.\"}\n      ],\n      \"reasoning\": \"Launch site/vehicle justified with trade table and azimuth calculation; orbit elements derived by hand and verified in STK; manoeuvres explicitly addressed; ground station chosen with STK access report; data budget; five-year mission and drag-sail EOL with decay calculations. Screenshots, tables, references and appendix files all present. Link budget admittedly missing; eclipse duration treated as fixed.\"\n    },\n    {\n      \"id\": \"C3\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"3 Conclusion\", \"quote\": \"The design has four limitations. First, Vega C has not yet flown\"}\n      ],\n      \"reasoning\": \"Conclusions are specific and quantitative (revisit times, pass rates, decay lifetimes) and honestly identify four limitations with proposed next steps, showing genuine design insight rather than generic summary.\"\n    },\n    {\n      \"id\": \"C4\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"Executive Summary\", \"quote\": \"This report presents the design of ZYZZsat\"},\n        {\"where\": \"Bibliography\", \"quote\": \"[11] D. A. Vallado, *Fundamentals of Astrodynamics and Applications*, 4th ed.\"}\n      ],\n      \"reasoning\": \"Clear structure with executive summary, numbered sections, consistently labelled figures/tables, all citations [1]-[15] matched to reference list, professional IEEE-style referencing, concise writing. Figures are legible STK outputs with captions. Minor: some figures low resolution; no table of contents page numbers shown.\"\n    }\n  ],\n  \"requirements\": [\n    {\"id\": \"R1\", \"met\": \"yes\", \"where\": \"1 Introduction\"},\n    {\"id\": \"R2\", \"met\": \"yes\", \"where\": \"1 Introduction (Number of spacecraft)\"},\n    {\"id\": \"R3\", \"met\": \"yes\", \"where\": \"1 Introduction (Users)\"},\n    {\"id\": \"R4\", \"met\": \"yes\", \"where\": \"2.2 Launch\"},\n    {\"id\": \"R5\", \"met\": \"yes\", \"where\": \"2.3 Orbit, Table 4\"},\n    {\"id\": \"R6\", \"met\": \"yes\", \"where\": \"2.3 Orbit (Manoeuvres)\"},\n    {\"id\": \"R7\", \"met\": \"yes\", \"where\": \"2.4 Ground Control & Communications, Table 5\"},\n    {\"id\": \"R8\", \"met\": \"yes\", \"where\": \"2.5 Mission Duration & EOL\"},\n    {\"id\": \"R9\", \"met\": \"yes\", \"where\": \"2.3/2.4 (STK 11 plus hand calculations)\"},\n    {\"id\": \"R10\", \"met\": \"yes\", \"where\": \"Images 1-5, Appendix A (ZYZZsat_STK.zip file list)\"},\n    {\"id\": \"R11\", \"met\": \"yes\", \"where\": \"Whole report; Bibliography\"}\n  ],\n  \"technical_issues\": [\n    {\"where\": \"2.1 Table 1\", \"issue\": \"Eclipse duration quoted as a fixed ~34 min per orbit without considering beta-angle variation; actual eclipse time varies over the year.\"},\n    {\"where\": \"2.4 Table 6\", \"issue\": \"X-band link budget (margin, antenna gains, data rates achievable) not performed, only data-volume budget; acknowledged by student.\"},\n    {\"where\": \"2.5 Table 7\", \"issue\": \"Decay analysis uses single mean density and scale height; sensitivity acknowledged but lifetime estimate is crude.\"},\n    {\"where\": \"2.2 Launch\", \"issue\": \"Vega C unflown at time of writing; fallback given, but rideshare orbit compatibility (altitude/injection) not guaranteed.\"},\n    {\"where\": \"2.3 Orbit\", \"issue\": \"GSD driven only by diffraction limit and pixel count; detector IFOV/sampling and pointing jitter effects on 5 m GSD not analysed.\"}\n  ],\n  \"overall\": \"Excellent, comprehensive mission design report. All task requirements met with verified hand calculations, STK evidence, well-justified trade-offs, honest limitations, and professional presentation. Minor gaps (link budget, eclipse/beta-angle, unflown launcher) are acknowledged by the student. Approximately 9/10 on each criterion.\"\n}\n```",
+        "refusal": null,
+        "reasoning": "Let me evaluate against the rubric.\n\nC1 Introduction: mission concept, rationale, number of spacecraft, users. All addressed well with references. Accomplished, ~9.\n\nC2 Mission design: launch site/vehicle with justification, orbit type/elements, manoeuvres, ground control, comms frequency, duration, EOL. STK screenshots, hand calculations, appendix files. Very comprehensive. Accomplished, 9-10. Some minor issues: eclipse duration claim of 34 min at 600 km seems low (eclipse at 600 km ~35 min max, actually max eclipse is ~35.4 min at 600 km? Eclipse fraction depends on beta angle; 34 min is plausible). Data budget: 60,000 km² × 40,000 pixels/km² = 2.4e9 pixels × 4 bands × 12 bits = 115 Gbit — correct. Downlink 50 Mbit/s × 2000 s = 100 Gbit — correct. Drag calc: Δa = 2π(C_D A/m)ρa². With A=0.3, CD=2.2, ρ=1e-13, a=6.978e6: 2π×2.2×0.3/50×1e-13×(6.978e6)² = 2π×0.0132×1e-13×4.87e13 = 2π×0.0132×4.87 = 0.404 m. Correct. Decay rate 0.40 m/orbit × 5801 s... per year: 0.404 m × 5,600 orbits/yr ≈ 2.26 km/yr. Correct. Lifetime H/rate = 70/2.2 ≈ 32 yr. Correct. Sail: 4.3 m² → 5.8 m/orbit, 31 km/yr, 2.2 yr. Correct. Sun-sync inclination calc: cos i = -0.1355 → i = 97.79°. Check: dΩ/dt = -(3/2)J2(R/a)² n cos i. Required dΩ/dt = +1.991e-7 rad/s (eastward). cos i = -1.991e-7/(1.5×1.0826e-3×0.8354×1.0831e-3). Denominator: 1.5×1.0826e-3=1.6239e-3; ×0.8354=1.3566e-3; ×1.0831e-3=1.4694e-6. cos i = -1.991e-7/1.4694e-6 = -0.1355. i = 97.78°. Correct. Launch azimuth: sin β = cos i / cos φ = -0.1355/0.9959 = -0.1361, β = -7.8°. Correct. Period: a=6978 km, T=2π√(a³/μ). a³=3.399e11 km³... μ=398600. a³/μ = 3.399e11/398600 = 8.527e5 s². √=923.4 s. T=5801 s = 96.7 min. Correct. Ground track spacing: 2π×6378×5801/86164 = 2π×6378×0.06733 = 2698 km. Correct. Max pass duration at 600 km: ~2×sqrt... horizon pass ~ 2×a×acos(R/a)... roughly 2×sqrt(2×R×h)/... hand calc 771 s plausible. Access table: 6 passes/day for a 42.8°S station with 97.79° inclination — plausible. Access times: intervals ~1.5 h between consecutive passes, then gap 20:22 to 21:53... wait access 3 ends 12:47, access 4 starts 20:22 — 7.6 h gap. With 96.7 min period, 14.9 orbits/day; station at 42.8°S, inclination 97.79° — ground track reaches 82.21° latitude max... wait inclination 97.79° means max latitude = 180-97.79 = 82.21°. Station at 42.8°S well within. Passes per day at such station for near-polar orbit: typically ~6-10. Plausible. But the gap pattern: 3 passes morning (09:28, 11:00, 12:36) then gap to 20:22 — that's odd; consecutive orbits are 96.7 min apart, so passes should cluster in groups. 12:36 + 96.7 min = 14:13, +96.7 = 15:50... those orbits would be over other longitudes. Actually with 14.9 orbits/day, the node spacing shifts; passes at a given station occur in clusters of ~3-4 then a gap of ~half day. Plausible pattern. Fine.\n\nMinor technical issues: eclipse \"about 34 minutes\" — max eclipse duration at 600 km is about 35 min, so 34 min is near worst case; fine. \"Kourou's latitude lower than 180° minus inclination\" — 180-97.79 = 82.21°, trivially true; odd phrasing but fine. The claim \"sees six passes a day\" — table shows 6 on 3 Feb (accesses 1-6), 6 on 4 Feb (7-12), and 3 by midday 5 Feb — consistent.\n\nOne issue: Table 5 says \"elevation above 0°\" but then they discount passes below 10°. Fine.\n\nRAAN 27.33° with descending crossing at 08:45 LMST — plausible.\n\nVega C first flight planned 2021, launch 2025 — fine for 2020 report.\n\nC2: Accomplished, 9 or 10. Evidence quality high: STK screenshots, access tables, hand calcs, references, appendix files. I'd give 9.\n\nC3 Conclusion: detailed, specific, includes limitations. Accomplished, 9.\n\nC4 Presentation: clear structure, exec summary, labelled figures/tables, references cited in text [1]-[15] all appear? Check: [1] yes, [2] yes, [3] yes, [4] yes, [5] yes, [6] yes, [7] yes, [8] yes, [9] yes, [10] yes, [11] yes, [12] yes, [13] yes, [14] yes, [15] yes. All cited. Well written. Accomplished, 9.\n\nRequirements: R1 yes, R2 yes, R3 yes, R4 yes, R5 yes, R6 yes, R7 yes, R8 yes, R9 yes (STK), R10 yes (screenshots + zip files listed), R11 yes.\n\nTechnical issues: minor — link budget not done (acknowledged); eclipse duration stated as fixed 34 min without beta-angle consideration; drag sail area assumption; \"180° minus inclination\" phrasing; Vega C unproven (acknowledged). Also the diffraction limit calc: 1.22×0.5µm×600km/5m = 0.0732 m — correct as aperture needed for diffraction-limited 5 m; but actual GSD also depends on pixel IFOV; not addressed but acceptable at this level. Also \"40,000 pixels/km²\" = 1 pixel per 5m×5m = 40,000 per km². Correct.\n\nOverall: strong submission, ~9/10 across."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 10717,
+    "completion_tokens": 3045,
+    "total_tokens": 13762,
+    "reasoning_tokens": 1730,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1730,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 10496,
+    "prompt_tokens_details": {
+      "cached_tokens": 10496,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 221,
+    "cost": 0.0011979999999999998,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_20a383ca-fa2d-44b0-8245-3b411ebfd062",
+  "x_nanogpt_pricing": {
+    "amount": 0.0011979999999999998,
+    "currency": "USD",
+    "cost": 0.0011979999999999998,
+    "inputTokens": 10717,
+    "outputTokens": 3045,
+    "cacheReadInputTokens": 10496,
+    "cacheCost": 0.00026240000000000004,
+    "requestId": "req_9c1e2cb8-9cff-480a-89ac-ad706b6f3b26",
+    "costUsd": 0.0011979999999999998,
+    "usdCost": 0.0011979999999999998,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "hit",
+      "readTokens": 10496
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 10496
+  }
+}

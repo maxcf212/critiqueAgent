@@ -1,0 +1,80 @@
+{
+  "id": "chatcmpl-f604d781-ab3c-41fc-8a87-5219dcb06d54",
+  "object": "chat.completion",
+  "created": 1794960433,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"Your mission concept is clear and well-referenced, and your Gantt-based plan is tied to the space segment. To move higher, quantify requirements, add contingency/risk, justify STK, and show technical results. Presentation is professional; add a numbered Gantt caption and full reference details.\",\"next_steps\":[\"Add quantified mission requirements (ground resolution, revisit time, spectral bands, coverage, lifetime) to Mission Concept & Rationale and link each to a user need.\",\"Revise the Gantt in Image 1: fix the STK Simulations/Design dependency and Background Research timing; add explicit contingency/risk rows and a short STK justification.\",\"Produce at least one preliminary technical result (e.g., orbit or link-budget output) with brief interpretation, and add a numbered caption to the Gantt plus full reference entries.\"],\"criteria\":{\"C1\":\"You clearly explain the mission purpose, users and Australian benefit, with good literature support. To reach the top of Accomplished, add quantified requirements—ground resolution, revisit time, spectral bands, coverage and lifetime—and tie each to a user need. Also correct the ocean-acidity statement to specify the ~30% rise in hydrogen-ion concentration (pH drop ~0.1).\",\"C2\":\"Your colour-coded Gantt and task descriptions make the plan credible and mission-linked. Next level requires explicit contingency/risk provision and a justified software choice. Fix Image 1 sequencing: STK Simulations (Wk 4–10) should not start before STK Design (Wk 7–9), and Background Research running to Wk 8 conflicts with Mission Concept completing in Wk 3.\",\"C3\":\"You have completed STK tutorials 1–4 and background reading, which shows a start. To move from Adequate, present at least one preliminary technical result—orbit, launch, link-budget or simulation output—with a brief description and interpretation, and show how it feeds the design.\",\"C4\":\"Your report is logically structured, readable and consistently formatted, with superscript citations matching the source list. To secure the top of Accomplished, add a numbered caption to the Gantt in Image 1 and expand the reference list from bare URLs to full entries with titles and access dates.\"}}",
+        "refusal": null,
+        "reasoning": "We need to write formative feedback as JSON. Address student as \"you\". Be specific, supportive, actionable. Cite sections/figures. Name what they did well, state what next rubric level requires. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nSchema: summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each.\n\nWe need craft feedback for C1-C4. Marks: C1 7/10 Accomplished low end; C2 7/10; C3 4/10 Adequate; C4 7/10.\n\nNeed mention specific issues: C1 no quantified mission requirements; acidity imprecise. C2 Gantt sequencing issues (STK simulations before design; background research to Wk8 while concept complete Wk3), no contingency/risk, STK not justified, no software outputs. C3 thin progress tutorials/reading only. C4 figure caption missing, reference list bare URLs.\n\nNeed be supportive and actionable. Next steps 3 strings. Summary <=80 words.\n\nNeed ensure JSON only. No markdown. Use exact criterion ids.\n\nLet's draft.\n\nSummary: \"Your mission concept is clear and well-referenced, and your Gantt-based plan is tied to the space segment. To move higher, quantify requirements, add contingency/risk, justify STK, and show technical results. Presentation is professional; add a numbered Gantt caption and full reference details.\" Count words ~45. Good.\n\nNext steps: 3 actionable:\n1. \"Add quantified mission requirements (ground resolution, revisit time, spectral bands, coverage, lifetime) to Mission Concept & Rationale and link each to a user need.\"\n2. \"Revise the Gantt in Image 1: fix STK Simulations/Design dependency and Background Research timing; add explicit contingency/risk rows and a short STK justification.\"\n3. \"Produce at least one preliminary technical result (e.g., orbit or link-budget output) with brief interpretation, and add a numbered caption to the Gantt plus full reference entries.\"\n\nCriteria feedback <=70 words each.\n\nC1: \"You clearly explain the mission purpose, users and Australian benefit, with good literature support. To reach the top of Accomplished, add quantified requirements—ground resolution, revisit time, spectral bands, coverage and lifetime—and tie each to a user need. Also correct the ocean-acidity statement to specify the ~30% rise in hydrogen-ion concentration (pH drop ~0.1).\" Count ~60. Good.\n\nC2: \"Your colour-coded Gantt and task descriptions make the plan credible and mission-linked. Next level requires explicit contingency/risk provision and a justified software choice. Fix Image 1 sequencing: STK Simulations (Wk 4–10) should not start before STK Design (Wk 7–9), and Background Research running to Wk 8 conflicts with Mission Concept completing in Wk 3.\" ~60.\n\nC3: \"You have completed STK tutorials 1–4 and background reading, which shows a start. To move from Adequate, present at least one preliminary technical result—orbit, launch, link-budget or simulation output—with a brief description and interpretation, and show how it feeds the design.\" ~50.\n\nC4: \"Your report is logically structured, readable and consistently formatted, with superscript citations matching the source list. To secure the top of Accomplished, add a numbered caption to the Gantt in Image 1 and expand the reference list from bare URLs to full entries with titles and access dates.\" ~50.\n\nNeed ensure no mention of conversion artefacts. Good.\n\nNeed JSON object only. Use double quotes. Ensure no newlines? JSON can have strings. Fine.\n\nLet's produce."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2107,
+    "completion_tokens": 1278,
+    "total_tokens": 3385,
+    "reasoning_tokens": 797,
+    "completion_tokens_details": {
+      "reasoning_tokens": 797,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 2048,
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 2048,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 59,
+    "cost": 0.0009775,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_8b90d702-b27f-40ab-a2ff-f04c8be0f381",
+  "x_nanogpt_pricing": {
+    "amount": 0.0009775,
+    "currency": "USD",
+    "cost": 0.0009775,
+    "inputTokens": 2107,
+    "outputTokens": 1278,
+    "cacheCreationInputTokens": 2048,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0.00020480000000000002,
+    "requestId": "req_0983a464-92e6-45e4-952a-8287c8cb8439",
+    "costUsd": 0.0009775,
+    "usdCost": 0.0009775,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "write_only",
+      "readTokens": 0,
+      "writeTokens": 2048
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "write_only",
+    "readTokens": 0,
+    "writeTokens": 2048
+  }
+}

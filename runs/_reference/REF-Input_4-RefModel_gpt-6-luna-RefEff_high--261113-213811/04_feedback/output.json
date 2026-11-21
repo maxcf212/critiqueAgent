@@ -1,0 +1,17 @@
+{
+  "summary": "You show strong, scenario-specific architectural reasoning, especially in Q2’s modular-monolith trade-offs and Q4’s circuit-breaker explanation. To strengthen the remaining answers, make both Q1 response measures measurable, complete the end-to-end calculation in Q3, explain the CAP trade-off accurately in Q5, and include a negative consequence in Q6. Your concise format and IEEE-like references are good foundations.",
+  "next_steps": [
+    "In Q1, replace “stay up most of the time” with a measurable availability target. In Q3(c), multiply the redundant payment availability by the other component availabilities; report approximately 99.80% end-to-end availability and 1.5 hours of monthly downtime, using the requested precision.",
+    "In Q5, explain that a network partition is the condition the system must tolerate, so the choice is between consistency and availability during the partition. Keep your concrete techniques, such as a cached menu and payment idempotency keys, tied to the two cases.",
+    "In Q6, add a specific negative consequence of queued notifications, such as delayed outlet notification or duplicate delivery, and state how you would address duplicates. For the next communication level, also ensure every answer meets the word limit and calculations use the requested precision."
+  ],
+  "criteria": {
+    "C1": "In Q1, your performance scenario is measurable and both scenarios include the six parts. “Stay up most of the time” is not measurable; give availability a numeric target. To reach Excellent, both scenarios need complete parts and measurable response measures.",
+    "C2": "Your Q2 modular-monolith recommendation is clearly linked to the five-person team and single-VM bottleneck. You explain trade-offs and acknowledge shared failure risk and reduced independent scaling. This meets Excellent; keep grounding both benefits and downsides in CampusEats.",
+    "C3": "Your Q3(a) and (b) are correct. In (c), you calculate redundant payment availability but report it as end-to-end order availability. Include the other components; the result is about 99.80% availability and 1.5 hours of monthly downtime. Excellent requires all parts correct, with working and requested precision.",
+    "C4": "Your Q4 circuit-breaker mechanism and states are explained correctly and applied to the slow-provider outage. The threshold and time window show a useful tuning consideration. This meets Excellent; retain the clear explanation of how the breaker protects other functions.",
+    "C5": "Your Q5 choices and techniques are reasonable, including menu caching and payment idempotency keys. Correct the CAP explanation: during a network partition, partition tolerance is the condition experienced, and the system trades consistency against availability. Excellent requires accurate CAP reasoning and a suitable technique for each case.",
+    "C6": "Your Q6 includes scenario-specific Context, Decision and Consequences. The consequences are positive only. Add a negative consequence—such as delayed or duplicate outlet notifications—and a response to duplicates. Excellent requires all three specific sections and at least one positive and one negative consequence.",
+    "C7": "Your headings, concise answers and IEEE-like citations are effective. Q3’s reported availability and downtime do not use the requested precision. For Excellent, keep every answer within 150 words, use precise terminology and calculations, and retain the required headings and IEEE-style citations."
+  }
+}

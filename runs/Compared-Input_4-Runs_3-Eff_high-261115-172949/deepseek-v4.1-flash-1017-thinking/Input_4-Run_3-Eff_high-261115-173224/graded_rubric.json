@@ -1,0 +1,262 @@
+{
+  "total": 30.0,
+  "total_max": 40.0,
+  "percent": 75.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance scenario is complete and measurable, but availability response measure is vague ('most of the time') and availability justification is thin. Suitable attributes, so Proficient.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The two most important quality attributes are performance and availability",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation tied to five-developer team, single-VM load issue and deployment downtime; downside acknowledged. Excellent.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "(a) and (b) correct. (c) computes payment availability but fails to combine it with other components; end-to-end should be 99.80% and 1.5 h/month. One part incorrect, so Proficient.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "0.000025 × 720 = 0.018 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit breaker mechanism, states, outage application and tuning threshold are correct. No explicit drawback, but tuning consideration satisfies Excellent.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "In the outage last month the breaker would have opened within seconds",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Choices and techniques are reasonable, but CAP is misused: partition tolerance cannot be given up during a partition. Proficient with incorrect CAP explanation.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "we choose consistency and availability and give up partition tolerance",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "each order request carries an idempotency key",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are specific, but consequences are entirely positive; no negative consequence. Proficient.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Outlets that are briefly offline still receive their orders when they reconnect.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Headings and IEEE-style references are present, but Question 2 is about 181 words, exceeding the 150-word limit. Proficient.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months.",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable; availability justification is weak."
+    },
+    {
+      "where": "Question 2",
+      "issue": "Answer is about 181 words, exceeding the 150-word limit."
+    },
+    {
+      "where": "Question 3(c)",
+      "issue": "End-to-end availability after adding the second payment provider is wrong; should be 0.9995×0.999×0.9995×0.999975 = 99.80%, downtime 1.5 h/month, not 99.9975%/0.018 h."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP theorem misuse: cannot 'give up partition tolerance' during a partition; payments should be CP, menu browsing AP."
+    },
+    {
+      "where": "Question 6",
+      "issue": "Consequences are all positive; no negative consequence is stated."
+    }
+  ],
+  "overall": "Total 30/40. Strong Q2 and Q4. Main losses: Q3(c) end-to-end availability error, Q5 CAP misuse, Q1 non-measurable availability measure, Q6 missing negative consequence, and Q2 over word limit.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 15,
+    "quotes_found": 15,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "Total 30/40. You are strongest in Q2 and Q4: your modular-monolith trade-offs and circuit-breaker application are specific and well argued. Main losses are Q3(c) end-to-end availability, Q5 CAP misuse, Q1 non-measurable availability measure, Q6 missing negative consequence, and Q2 over the word limit. Address these to move Proficient criteria to Excellent.",
+    "next_steps": [
+      "Recompute Q3(c): multiply all four availabilities (0.9995×0.999×0.9995×0.999975) to get 99.80% and 1.5 h/month downtime; show each step.",
+      "Rewrite Q5 CAP: explain partition tolerance is not optional; justify payments as CP and menu browsing as AP, naming a concrete technique for each.",
+      "Tighten Q2 to 150 words, make Q1 availability response measure measurable (e.g. uptime % or downtime per month), and add a negative consequence to Q6."
+    ],
+    "criteria": {
+      "C1": "You chose performance and availability and your performance scenario is complete and measurable. The availability response measure 'stay up most of the time' is not measurable, and its justification is thin. For Excellent, make both scenarios six-part and both response measures measurable (e.g. uptime % or downtime per month), and justify why these two attributes matter most in CampusEats.",
+      "C2": "You clearly recommend a modular monolith and tie it to the five-developer team, single-VM load issue and deployment downtime, while acknowledging the downside. This is Excellent. To sustain it, keep every trade-off scenario-specific and the downside explicit; avoid generic textbook advantages.",
+      "C3": "Parts (a) and (b) are correct. In (c) you compute payment availability but do not combine it with the other components; end-to-end should be 0.9995×0.999×0.9995×0.999975 = 99.80%, downtime 1.5 h/month, not 99.9975%/0.018 h. For Excellent, show the full series calculation for all components to the requested precision.",
+      "C4": "You named circuit breaker, explained its states and threshold, and applied it to last month's outage. The tuning consideration satisfies Excellent. To make it even stronger, add an explicit drawback (e.g. false positives or added latency) alongside the tuning threshold.",
+      "C5": "Your choices and idempotency-key technique are reasonable, but CAP is misused: you cannot 'give up partition tolerance' during a partition. Payments should be CP and menu browsing AP. For Excellent, explain CAP correctly, justify both choices, and name a concrete technique for each case.",
+      "C6": "Context, Decision and Consequences are specific to CampusEats, but all consequences are positive. For Excellent, add at least one negative consequence, such as added complexity, eventual consistency, or handling outlets that are offline, while keeping the three sections specific.",
+      "C7": "Headings and IEEE-style references are present, but Question 2 is about 181 words, over the 150-word limit. For Excellent, keep every answer within 150 words and maintain precise terminology and citation formatting."
+    }
+  }
+}

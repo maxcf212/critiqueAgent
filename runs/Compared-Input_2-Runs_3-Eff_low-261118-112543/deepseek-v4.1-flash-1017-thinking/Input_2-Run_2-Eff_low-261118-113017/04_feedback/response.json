@@ -1,0 +1,80 @@
+{
+  "id": "chatcmpl-a2e6b5a2-3091-48cf-9ed1-6344ace87895",
+  "object": "chat.completion",
+  "created": 1794961875,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"Your report presents a solid preliminary mission with clear STK evidence and a logical structure. The introduction and conclusion are strong; the main design addresses most requirements but has technical errors (RAAN justification, missing LTAN), no link budget, and weak referencing (Wikipedia, bare URLs). Presentation is readable but figures/tables and bibliography need consistent formatting. Files are not evident.\",\"next_steps\":[\"Correct the orbit section: explain RAAN as an inertial node rather than launch-site longitude, add LTAN and the epoch for argument of latitude 0°, and support the sun-synchronous design with a clear lighting/imaging rationale.\",\"Add a communication link budget/data-rate analysis for the Mt Pleasant contact windows, and quantify the drag-sail deorbit time from 600 km; include STK/software files in an appendix.\",\"Replace Wikipedia and bare URLs with properly cited peer-reviewed/agency sources; number and label all figures/tables and ensure in-text citations match the reference list.\"],\"criteria\":{\"C1\":\"You address the primary mission, need, single-spacecraft rationale and users, with good references. The operator/customers are somewhat implied (e.g. CSIRO, BOM) rather than fully explicit. To strengthen toward upper Accomplished, state the operator and customer roles explicitly and support the mission need with more specific literature.\",\"C2\":\"You present STK screenshots and tables and address launch, orbit, ground control, duration and EOL. However, RAAN is incorrectly tied to launch-site longitude, LTAN is missing, no link budget supports contact claims, and the drag-sail deorbit is unquantified. Wikipedia weakens the launch comparison. For Accomplished, correct these technical points, add quantitative evidence and include software files.\",\"C3\":\"Your conclusion draws specific points from the design (Vega E, Mt Pleasant, orbit type) and is reasonably detailed. To strengthen within Accomplished, tie each conclusion explicitly to the evidence presented and acknowledge key limitations or assumptions (e.g. unbuilt launch vehicle, link budget absent) without introducing new material.\",\"C4\":\"The report has clear headings, but figures/tables lack numbers and consistent labelling, and the bibliography uses bare URLs and Wikipedia. Writing is generally readable. For Accomplished, use a consistent engineering report format, number and caption all figures/tables, provide a concise executive summary, and ensure all references are properly formatted and matched in text.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary <=80 words, next_steps array of 3 strings, criteria object with keys C1-C4 each <=70 words. Address student as \"you\". Be specific, supportive, actionable, cite sections/figures, name what they did well, state what next rubric level requires. Do not change marks. Do not comment on document-conversion artefacts. Do not make up explanations for unclear reasoning. Need to infer from marking. We have marks: C1 7/10 Accomplished, C2 6/10 Adequate, C3 7/10 Accomplished, C4 5/10 Adequate. Need formative feedback per criterion. Summary overall. Next steps 3 actionable. Need mention specific issues: RAAN initial value incorrectly stated to indicate launch facility location; missing LTAN; no link budget/data rate; Wikipedia reliance; bare URLs; drag sail deorbit not quantified; epoch time for argument of latitude 0° not stated; files not evident. Also C1 users somewhat implied; C3 good; C4 figures/tables lack numbers, bibliography bare URLs, Wikipedia. Need be supportive. Need not mention document conversion. Need not change marks. Need maybe mention \"Introduction\" users explicit. For C1: strong, all requirements, but users somewhat implied; next level? It's already Accomplished at 7; to improve within level, make operator/customers fully explicit and cite literature. But rubric level Accomplished min 7 max 10; state next rubric level? Since at 7, to move higher in Accomplished requires more detailed descriptions/discussions and references. But \"next rubric level\" maybe if not top? For C1 at Accomplished, next is higher Accomplished? We can say to strengthen toward upper Accomplished. For C2 Adequate 6, next level Accomplished requires all major requirements well supported with quality evidence, accurate design, software files, references. Need mention fix RAAN, add LTAN, link budget, replace Wikipedia, quantify drag sail, state epoch, include files. For C3 Accomplished 7, good; to strengthen upper Accomplished tie conclusions more explicitly to evidence and limitations? But don't make up. C4 Adequate 5, next Accomplished requires consistent formatting, numbered/labelled figures/tables, proper citations matching reference list, no Wikipedia, professional structure, executive summary concise. Need mention figures/tables lack numbers, bibliography bare URLs. Need summary <=80 words. Next steps exactly 3 strings. Criteria each <=70 words. Need JSON only. Ensure no markdown. Use quotes. Need address \"you\". Let's craft.\n\nSummary: \"Your report presents a solid preliminary mission with clear STK evidence and a logical structure. The introduction and conclusion are strong; the main design addresses most requirements but has technical errors (RAAN justification, missing LTAN), no link budget, and weak referencing (Wikipedia, bare URLs). Presentation is readable but figures/tables and bibliography need consistent formatting. Files are not evident.\" Count words ~60. Good.\n\nNext steps: 3 actionable. 1) \"Correct the orbit section: explain RAAN as an inertial node rather than launch-site longitude, add LTAN and the epoch for argument of latitude 0°, and support the sun-synchronous design with a clear lighting/imaging rationale.\" 2) \"Add a communication link budget/data-rate analysis for the Mt Pleasant contact windows, and quantify the drag-sail deorbit time from 600 km; include STK/software files in an appendix.\" 3) \"Replace Wikipedia and bare URLs with properly cited peer-reviewed/agency sources; number and label all figures/tables and ensure in-text citations match the reference list.\" Good.\n\nCriteria:\nC1 <=70 words: \"You address the primary mission, need, single-spacecraft rationale and users, with good references. The operator/customers are somewhat implied (e.g. CSIRO, BOM) rather than fully explicit. To strengthen toward upper Accomplished, state the operator and customer roles explicitly and support the mission need with more specific literature.\" Count ~50. Good.\n\nC2 <=70: \"You present STK screenshots and tables and address launch, orbit, ground control, duration and EOL. However, RAAN is incorrectly tied to launch-site longitude, LTAN is missing, no link budget supports contact claims, and the drag-sail deorbit is unquantified. Wikipedia weakens the launch comparison. For Accomplished, correct these technical points, add quantitative evidence and include software files.\" Count ~60. Good.\n\nC3 <=70: \"Your conclusion draws specific points from the design (Vega E, Mt Pleasant, orbit type) and is reasonably detailed. To strengthen within Accomplished, tie each conclusion explicitly to the evidence presented and acknowledge key limitations or assumptions (e.g. unbuilt launch vehicle, link budget absent) without introducing new material.\" Count ~50. Good.\n\nC4 <=70: \"The report has clear headings, but figures/tables lack numbers and consistent labelling, and the bibliography uses bare URLs and Wikipedia. Writing is generally readable. For Accomplished, use a consistent engineering report format, number and caption all figures/tables, provide a concise executive summary, and ensure all references are properly formatted and matched in text.\" Count ~55. Good.\n\nNeed ensure JSON valid. No markdown. Use exact keys. Criteria object keys \"C1\" etc. Good."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2205,
+    "completion_tokens": 1637,
+    "total_tokens": 3842,
+    "reasoning_tokens": 1134,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1134,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 2176,
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 2176,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 29,
+    "cost": 0.0012027,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_f10b50f4-9212-45e9-bcc5-629597aa366a",
+  "x_nanogpt_pricing": {
+    "amount": 0.0012027,
+    "currency": "USD",
+    "cost": 0.0012027,
+    "inputTokens": 2205,
+    "outputTokens": 1637,
+    "cacheCreationInputTokens": 2176,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0.00021760000000000003,
+    "requestId": "req_c1a7f29b-aea8-4ecf-92ad-3f90115e883f",
+    "costUsd": 0.0012027,
+    "usdCost": 0.0012027,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "write_only",
+      "readTokens": 0,
+      "writeTokens": 2176
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "write_only",
+    "readTokens": 0,
+    "writeTokens": 2176
+  }
+}

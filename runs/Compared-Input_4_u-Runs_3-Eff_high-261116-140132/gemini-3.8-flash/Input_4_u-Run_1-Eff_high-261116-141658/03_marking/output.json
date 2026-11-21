@@ -1,0 +1,179 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        }
+      ],
+      "reasoning": "Both performance and availability are clearly justified using scenario metrics. Both quality attribute scenarios include all six parts (source, stimulus, artefact, environment, response, response measure) and feature concrete, measurable response metrics."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The lunchtime slowness comes from a single virtual machine and is fixed by running several instances of the monolith"
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "A modular monolith is recommended with two clear, scenario-specific trade-offs addressing team size, operational overhead, and existing architectural bottlenecks. Trade-off downsides are clearly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "The availability of placing an order is 99.30%."
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.03, so 5.0 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "The new availability of placing an order is 99.80%."
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99798) × 720 = 0.00202 × 720 = 1.46, so 1.5 hours per month."
+        }
+      ],
+      "reasoning": "All calculations for parts (a), (b), and (c) are technically correct, full working is shown, and results are reported to the required precision (availability to two decimal places, downtime to one decimal place)."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "Question 4",
+          "quote": "In the Closed state calls pass through. When failures exceed a threshold the breaker moves to Open and calls fail immediately"
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data."
+        }
+      ],
+      "reasoning": "The circuit breaker pattern is correctly identified and its state transitions (Closed, Open, Half-Open) clearly explained. It is directly applied to the scenario failure, and practical tuning considerations and drawbacks are provided."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says that during a partition a system must give up either consistency or availability; partitions cannot be ruled out"
+        },
+        {
+          "where": "Question 5",
+          "quote": "better to show a slightly stale menu from a cache (Redis with a 60-second TTL) than an error page."
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge."
+        }
+      ],
+      "reasoning": "Both architectural choices are sound and well justified using accurate CAP theorem reasoning. Concrete technical solutions (Redis caching with TTL for AP; idempotency keys and fast rejection for CP) are specified."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor. Delivery is at-least-once"
+        }
+      ],
+      "reasoning": "The ADR is structured into Context, Decision, and Consequences. It specifically addresses tablet disconnection and latency issues, providing well-balanced positive and negative consequences."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The scenarios use the six-part form from [1]."
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed."
+        }
+      ],
+      "reasoning": "All answers strictly observe the 150-word limit. Headings follow the prescribed format, technical terminology is used precisely throughout, and external sources are cited using IEEE format with a complete reference list."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "Exemplary submission across all questions. Calculations are exact and clearly laid out, architectural trade-offs are grounded in the specific scenario constraints, and formatting requirements including word limits and IEEE referencing are fully met."
+}

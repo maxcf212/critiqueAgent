@@ -1,0 +1,1376 @@
+{
+  "id": "chatcmpl-2ec2468d-0aa5-48dd-bb9a-0eee6aabe0eb",
+  "object": "chat.completion",
+  "created": 1794791146,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"id\":\"C1\",\"level\":\"Proficient\",\"mark\":4,\"evidence\":[{\"where\":\"Question 1\",\"quote\":\"The two most important quality attributes are performance and availability\"},{\"where\":\"Question 1\",\"quote\":\"Response measure: the system should stay up most of the time.\"}],\"reasoning\":\"Attributes are well chosen and justified; performance scenario is complete and measurable. Availability scenario has six parts but its response measure is not measurable, so not Excellent.\"},{\"id\":\"C2\",\"level\":\"Excellent\",\"mark\":6,\"evidence\":[{\"where\":\"Question 2\",\"quote\":\"With five developers, running eight or ten services would mean more time spent on infrastructure than on features.\"},{\"where\":\"Question 2\",\"quote\":\"The trade-off I accept is that modules cannot be scaled independently\"}],\"reasoning\":\"Clear modular-monolith recommendation tied to five-person team, single VM, deployment downtime, and rewrite risk; downside acknowledged. Excellent.\"},{\"id\":\"C3\",\"level\":\"Developing\",\"mark\":3,\"evidence\":[{\"where\":\"Question 3\",\"quote\":\"Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.\"},{\"where\":\"Question 3\",\"quote\":\"So the new availability of placing an order is 99.9975%\"}],\"reasoning\":\"Part (a) correct. Part (b) arithmetic wrong: 0.00699×720=5.03h, not 3.5h. Part (c) treats payment availability as end-to-end and omits other components; correct end-to-end is about 99.80% and 1.46h downtime. Two parts incorrect.\"},{\"id\":\"C4\",\"level\":\"Developing\",\"mark\":2,\"evidence\":[{\"where\":\"Question 4\",\"quote\":\"In the Open state calls pass through normally.\"},{\"where\":\"Question 4\",\"quote\":\"the breaker moves to Closed and calls fail immediately\"}],\"reasoning\":\"Circuit breaker is appropriate and applied, but state semantics are reversed: Closed is normal, Open fails fast, Half-Open trials. No clear drawback/tuning consideration beyond threshold example. Explanation incorrect.\"},{\"id\":\"C5\",\"level\":\"Proficient\",\"mark\":3,\"evidence\":[{\"where\":\"Question 5\",\"quote\":\"we choose consistency and availability and give up partition tolerance.\"}],\"reasoning\":\"Menu choice and cache technique are good. Payment choice is reasonable but no concrete technique is named, and CAP is misused: partition tolerance cannot be given up during a partition; choose C or A.\"},{\"id\":\"C6\",\"level\":\"Proficient\",\"mark\":4,\"evidence\":[{\"where\":\"Question 6\",\"quote\":\"Consequences: Placing an order no longer waits for the outlet, so the response time improves.\"}],\"reasoning\":\"Context, Decision, Consequences present and specific. Consequences are all positive; no negative consequence, so Proficient not Excellent.\"},{\"id\":\"C7\",\"level\":\"Proficient\",\"mark\":3,\"evidence\":[{\"where\":\"Question 2\",\"quote\":\"The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.\"},{\"where\":\"References\",\"quote\":\"[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice\"}],\"reasoning\":\"Writing is clear and headings used, but Q2 is about 181 words (over 150), and [2] is cited without a reference-list entry. Minor citation/format issues.\"}],\"requirements\":[{\"id\":\"R1\",\"met\":\"partial\",\"where\":\"Question 1\"},{\"id\":\"R2\",\"met\":\"yes\",\"where\":\"Question 2\"},{\"id\":\"R3\",\"met\":\"partial\",\"where\":\"Question 3\"},{\"id\":\"R4\",\"met\":\"partial\",\"where\":\"Question 4\"},{\"id\":\"R5\",\"met\":\"partial\",\"where\":\"Question 5\"},{\"id\":\"R6\",\"met\":\"partial\",\"where\":\"Question 6\"},{\"id\":\"R7\",\"met\":\"partial\",\"where\":\"References\"}],\"technical_issues\":[{\"where\":\"Question 1\",\"issue\":\"Availability response measure 'stay up most of the time' is not measurable.\"},{\"where\":\"Question 3\",\"issue\":\"Part (b) arithmetic error: 0.00699 × 720 = 5.03 hours, not 3.5 hours.\"},{\"where\":\"Question 3\",\"issue\":\"Part (c) uses payment availability as end-to-end availability; other components must also be multiplied, giving about 99.80% and 1.46 hours downtime, not 99.9975% and 0.018 hours.\"},{\"where\":\"Question 4\",\"issue\":\"Circuit breaker states are reversed: Closed is normal, Open fails fast, Half-Open allows trial calls.\"},{\"where\":\"Question 5\",\"issue\":\"CAP theorem is misused: partition tolerance cannot be given up during a partition; the choice is C or A. No concrete payment consistency technique is named.\"},{\"where\":\"Question 6\",\"issue\":\"No negative consequence is given in the ADR.\"},{\"where\":\"Question 2\",\"issue\":\"Answer exceeds the 150-word limit (about 181 words).\"},{\"where\":\"References\",\"issue\":\"Reference [2] is cited in Question 4 but missing from the reference list.\"}],\"overall\":\"Total 25/40. Strong Q2 and Q1 justification, but Q3 has two calculation errors, Q4 reverses circuit-breaker states, Q5 misuses CAP and lacks a payment technique, Q6 lacks a negative consequence, and formatting/citation issues remain.\"}",
+        "refusal": null,
+        "reasoning": "We need answer JSON only. Need mark against rubric. Need inspect submission. Need evaluate each criterion, requirements, technical issues, overall. Need be careful with calculations.\n\nLet's parse scenario? We only have task, not original scenario details except embedded in submission. Need judge technical correctness. Q3: component availabilities: 0.9995 × 0.999 × 0.9995 × 0.995. Let's compute: 0.9995*0.999 = 0.9985005? 0.9995*(1-0.001)=0.9995-0.0009995=0.9985005. *0.9995 = 0.9985005*(1-0.0005)=0.9985005-0.00049925025=0.99800124975. *0.995 = * (1-0.005)=0.99800124975 - 0.00499000624875 = 0.99301124350125. So 0.99301124 = 99.3011%, to two decimals 99.30%. Good. Downtime = (1-0.9930112435)*720 = 0.0069887565*720 = 5.03190468? Wait compute: 0.0069887565*720 = 5.0319. The student wrote 0.00699 × 720 = 3.5 hours. That's arithmetic error: 0.00699*720 = 5.0328, not 3.5. They used 0.99301, 1- = 0.00699, times 720 = 5.03. They wrote 3.5. So part b incorrect. Part c: A_pay = 1 - (1-0.995)^2 = 1 - 0.005^2 = 1 - 0.000025 = 0.999975. Then new availability of placing order: need replace payment 0.995 with 0.999975 in product: 0.9995*0.999*0.9995*0.999975. Compute base without payment: 0.9995*0.999*0.9995 = 0.99800124975. *0.999975 = 0.99800124975*(1-0.000025)=0.99800124975 - 0.00002495003124 = 0.99797629971876. So 99.7976%, not 99.9975%. Student incorrectly says new availability of placing order is 99.9975%, which is just payment availability, not end-to-end. Downtime = (1-0.9979763)*720 = 0.0020237003*720 = 1.457064 hours, not 0.018. They wrote 0.000025*720 = 0.018, using only payment downtime. So part c incorrect. Part a correct. Thus C3: method correct throughout? Part a correct, b arithmetic slip, c incorrect (conceptual/calculation). Rubric: Excellent all correct. Proficient method correct throughout but one arithmetic/rounding slip, or exactly one part incorrect. Here two parts incorrect (b and c), so Developing 1-4. \"series calculation attempted but two or more parts incorrect, or working not shown.\" They show working. Two or more parts incorrect -> Developing. Mark maybe 3? Need choose level and whole mark within range. Since part a correct and method for c partially, but b and c wrong. Developing range 1-4. Could award 3? Need decide. C3 max 8. Level Developing 1-4. We can give 3 or 4? Descriptor says two or more parts incorrect. They have part a correct, b arithmetic error, c wrong. That's two incorrect. Mark maybe 3. Need not half. We'll choose 3.\n\nQ1: Two attributes performance and availability. Justification from scenario: lunch hour 900 orders, p95 4.2s abandonment. Good. Performance scenario six parts? Source students, stimulus 900 requests within hour, artefact endpoint, environment lunch peak, response every order accepted/confirmed, response measure p95 <1.5s and no requests dropped. Measurable. Availability scenario: source external payment provider, stimulus slow/stops, artefact order service, environment lunch peak, response system keeps working and students can still browse menus, response measure \"system should stay up most of the time\" not measurable. Also response maybe not directly availability of order placement? It says keeps working and browse menus. But response measure not measurable. So one scenario has non-measurable response measure. Rubric Proficient: suitable attributes chosen with some justification. Scenarios mostly complete but one missing part or response measure not measurable. This fits Proficient 3-4. Since both attributes justified, one scenario complete measurable, other non-measurable. Mark 4? Proficient max 4. Could be 4. Need check \"two attributes that clearly matter most\" yes. \"Both scenarios have all six parts and both response measures measurable\" no. So not Excellent. Proficient. Mark 4 likely.\n\nQ2: Recommend modular monolith, justified with trade-offs specific: team size five, operational overhead, known problems single VM and deployment process, rewrite freeze. Downside acknowledged: modules cannot scale independently, bug can crash whole process. At least two trade-offs specific. Excellent 5-6. Mark 6? Need check \"clear recommendation justified by at least two trade-offs specific to scenario. Downside acknowledged.\" Yes. Maybe 6. Could be 5 if trade-offs not exactly \"trade-offs\" but yes. Mark 6.\n\nQ4: Circuit breaker named. Mechanism explanation has a critical error: states reversed. In Open state calls pass through normally? Actually Closed = normal, Open = fail fast, Half-Open = trial. Student says \"In the Open state calls pass through normally. When failures exceed threshold ... breaker moves to Closed and calls fail immediately ... After wait period Half-Open ... If they succeed it opens again, otherwise it stays closed.\" This is exactly reversed. So explanation incorrect. They do apply to outage and drawback/tuning? They mention threshold 50% in 10s, wait period, but no explicit drawback/tuning consideration? They give threshold example and wait period, but not drawback. The mechanism is incorrect due to state reversal. Rubric C4: Excellent requires appropriate pattern named, mechanism explained correctly, applied, at least one drawback/tuning. Proficient: appropriate pattern named and explained correctly, but loosely applied or no drawback. Developing: pattern named but explanation incorrect or very thin. Since explanation incorrect (state semantics reversed), Developing 1-2. They do apply to outage and mention threshold, but core mechanism wrong. Mark 2? Developing range 1-2. Since pattern appropriate and some correct concepts (counts failures/timeouts, fail fast, half-open trial) but state names reversed. Could be 2. Need choose. Mark 2.\n\nQ5: Menu browsing favour availability, cache Redis TTL, eventual consistency. Good. Placing/paying favour consistency, double charge unacceptable. CAP theorem used incorrectly: \"system can only provide two of consistency, availability and partition tolerance, so for payments we choose consistency and availability and give up partition tolerance.\" In a network partition, partition tolerance is not optional; you choose C or A. You cannot \"give up partition tolerance\" during a partition. Also they say choose consistency and availability, contradictory. They name technique for menu (cache) but for payments? They don't name a concrete technique for payments (e.g., distributed transaction, two-phase commit, idempotency keys, consensus). They mention charging twice but no technique. So C5: Both choices reasonable and techniques named? One technique missing. CAP explained incorrectly. Proficient 3-4: both choices reasonable and techniques named, but CAP explained incorrectly/imprecisely, or one technique missing. Here both CAP incorrect and one technique missing. Could be Developing? Descriptor Developing: choices stated with little justification, or CAP theorem not used. They do use CAP but incorrectly. Proficient says \"Both choices are reasonable and techniques are named, but CAP theorem is explained incorrectly or imprecisely, or one technique is missing.\" It doesn't cover both missing technique and incorrect CAP? It says or. But they have one technique missing and CAP incorrect. Still likely Proficient lower end? Need decide. The choices are justified, one technique named for menu, no technique for payment. CAP used incorrectly. That's two issues. Could be Developing 2? But choices have justification. The rubric levels: Excellent both choices justified, CAP correct, suitable concrete technique each. Proficient both choices reasonable and techniques named, but CAP incorrect/imprecise, or one technique missing. Here techniques not both named and CAP incorrect. So not fully Proficient? But \"or one technique is missing\" and \"CAP explained incorrectly\" both true. It might still be Proficient because both choices reasonable and at least one technique named? Hmm. Need mark within level best fits. I'd say Proficient 3 because choices reasonable and one technique named, but CAP incorrect and missing payment technique. Could be 3. Not 4 due to two flaws. Mark 3.\n\nQ6: ADR includes Context, Decision, Consequences. Positive consequences: response time improves, offline outlets receive, smooth peak. Negative consequence? None. They don't mention negative. Rubric Excellent requires at least one positive and one negative. Proficient: all three sections present but consequences one-sided (no negative) or context generic. This fits Proficient 3-4. Context specific. Consequences one-sided. Mark 4? Proficient max 4. Since all sections present, context specific, but no negative. Mark 4. Could be 3? Descriptor says one-sided -> Proficient. Mark 4.\n\nC7 Communication and format: Need check word limits. Each answer at most 150 words. Q1? Let's count roughly. Q1 text: \"The two most important quality attributes are performance and availability, because the business depends on the lunch hour: 900 orders arrive between 12:00 and 13:00 and the current p95 of 4.2 s for placing an order makes students abandon their orders. The scenarios below use the six-part form from [1]. Performance scenario. Source: students using the mobile app. Stimulus: 900 order requests arrive within one hour (about 150 per minute on average). Artefact: the order placement endpoint. Environment: a normal weekday lunch peak. Response: every order is accepted and confirmed. Response measure: the p95 response time is under 1.5 s and no requests are dropped. Availability scenario. Source: the external payment provider. Stimulus: it becomes slow or stops responding. Artefact: the order service. Environment: the lunch peak. Response: the system keeps working and students can still browse menus. Response measure: the system should stay up most of the time.\" Count maybe ~140? Let's count: The(1) two2 most3 important4 quality5 attributes6 are7 performance8 and9 availability10 because11 the12 business13 depends14 on15 the16 lunch17 hour18 90019 orders20 arrive21 between22 12:00 23 and24 13:00 25 and26 the27 current28 p95 29 of30 4.2 31 s32 for33 placing34 an35 order36 makes37 students38 abandon39 their40 orders41. The42 scenarios43 below44 use45 the46 six-part47 form48 from49 [1]50. Performance51 scenario52. Source53 students54 using55 the56 mobile57 app58. Stimulus59 90060 order61 requests62 arrive63 within64 one65 hour66 about67 15068 per69 minute70 on71 average72. Artefact73 the74 order75 placement76 endpoint77. Environment78 a79 normal80 weekday81 lunch82 peak83. Response84 every85 order86 is87 accepted88 and89 confirmed90. Response91 measure92 the93 p95 94 response95 time96 is97 under98 1.5 99 s100 and101 no102 requests103 are104 dropped105. Availability106 scenario107. Source108 the109 external110 payment111 provider112. Stimulus113 it114 becomes115 slow116 or117 stops118 responding119. Artefact120 the121 order122 service123. Environment124 the125 lunch126 peak127. Response128 the129 system130 keeps131 working132 and133 students134 can135 still136 browse137 menus138. Response139 measure140 the141 system142 should143 stay144 up145 most146 of147 the148 time149. So 149 words. Under 150. Good.\n\nQ2 count? \"I recommend against a full microservices rewrite for the next 12 months. Instead the existing application should be restructured into a modular monolith with clear internal modules (orders, menu, payments, outlets). First, team size versus operational overhead. Microservices let each service scale and deploy independently, but every service needs its own pipeline, monitoring and on-call knowledge. With five developers, running eight or ten services would mean more time spent on infrastructure than on features. A modular monolith keeps one deployable unit and one database while still enforcing module boundaries. Second, the known problems are not caused by the monolith itself. The slow lunchtime responses come from running on a single virtual machine, which can be fixed by running two or more instances of the monolith behind a load balancer. The 20-minute weekly downtime is a deployment process problem and can be removed with rolling deployments. A rewrite would freeze feature work for months without directly fixing either problem. The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.\" Count maybe 160? Let's count. I'll count: I1 recommend2 against3 a4 full5 microservices6 rewrite7 for8 the9 next10 12 11 months12. Instead13 the14 existing15 application16 should17 be18 restructured19 into20 a21 modular22 monolith23 with24 clear25 internal26 modules27 orders28 menu29 payments30 outlets31. First32 team33 size34 versus35 operational36 overhead37. Microservices38 let39 each40 service41 scale42 and43 deploy44 independently45 but46 every47 service48 needs49 its50 own51 pipeline52 monitoring53 and54 on-call55 knowledge56. With57 five58 developers59 running60 eight61 or62 ten63 services64 would65 mean66 more67 time68 spent69 on70 infrastructure71 than72 on73 features74. A75 modular76 monolith77 keeps78 one79 deployable80 unit81 and82 one83 database84 while85 still86 enforcing87 module88 boundaries89. Second90 the91 known92 problems93 are94 not95 caused96 by97 the98 monolith99 itself100. The101 slow102 lunchtime103 responses104 come105 from106 running107 on108 a109 single110 virtual111 machine112 which113 can114 be115 fixed116 by117 running118 two119 or120 more121 instances122 of123 the124 monolith125 behind126 a127 load128 balancer129. The130 20-minute131 weekly132 downtime133 is134 a135 deployment136 process137 problem138 and139 can140 be141 removed142 with143 rolling144 deployments145. A146 rewrite147 would148 freeze149 feature150 work151 for152 months153 without154 directly155 fixing156 either157 problem158. The159 trade-off160 I161 accept162 is163 that164 modules165 cannot166 be167 scaled168 independently169 and170 a171 bug172 in173 one174 module175 can176 still177 crash178 the179 whole180 process181. So 181 words. Exceeds 150. That's a format issue. Q3 excluded calculations/working? The answer includes text; calculations excluded from limit. Q4 count? \"The Circuit Breaker pattern [2] would have contained the failure. Calls from the order service to the payment provider are wrapped in a breaker that counts failures and timeouts. In the Open state calls pass through normally. When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed and calls fail immediately without waiting, so request threads are not blocked and the rest of the application (menu browsing, order history) keeps responding. After a wait period the breaker goes Half-Open and lets a few trial calls through. If they succeed it opens again, otherwise it stays closed. In the outage last month the breaker would have closed within seconds of the provider slowing down. Students would have seen \"payment temporarily unavailable, please try again or pay at the counter\" instead of the whole app hanging for 25 minutes.\" Count maybe 140? Let's count: The1 Circuit2 Breaker3 pattern4 [2]5 would6 have7 contained8 the9 failure10. Calls11 from12 the13 order14 service15 to16 the17 payment18 provider19 are20 wrapped21 in22 a23 breaker24 that25 counts26 failures27 and28 timeouts29. In30 the31 Open32 state33 calls34 pass35 through36 normally37. When38 failures39 exceed40 a41 threshold42 for43 example44 50%45 of46 calls47 in48 10 49 seconds50 the51 breaker52 moves53 to54 Closed55 and56 calls57 fail58 immediately59 without60 waiting61 so62 request63 threads64 are65 not66 blocked67 and68 the69 rest70 of71 the72 application73 menu74 browsing75 order76 history77 keeps78 responding79. After80 a81 wait82 period83 the84 breaker85 goes86 Half-Open87 and88 lets89 a90 few91 trial92 calls93 through94. If95 they96 succeed97 it98 opens99 again100 otherwise101 it102 stays103 closed104. In105 the106 outage107 last108 month109 the110 breaker111 would112 have113 closed114 within115 seconds116 of117 the118 provider119 slowing120 down121. Students122 would123 have124 seen125 payment126 temporarily127 unavailable128 please129 try130 again131 or132 pay133 at134 the135 counter136 instead137 of138 the139 whole140 app141 hanging142 for143 25 144 minutes145. 145 words. Under 150. Q5 count? \" (i) Menu browsing: I would favour availability. If a partition separates an application server from the database, it is better to show a slightly stale menu from a cache (for example Redis with a 60-second TTL) than an error page. The worst case is that a student sees an item that sold out a minute ago, which the outlet can handle by rejecting that order. This is eventual consistency. (ii) Placing and paying for an order: I would favour consistency, because charging a student twice or accepting an order without a payment is unacceptable. The CAP theorem says a system can only provide two of consistency, availability and partition tolerance, so for payments we choose consistency and availability and give up partition tolerance.\" Count: i1 Menu2 browsing3 I4 would5 favour6 availability7. If8 a9 partition10 separates11 an12 application13 server14 from15 the16 database17 it18 is19 better20 to21 show22 a23 slightly24 stale25 menu26 from27 a28 cache29 for30 example31 Redis32 with33 a34 60-second35 TTL36 than37 an38 error39 page40. The41 worst42 case43 is44 that45 a46 student47 sees48 an49 item50 that51 sold52 out53 a54 minute55 ago56 which57 the58 outlet59 can60 handle61 by62 rejecting63 that64 order65. This66 is67 eventual68 consistency69. ii70 Placing71 and72 paying73 for74 an75 order76 I77 would78 favour79 consistency80 because81 charging82 a83 student84 twice85 or86 accepting87 an88 order89 without90 a91 payment92 is93 unacceptable94. The95 CAP96 theorem97 says98 a99 system100 can101 only102 provide103 two104 of105 consistency106 availability107 and108 partition109 tolerance110 so111 for112 payments113 we114 choose115 consistency116 and117 availability118 and119 give120 up121 partition122 tolerance123. 123 words. Under. Q6 count? \"ADR-007: Use a message queue for outlet order notifications Status: Proposed Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply. If a tablet is offline the order is lost, and during the lunch peak these calls add to the 4.2 s p95 response time. Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ). A notification worker consumes the events and pushes them to the outlet tablets, retrying until each one is acknowledged. Consequences: Placing an order no longer waits for the outlet, so the response time improves. Outlets that are briefly offline still receive their orders when they reconnect. The queue also smooths the lunch peak because the workers process orders at a steady rate.\" Count: ADR-0071 Use2 a3 message4 queue5 for6 outlet7 order8 notifications9 Status10 Proposed11 Context12 After13 an14 order15 is16 paid17 the18 application19 calls20 the21 outlet's22 tablet23 synchronously24 and25 waits26 for27 the28 reply29. If30 a31 tablet32 is33 offline34 the35 order36 is37 lost38 and39 during40 the41 lunch42 peak43 these44 calls45 add46 to47 the48 4.2 49 s50 p95 51 response52 time53. Decision54 Publish55 an56 OrderPaid57 event58 to59 a60 durable61 message62 queue63 RabbitMQ64. A65 notification66 worker67 consumes68 the69 events70 and71 pushes72 them73 to74 the75 outlet76 tablets77 retrying78 until79 each80 one81 is82 acknowledged83. Consequences84 Placing85 an86 order87 no88 longer89 waits90 for91 the92 outlet93 so94 the95 response96 time97 improves98. Outlets99 that100 are101 briefly102 offline103 still104 receive105 their106 orders107 when108 they109 reconnect110. The111 queue112 also113 smooths114 the115 lunch116 peak117 because118 the119 workers120 process121 orders122 at123 a124 steady125 rate126. 126 words. Under. Q2 exceeds. Also references: only [1] and [2]? They cite [2] in Q4 but reference list only [1]. Missing reference for [2]. IEEE style for [1] okay. [2] missing. Also Q1 cites [1] but reference list has [1]. Q4 cites [2] no reference. So C7: one answer exceeds word limit and citation problem. Proficient 3: \"Clear writing, but one answer exceeds the word limit or there are minor citation or formatting problems.\" Here both one answer exceeds and missing reference. Still Proficient? Could be Developing if several answers exceed or sources not cited. Only one exceeds, sources cited but one missing. Proficient 3. Mark 3.\n\nNeed also requirements R1-R7 met/partial/no. R1: Q1 two attributes justified, scenarios six parts, one response measure not measurable. So partial. R2: Q2 recommend style, at least two trade-offs specific. Met yes. R3: Q3 show working, calculate a,b,c. Part a correct, b/c incorrect. Requirement \"Calculate...\" partial? It attempted all but b/c wrong. Met? The requirement is to calculate; they did but incorrect. For requirements met status, likely partial because not correct. R4: Q4 name pattern, explain, limit outage, drawback/tuning. Pattern named, explanation incorrect, applied, no drawback. Partial. R5: Q5 choices, CAP, technique each. Choices justified, CAP incorrect, one technique missing. Partial. R6: Q6 ADR Context Decision Consequences positive and negative. Positive only, no negative. Partial. R7: assumptions? They did not state assumptions explicitly. Cite external sources IEEE and reference list. They cite [1] and [2], reference list only [1]. So partial/no? R7 says \"State any assumptions made. Cite external sources in IEEE style and include corresponding reference list; references do not count...\" They did not state assumptions. They have one reference, missing [2]. So partial. Need where for each.\n\nTechnical issues: list. Need include Q3 b arithmetic, Q3 c end-to-end calculation, Q4 circuit breaker states reversed, Q5 CAP misuse and missing payment technique, Q6 no negative consequence, Q2 word count, missing reference [2], Q1 availability response measure not measurable. Also maybe Q1 availability scenario response \"system keeps working and students can still browse menus\" not directly order service? But okay. Q3 part c: They say \"new availability of placing an order is 99.9975%\" which is payment availability not end-to-end. Need mention. Q3 b: 0.00699*720 = 5.03 not 3.5. Q3 c downtime should be ~1.46 h not 0.018. Also Q3 c \"active-active\" with two independent providers: payment unavailable only when both down, yes formula correct for payment. But end-to-end product should include other components. They didn't. Good.\n\nNeed overall <=60 words. Summarize marks maybe. Need output JSON with criteria array, requirements, technical_issues, overall. Need ensure marks whole numbers within level ranges. Let's decide final marks:\n\nC1: Proficient 4.\nC2: Excellent 6.\nC3: Developing 3.\nC4: Developing 2.\nC5: Proficient 3.\nC6: Proficient 4.\nC7: Proficient 3.\n\nTotal = 4+6+3+2+3+4+3 = 25/40. Is that fair? Let's double-check C3 maybe 4? Developing range 1-4. They got part a correct, b arithmetic slip, c wrong. \"two or more parts incorrect\" yes. Mark 3. C4 2. C5 3. C6 4. C7 3. Total 25.\n\nNeed evidence quotes exact contiguous <=25 words. For each criterion, provide evidence array with where and quote. Need no ellipses. Use exact text. For C1 evidence: where \"Question 1\", quote \"Response measure: the system should stay up most of the time.\" That's exact. Also maybe \"The two most important quality attributes are performance and availability\" but quote <=25. Need evidence for level. Use one or two. C1: quote \"The two most important quality attributes are performance and availability\" and \"Response measure: the system should stay up most of the time.\" Both exact. Good.\n\nC2: where \"Question 2\", quote \"With five developers, running eight or ten services would mean more time spent on infrastructure than on features.\" Exact? Yes. And \"The trade-off I accept is that modules cannot be scaled independently\" exact. Good.\n\nC3: where \"Question 3\", quote \"Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.\" Exact? The text has \"Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.\" Yes. Also \"So the new availability of placing an order is 99.9975%\" exact. Good.\n\nC4: where \"Question 4\", quote \"In the Open state calls pass through normally.\" Exact. Also \"the breaker moves to Closed and calls fail immediately\" exact. Good.\n\nC5: where \"Question 5\", quote \"we choose consistency and availability and give up partition tolerance.\" Exact. Also maybe \"for payments we choose consistency and availability\" but quote. Need evidence for missing technique? Could quote \"I would favour consistency, because charging a student twice\" but not necessary. Use CAP quote.\n\nC6: where \"Question 6\", quote \"Consequences: Placing an order no longer waits for the outlet, so the response time improves.\" Exact. Shows positive only. Good.\n\nC7: where \"Question 2\", quote \"The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.\" This is long >25? Count: The1 trade-off2 I3 accept4 is5 that6 modules7 cannot8 be9 scaled10 independently11 and12 a13 bug14 in15 one16 module17 can18 still19 crash20 the21 whole22 process23. 23 words. Good. But evidence for word count? Need quote maybe entire Q2? Can't. We can cite where \"Question 2\" and quote a phrase, but word count issue not directly evidenced by quote. Could use \"With five developers, running eight or ten services would mean more time spent on infrastructure than on features.\" Not word count. For C7, evidence can be \"Question 4\" quote \"The Circuit Breaker pattern [2] would have contained the failure.\" This shows citation [2] but reference list missing. But C7 includes word limit and citation. Need evidence for missing reference? Where \"References\", quote \"[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice\" exact? It shows only [1]. But quote <=25 words: \"[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice\" 14 words. Good. But C7 also word count. Could include evidence from Q2 quote and References quote. Need not overdo. Use two evidence entries: where \"Question 2\", quote \"The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.\" This doesn't show word count but indicates Q2. Hmm. Maybe use where \"Question 2\" quote \"I recommend against a full microservices rewrite for the next 12 months.\" Not word count. The evidence field is for supporting mark; we can mention in reasoning that Q2 is 181 words. But evidence quote should be exact. It's okay. For citation issue, where \"References\", quote \"[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice\" shows only one reference. Good.\n\nNeed requirements array. For each R1-R7 met yes/partial/no and where. R1 partial where Question 1. R2 yes where Question 2. R3 partial where Question 3. R4 partial where Question 4. R5 partial where Question 5. R6 partial where Question 6. R7 partial where References / Question 1? R7 assumptions not stated and missing reference. Where \"References\" maybe. Need \"where\": nearest section heading. Use \"Question 1\" for assumptions? They didn't state assumptions anywhere. Could set where null? Requirement R7 includes assumptions and citations. Evidence missing for assumptions. For requirements, where can be \"References\" for citation. But assumptions missing. Maybe where \"References\" and reasoning? Requirements schema only id, met, where. No reasoning. So set where \"References\" for R7. Or \"Question 1\" no. Use \"References\".\n\nTechnical issues array: each with where and issue. Need concise. Include:\n- Question 3: (b) arithmetic: 0.00699 × 720 = 5.03 h, not 3.5 h.\n- Question 3: (c) uses payment availability as end-to-end; should multiply other components, giving ~99.80% and ~1.46 h downtime, not 99.9975% and 0.018 h.\n- Question 4: circuit breaker states reversed; Closed is normal, Open fails fast, Half-Open trials.\n- Question 5: CAP misuse; partition tolerance not optional; cannot choose C and A and give up P during partition. Also no concrete payment technique.\n- Question 6: no negative consequence.\n- Question 2: exceeds 150-word limit (about 181 words).\n- References: [2] cited but not listed.\n- Question 1: availability response measure not measurable.\nMaybe also Q1 availability scenario response measure \"most of the time\" not measurable. Good.\n\nNeed overall <=60 words. \"Total 25/40. Strong Q2 and Q1 justification, but Q3 has two calculation errors, Q4 reverses circuit-breaker states, Q5 misuses CAP and lacks a payment technique, Q6 lacks a negative consequence, and formatting/citation issues remain.\" Count ~40. Good.\n\nNeed ensure JSON valid. No markdown. Use exact quotes. Need no ellipses. Let's craft.\n\nCheck C1 mark 4: Level Proficient. Evidence quotes. Reasoning <=80 words. \"Attributes are well chosen and justified; performance scenario is complete and measurable. Availability scenario has six parts but response measure 'stay up most of the time' is not measurable, so not Excellent.\" Good.\n\nC2 reasoning: \"Clear modular-monolith recommendation tied to five-person team, single VM, deployment downtime, and rewrite risk; downside acknowledged. Excellent.\" Good.\n\nC3 reasoning: \"Part (a) correct. Part (b) arithmetic wrong: 0.00699×720=5.03h, not 3.5h. Part (c) treats payment availability as end-to-end and omits other components; correct end-to-end is ~99.80% and ~1.46h downtime. Two parts incorrect.\" Good.\n\nC4 reasoning: \"Circuit breaker is appropriate and applied, but state semantics are reversed: Closed is normal, Open fails fast, Half-Open trials. No clear drawback/tuning consideration beyond threshold example. Explanation incorrect.\" Good.\n\nC5 reasoning: \"Menu choice and cache technique are good. Payment choice is reasonable but no concrete technique is named, and CAP is misused: partition tolerance cannot be given up during a partition; choose C or A.\" Good.\n\nC6 reasoning: \"Context, Decision, Consequences present and specific. Consequences are all positive; no negative consequence, so Proficient not Excellent.\" Good.\n\nC7 reasoning: \"Writing is clear and headings used, but Q2 is about 181 words (over 150), and [2] is cited without a reference-list entry. Minor citation/format issues.\" Good.\n\nNeed maybe C7 mark 3. Good.\n\nNow requirements: R1 partial. R2 yes. R3 partial. R4 partial. R5 partial. R6 partial. R7 partial. Need \"where\" values. Use \"Question 1\", \"Question 2\", etc. For R7 \"References\". Good.\n\nNeed technical_issues maybe include all. Ensure no duplicate? Fine.\n\nLet's produce JSON.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need answer JSON only. Need mark against rubric. Need inspect submission. Need evaluate each criterion, requirements, technical issues, overall. Need be careful with calculations.\n\nLet's parse scenario?",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " We only have task, not original scenario details except embedded in submission. Need judge technical correctness. Q3: component availabilities: 0.9995 ×",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 0.999 × 0.9995 × 0.995. Let's compute: 0.9995*0.999 = 0.998",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "5005? 0.9995*(1-0.001)=0.9995-0.0009995=0.9985005. *",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "0.9995 = 0.9985005*(1-0.0005)=0.9985005-0.00049925025=0.998001",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "24975. *0.995 = * (1-0.005)=0.99800124975 - 0.00499000624875 = ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "0.99301124350125. So 0.99301124 = 99.3011%, to two decimals 99.30%. Good. Downtime = (",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "1-0.9930112435)*720 = 0.0069887565*720 = 5.03190468? Wait compute: 0.006988",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "7565*720 = 5.0319. The student wrote 0.00699 × 720 = 3.5 hours. That's arithmetic",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " error: 0.00699*720 = 5.0328, not 3.5. They used 0.99301, 1- =",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 0.00699, times 720 = 5.03. They wrote 3.5. So part b incorrect. Part c: A_pay",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " = 1 - (1-0.995)^2 = 1 - 0.005^2 = 1 - 0.000025 = 0.999",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "975. Then new availability of placing order: need replace payment 0.995 with 0.999975 in product: 0.9995*0.999*",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "0.9995*0.999975. Compute base without payment: 0.9995*0.999*0.9995 = 0.998001249",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "75. *0.999975 = 0.99800124975*(1-0.000025)=0.99800124975 - 0.000024",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "95003124 = 0.99797629971876. So 99.7976%, not 99.9975%. Student incorrectly says new availability of",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " placing order is 99.9975%, which is just payment availability, not end-to-end. Downtime = (1-0.9979763)*720 =",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 0.0020237003*720 = 1.457064 hours, not 0.018. They wrote 0.000025*720 = 0.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "018, using only payment downtime. So part c incorrect. Part a correct. Thus C3: method correct throughout? Part a correct, b arithmetic slip, c incorrect (",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "conceptual/calculation). Rubric: Excellent all correct. Proficient method correct throughout but one arithmetic/rounding slip, or exactly one part incorrect. Here",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " two parts incorrect (b and c), so Developing 1-4. \"series calculation attempted but two or more parts incorrect, or working not shown.\" They",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " show working. Two or more parts incorrect -> Developing. Mark maybe 3? Need choose level and whole mark within range. Since part a correct and method for",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " c partially, but b and c wrong. Developing range 1-4. Could award 3? Need decide. C3 max 8. Level Developing 1-4",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". We can give 3 or 4? Descriptor says two or more parts incorrect. They have part a correct, b arithmetic error, c wrong. That's",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " two incorrect. Mark maybe 3. Need not half. We'll choose 3.\n\nQ1: Two attributes performance and availability. Justification from scenario: lunch",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " hour 900 orders, p95 4.2s abandonment. Good. Performance scenario six parts? Source students, stimulus 900 requests within hour, arte",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "fact endpoint, environment lunch peak, response every order accepted/confirmed, response measure p95 <1.5s and no requests dropped. Measurable. Availability scenario: source",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " external payment provider, stimulus slow/stops, artefact order service, environment lunch peak, response system keeps working and students can still browse menus, response measure \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "system should stay up most of the time\" not measurable. Also response maybe not directly availability of order placement? It says keeps working and browse menus. But response measure not measurable. So",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " one scenario has non-measurable response measure. Rubric Proficient: suitable attributes chosen with some justification. Scenarios mostly complete but one missing part or response measure",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " not measurable. This fits Proficient 3-4. Since both attributes justified, one scenario complete measurable, other non-measurable. Mark 4?",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Proficient max 4. Could be 4. Need check \"two attributes that clearly matter most\" yes. \"Both scenarios have all six parts and both",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " response measures measurable\" no. So not Excellent. Proficient. Mark 4 likely.\n\nQ2: Recommend modular monolith, justified with trade-offs specific: team size five",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", operational overhead, known problems single VM and deployment process, rewrite freeze. Downside acknowledged: modules cannot scale independently, bug can crash whole process. At least two trade-offs specific",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Excellent 5-6. Mark 6? Need check \"clear recommendation justified by at least two trade-offs specific to scenario. Downside acknowledged.\" Yes.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Maybe 6. Could be 5 if trade-offs not exactly \"trade-offs\" but yes. Mark 6.\n\nQ4: Circuit breaker named. Mechanism",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " explanation has a critical error: states reversed. In Open state calls pass through normally? Actually Closed = normal, Open = fail fast, Half-Open = trial",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Student says \"In the Open state calls pass through normally. When failures exceed threshold ... breaker moves to Closed and calls fail immediately ... After wait period Half-Open ...",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " If they succeed it opens again, otherwise it stays closed.\" This is exactly reversed. So explanation incorrect. They do apply to outage and drawback/tuning? They mention threshold ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "50% in 10s, wait period, but no explicit drawback/tuning consideration? They give threshold example and wait period, but not drawback. The mechanism is incorrect",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " due to state reversal. Rubric C4: Excellent requires appropriate pattern named, mechanism explained correctly, applied, at least one drawback/tuning. Proficient:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " appropriate pattern named and explained correctly, but loosely applied or no drawback. Developing: pattern named but explanation incorrect or very thin. Since explanation incorrect (state semantics reversed), Developing ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "1-2. They do apply to outage and mention threshold, but core mechanism wrong. Mark 2? Developing range 1-2. Since pattern appropriate",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and some correct concepts (counts failures/timeouts, fail fast, half-open trial) but state names reversed. Could be 2. Need choose. Mark 2.\n\nQ5: Menu browsing favour availability, cache Redis TTL, eventual consistency. Good. Placing/paying favour consistency, double charge unacceptable. CAP theorem used incorrectly: \"system",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " can only provide two of consistency, availability and partition tolerance, so for payments we choose consistency and availability and give up partition tolerance.\" In a network partition, partition",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " tolerance is not optional; you choose C or A. You cannot \"give up partition tolerance\" during a partition. Also they say choose consistency and availability, contradictory",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". They name technique for menu (cache) but for payments? They don't name a concrete technique for payments (e.g., distributed transaction, two-phase commit, idempot",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ency keys, consensus). They mention charging twice but no technique. So C5: Both choices reasonable and techniques named? One technique missing. CAP explained incorrectly.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Proficient 3-4: both choices reasonable and techniques named, but CAP explained incorrectly/imprecisely, or one technique missing. Here both CAP incorrect and one technique missing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Could be Developing? Descriptor Developing: choices stated with little justification, or CAP theorem not used. They do use CAP but incorrectly. Proficient says \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "Both choices are reasonable and techniques are named, but CAP theorem is explained incorrectly or imprecisely, or one technique is missing.\" It doesn't cover both missing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " technique and incorrect CAP? It says or. But they have one technique missing and CAP incorrect. Still likely Proficient lower end? Need decide. The choices are justified",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", one technique named for menu, no technique for payment. CAP used incorrectly. That's two issues. Could be Developing 2? But choices have justification. The",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " rubric levels: Excellent both choices justified, CAP correct, suitable concrete technique each. Proficient both choices reasonable and techniques named, but CAP incorrect/imprecise, or one technique missing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Here techniques not both named and CAP incorrect. So not fully Proficient? But \"or one technique is missing\" and \"CAP explained incorrectly\" both true",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". It might still be Proficient because both choices reasonable and at least one technique named? Hmm. Need mark within level best fits. I'd say Proficient 3 because",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " choices reasonable and one technique named, but CAP incorrect and missing payment technique. Could be 3. Not 4 due to two flaws. Mark 3.\n\nQ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "6: ADR includes Context, Decision, Consequences. Positive consequences: response time improves, offline outlets receive, smooth peak. Negative consequence? None. They don",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'t mention negative. Rubric Excellent requires at least one positive and one negative. Proficient: all three sections present but consequences one-sided (no negative) or context generic",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". This fits Proficient 3-4. Context specific. Consequences one-sided. Mark 4? Proficient max 4. Since all sections present,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " context specific, but no negative. Mark 4. Could be 3? Descriptor says one-sided -> Proficient. Mark 4.\n\nC7 Communication",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and format: Need check word limits. Each answer at most 150 words. Q1? Let's count roughly. Q1 text: \"The two most important quality",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " attributes are performance and availability, because the business depends on the lunch hour: 900 orders arrive between 12:00 and 13:00 and the current p95 of 4",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".2 s for placing an order makes students abandon their orders. The scenarios below use the six-part form from [1]. Performance scenario. Source: students using the mobile",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " app. Stimulus: 900 order requests arrive within one hour (about 150 per minute on average). Artefact: the order placement endpoint. Environment:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a normal weekday lunch peak. Response: every order is accepted and confirmed. Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Availability scenario. Source: the external payment provider. Stimulus: it becomes slow or stops responding. Artefact: the order service. Environment: the lunch peak.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Response: the system keeps working and students can still browse menus. Response measure: the system should stay up most of the time.\" Count maybe ~140? Let's count:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " The(1) two2 most3 important4 quality5 attributes6 are7 performance8 and9 availability10 because11 the12 business13 depends14 on15 the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "16 lunch17 hour18 90019 orders20 arrive21 between22 12:00 23 and24 13:00 25 and26 the27 current28 p",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "95 29 of30 4.2 31 s32 for33 placing34 an35 order36 makes37 students38 abandon39 their40 orders41. The42",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " scenarios43 below44 use45 the46 six-part47 form48 from49 [1]50. Performance51 scenario52. Source53 students54 using55 the56 mobile",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "57 app58. Stimulus59 90060 order61 requests62 arrive63 within64 one65 hour66 about67 15068 per69 minute70 on",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "71 average72. Artefact73 the74 order75 placement76 endpoint77. Environment78 a79 normal80 weekday81 lunch82 peak83. Response84 every",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "85 order86 is87 accepted88 and89 confirmed90. Response91 measure92 the93 p95 94 response95 time96 is97 under98 1.5 99 s",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "100 and101 no102 requests103 are104 dropped105. Availability106 scenario107. Source108 the109 external110 payment111 provider112. Stimulus113 it",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "114 becomes115 slow116 or117 stops118 responding119. Artefact120 the121 order122 service123. Environment124 the125 lunch126 peak127. Response128 the129",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " system130 keeps131 working132 and133 students134 can135 still136 browse137 menus138. Response139 measure140 the141 system142 should143 stay144 up145 most",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "146 of147 the148 time149. So 149 words. Under 150. Good.\n\nQ2 count? \"I recommend against a full microservices rewrite for the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " next 12 months. Instead the existing application should be restructured into a modular monolith with clear internal modules (orders, menu, payments, outlets). First, team",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " size versus operational overhead. Microservices let each service scale and deploy independently, but every service needs its own pipeline, monitoring and on-call knowledge. With five developers, running",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " eight or ten services would mean more time spent on infrastructure than on features. A modular monolith keeps one deployable unit and one database while still enforcing module boundaries. Second, the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " known problems are not caused by the monolith itself. The slow lunchtime responses come from running on a single virtual machine, which can be fixed by running two or more instances of",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the monolith behind a load balancer. The 20-minute weekly downtime is a deployment process problem and can be removed with rolling deployments. A rewrite would freeze",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " feature work for months without directly fixing either problem. The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.\"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Count maybe 160? Let's count. I'll count: I1 recommend2 against3 a4 full5 microservices6 rewrite7 for8 the9 next10 ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "12 11 months12. Instead13 the14 existing15 application16 should17 be18 restructured19 into20 a21 modular22 monolith23 with24 clear",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "25 internal26 modules27 orders28 menu29 payments30 outlets31. First32 team33 size34 versus35 operational36 overhead37. Microservices38 let39 each",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "40 service41 scale42 and43 deploy44 independently45 but46 every47 service48 needs49 its50 own51 pipeline52 monitoring53 and54 on-call55 knowledge56.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " With57 five58 developers59 running60 eight61 or62 ten63 services64 would65 mean66 more67 time68 spent69 on70 infrastructure71 than72 on73 features74.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " A75 modular76 monolith77 keeps78 one79 deployable80 unit81 and82 one83 database84 while85 still86 enforcing87 module88 boundaries89.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Second90 the91 known92 problems93 are94 not95 caused96 by97 the98 monolith99 itself100. The101 slow102 lunchtime103 responses",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "104 come105 from106 running107 on108 a109 single110 virtual111 machine112 which113 can114 be115 fixed116 by117 running118 two119 or120 more",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "121 instances122 of123 the124 monolith125 behind126 a127 load128 balancer129. The130 20-minute131 weekly132 downtime133 is134 a",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "135 deployment136 process137 problem138 and139 can140 be141 removed142 with143 rolling144 deployments145. A146 rewrite147 would148 freeze149 feature150 work151 for",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "152 months153 without154 directly155 fixing156 either157 problem158. The159 trade-off160 I161 accept162 is163 that164 modules165 cannot166 be167 scaled168 independently",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "169 and170 a171 bug172 in173 one174 module175 can176 still177 crash178 the179 whole180 process181. So 181 words. Ex",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ceeds 150. That's a format issue. Q3 excluded calculations/working? The answer includes text; calculations excluded from limit. Q4 count? \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "The Circuit Breaker pattern [2] would have contained the failure. Calls from the order service to the payment provider are wrapped in a breaker that counts failures and timeouts. In the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Open state calls pass through normally. When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed and calls",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " fail immediately without waiting, so request threads are not blocked and the rest of the application (menu browsing, order history) keeps responding. After a wait period the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " breaker goes Half-Open and lets a few trial calls through. If they succeed it opens again, otherwise it stays closed. In the outage last month the breaker would have closed",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " within seconds of the provider slowing down. Students would have seen \"payment temporarily unavailable, please try again or pay at the counter\" instead of the whole app hanging for 25 minutes",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".\" Count maybe 140? Let's count: The1 Circuit2 Breaker3 pattern4 [2]5 would6 have7 contained8 the9 failure",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "10. Calls11 from12 the13 order14 service15 to16 the17 payment18 provider19 are20 wrapped21 in22 a23 breaker24 that25 counts",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "26 failures27 and28 timeouts29. In30 the31 Open32 state33 calls34 pass35 through36 normally37. When38 failures39 exceed40 a41 threshold",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "42 for43 example44 50%45 of46 calls47 in48 10 49 seconds50 the51 breaker52 moves53 to54 Closed55 and56 calls",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "57 fail58 immediately59 without60 waiting61 so62 request63 threads64 are65 not66 blocked67 and68 the69 rest70 of71 the72 application73 menu",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "74 browsing75 order76 history77 keeps78 responding79. After80 a81 wait82 period83 the84 breaker85 goes86 Half-Open87 and88 lets89 a90 few",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "91 trial92 calls93 through94. If95 they96 succeed97 it98 opens99 again100 otherwise101 it102 stays103 closed104. In105 the106 outage107 last",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "108 month109 the110 breaker111 would112 have113 closed114 within115 seconds116 of117 the118 provider119 slowing120 down121. Students122 would123 have",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "124 seen125 payment126 temporarily127 unavailable128 please129 try130 again131 or132 pay133 at134 the135 counter136 instead137 of138 the139 whole",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "140 app141 hanging142 for143 25 144 minutes145. 145 words. Under 150. Q5 count? \" (i) Menu browsing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": I would favour availability. If a partition separates an application server from the database, it is better to show a slightly stale menu from a cache (for example Redis",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " with a 60-second TTL) than an error page. The worst case is that a student sees an item that sold out a minute ago, which the outlet can handle by rejecting",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " that order. This is eventual consistency. (ii) Placing and paying for an order: I would favour consistency, because charging a student twice or accepting an",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " order without a payment is unacceptable. The CAP theorem says a system can only provide two of consistency, availability and partition tolerance, so for payments we choose consistency and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " availability and give up partition tolerance.\" Count: i1 Menu2 browsing3 I4 would5 favour6 availability7. If8 a9 partition10 separates11 an",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "12 application13 server14 from15 the16 database17 it18 is19 better20 to21 show22 a23 slightly24 stale25 menu26 from27 a28 cache29 for",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "30 example31 Redis32 with33 a34 60-second35 TTL36 than37 an38 error39 page40. The41 worst42 case43 is44 that45 a",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "46 student47 sees48 an49 item50 that51 sold52 out53 a54 minute55 ago56 which57 the58 outlet59 can60 handle61 by",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "62 rejecting63 that64 order65. This66 is67 eventual68 consistency69. ii70 Placing71 and72 paying73 for74 an75 order76 I",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "77 would78 favour79 consistency80 because81 charging82 a83 student84 twice85 or86 accepting87 an88 order89 without90 a91 payment92 is",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "93 unacceptable94. The95 CAP96 theorem97 says98 a99 system100 can101 only102 provide103 two104 of105 consistency106 availability107 and108 partition109 tolerance",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "110 so111 for112 payments113 we114 choose115 consistency116 and117 availability118 and119 give120 up121 partition122 tolerance123. 123 words. Under",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Q6 count? \"ADR-007: Use a message queue for outlet order notifications Status: Proposed Context: After an order is paid, the application calls the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " outlet's tablet synchronously and waits for the reply. If a tablet is offline the order is lost, and during the lunch peak these calls add to the 4",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".2 s p95 response time. Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ). A notification worker consumes the events",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and pushes them to the outlet tablets, retrying until each one is acknowledged. Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Outlets that are briefly offline still receive their orders when they reconnect. The queue also smooths the lunch peak because the workers process orders at a steady rate.\" Count: ADR",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "-0071 Use2 a3 message4 queue5 for6 outlet7 order8 notifications9 Status10 Proposed11 Context12 After13 an14 order15 is",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "16 paid17 the18 application19 calls20 the21 outlet's22 tablet23 synchronously24 and25 waits26 for27 the28 reply29. If30 a",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "31 tablet32 is33 offline34 the35 order36 is37 lost38 and39 during40 the41 lunch42 peak43 these44 calls45 add46 to",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "47 the48 4.2 49 s50 p95 51 response52 time53. Decision54 Publish55 an56 OrderPaid57 event58 to59",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a60 durable61 message62 queue63 RabbitMQ64. A65 notification66 worker67 consumes68 the69 events70 and71 pushes72 them73 to74 the75 outlet76 tablets",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "77 retrying78 until79 each80 one81 is82 acknowledged83. Consequences84 Placing85 an86 order87 no88 longer89 waits90 for91 the92 outlet",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "93 so94 the95 response96 time97 improves98. Outlets99 that100 are101 briefly102 offline103 still104 receive105 their106 orders107 when108 they109 reconnect",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "110. The111 queue112 also113 smooths114 the115 lunch116 peak117 because118 the119 workers120 process121 orders122 at123 a124 steady",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "125 rate126. 126 words. Under. Q2 exceeds. Also references: only [1] and [2]? They cite [2] in Q",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "4 but reference list only [1]. Missing reference for [2]. IEEE style for [1] okay. [2] missing. Also Q1 cites [1] but reference",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " list has [1]. Q4 cites [2] no reference. So C7: one answer exceeds word limit and citation problem. Proficient 3: \"Clear writing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", but one answer exceeds the word limit or there are minor citation or formatting problems.\" Here both one answer exceeds and missing reference. Still Proficient? Could be Developing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " if several answers exceed or sources not cited. Only one exceeds, sources cited but one missing. Proficient 3. Mark 3.\n\nNeed also requirements R",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "1-R7 met/partial/no. R1: Q1 two attributes justified, scenarios six parts, one response measure not measurable. So partial. R2: Q",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "2 recommend style, at least two trade-offs specific. Met yes. R3: Q3 show working, calculate a,b,c. Part a correct, b/c incorrect",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Requirement \"Calculate...\" partial? It attempted all but b/c wrong. Met? The requirement is to calculate; they did but incorrect. For requirements met status",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", likely partial because not correct. R4: Q4 name pattern, explain, limit outage, drawback/tuning. Pattern named, explanation incorrect, applied, no drawback.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Partial. R5: Q5 choices, CAP, technique each. Choices justified, CAP incorrect, one technique missing. Partial. R6: Q6 AD",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "R Context Decision Consequences positive and negative. Positive only, no negative. Partial. R7: assumptions? They did not state assumptions explicitly. Cite external sources IEEE",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and reference list. They cite [1] and [2], reference list only [1]. So partial/no? R7 says \"State any assumptions made. Cite external sources in IEEE",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " style and include corresponding reference list; references do not count...\" They did not state assumptions. They have one reference, missing [2]. So partial. Need where",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " for each.\n\nTechnical issues: list. Need include Q3 b arithmetic, Q3 c end-to-end calculation, Q4 circuit breaker states reversed, Q5 CAP",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " misuse and missing payment technique, Q6 no negative consequence, Q2 word count, missing reference [2], Q1 availability response measure not measurable. Also maybe Q1 availability",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " scenario response \"system keeps working and students can still browse menus\" not directly order service? But okay. Q3 part c: They say \"new availability of",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " placing an order is 99.9975%\" which is payment availability not end-to-end. Need mention. Q3 b: 0.00699*720 = 5",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".03 not 3.5. Q3 c downtime should be ~1.46 h not 0.018. Also Q3 c \"active-active",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\" with two independent providers: payment unavailable only when both down, yes formula correct for payment. But end-to-end product should include other components. They didn't. Good.\n\nNeed overall",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " <=60 words. Summarize marks maybe. Need output JSON with criteria array, requirements, technical_issues, overall. Need ensure marks whole numbers within level ranges. Let",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'s decide final marks:\n\nC1: Proficient 4.\nC2: Excellent 6.\nC3: Developing 3.\nC4: Developing 2.\nC5:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Proficient 3.\nC6: Proficient 4.\nC7: Proficient 3.\n\nTotal = 4+6+3+2+3",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "+4+3 = 25/40. Is that fair? Let's double-check C3 maybe 4? Developing range 1-4. They",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " got part a correct, b arithmetic slip, c wrong. \"two or more parts incorrect\" yes. Mark 3. C4 2. C5",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 3. C6 4. C7 3. Total 25.\n\nNeed evidence quotes exact contiguous <=25 words. For each criterion, provide evidence array",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " with where and quote. Need no ellipses. Use exact text. For C1 evidence: where \"Question 1\", quote \"Response measure: the system should stay up",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " most of the time.\" That's exact. Also maybe \"The two most important quality attributes are performance and availability\" but quote <=25. Need evidence for level",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Use one or two. C1: quote \"The two most important quality attributes are performance and availability\" and \"Response measure: the system should stay up most of the time.\"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Both exact. Good.\n\nC2: where \"Question 2\", quote \"With five developers, running eight or ten services would mean more time spent on infrastructure than on",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " features.\" Exact? Yes. And \"The trade-off I accept is that modules cannot be scaled independently\" exact. Good.\n\nC3: where \"Question 3\",",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " quote \"Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".\" Exact? The text has \"Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 =",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 3.5 hours per month.\" Yes. Also \"So the new availability of placing an order is 99.9975%\" exact. Good.\n\nC4: where \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "Question 4\", quote \"In the Open state calls pass through normally.\" Exact. Also \"the breaker moves to Closed and calls fail immediately\" exact. Good",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".\n\nC5: where \"Question 5\", quote \"we choose consistency and availability and give up partition tolerance.\" Exact. Also maybe \"for payments we choose consistency and availability\" but",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " quote. Need evidence for missing technique? Could quote \"I would favour consistency, because charging a student twice\" but not necessary. Use CAP quote.\n\nC6: where \"Question",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 6\", quote \"Consequences: Placing an order no longer waits for the outlet, so the response time improves.\" Exact. Shows positive only. Good.\n\nC",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "7: where \"Question 2\", quote \"The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.\"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " This is long >25? Count: The1 trade-off2 I3 accept4 is5 that6 modules7 cannot8 be9 scaled10 independently11 and12 a13 bug",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "14 in15 one16 module17 can18 still19 crash20 the21 whole22 process23. 23 words. Good. But evidence for word count? Need",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " quote maybe entire Q2? Can't. We can cite where \"Question 2\" and quote a phrase, but word count issue not directly evidenced by quote. Could",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " use \"With five developers, running eight or ten services would mean more time spent on infrastructure than on features.\" Not word count. For C7, evidence can",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " be \"Question 4\" quote \"The Circuit Breaker pattern [2] would have contained the failure.\" This shows citation [2] but reference list missing. But C",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "7 includes word limit and citation. Need evidence for missing reference? Where \"References\", quote \"[1] L. Bass, P. Clements, and R",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Kazman, Software Architecture in Practice\" exact? It shows only [1]. But quote <=25 words: \"[1] L. Bass, P. Clements,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and R. Kazman, Software Architecture in Practice\" 14 words. Good. But C7 also word count. Could include evidence from Q2 quote and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " References quote. Need not overdo. Use two evidence entries: where \"Question 2\", quote \"The trade-off I accept is that modules cannot be scaled",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " independently, and a bug in one module can still crash the whole process.\" This doesn't show word count but indicates Q2. Hmm. Maybe use where",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " \"Question 2\" quote \"I recommend against a full microservices rewrite for the next 12 months.\" Not word count. The evidence field is for supporting",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " mark; we can mention in reasoning that Q2 is 181 words. But evidence quote should be exact. It's okay. For citation issue, where \"References\",",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " quote \"[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice\" shows only one reference. Good.\n\nNeed requirements",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " array. For each R1-R7 met yes/partial/no and where. R1 partial where Question 1. R2 yes where Question 2.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " R3 partial where Question 3. R4 partial where Question 4. R5 partial where Question 5. R6 partial where Question 6. R",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "7 partial where References / Question 1? R7 assumptions not stated and missing reference. Where \"References\" maybe. Need \"where\": nearest section heading.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Use \"Question 1\" for assumptions? They didn't state assumptions anywhere. Could set where null? Requirement R7 includes assumptions and citations. Evidence missing for",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " assumptions. For requirements, where can be \"References\" for citation. But assumptions missing. Maybe where \"References\" and reasoning? Requirements schema only id, met, where. No reasoning",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". So set where \"References\" for R7. Or \"Question 1\" no. Use \"References\".\n\nTechnical issues array: each with where and issue. Need concise",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Include:\n- Question 3: (b) arithmetic: 0.00699 × 720 = 5.03 h, not 3.5",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " h.\n- Question 3: (c) uses payment availability as end-to-end; should multiply other components, giving ~99.80% and ~1",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".46 h downtime, not 99.9975% and 0.018 h.\n- Question 4: circuit breaker states reversed; Closed is normal, Open fails",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " fast, Half-Open trials.\n- Question 5: CAP misuse; partition tolerance not optional; cannot choose C and A and give up P during partition.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Also no concrete payment technique.\n- Question 6: no negative consequence.\n- Question 2: exceeds 150-word limit (about 181 words).\n- References",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": [2] cited but not listed.\n- Question 1: availability response measure not measurable.\nMaybe also Q1 availability scenario response measure \"most of the time\" not measurable",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Good.\n\nNeed overall <=60 words. \"Total 25/40. Strong Q2 and Q1 justification, but Q3 has two calculation errors, Q4 reverses",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " circuit-breaker states, Q5 misuses CAP and lacks a payment technique, Q6 lacks a negative consequence, and formatting/citation issues remain.\" Count ~40",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Good.\n\nNeed ensure JSON valid. No markdown. Use exact quotes. Need no ellipses. Let's craft.\n\nCheck C1 mark 4:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Level Proficient. Evidence quotes. Reasoning <=80 words. \"Attributes are well chosen and justified; performance scenario is complete and measurable. Availability scenario has six parts but response measure '",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "stay up most of the time' is not measurable, so not Excellent.\" Good.\n\nC2 reasoning: \"Clear modular-monolith recommendation tied to five-person team, single",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " VM, deployment downtime, and rewrite risk; downside acknowledged. Excellent.\" Good.\n\nC3 reasoning: \"Part (a) correct. Part (b) arithmetic",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " wrong: 0.00699×720=5.03h, not 3.5h. Part (c) treats payment availability as end-to-end and omits other",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " components; correct end-to-end is ~99.80% and ~1.46h downtime. Two parts incorrect.\" Good.\n\nC4 reasoning: \"Circuit breaker is",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " appropriate and applied, but state semantics are reversed: Closed is normal, Open fails fast, Half-Open trials. No clear drawback/tuning consideration beyond threshold example",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Explanation incorrect.\" Good.\n\nC5 reasoning: \"Menu choice and cache technique are good. Payment choice is reasonable but no concrete technique is named, and CAP is",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " misused: partition tolerance cannot be given up during a partition; choose C or A.\" Good.\n\nC6 reasoning: \"Context, Decision, Consequences present and specific.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Consequences are all positive; no negative consequence, so Proficient not Excellent.\" Good.\n\nC7 reasoning: \"Writing is clear and headings used, but Q2",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " is about 181 words (over 150), and [2] is cited without a reference-list entry. Minor citation/format issues.\" Good.\n\nNeed maybe C",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "7 mark 3. Good.\n\nNow requirements: R1 partial. R2 yes. R3 partial. R4 partial. R5 partial. R6 partial. R",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "7 partial. Need \"where\" values. Use \"Question 1\", \"Question 2\", etc. For R7 \"References\". Good.\n\nNeed technical",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "_issues maybe include all. Ensure no duplicate? Fine.\n\nLet's produce JSON.",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 3284,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 7370,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 3285,
+    "completion_tokens": 8541,
+    "total_tokens": 11826,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 3284,
+    "cost": 0.0051384928,
+    "currency": "USD",
+    "reasoning_tokens": 7370,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 1
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_d8312733-7369-4da6-beb9-02525f05d147",
+  "x_nanogpt_pricing": {
+    "amount": 0.0051384928,
+    "cost": 0.0051384928,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 3285,
+    "outputTokens": 8541,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 3284,
+    "cacheCost": 1.3792799999999998e-05
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 3284,
+    "writeTokens": 0
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "chatcmpl-55c05ad4-495a-4718-af74-920df4a0564d",
+  "object": "chat.completion",
+  "created": 1794430295,
+  "model": "google/gemini-3.8-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"criteria\": [\n    {\n      \"id\": \"C1\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\n          \"where\": \"Introduction\",\n          \"quote\": \"The satellite, nicknamed ZYZZsat (Z-axis/Y-axis Zeroed Zoning Satellite), is operated and accessed from Australia ground facilities, and is designed specifically for use above the Great Barrier Reef.\"\n        },\n        {\n          \"where\": \"Introduction\",\n          \"quote\": \"The ZYZZsat however, does not require such constant coverage as the reef bleaching events occur over days and weeks. Thus, only one satellite is required.\"\n        },\n        {\n          \"where\": \"Introduction\",\n          \"quote\": \"The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM) for research and/or education.\"\n        }\n      ],\n      \"reasoning\": \"The student clearly states the primary mission (fluid lensing monitoring of Great Barrier Reef coral bleaching), the rationale/need, why only a single satellite is selected, and identifies operators and customer agencies (CSIRO, BOM).\"\n    },\n    {\n      \"id\": \"C2\",\n      \"level\": \"Adequate\",\n      \"mark\": 6,\n      \"evidence\": [\n        {\n          \"where\": \"Orbit\",\n          \"quote\": \"Specifically, an altitude of 600km requires a mean inclination of 97.7924° for the satellite to remain sun-synchronous.\"\n        },\n        {\n          \"where\": \"Ground Control & Communications\",\n          \"quote\": \"Satellite-ZYZZsat-To-Facility-Mt_Pleasant_Radio_Observatory: Access Summary Report\"\n        },\n        {\n          \"where\": \"Mission Duration & EOL\",\n          \"quote\": \"The most promising alternative is a ‘drag sail’ – a drag-enhancing deorbit device that deploys at the EOL. It acts like a regular sail, utilising a large surface area to ‘ and is suitable for low-earth orbit altitudes [10].\"\n        }\n      ],\n      \"reasoning\": \"Major design requirements are addressed (Vega E/CSG Kourou, SSO parameters, Mt Pleasant ground station access using STK, drag sail EOL, 5-year duration). However, the sentence describing the drag sail cuts off abruptly without sizing calculations. The report also lacks orbital manoeuvre analysis (merely stating none are needed until EOL) and omits raw STK scenario files or detailed coverage analysis of the reef itself.\"\n    },\n    {\n      \"id\": \"C3\",\n      \"level\": \"Accomplished\",\n      \"mark\": 7,\n      \"evidence\": [\n        {\n          \"where\": \"Conclusion\",\n          \"quote\": \"After analysis of each mission segment, a fully described satellite configuration has been constructed. The initial problem of not catching coral bleaching events in time can be minimised\"\n        }\n      ],\n      \"reasoning\": \"The conclusion synthesises the key segments of the mission design (launch vehicle, orbit type, ground station selection, and EOL rationale) effectively and relates them back to the original mission objectives.\"\n    },\n    {\n      \"id\": \"C4\",\n      \"level\": \"Adequate\",\n      \"mark\": 5,\n      \"evidence\": [\n        {\n          \"where\": \"Bibliography\",\n          \"quote\": \"[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online].\"\n        },\n        {\n          \"where\": \"Orbit\",\n          \"quote\": \"STK 3D view of orbit: 12 hours apart\"\n        },\n        {\n          \"where\": \"Mission Duration & EOL\",\n          \"quote\": \"utilising a large surface area to ‘ and is suitable for low-earth orbit altitudes [10].\"\n        }\n      ],\n      \"reasoning\": \"Formatting and figures are minimally labelled (captions lack standard Figure numbering/referencing). A truncated sentence appears in the EOL section. The bibliography explicitly violates the instruction that 'Wikipedia not accepted as a proper source' by citing Wikipedia as reference [6].\"\n    }\n  ],\n  \"requirements\": [\n    {\"id\": \"R1\", \"met\": \"yes\", \"where\": \"Introduction\"},\n    {\"id\": \"R2\", \"met\": \"yes\", \"where\": \"Mission Design\"},\n    {\"id\": \"R3\", \"met\": \"yes\", \"where\": \"Executive Summary\"},\n    {\"id\": \"R4\", \"met\": \"yes\", \"where\": \"Introduction\"},\n    {\"id\": \"R5\", \"met\": \"yes\", \"where\": \"Introduction\"},\n    {\"id\": \"R6\", \"met\": \"yes\", \"where\": \"Launch\"},\n    {\"id\": \"R7\", \"met\": \"yes\", \"where\": \"Orbit\"},\n    {\"id\": \"R8\", \"met\": \"partial\", \"where\": \"Orbit\"},\n    {\"id\": \"R9\", \"met\": \"yes\", \"where\": \"Ground Control & Communications\"},\n    {\"id\": \"R10\", \"met\": \"yes\", \"where\": \"Mission Duration & EOL\"},\n    {\"id\": \"R11\", \"met\": \"yes\", \"where\": \"Ground Control & Communications\"},\n    {\"id\": \"R12\", \"met\": \"partial\", \"where\": \"Ground Control & Communications\"},\n    {\"id\": \"R13\", \"met\": \"yes\", \"where\": \"Contents\"},\n    {\"id\": \"R14\", \"met\": \"no\", \"where\": \"Orbit\"},\n    {\"id\": \"R15\", \"met\": \"no\", \"where\": \"Bibliography\"}\n  ],\n  \"technical_issues\": [\n    {\n      \"where\": \"Orbit\",\n      \"issue\": \"Setting Argument of Latitude u = 0 deg fixes the spacecraft epoch position at the ascending node, rather than defining an orbital element state.\"\n    },\n    {\n      \"where\": \"Mission Duration & EOL\",\n      \"issue\": \"Incomplete sentence and absence of drag sail sizing or re-entry lifetime calculations to verify compliance with the 25-year post-mission disposal rule.\"\n    }\n  ],\n  \"overall\": \"The submission presents a solid, well-conceived Australian Earth observation concept targeting coral bleaching with good STK access modelling. However, figure numbering and captions are absent, an incomplete sentence disrupts the EOL discussion, and Wikipedia is cited despite explicit task prohibition.\"\n}\n```",
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 14272,
+    "completion_tokens": 1465,
+    "total_tokens": 15737,
+    "reasoning_tokens": 0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 8164,
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 8164
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 6108,
+    "cost": 0.01068705,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_76480b49-946c-4aa1-bded-6390379af6c3",
+  "x_nanogpt_pricing": {
+    "amount": 0.01068705,
+    "currency": "USD",
+    "cost": 0.01068705,
+    "inputTokens": 14272,
+    "outputTokens": 1465,
+    "cacheReadInputTokens": 8164,
+    "cacheCost": 0.0006123,
+    "requestId": "req_e088eb6a-dfb7-46f3-bcd5-816628b37c2b",
+    "costUsd": 0.01068705,
+    "usdCost": 0.01068705,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "hit",
+      "readTokens": 8164
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 8164
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-81300d02-2107-4329-8085-34bdcd295428",
+  "object": "chat.completion",
+  "created": 1794432697,
+  "model": "deepseek/deepseek-v4.1-flash-1017",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You have a sound, well-structured mission concept: a single SSO satellite for GBR bleaching monitoring, with genuine STK use and clear launch, orbit and ground-segment coverage. To reach the next level, add quantitative instrument and link budgets, correct the resolution and RAAN/launch-window reasoning, resolve the manoeuvre/EOL contradiction, and bring figures, tables and references to a professional standard.\",\"next_steps\":[\"Add a GSD/swath calculation and a link/data-volume budget (with passes per day) to justify the 600 km orbit and Mt Pleasant downlink; include mass and power budgets.\",\"Correct the technical inconsistencies: remove the 'low resolution is desirable' claim, explain that RAAN is set by launch time/azimuth not site, justify the retrograde injection penalty from Kourou, and make the manoeuvre/EOL story consistent (thrusters vs drag sail).\",\"Professionalise presentation: number all figures, label all tables, complete the truncated EOL sentence, and replace bare URLs/Wikipedia with full references that match in-text citations.\"],\"criteria\":{\"C1\":\"Strong introduction: you define the coral-reef bleaching mission, justify it with statistics and citations [1]–[4], explain why one spacecraft suffices, and identify operator and customers. For the top band, replace hedged wording ('would likely be used by') with a firm user/operator statement, and convert bare URLs into full, consistently formatted references.\",\"C2\":\"You cover every major design item—Kourou/Vega E, SSO elements, STK access, 5-year life and drag-sail EOL—with software evidence and an inclination–altitude calculation. To move from Adequate to Accomplished, add GSD/swath, mass, power and link budgets; correct the inverted resolution claim in Orbit and the RAAN/launch-window reasoning; fix the duplicated access entries; and resolve the 'manoeuvre at EOL' versus 'no thrust capability' contradiction.\",\"C3\":\"Your conclusion ties back to specific choices—Vega E with fallback, SSO illumination and Mt Pleasant—and states the expected benefit, which is appropriate. For the top band, make it quantitative: cite contact statistics, orbital element values and the expected coverage/benefit, rather than leaving the conclusions qualitative.\",\"C4\":\"The report is well structured with an executive summary, contents, headed sections and readable prose. To reach Accomplished, number figure captions and label every table, complete the truncated EOL sentence, and replace bare-URL references (including Wikipedia) with full formatted entries that match your in-text citations.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary (<=80 words), next_steps (3 strings), criteria mapping each criterion id to feedback <=70 words. Address student as \"you\". Be specific, cite sections/figures, name what they did well, state what next rubric level requires. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations.\n\nLet's craft.\n\nSummary: overall supportive, mention strengths and key gaps.\n\nC1: 8/10 Accomplished. Praise mission purpose, rationale with stats/citations, single satellite justification, users. Next level: full references not bare URLs, firm user identification not hedged \"likely\".\n\nC2: 6/10 Adequate. Praise coverage of all major items, STK evidence, inclination-altitude calc. Gaps: inverted resolution reasoning in Orbit, no GSD/swath/link/mass budget, RAAN misconception, Kourou launch window reasoning, access table duplicates, EOL contradiction. Next level requires quantitative budgets and consistent manoeuvre/EOL story.\n\nC3: 7/10 Accomplished. Praise conclusions tied to design decisions. Next: include key numbers (contact stats, orbital elements) and quantify benefit.\n\nC4: 5/10 Adequate. Praise structure, exec summary, TOC, readable prose. Gaps: unnumbered figure captions, unlabelled tables, truncated EOL sentence, bare-URL bibliography incl Wikipedia. Next level: numbered/labelled figures and tables, complete sentences, full formatted references matching in-text citations.\n\nNext steps: 3 actionable items. E.g., add GSD/swath and link budget; fix orbit/launch/EOL technical inconsistencies; fix referencing and figure/table labelling.\n\nNeed JSON only. Ensure word limits. Let's count roughly.\n\nSummary <=80 words: \"You have a sound, well-structured mission concept: a single SSO satellite for GBR bleaching monitoring, with genuine STK use and clear launch/orbit/ground-segment coverage. To reach the next level, add quantitative instrument and link budgets, correct the resolution and RAAN/launch-window reasoning, resolve the manoeuvre/EOL contradiction, and bring figures, tables and references to a professional standard.\" ~60 words. Good.\n\nC1 <=70: \"Strong introduction: you define the coral-reef bleaching mission, justify it with statistics and citations [1]–[4], explain why one spacecraft suffices, and identify operator and customers. For the top band, replace hedged wording ('would likely be used by') with a firm user/operator statement, and convert bare URLs into full, consistently formatted references.\" ~55.\n\nC2 <=70: \"You cover every major design item—Kourou/Vega E, SSO elements, STK access, 5-year life and drag-sail EOL—with software evidence and an inclination–altitude calculation. To move from Adequate to Accomplished, add GSD/swath, mass, power and link budgets; correct the inverted resolution claim in Orbit and the RAAN/launch-window reasoning; fix the duplicated access entries; and resolve the 'manoeuvre at EOL' versus 'no thrust capability' contradiction.\" ~65.\n\nC3 <=70: \"Your conclusion ties back to specific choices—Vega E with fallback, SSO illumination and Mt Pleasant—and states the expected benefit, which is appropriate. For the top band, make it quantitative: cite contact statistics, orbital element values and the expected coverage/benefit, rather than leaving the conclusions qualitative.\" ~48.\n\nC4 <=70: \"The report is well structured with an executive summary, contents, headed sections and readable prose. To reach Accomplished, number figure captions and label every table, complete the truncated EOL sentence, and replace bare-URL references (including Wikipedia) with full formatted entries that match your in-text citations.\" ~48.\n\nNext steps: 3 strings, actionable. \n1. \"Add a GSD/swath calculation and a link/data-volume budget (with passes per day) to justify the 600 km orbit and Mt Pleasant downlink; include mass and power budgets.\"\n2. \"Correct the technical inconsistencies: remove the 'low resolution is desirable' claim, explain RAAN is set by launch time/azimuth not site, justify the retrograde injection penalty from Kourou, and make the manoeuvre/EOL story consistent (thrusters vs drag sail).\"\n3. \"Professionalise presentation: number all figures, label all tables, complete the truncated EOL sentence, and replace bare URLs/Wikipedia with full references that match in-text citations.\"\n\nEnsure JSON valid."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2617,
+    "completion_tokens": 1515,
+    "total_tokens": 4132,
+    "reasoning_tokens": 962,
+    "completion_tokens_details": {
+      "reasoning_tokens": 962,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 2617,
+    "cost": 0.0011706999999999998,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_07e8e345-870d-4022-bc5e-055f73ba74a2",
+  "x_nanogpt_pricing": {
+    "amount": 0.0011706999999999998,
+    "currency": "USD",
+    "cost": 0.0011706999999999998,
+    "inputTokens": 2617,
+    "outputTokens": 1515,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_09f285d6-d717-4ec9-9cb4-9c79939dbead",
+    "costUsd": 0.0011706999999999998,
+    "usdCost": 0.0011706999999999998,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

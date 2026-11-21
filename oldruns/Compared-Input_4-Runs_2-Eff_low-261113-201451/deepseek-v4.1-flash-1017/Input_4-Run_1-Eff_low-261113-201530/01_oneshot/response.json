@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-031c56bd-136c-4ca7-a41d-43f17fd4c3ec",
+  "object": "chat.completion",
+  "created": 1794561332,
+  "model": "deepseek/deepseek-v4.1-flash-1017",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"name\":\"Q1 Quality attributes\",\"level\":\"Proficient\",\"mark\":4,\"max\":6,\"feedback\":\"Performance and availability are well chosen and clearly justified from the scenario (lunch-peak load, 4.2 s p95, abandonment). The performance scenario has all six parts and a measurable response measure (p95 < 1.5 s, no dropped requests). The availability scenario is complete in structure but its response measure — 'the system should stay up most of the time' — is not measurable, which is an explicit requirement of the task. Replace it with something like 'menu browsing remains available and order placement fails gracefully with a retry message for 99.9% of requests during the 25-minute provider slowdown'.\"},{\"name\":\"Q2 Architectural style\",\"level\":\"Excellent\",\"mark\":6,\"max\":6,\"feedback\":\"Clear, decisive recommendation (modular monolith for the next 12 months) with two trade-offs that are genuinely scenario-specific: five developers versus per-service operational overhead, and the observation that the known problems (single VM, 20-minute deployment outage) are not caused by the monolith and would not be fixed by a rewrite. The downside of the recommendation is explicitly acknowledged (no independent scaling, one module can crash the process). Strong answer.\"},{\"name\":\"Q3 Availability calculation\",\"level\":\"Proficient\",\"mark\":6,\"max\":8,\"feedback\":\"(a) and (b) are correct with working shown: 0.9995 × 0.999 × 0.9995 × 0.995 = 99.30%, and (1 − 0.99301) × 720 = 5.0 hours. (c) computes the combined payment availability correctly (1 − 0.005² = 0.999975) but then applies it incorrectly: the new end-to-end availability is 0.9995 × 0.999 × 0.9995 × 0.999975 = 99.80%, and downtime is (1 − 0.99798) × 720 ≈ 1.5 hours per month, not 0.018 hours. The 0.018-hour figure only accounts for the payment component and ignores the other three components' downtime.\"},{\"name\":\"Q4 Resilience pattern\",\"level\":\"Proficient\",\"mark\":4,\"max\":5,\"feedback\":\"Circuit Breaker is the right pattern and the mechanism (Closed/Open/Half-Open, failure threshold, fail-fast so request threads are not exhausted) is explained correctly and applied convincingly to the 25-minute provider slowdown, including a sensible user-facing fallback. However, no drawback or tuning consideration is actually stated — the 50%/10 s threshold is given as an example but not discussed as a tuning decision. Add a sentence on, e.g., choosing thresholds to avoid tripping on transient blips, the need for a fallback path, or the risk of a half-open storm when the provider recovers.\"},{\"name\":\"Q5 Consistency and availability\",\"level\":\"Proficient\",\"mark\":4,\"max\":6,\"feedback\":\"Both choices are reasonable and both techniques are concrete and appropriate (Redis cache with 60 s TTL for menus; idempotency keys for payments). The CAP explanation for the payment case is, however, incorrect: you cannot 'give up partition tolerance' in a distributed system — P is not optional, so under a partition you must choose C or A. Reword as: 'when a partition occurs we choose consistency over availability, so payment requests fail rather than risk a double charge or an unpaid order'.\"},{\"name\":\"Q6 Architecture decision record\",\"level\":\"Proficient\",\"mark\":4,\"max\":5,\"feedback\":\"Context, Decision and Consequences are all present and specific to CampusEats (synchronous tablet call, lost orders, contribution to the 4.2 s p95, RabbitMQ, retrying worker). The consequences are one-sided, though: all three are positive. The rubric requires at least one negative consequence — for example added operational complexity of running a broker, duplicate or out-of-order notifications requiring idempotent consumers, or eventual delivery meaning an outlet may see an order late.\"},{\"name\":\"Communication and format\",\"level\":\"Proficient\",\"mark\":3,\"max\":4,\"feedback\":\"Writing is clear and precise, headings are used in order, and the two IEEE-style references are correctly formatted and cited in text. Question 2 exceeds the 150-word limit (roughly 175 words) and Question 1 is at or just over the limit, so the word-limit requirement is not fully met. Trim Q2 by moving the deployment/load-balancer detail into a shorter clause.\"}],\"total\":31,\"total_max\":40,\"summary\":\"A strong submission overall. Q2 is excellent, and Q3(a)/(b) and the circuit-breaker explanation are solid. The main losses come from four recurring issues: a non-measurable response measure in the Q1 availability scenario, an incorrect end-to-end availability in Q3(c) (the combined payment availability was not multiplied back through the other three components), an incorrect CAP statement in Q5(ii), a one-sided set of consequences in the ADR, and no explicit drawback or tuning consideration in Q4. Formatting and referencing are good apart from the Q2 word-limit overrun.\",\"next_steps\":[\"Recompute Q3(c): multiply the improved payment availability back through the gateway, order service and database (0.9995 × 0.999 × 0.9995 × 0.999975 ≈ 99.80%, ≈ 1.5 hours downtime per month).\",\"Make the Q1 availability response measure measurable, e.g. a percentage of requests served or a maximum degraded-mode duration during a provider slowdown.\",\"Correct the CAP wording in Q5(ii): partition tolerance is not optional; under a partition you choose consistency over availability.\",\"Add at least one negative consequence to the ADR in Q6 (broker operational overhead, duplicate/out-of-order delivery, or delayed outlet notification).\",\"Add an explicit drawback or tuning consideration to Q4 (threshold selection, fallback behaviour, half-open recovery).\",\"Cut Question 2 to 150 words or fewer.\"]}",
+        "refusal": null,
+        "reasoning": "Let me mark each criterion.\n\nQ1: Two attributes: performance and availability. Justified from scenario. Performance scenario has all six parts, measurable (p95 < 1.5s, no dropped requests). Availability scenario: response measure \"the system should stay up most of the time\" — not measurable. So one response measure not measurable → Proficient (3-4). Also availability scenario response measure vague. So 4 marks.\n\nQ2: Clear recommendation (modular monolith), two trade-offs specific to scenario (team size, known problems not caused by monolith), downside acknowledged (modules can't scale independently, bug crashes whole process). Excellent → 5-6. Award 6? Let's say 6. Hmm, it's strong. Award 6.\n\nQ3: (a) 0.9995 × 0.999 × 0.9995 × 0.995. Compute: 0.9995*0.999 = 0.9985005. ×0.9995 = 0.99800125... let's compute: 0.9985005*0.9995 = 0.9985005 - 0.00049925 = 0.99800125. ×0.995 = 0.99301124. So 99.30%. Correct.\n\n(b) 0.00698876 × 720 = 5.0319 hours → 5.0 hours. Correct.\n\n(c) A_pay = 1 - 0.005² = 1 - 0.000025 = 0.999975. New availability = 0.9995 × 0.999 × 0.9995 × 0.999975 = 0.99800125 × 0.999975 = 0.99800125 - 0.00002495 = 0.9979763. So 99.80%, not 99.9975%. The student incorrectly used 0.000025 × 720 = 0.018 hours. That's wrong — they computed downtime as if only payment mattered. Correct downtime: (1-0.9979763)×720 = 0.0020237×720 = 1.457 hours ≈ 1.5 hours. So part (c) is incorrect. That's exactly one part incorrect → Proficient 5-6. Award 6? Rubric: \"5–6 marks. The method is correct throughout but there is one arithmetic or rounding slip, or exactly one part is incorrect.\" Award 6.\n\nQ4: Circuit breaker, explained correctly, applied to outage, drawback/tuning consideration? They mention threshold tuning (50% of calls in 10 seconds) but do they state a drawback or tuning consideration explicitly? They mention \"for example 50% of calls in 10 seconds\" — that's a tuning parameter but not really a stated consideration. Hmm. The rubric requires \"at least one drawback or tuning consideration is given.\" The answer gives threshold values but doesn't discuss the drawback (e.g., false positives, need for fallback, half-open tuning). It's borderline. I'd say Proficient 3-4, since no explicit drawback/tuning consideration is stated. Actually mentioning the threshold and wait period is arguably tuning. But it's not discussed as a consideration. I'll award 4.\n\nQ5: (i) availability with cache/Redis TTL — good. (ii) consistency, but CAP explanation is wrong: \"for payments we choose consistency and availability and give up partition tolerance\" — that's incorrect; in a partition you must choose C or A; you can't give up partition tolerance in a distributed system. So CAP explained incorrectly → Proficient 3-4. Award 4.\n\nQ6: Context, Decision, Consequences present, specific. Positive consequences given, but no negative consequence. → Proficient 3-4. Award 4.\n\nCommunication: word limits — Q1 is about... let's count roughly. Q1: ~150 words? Let's estimate. \"The two most important quality attributes are performance and availability, because the business depends on the lunch hour: 900 orders arrive between 12:00 and 13:00 and the current p95 of 4.2 s for placing an order makes students abandon their orders. The scenarios below use the six-part form from [1].\" ~55 words. Performance scenario ~55 words. Availability scenario ~45 words. Total ~155. Slightly over maybe. Q2: ~180 words? Let's count: paragraph 1 ~30; paragraph 2 ~65; paragraph 3 ~55; last ~25. Total ~175 — exceeds 150. Q4 ~150+. Q5 ~130. Q6 ~120.\n\nSo several answers exceed word limit → \"3 marks. Clear writing, but one answer exceeds the word limit or there are minor citation or formatting problems.\" Multiple exceed → 1-2? \"Several answers exceed the word limit\" → 1-2. Hmm. Q2 clearly exceeds (~175). Q4: let's count Q4: \"The Circuit Breaker pattern [2] would have contained the failure.\" (10) \"Calls from the order service to the payment provider are wrapped in a breaker that counts failures and timeouts.\" (20) → 30. \"In the Closed state calls pass through normally.\" (8) → 38. \"When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open and calls fail immediately without waiting, so request threads are not blocked and the rest of the application (menu browsing, order history) keeps responding.\" (~45) → 83. \"After a wait period the breaker goes Half-Open and lets a few trial calls through.\" (16) → 99. \"If they succeed it closes again, otherwise it reopens.\" (9) → 108. Second paragraph: \"In the outage last month the breaker would have opened within seconds of the provider slowing down.\" (18) → 126. \"Students would have seen \"payment temporarily unavailable, please try again or pay at the counter\" instead of the whole app hanging for 25 minutes.\" (24) → 150. Borderline ~150.\n\nQ1 ~155 borderline. Q2 ~175 over. So one or two answers exceed. I'd give 3 marks. Also references cited in IEEE style — yes, decent. Headings used. I'll give 3.\n\nTotal: 4+6+6+4+4+4+3 = 31.\n\nLet me double check Q1 mark: 4. Q2: 6. Q3: 6. Q4: 4. Q5: 4. Q6: 4. Comm: 3. Total = 31/40.\n\nFeedback strings."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3297,
+    "completion_tokens": 2724,
+    "total_tokens": 6021,
+    "reasoning_tokens": 1429,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1429,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 3297,
+    "cost": 0.0019641,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_9ba2844b-11b6-440a-aabb-6d4cc75450c5",
+  "x_nanogpt_pricing": {
+    "amount": 0.0019641,
+    "currency": "USD",
+    "cost": 0.0019641,
+    "inputTokens": 3297,
+    "outputTokens": 2724,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_1f0affe7-dc07-4fcd-a3bd-61ce776dbed3",
+    "costUsd": 0.0019641,
+    "usdCost": 0.0019641,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

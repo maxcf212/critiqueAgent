@@ -1,0 +1,197 @@
+{
+  "total": 79.0,
+  "total_max": 100.0,
+  "percent": 79.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Introduction: mission concept and rationale. Include the following required information: What is the spacecraft's primary mission? Why is the mission needed? How many spacecraft are used and why? Who are the users (operator and customers)?",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 9.0,
+      "max": 10.0,
+      "reasoning": "Covers mission, rationale, single-spacecraft choice with justification, and operator and customers in detail, with literature support. Minor gaps: the opening biodiversity and human-reliance claims are uncited, and the bleaching-loss statistics rest on a magazine source.",
+      "evidence": [
+        {
+          "where": "1 Introduction, Primary mission",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution",
+          "verified": true
+        },
+        {
+          "where": "1 Introduction, Users",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS)",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Main body: mission design. Present a summary of the mission design using software and/or hand calculations as appropriate. Include relevant screenshots and software files in the main body of the report and/or appendix. Include the following information: Where will it launch from, and using which launch vehicle? Why did you choose this option? What type of orbit will you use? What are its characteristics and orbital elements? Will you need to perform any orbital maneuvers? Which ground control facilities will you use? How often will your spacecraft be able to communicate with ground control? How long will the mission last, and what are your plans for EOL?",
+      "weight": 60.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 48.0,
+      "max": 60.0,
+      "reasoning": "Strong, verifiable hand calculations: RAAN drift giving i=97.79°, period, swath, revisit, data budget and drag decay all check out. Screenshots and STK files are provided. Deductions: the link budget is explicitly not done, the ground-station choice is weakly justified, and the 'most southerly suitable site' claim is unsupported.",
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "sin β = cos i / cos φ = −0.1355 / 0.9959 = −0.136, so β = −7.8°",
+          "verified": false
+        },
+        {
+          "where": "2.5 Mission Duration & EOL, Table 7",
+          "quote": "Operational, no sail | 0.3 m² | 0.40 m | 2.2 km per year | about 32 years",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Conclusion",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 8.0,
+      "max": 10.0,
+      "reasoning": "Conclusions tie back to quantitative evidence and identify specific limitations and remedies. The summary of results is specific and well supported by the body.",
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations. First, Vega C has not yet flown",
+          "verified": true
+        },
+        {
+          "where": "3 Conclusion",
+          "quote": "a second satellite in the same orbit plane would halve it",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Accomplished",
+      "mark": 7.0,
+      "scale": 10.0,
+      "points": 14.0,
+      "max": 20.0,
+      "reasoning": "Clear structure, executive summary, labelled tables and figures, and a consistent reference style. Deductions: several factual claims are uncited, some sources are weak (magazine, news article), and a few terms are informal.",
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "Hundreds of millions of humans rely on reefs for food, natural protection, jobs, and tourism.",
+          "verified": true
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[2] National Geographic, \"Great Barrier Reef coral bleaching map,\" Aug. 2018.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction, Number of spacecraft"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction, Users"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit, Table 4"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit, Manoeuvres"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Appendix A"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Figures 1,3,4; Appendix A"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "1 Introduction"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "The claim that Mount Pleasant is the most southerly suitable Australian site is unsupported by any comparison of candidate sites."
+    },
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "The X-band downlink and 50 Mbit/s rate are assumed without a link budget, so the 3.5× data margin rests on unverified assumptions."
+    },
+    {
+      "where": "2.5 Mission Duration & EOL",
+      "issue": "Lifetime is estimated as H/decay rate with a single constant density and scale height; this is crude and the stated 2.2-year sail lifetime is only approximate."
+    }
+  ],
+  "overall": "A strong, technically sound preliminary design with verified orbit, geometry, data and drag calculations and good evidence through STK outputs. Main weaknesses are the missing link budget, unsupported site-selection claims, and some uncited or weakly sourced statements in the introduction.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 8,
+    "quotes_found": 7,
+    "found_rate": 0.875
+  },
+  "feedback": {
+    "summary": "You have produced a technically strong preliminary design. Your introduction clearly sets out ZYZZsat's purpose, single-spacecraft configuration and users, and your orbit, geometry, data and drag calculations are verifiable and supported by STK outputs in Appendix A. Your conclusions tie back to your evidence and identify specific limitations. The main areas to strengthen are the missing link budget, the unsupported site-selection claim, and several uncited or weakly sourced statements in the introduction.",
+    "next_steps": [
+      "Add a link budget for the X-band downlink at 50 Mbit/s, so that the 3.5× data margin in Section 2.4 rests on calculated values rather than assumptions.",
+      "Compare the candidate Australian ground sites, or remove the claim that Mount Pleasant is the most southerly suitable site, so that the choice is justified.",
+      "Cite a peer-reviewed or authoritative source for the biodiversity and human-reliance statements in the introduction, and replace the magazine source for bleaching statistics with a scientific reference."
+    ],
+    "criteria": {
+      "C1": "You cover the mission purpose, the rationale for a single spacecraft, and the operator and customers in good detail, with literature support. The opening biodiversity and human-reliance claims are uncited, and the bleaching-loss statistics rely on a magazine source. Citing authoritative sources for these points would make the rationale more persuasive.",
+      "C2": "Your hand calculations for RAAN drift, inclination, period, swath, revisit, data budget and drag decay are clear and check out, and your STK screenshots and files support them well. Table 7 on lifetime is a useful summary. The link budget is not yet done, the ground-station choice needs stronger justification, and the 'most southerly suitable site' claim needs comparison evidence. The lifetime estimate uses a single constant density and scale height, so it would benefit from a note on its limitations.",
+      "C3": "Your conclusions draw on your quantitative results and name specific limitations, such as Vega C not yet having flown, with remedies such as a second satellite in the same plane. Keep linking each conclusion to a specific figure or table in the body to make the evidence trail even clearer.",
+      "C4": "Your report has a clear structure, an executive summary, labelled tables and figures, and a consistent reference style. To reach a more professional level, reduce informal wording and make sure every factual claim is cited, particularly in the introduction. Replace weaker sources such as the magazine and news references with more authoritative ones where possible."
+    }
+  }
+}

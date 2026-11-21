@@ -1,0 +1,17 @@
+{
+  "summary": "You achieved 29/40. Your strongest work is the scenario-specific modular-monolith recommendation in Question 2 and the circuit-breaker explanation in Question 4. To improve, make Question 1 measurable, correct Question 3(c) and the CAP explanation in Question 5, add a negative ADR consequence, state assumptions, and bring Question 2 within 150 words.",
+  "next_steps": [
+    "Revise Question 1’s availability response measure to include a quantified target, and recalculate Question 3(c) as end-to-end availability: approximately 99.80%, or 1.5 hours of monthly downtime.",
+    "Correct Question 5 by explaining that during a partition, consistency and availability must be traded off; then retain a concrete technique for each scenario. In Question 6, add the negative consequence that retries may create duplicate outlet notifications unless consumers handle duplicates.",
+    "Add an explicit assumptions section, reduce Question 2 from approximately 181 words to 150 or fewer, and proofread every answer for precise terminology, headings, and IEEE citations."
+  ],
+  "criteria": {
+    "C1": "Question 1 appropriately selects performance and availability and gives a measurable p95 target. However, “stay up most of the time” is not measurable. The next level requires both six-part scenarios to have measurable response measures, such as a stated availability percentage or maximum downtime.",
+    "C2": "Your modular-monolith recommendation is excellent: it uses the five-person team, single-VM load problem, deployment downtime, and shared-scaling/process-failure trade-offs. You have met the top rubric level; preserve this scenario-specific reasoning while shortening the answer to meet the communication limit.",
+    "C3": "Parts (a) and (b) are correct with working shown. In Question 3(c), the redundant payment-provider result is not the end-to-end order-placement availability. Multiply it by the other components to report approximately 99.80% and 1.5 hours of monthly downtime for full marks.",
+    "C4": "Your Question 4 circuit-breaker explanation is excellent: the states, failure threshold, and slow-provider outage are connected correctly. You have met the top level; continue including a relevant tuning consideration such as the failure threshold.",
+    "C5": "Your browsing and payment choices and idempotency technique are reasonable. The CAP explanation is inaccurate: during a partition, consistency and availability cannot both be retained. The next level requires precise CAP reasoning plus a suitable concrete technique for each case.",
+    "C6": "Question 6 includes specific Context, Decision, and Consequences, but consequences are only positive. To reach Excellent, add a negative consequence, such as retry-until-acknowledgement causing duplicate outlet notifications unless consumers are idempotent or deduplicate messages.",
+    "C7": "Your headings, numbered citations, reference list, and terminology are generally clear. Question 2 is approximately 181 words, so the next level requires every answer to be within 150 words, alongside precise terminology and IEEE-style citations. Also include the required explicit assumptions."
+  }
+}

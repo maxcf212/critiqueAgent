@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-f16e96a6-50b4-416e-a5cf-a9857f81cd84",
+  "object": "chat.completion",
+  "created": 1794963912,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"A strong submission overall. Q2 was excellent with scenario-specific trade-offs, and Q1, Q3, Q4, Q5 and Q6 all showed sound method. To lift marks: make the availability response measure measurable, include the non-payment components in Q3(c), apply CAP correctly in Q5, add a negative consequence to the ADR, and keep every answer within 150 words.\",\"next_steps\":[\"In Q3(c), multiply the payment-pair availability (0.999975) by the other three components (0.9995×0.999×0.9995) to get the end-to-end availability (~99.80%, ~1.5 h downtime) rather than reporting the payment pair alone.\",\"In Q5, reframe the CAP argument: partition tolerance cannot be given up; during a partition you must choose between consistency and availability, so justify each choice as C or A under partition.\",\"In Q6, add at least one negative consequence (e.g. delayed outlet notification, duplicate-order handling, extra infrastructure) to balance the ADR.\",\"Trim Q2 and Q4 to 150 words each, stating any assumptions explicitly, and make the Q1 availability response measure measurable (e.g. '99.5% uptime measured monthly').\"],\"criteria\":{\"C1\":\"You chose suitable attributes (performance and availability) with good scenario-based justification, and your performance scenario was fully six-part and measurable. To reach Excellent, both response measures must be measurable: 'stay up most of the time' is not. Replace it with a quantified target, e.g. '99.5% availability measured monthly', and keep the six-part structure for both scenarios.\",\"C2\":\"Excellent work. Your modular monolith recommendation was clearly justified with two trade-offs tied to the scenario — the five-developer team size and the root causes of the known problems — and you acknowledged the downside (no independent scaling, one bug can crash the process). This meets the Excellent standard; just watch the 150-word limit (see C7).\",\"C3\":\"Parts (a) and (b) were correct with working shown (99.30%, 5.0 h). Part (c) reported only the payment-pair availability (99.9975%) and dropped the other three components. The end-to-end availability is 0.9980010×0.999975 ≈ 99.80%, about 1.5 h downtime per month. Your method is sound — show the full product in part (c) to reach Excellent.\",\"C4\":\"You named the circuit breaker correctly, explained its states and thresholds well, and applied it convincingly to the outage with a realistic user-facing message. The missing element for full marks is an explicit drawback or tuning consideration — e.g. false trips on slow (rather than failed) calls, or how to choose the failure threshold and timeout values.\",\"C5\":\"Both choices were reasonable and you named concrete techniques (Redis TTL cache; idempotency keys), which is good. However, CAP was misapplied: 'giving up partition tolerance' is not an option — partitions will happen, so the real choice during a partition is between consistency and availability. Restate each choice as C-over-A or A-over-C under partition to reach Excellent.\",\"C6\":\"Your ADR had all three sections, scenario-specific context and a clear decision, and the positive consequence (faster order placement) was well stated. What held it at Proficient was the one-sided consequences: add at least one negative consequence, such as eventual outlet notification, duplicate-order handling, or extra infrastructure cost.\",\"C7\":\"Your headings, ordering and IEEE citations were correct, but Q2 (~200 words) and Q4 (~160 words) exceeded the 150-word limit and no assumptions were stated. Practise writing tight, prioritised answers: state assumptions in one line, cut generic textbook material, and count words before submitting to reach the Excellent level.\"}}",
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2504,
+    "completion_tokens": 818,
+    "total_tokens": 3322,
+    "reasoning_tokens": 0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "created_cache_tokens": 2432,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 2504,
+    "cost": 0.0004958,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_528ded86-e621-4d4a-9df4-13bb91073ec0",
+  "x_nanogpt_pricing": {
+    "amount": 0.0004958,
+    "currency": "USD",
+    "cost": 0.0004958,
+    "inputTokens": 2504,
+    "outputTokens": 818,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_0651c55e-c006-4571-b627-b50926202da1",
+    "costUsd": 0.0004958,
+    "usdCost": 0.0004958,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

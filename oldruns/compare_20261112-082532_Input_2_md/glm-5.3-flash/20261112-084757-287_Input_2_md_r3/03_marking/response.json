@@ -1,0 +1,63 @@
+{
+  "id": "chatcmpl-a4c071af-f462-4f94-b933-c0efa5336d1d",
+  "object": "chat.completion",
+  "created": 1794433690,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"id\":\"C1\",\"level\":\"Accomplished\",\"mark\":8,\"evidence\":[{\"where\":\"Introduction\",\"quote\":\"Thus, only one satellite is required. This also just allows for simplicity in communications, reduces cost\"},{\"where\":\"Introduction\",\"quote\":\"The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM)\"}],\"reasoning\":\"Primary mission (fluid-lensing reef monitoring), rationale (bleaching statistics), single-spacecraft justification, and users/funding (CSIRO, BOM, government/university) all addressed with cited literature. Detail is good though user discussion is somewhat brief.\"},{\"id\":\"C2\",\"level\":\"Accomplished\",\"mark\":8,\"evidence\":[{\"where\":\"Mission Design – Launch\",\"quote\":\"The proposed satellite will thus use the Vega E rocket as a launch vehicle – launched from the Guiana Space Centre Spaceport\"},{\"where\":\"Mission Design – Orbit\",\"quote\":\"an altitude of 600km requires a mean inclination of 97.7924°\"},{\"where\":\"Mission Design – Ground Control\",\"quote\":\"An average contact duration of almost ten minutes was achieved\"},{\"where\":\"Mission Design – Mission Duration & EOL\",\"quote\":\"A span of five years is a sound estimate of the useful lifespan\"}],\"reasoning\":\"All major requirements addressed: launch site/vehicle with rationale, SSO with full COE table, manoeuvres (none until EOL), ground station selection logic, STK access report quantifying comms frequency, 5-year duration and drag-sail EOL. Supported by STK screenshots and inclination plot. Minor logic errors (altitude/resolution statement) prevent top mark.\"},{\"id\":\"C3\",\"level\":\"Accomplished\",\"mark\":7,\"evidence\":[{\"where\":\"Conclusion\",\"quote\":\"A specific launch vehicle – the Vega E – has been selected although it has not been built yet\"}],\"reasoning\":\"Conclusions are specific and tied to report evidence, including risk acknowledgment (Vega E availability) and alternatives. Somewhat brief and does not quantify outcomes, but clearly derived from the analysis.\"},{\"id\":\"C4\",\"level\":\"Adequate\",\"mark\":5,\"evidence\":[{\"where\":\"Bibliography\",\"quote\":\"https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online].\"},{\"where\":\"Mission Design – Orbit\",\"quote\":\"STK 3D view of orbit: 12 hours apart\"}],\"reasoning\":\"Clear structure with executive summary and logical sections, but figures lack figure numbers, tables are unlabelled, bibliography is bare URLs (including Wikipedia, an unacceptable source), and grammar slips occur ('a Earth observation', 'It's first launch', 'for the purposed of'). Heading formatting inconsistent.\"}],\"requirements\":[{\"id\":\"R1\",\"met\":\"yes\",\"where\":\"Introduction – Great Barrier Reef monitoring benefiting Australia\"},{\"id\":\"R2\",\"met\":\"yes\",\"where\":\"Mission Design sections cover launch, orbit, ground control, EOL\"},{\"id\":\"R3\",\"met\":\"yes\",\"where\":\"Introduction – fluid lensing imaging of coral bleaching\"},{\"id\":\"R4\",\"met\":\"yes\",\"where\":\"Introduction – single satellite with justification\"},{\"id\":\"R5\",\"met\":\"yes\",\"where\":\"Introduction – CSIRO, BOM, government/university\"},{\"id\":\"R6\",\"met\":\"yes\",\"where\":\"Mission Design – Launch – Kourou, Vega E\"},{\"id\":\"R7\",\"met\":\"yes\",\"where\":\"Mission Design – Orbit – SSO, COE table\"},{\"id\":\"R8\",\"met\":\"yes\",\"where\":\"Mission Design – Orbit – no manoeuvres until EOL\"},{\"id\":\"R9\",\"met\":\"yes\",\"where\":\"Ground Control & Communications – Mt Pleasant, STK access report\"},{\"id\":\"R10\",\"met\":\"yes\",\"where\":\"Mission Duration & EOL – 5 years, drag sail\"},{\"id\":\"R11\",\"met\":\"yes\",\"where\":\"STK simulations plus hand-calculated inclination plot\"},{\"id\":\"R12\",\"met\":\"partial\",\"where\":\"Screenshots included; no evidence software files are attached\"},{\"id\":\"R13\",\"met\":\"yes\",\"where\":\"Executive summary, introduction, main body, conclusion, bibliography present\"},{\"id\":\"R14\",\"met\":\"partial\",\"where\":\"Figures have captions but no figure numbers; tables unlabelled\"},{\"id\":\"R15\",\"met\":\"partial\",\"where\":\"In-text citations present but Wikipedia used as reference [6]; bare-URL bibliography\"}],\"technical_issues\":[{\"where\":\"Mission Design – Orbit\",\"issue\":\"States 'A very high altitude would yield low resolution images which is also desirable' – contradicts the design logic; low resolution is undesirable.\"},{\"where\":\"Bibliography\",\"issue\":\"Wikipedia (2021 in spaceflight) cited as reference [6], which the task explicitly disallows as a proper source.\"},{\"where\":\"Mission Design – Orbit\",\"issue\":\"Claim that RAAN of 27.33° 'indicates the location of the launch facility' is dubious; RAAN is set by launch time/window, not directly by site.\"},{\"where\":\"Ground Control & Communications\",\"issue\":\"Assertion that the facility 'will be able to receive all new data from the previous period' is unsupported by any link-budget or data-rate analysis.\"},{\"where\":\"Mission Duration & EOL\",\"issue\":\"Suggests lifespan 'may be lengthened by the addition of solar panels' – solar panels are standard, not an EOL-extension mechanism; also text garbled around drag sail description.\"}],\"overall\":\"A well-structured, mostly comprehensive mission design with good STK evidence covering all major space-segment requirements. Weakened by a few technical logic errors, unnumbered figures/tables, bare-URL referencing including Wikipedia, and no evidence of attached software files.\"}",
+        "refusal": null,
+        "reasoning": "Let me evaluate the submission against the rubric.\n\nC1 Introduction: mission concept, rationale, spacecraft count, users. All addressed: primary mission (coral reef monitoring via fluid lensing), why needed (bleaching), one satellite with justification, users (CSIRO, BOM, government/university funding). References cited. Good detail. Accomplished, maybe 8.\n\nC2 Mission design: launch site/vehicle (Kourou, Vega E with rationale), orbit type and elements (SSO, 600 km, i=97.79°, COE table), manoeuvres (none except EOL), ground control (Mt Pleasant), comms frequency (STK access report, ~10 min mean, multiple passes/day), mission duration (5 years) and EOL (drag sail). STK screenshots included (Images 1,2,4,5, access table, inclination plot). Some issues: \"A very high altitude would yield low resolution images which is also desirable\" — error (should be \"not desirable\" or \"undesirable\"). Also \"which – because of its verticality – maintains a significant contact\" awkward. RAAN 27.33° \"indicates location of launch facility\" — questionable but plausible. Also the inclination plot: at 600 km, SSO inclination ~97.8°, correct. Semi-major axis 6971 km correct. Access table shows ~6 passes/day, plausible for Tasmania with near-polar orbit. Some minor errors but overall comprehensive with evidence. Accomplished range, maybe 7-8. The \"very high altitude would yield low resolution images which is also desirable\" is a clear error. Also the claim \"the satellite will be positioned at 600km and images of reef sections will be compiled daily\" — fine. Also the statement about drag sail: \"utilising a large surface area to ' and is suitable\" — OCR artifact likely. I'd give 8.\n\nActually check: \"The satellite must be far away enough to capture the width of the Great Barrier Reef – if daily images are to capture the entire reef\" — logic slightly muddled but ok. Give 8.\n\nC3 Conclusion: summarizes findings, notes risks (Vega E not built), specific. Adequate-to-accomplished. It's fairly brief but reaches specific conclusions tied to evidence. Give 7.\n\nC4 Presentation: structure clear, headings, executive summary present, figures labelled? Figures have captions like \"STK 3D view of orbit: 12 hours apart\" but no figure numbers (\"Figure 1\"). Tables not labelled with numbers. Bibliography is just URLs, not properly formatted references; uses Wikipedia as reference [6] — task says Wikipedia not accepted as proper source. That's a citation issue. In-text citations [1]-[10] match list. Some grammar issues (\"a Earth observation\", \"It's first launch\", \"for the purposed of this satellite\", \"current owned\"). Formatting inconsistent (heading levels vary: #, ##, #####). Adequate level, maybe 5. Wikipedia use is a requirement violation (R15). Give 5.\n\nRequirements:\nR1 yes (reef monitoring benefits Australia). R2 yes. R3 yes. R4 yes. R5 yes. R6 yes. R7 yes. R8 yes (none except EOL). R9 yes. R10 yes. R11 yes (STK used, plus hand calc plot). R12 partial — screenshots included, but no mention of software files included in appendix. R13 yes. R14 partial — figures have captions but no figure numbers; tables unlabelled. R15 partial — Wikipedia used as source [6].\n\nTechnical issues:\n- \"A very high altitude would yield low resolution images which is also desirable\" — contradiction/error.\n- Wikipedia cited as reference [6].\n- RAAN 27.33° \"indicates the location of the launch facility\" — questionable; RAAN relates to orbit plane, not launch site directly.\n- Claim \"ground facility will be able to receive all new data from the previous period\" unsupported.\n- Drag sail section: text garbled \"utilising a large surface area to '\" (possibly OCR).\n- Access table row numbering offset (row \"----\" then 1...) minor.\n- Statement \"sun-synchronous orbit inherently experiences significant J2 perturbations as a result of its highly polar inclination\" — J2 nodal precession, fine.\n- \"two launch windows will occur per day\" for inclination > latitude — correct.\n- Mission duration: \"may be lengthened though, by the addition of solar panels\" — odd; solar panels are standard, not EOL extension.\n\nOverall: solid report with good STK evidence, some errors and referencing issues."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 11153,
+    "completion_tokens": 2158,
+    "total_tokens": 13311,
+    "reasoning_tokens": 977,
+    "completion_tokens_details": {
+      "reasoning_tokens": 977,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "created_cache_tokens": 9216,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 11153,
+    "cost": 0.0017626999999999999,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_080381ca-b6f6-435f-8b6b-9207783a93aa",
+  "x_nanogpt_pricing": {
+    "amount": 0.0017626999999999999,
+    "currency": "USD",
+    "cost": 0.0017626999999999999,
+    "inputTokens": 11153,
+    "outputTokens": 2158,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_a23459bc-ee0b-4581-91db-ed757b4724e8",
+    "costUsd": 0.0017626999999999999,
+    "usdCost": 0.0017626999999999999,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

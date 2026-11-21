@@ -1,0 +1,80 @@
+{
+  "id": "chatcmpl-e8856f8a-db83-4a25-8a92-2d8522a5d9a2",
+  "object": "chat.completion",
+  "created": 1794721977,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You have a readable preliminary design that covers all mission areas with STK evidence and a clear Australian-benefit rationale. To move from Adequate to Accomplished in the main body, you need quantitative support for launch, orbit, communications and EOL, plus complete software files and referencing. Your Introduction is strong; your Conclusion and presentation need more specific, evidence-linked detail.\",\"next_steps\":[\"Add quantitative design evidence: launch performance/azimuth for direct SSO injection, swath/resolution derivation for 600 km, link budget/data volume, drag area/lifetime/casualty risk, and include your STK files.\",\"Correct and support orbit and ground-station claims: calculate RAAN/J2 effects, replace or justify Mt Pleasant as an EO downlink, extend access analysis beyond three days, and remove the 'constant' contact claim.\",\"Fix referencing and presentation: number and caption all figures/tables, add missing references [49]-[55] and [66]-[74], replace bare URLs and Wikipedia with proper citations, and clarify operator/users and EOL conclusions.\"],\"criteria\":{\"C1\":\"Your Introduction clearly explains the reef-monitoring mission, Australian benefit, single-spacecraft rationale and likely users, with references. To secure a higher Accomplished mark, name the operator explicitly and define customer/funding roles more precisely; the rubric requires detailed descriptions and appropriate literature throughout.\",\"C2\":\"You cover launch, orbit, ground control, communications, duration and EOL with STK screenshots and an access table. The next level requires quantitative evidence: launch performance/azimuth for direct SSO injection, swath/resolution derivation for 600 km, link budget/data volume, drag area/lifetime/casualty risk, and STK files. Correct the contradictory resolution statement and RAAN/J2 claim, and replace the unbuilt Vega E or justify it with performance data.\",\"C3\":\"Your Conclusion restates the main design choices and links to the body, but it is brief and partly generic. To reach Accomplished, draw specific evidence-based conclusions for each design area, including EOL, and remove the inaccurate claim that Mt Pleasant gives constant contact; the access results show limited passes over three days.\",\"C4\":\"Your headings and structure are clear, but presentation is not yet professional. Number and caption every figure/table, including Image 4 and the access summary, add missing references [49]-[55] and [66]-[74], replace bare URLs and Wikipedia with proper citations, and fix typos/contradictions. Accomplished requires consistent formatting, an executive summary and in-text/reference-list matching.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary (<=80 words), next_steps (3 strings), criteria object with C1-C4 feedback each <=70 words. Address student as \"you\". Be specific, supportive, actionable, cite sections/figures, name what they did well, state what next rubric level requires. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nNeed craft feedback per criterion. C1 mark 7 Accomplished low. C2 6 Adequate. C3 5 Adequate. C4 5 Adequate.\n\nNeed mention specific evidence: Introduction quotes, launch Vega E, orbit SSO, STK access, drag sail, conclusion Mt Pleasant constant contact, bibliography Wikipedia, Image 4 DN path, access summary report.\n\nNeed next steps 3 strings. Could be: 1) Add quantitative design evidence: launch performance/azimuth for direct injection, swath/resolution derivation for 600 km, link budget/data volume, drag area/lifetime/casualty risk, and include STK files. 2) Correct and support orbit/ground-station claims: RAAN/J2 calculation, replace Mt Pleasant with established EO downlink or justify, extend access analysis beyond 3 days, remove \"constant\" contact. 3) Fix referencing and presentation: number/caption all figures/tables, add missing refs [49]-[55], [66]-[74], replace bare URLs/Wikipedia with proper citations, clarify operator/users and EOL conclusion.\n\nNeed summary <=80 words. \"You have a readable preliminary design covering all mission areas with STK evidence and a clear Australian-benefit rationale. To move from Adequate to Accomplished in the main body, you need quantitative support for launch, orbit, communications and EOL, plus complete software files and referencing. Your introduction is strong; conclusions and presentation need more specific, evidence-linked detail.\" Count words ~60.\n\nCriteria feedback <=70 words each. Need address \"you\". C1: \"Your Introduction clearly explains the reef-monitoring mission, Australian benefit, single-spacecraft rationale and likely users, with references. To secure a higher Accomplished mark, name the operator explicitly and define customer/funding roles more precisely; the rubric requires detailed descriptions and appropriate literature throughout.\" ~50 words.\n\nC2: \"You cover launch, orbit, ground control, communications, duration and EOL with STK screenshots and an access table. The next level requires quantitative evidence: launch performance/azimuth for direct SSO injection, swath/resolution derivation for 600 km, link budget/data volume, drag area/lifetime/casualty risk, and STK files. Correct the contradictory resolution statement and RAAN/J2 claim, and replace the unbuilt Vega E or justify it with performance data.\" ~70? Count: You(1) cover2 launch3 orbit4 ground5 control6 communications7 duration8 and9 EOL10 with11 STK12 screenshots13 and14 an15 access16 table17. The18 next19 level20 requires21 quantitative22 evidence23: launch24 performance/azimuth25 for26 direct27 SSO28 injection29, swath/resolution30 derivation31 for32 60033 km34, link35 budget/data36 volume37, drag38 area/lifetime/casualty39 risk40, and41 STK42 files43. Correct44 the45 contradictory46 resolution47 statement48 and49 RAAN/J250 claim51, and52 replace53 the54 unbuilt55 Vega56 E57 or58 justify59 it60 with61 performance62 data63. Good.\n\nC3: \"Your Conclusion restates the main design choices and links to the body, but it is brief and partly generic. To reach Accomplished, draw specific evidence-based conclusions for each design area, including EOL, and remove the inaccurate claim that Mt Pleasant gives constant contact; the access results show limited passes over three days.\" ~55.\n\nC4: \"Your headings and structure are clear, but presentation is not yet professional. Number and caption every figure/table, including Image 4 and the access summary, add missing references [49]-[55] and [66]-[74], replace bare URLs and Wikipedia with proper citations, and fix typos/contradictions. Accomplished requires consistent formatting, an executive summary and in-text/reference-list matching.\" ~60.\n\nNeed ensure no markdown, one JSON object only. Use exact criterion ids. Summary <=80. Next steps array 3 strings. Good.\n\nNeed maybe mention \"Image 4\" as figure. Don't comment on conversion artefacts. Fine.\n\nNeed not change marks. No mention marks? We can mention rubric levels but not marks. Fine.\n\nNeed \"Do not make up explanations for reasoning given by marking agent, unclear/incomplete.\" We stick to evidence.\n\nLet's produce JSON. Ensure valid JSON, no trailing commas. Use quotes."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2431,
+    "completion_tokens": 1563,
+    "total_tokens": 3994,
+    "reasoning_tokens": 1015,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1015,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 2304,
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 2304,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 127,
+    "cost": 0.0011809,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_2e289167-e158-4d38-91ca-ae2d17d61c04",
+  "x_nanogpt_pricing": {
+    "amount": 0.0011809,
+    "currency": "USD",
+    "cost": 0.0011809,
+    "inputTokens": 2431,
+    "outputTokens": 1563,
+    "cacheCreationInputTokens": 2304,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0.0002304,
+    "requestId": "req_f0983ae8-d569-43d8-9139-d9415a9a4a02",
+    "costUsd": 0.0011809,
+    "usdCost": 0.0011809,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "write_only",
+      "readTokens": 0,
+      "writeTokens": 2304
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "write_only",
+    "readTokens": 0,
+    "writeTokens": 2304
+  }
+}

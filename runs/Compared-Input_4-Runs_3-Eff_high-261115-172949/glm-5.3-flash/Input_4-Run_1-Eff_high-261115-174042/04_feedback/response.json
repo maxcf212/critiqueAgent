@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-feaba64b-2706-4798-bf10-807fa54d88d0",
+  "object": "chat.completion",
+  "created": 1794724924,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"A strong, well-argued submission. Your Q2 recommendation of a modular monolith is excellent, with scenario-specific trade-offs and an acknowledged downside. Q3(a),(b) are correct with clear working, but Q3(c) reports the paired payment availability as the end-to-end figure. CAP is misapplied in Q5, your ADR lacks a negative consequence, and Q2 exceeds the word limit. Total: 28/40.\",\"next_steps\":[\"In Q3(c), recombine the paired payment availability with the other components: 0.99800125 × 0.999975 ≈ 99.80%, giving ~1.5 h downtime, not 0.018 h.\",\"In Q5, restate the CAP argument: during a partition you choose between consistency and availability; 'giving up partition tolerance' is not a valid option.\",\"Add an explicit negative consequence to your Q6 ADR (e.g., delivery delay, eventual consistency, or new operational burden) and trim Q2 to 150 words.\"],\"criteria\":{\"C1\":\"You chose suitable attributes and justified them well from the scenario (lunch peak, 4.2 s p95, payment outage). Your performance scenario is complete and measurable. To reach Excellent, make the availability response measure measurable too: 'stay up most of the time' should become a concrete figure, e.g. '99.9% uptime measured monthly, with no more than 45 minutes downtime'.\",\"C2\":\"Excellent work. Your modular monolith recommendation is justified by two trade-offs specific to the scenario: the five-developer team's overhead of running eight to ten services, and the lunchtime load profile with 20-minute outage causes. You also explicitly acknowledge the downside (no independent scaling; a bug can crash the whole process). This meets every Excellent descriptor; keep this standard for future ADR-style arguments.\",\"C3\":\"Parts (a) and (b) are correct with working shown (99.30%; 5.0 hours). Part (c) is the one slip: you report the paired payment availability (99.9975%) as the end-to-end availability. The method is otherwise correct, so this sits at Proficient. For Excellent, finish part (c) by multiplying the rest of the chain by the improved payment availability: 0.99800125 × 0.999975 ≈ 99.80%, i.e. ~1.5 h downtime.\",\"C4\":\"You correctly named the Circuit Breaker pattern, explained the Closed/Open/Half-Open mechanism, and applied it concretely to the 25-minute outage with a sensible user-facing message. To reach the single Excellent level, add an explicit drawback or tuning consideration as its own point: e.g. false trips under transient load, or how to calibrate the failure threshold and timeout values.\",\"C5\":\"Both choices are reasonable and your techniques are concrete (Redis TTL cache; idempotency keys). However, CAP is misapplied: you wrote that payments 'choose consistency and availability and give up partition tolerance'. During a partition, partition tolerance is not optional; the choice is between consistency and availability. Fixing this conceptual point, keeping your techniques, would lift you to Excellent.\",\"C6\":\"Your Context, Decision and Consequences are all present and specific to CampusEats (4.2 s p95, offline tablets, RabbitMQ), which is good. But the consequences are entirely positive: the task explicitly requires at least one negative consequence. Add one, such as orders queuing while an outlet is offline (delivery delay), eventual consistency in order status, or new operational burden running the message broker.\",\"C7\":\"Your headings are used in order, IEEE-style citations and a reference list are present, and terminology is precise. However, Q2 clearly exceeds the 150-word limit (~185 words) and Q1 is borderline (~155). Also, no assumptions are stated anywhere, which the format requires. Trimming Q2 below 150 words and stating your assumptions would secure the full 4 marks.\"}}",
+        "refusal": null,
+        "reasoning": "Compose JSON feedback. Summary ≤80 words, next_steps 3 items, criteria ≤70 words each."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2820,
+    "completion_tokens": 865,
+    "total_tokens": 3685,
+    "reasoning_tokens": 22,
+    "completion_tokens_details": {
+      "reasoning_tokens": 22,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 2820,
+    "cost": 0.0005415,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_194684ab-ad70-47e5-8611-6a11b27f6e60",
+  "x_nanogpt_pricing": {
+    "amount": 0.0005415,
+    "currency": "USD",
+    "cost": 0.0005415,
+    "inputTokens": 2820,
+    "outputTokens": 865,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_d9ecdb25-131b-4bad-80d1-42ffb2215838",
+    "costUsd": 0.0005415,
+    "usdCost": 0.0005415,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

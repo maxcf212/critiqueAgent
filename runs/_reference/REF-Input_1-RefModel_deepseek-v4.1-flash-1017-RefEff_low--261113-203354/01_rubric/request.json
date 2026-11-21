@@ -1,0 +1,26 @@
+{
+  "model": "deepseek/deepseek-v4.1-flash-1017",
+  "max_tokens": 8000,
+  "include_usage": true,
+  "messages": [
+    {
+      "role": "system",
+      "content": "Convert the marking rubric below into JSON. The document was converted to markdown by OCR: odd characters, broken LaTeX/tables and split paragraphs are usually conversion artefacts, not the author's errors.\n- ids C1..Cn in rubric order. Name stores title of criterion as well as any additional description. Marks are numbers; a single mark gives min=max.\n- level min/max = the score range exactly as printed for that level (may be a common band scale, e.g. 0-10).\n- weight = % of total if printed, else null. max = marks for the criterion if printed, else null. total = printed total marks, else null. Never infer or rescale numbers.\n- If only % bands are given, use 0-100 for level min/max.\nSchema: {\"title\":str,\"total\":num|null,\"criteria\":[{\"id\":\"C1\",\"name\":str,\"weight\":num|null,\"max\":num|null,\"levels\":[{\"label\":str,\"min\":num,\"max\":num,\"desc\":str}]}],\"notes\":str}\nReply with one JSON object only. No prose, no markdown."
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "RUBRIC:\n"
+        },
+        {
+          "type": "text",
+          "text": "## AERO9500 Report Marking Rubric (Assignment Part 1)\n\n5% of course grade\n\n<table><tr><td>Criterion</td><td>Weight</td><td>Accomplished 7 – 10 marks</td><td>Adequate 4 – 6 marks</td><td>Deficient 0 – 3 marks</td></tr><tr><td>Mission concept and rationale\nWhat will it do, who are the users, why is it needed?</td><td>40%\n__/40</td><td>A clear and complete description of mission goals, objectives, and requirements. Clearly relates required mission function to users and their needs. References to literature as appropriate.</td><td>Sufficient description of mission goals, objectives, and requirements. Identification of users and their needs. Descriptions feature lack of specific details and/or incomplete referencing.</td><td>A poor description with mission goals, objectives and requirements unclear. Insufficient identification of users and their needs.</td></tr><tr><td>Project plan\nHow you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use</td><td>30%\n__/30</td><td>The plan for project completion is robust and has provision for project variations and contingencies.\nThe plan fits within the narrative set out by the mission concept – the student makes clear why the plan is developed this way in the context of the mission. Appropriate references to information sources are included.</td><td>Plan is presented but lacks some detail. However, the plan is enough to believe that the project is feasible.</td><td>Plan is not included or does not have sufficient detail to demonstrate that the project can be completed.</td></tr><tr><td>Preliminary progress\nTechnical content and evidence of sufficient work done to date</td><td>10%\n__/10</td><td>Good preliminary set of results included with brief description and/or interpretation. Clearly on track for completion.</td><td>Minor work completed on the project. Results description or interpretation may be insufficient.</td><td>No actual or useful work completed.</td></tr><tr><td>Report presentation</td><td>20%\n__/20</td><td>The document follows a clear and logical structure. The report is very easy to read: well- written, with good spelling and grammar, and appropriate language style.\nAll aspects of formatting are consistent throughout the document. Graphical and tabular presentation of data is appropriate, clear and consistent. References in text match reference list (and vice versa) and are cited properly.</td><td>Document is not at a professional level but does make use of headings and subheadings to indicate document structure. The report may be difficult to read: writing is just ok, broad idea comes across; spelling and grammar have some flaws, not quite appropriate language style. Although figures and tables are labelled, the formatting is unclear and/or inconsistent to the extent that the reader can lose track of the context when reading. References in text match reference list (and vice versa) and are mostly cited correctly.</td><td>The document is poorly structured, is not coherent or shows a lack of understanding of the purpose of its sections. Much effort is required to read and understand the report: writing is poor, many mistakes with spelling and grammar, and possibly inappropriate language style (e.g. too informal). Presentation is poor to the extent that it impedes reading of the document. Examples include inconsistent formatting, and unlabelled figures or tables. References are either not cited or cited inconsistently.</td></tr></table>"
+        }
+      ]
+    }
+  ],
+  "temperature": 0,
+  "reasoning_effort": "low"
+}

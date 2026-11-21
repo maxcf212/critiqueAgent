@@ -1,0 +1,173 @@
+{
+  "total": 89.0,
+  "total_max": 100.0,
+  "percent": 89.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 36.0,
+      "max": 40.0,
+      "reasoning": "Clear goal, four quantified objectives/requirements, explicit users (AIMS, GBRMPA, CSIRO, BoM) with needs traced to objectives, and 11 literature references. Only minor gap: no discussion of why a new satellite beats existing missions.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef",
+          "verified": true
+        },
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Its customers are the Great Barrier Reef Marine Park Authority, which needs up-to-date bleaching maps",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 27.0,
+      "max": 30.0,
+      "reasoning": "Gantt chart with task descriptions, explicit rationale linking task order to mission logic (orbit before comms), four contingencies with triggers/responses, and a planned-sources table. Robust and mission-integrated; only slightly generic task descriptions.",
+      "evidence": [
+        {
+          "where": "Project Plan",
+          "quote": "Project work is divided into weeks in the Gantt chart in Figure 1",
+          "verified": true
+        },
+        {
+          "where": "Project Plan",
+          "quote": "The main risks and the planned responses are listed in Table 1",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 8.0,
+      "max": 10.0,
+      "reasoning": "Correct hand calculations (period, sun-sync inclination ~97.8°, ground-track shift) with interpretation of the swath–revisit trade, plus completed STK tutorials and a first scenario. Good progress, though results are still first-pass.",
+      "evidence": [
+        {
+          "where": "Preliminary Progress",
+          "quote": "T = 2π√(a³/μ) | 5,801 s = 96.7 min",
+          "verified": true
+        },
+        {
+          "where": "Preliminary Progress",
+          "quote": "Weekly coverage (objective 1) is therefore not guaranteed by one satellite at this altitude and resolution",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 18.0,
+      "max": 20.0,
+      "reasoning": "Logical structure, consistent IEEE-style citations matching the reference list, labelled figures/tables with captions, professional tone and clean grammar. Minor: some reference entries lack titles, and figure/table numbering within sections is fine but captions could be more self-contained.",
+      "evidence": [
+        {
+          "where": "Figure 1",
+          "quote": "Project Gantt chart, Weeks 2 to 10 (gold = completed, blue = planned, red lines = report deadlines)",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[7] J. R. Wertz, D. F. Everett, and J. J. Puschell, Eds., Space Mission Engineering: The New SMAD",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Project Plan / Preliminary Progress — orbit, launch, ground segment tasks tied to course material and preliminary orbit calculations"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan — 'The design will be completed in STK (Systems Tool Kit), accessed remotely through the MECH lab 204 licence'"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Figure 1 Gantt chart with weekly tasks and deadlines"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Table 2: Planned information sources"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Preliminary Progress — Table 3 hand calculations and completed STK tutorials"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Preliminary Progress, Table 3",
+      "issue": "10 m GSD from a 600 km orbit implies a very demanding optical payload (~6000-pixel swath assumption); payload feasibility is not yet addressed, though flagged as a trade."
+    },
+    {
+      "where": "Preliminary Progress",
+      "issue": "Sun-synchronous 600 km orbit gives ~14.9 orbits/day but equatorial cross-track spacing of ~2700 km means weekly reef coverage claim needs constellation or off-nadir options; student correctly identifies this."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "Statement 'Oceans have become 30 percent more acidic' is a simplification (≈30% rise in H+ concentration from ~0.1 pH drop); acceptable but imprecise wording."
+    }
+  ],
+  "overall": "A strong, well-organised preliminary report: clear reef-monitoring mission with quantified objectives and identified users, a robust Gantt plan with contingencies and sources, and correct first-pass orbit calculations with honest interpretation of the coverage trade. Minor refinements to payload feasibility and reference completeness would perfect it.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 8,
+    "quotes_found": 8,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "A strong preliminary report for your reef-monitoring mission. You clearly defined goals, quantified objectives and users, built a robust Gantt plan with contingencies and sources, and showed genuine technical progress through correct orbit calculations and STK tutorials. To reach the very top, strengthen payload feasibility discussion, justify the choice over existing missions, and complete reference entries.",
+    "next_steps": [
+      "Address the payload feasibility trade you flagged: assess whether a 10 m GSD optical payload from 600 km is achievable within a smallsat budget, or show how off-nadir pointing or a constellation closes the weekly-coverage gap you identified.",
+      "Add a short comparison with existing missions (e.g. Sentinel-2, Landsat) to justify why a new satellite is needed rather than relying on current data sources.",
+      "Complete your reference list: some entries lack titles or full details, and make captions more self-contained so figures and tables can be read standalone.",
+      "Refine imprecise wording such as 'oceans have become 30 percent more acidic' — state it as roughly a 30% increase in hydrogen ion concentration from a ~0.1 pH drop."
+    ],
+    "criteria": {
+      "C1": "Accomplished (9/10). Your mission concept is clear and complete: quantified objectives, explicit users (AIMS, GBRMPA, CSIRO, BoM) with needs traced to requirements, and 11 literature references. To fully secure the top level, briefly explain why a new satellite mission is preferable to existing Earth-observation sources — this justification is currently missing.",
+      "C2": "Accomplished (9/10). Your plan is robust and mission-integrated: the Gantt chart in Figure 1 has weekly tasks and deadlines, task ordering is justified by mission logic (orbit before comms), Table 1 lists four contingencies with triggers and responses, and Table 2 plans your information sources. Slightly more specific task descriptions would make it even stronger.",
+      "C3": "Accomplished (8/10). Your hand calculations (period 96.7 min, sun-synchronous inclination ~97.8°, ground-track shift) are correct and well interpreted, and you honestly identified the swath–revisit trade limiting weekly coverage. Completed STK tutorials and a first scenario show you are on track. Next: move from first-pass results toward addressing the payload feasibility question.",
+      "C4": "Accomplished (9/10). Your report has a logical structure, consistent IEEE-style citations matching the reference list, labelled figures and tables with captions, and a professional tone with clean grammar. Minor improvements: complete reference entries that lack titles, and make captions more self-contained so readers can understand each figure or table without reading the body text."
+    }
+  }
+}

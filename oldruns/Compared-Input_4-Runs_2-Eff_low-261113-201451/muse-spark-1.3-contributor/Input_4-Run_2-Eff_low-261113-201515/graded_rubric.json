@@ -1,0 +1,131 @@
+{
+  "method": "oneshot",
+  "total": 29.0,
+  "total_max": 40.0,
+  "percent": 72.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Good choice of performance and availability linked to 900-orders lunch peak and 4.2s p95 abandonment. Performance scenario has full six parts and measurable measure (p95 <1.5s). Availability scenario has six parts but Response Measure 'should stay up most of the time' is not measurable - needs e.g., % uptime or max detection/recovery time.",
+      "evidence": []
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear recommendation: keep modular monolith, not microservices rewrite. Two specific trade-offs: 5-dev team vs operational overhead of 8-10 services, and known problems (single VM p95, 20-min deploys) fixable with horizontal monolith instances + rolling deploys. Downside acknowledged (no independent scaling, single-process crash).",
+      "evidence": []
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "(a) Correct: 0.9995*0.999*0.9995*0.995 = 0.99301 = 99.30%. (b) Correct: 720h *0.00699 = 5.0h (5.03h). (c) Incorrect final combination: Apay=1-(0.005)^2=0.999975 correct, but new system availability must multiply all four: 0.9995*0.999*0.9995*0.999975 = 99.80% not 99.9975%, and downtime ~1.5h not 0.0h. Method understood but arithmetic for combined availability wrong.",
+      "evidence": []
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker correctly chosen for problem 2 (thread-pool exhaustion). Explains Closed/Open/Half-Open, fast-fail to protect browsing, and applies to 25-min slow payment case with user message. Includes tuning consideration: 50% failure in 10s threshold and wait period.",
+      "evidence": []
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "(i) Menu browsing favouring availability with stale cache (Redis 60s TTL) and eventual consistency is appropriate. (ii) Payment favouring consistency is appropriate and idempotency key is useful, but CAP explanation is incorrect: you cannot give up partition tolerance in a distributed system; during partition you choose CP and sacrifice availability. Should state strong consistency via ACID transaction/payment provider.",
+      "evidence": []
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "ADR has Status, Context (sync call loses order when tablet offline + adds to p95), Decision (publish OrderPaid to RabbitMQ with retrying worker). Positive consequences given (lower latency, durability, smoothing peak). Missing required negative consequence, e.g., operational complexity, need for DLQ, at-least-once duplicates, eventual consistency for kitchen.",
+      "evidence": []
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Headings used, terminology precise, IEEE citations for Bass and Nygard. Q2 exceeds 150-word limit (~190 words) so per rubric max 3 for communication.",
+      "evidence": []
+    }
+  ],
+  "requirements": [],
+  "technical_issues": [],
+  "overall": "Strong applied reasoning for style and resilience patterns. Main gaps: measurable availability scenario, correct recombination for second payment provider in Q3c, correct CAP reasoning, and explicit negative consequences in ADR plus word-count compliance.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": [],
+    "total_mismatch": []
+  },
+  "quote_check": {
+    "status": "n/a (one-shot: no evidence quotes requested)"
+  },
+  "model_reported": {
+    "total": 29.0,
+    "total_max": 40.0
+  },
+  "sum_of_criteria": {
+    "total": 29.0,
+    "total_max": 40.0
+  },
+  "feedback": {
+    "summary": "Strong applied reasoning for style and resilience patterns. Main gaps: measurable availability scenario, correct recombination for second payment provider in Q3c, correct CAP reasoning, and explicit negative consequences in ADR plus word-count compliance.",
+    "next_steps": [
+      "Make all response measures quantifiable: e.g., 'API Gateway health stays 99.9% and browse requests succeed within 2s during payment slowness'",
+      "Recompute availability as product of all components including redundant payment: A_new = 0.9995*0.999*0.9995*0.999975 = 99.80% => downtime ~1.5h",
+      "Correct CAP statement: partition tolerance is mandatory; for menu choose AP (cached eventual), for orders choose CP (refuse new payments during partition)",
+      "Add at least one negative consequence to ADR: e.g., infrastructure to operate, duplicate delivery requires idempotency at tablet, added latency for delivery semantics"
+    ],
+    "criteria": {
+      "C1": "Good choice of performance and availability linked to 900-orders lunch peak and 4.2s p95 abandonment. Performance scenario has full six parts and measurable measure (p95 <1.5s). Availability scenario has six parts but Response Measure 'should stay up most of the time' is not measurable - needs e.g., % uptime or max detection/recovery time.",
+      "C2": "Clear recommendation: keep modular monolith, not microservices rewrite. Two specific trade-offs: 5-dev team vs operational overhead of 8-10 services, and known problems (single VM p95, 20-min deploys) fixable with horizontal monolith instances + rolling deploys. Downside acknowledged (no independent scaling, single-process crash).",
+      "C3": "(a) Correct: 0.9995*0.999*0.9995*0.995 = 0.99301 = 99.30%. (b) Correct: 720h *0.00699 = 5.0h (5.03h). (c) Incorrect final combination: Apay=1-(0.005)^2=0.999975 correct, but new system availability must multiply all four: 0.9995*0.999*0.9995*0.999975 = 99.80% not 99.9975%, and downtime ~1.5h not 0.0h. Method understood but arithmetic for combined availability wrong.",
+      "C4": "Circuit Breaker correctly chosen for problem 2 (thread-pool exhaustion). Explains Closed/Open/Half-Open, fast-fail to protect browsing, and applies to 25-min slow payment case with user message. Includes tuning consideration: 50% failure in 10s threshold and wait period.",
+      "C5": "(i) Menu browsing favouring availability with stale cache (Redis 60s TTL) and eventual consistency is appropriate. (ii) Payment favouring consistency is appropriate and idempotency key is useful, but CAP explanation is incorrect: you cannot give up partition tolerance in a distributed system; during partition you choose CP and sacrifice availability. Should state strong consistency via ACID transaction/payment provider.",
+      "C6": "ADR has Status, Context (sync call loses order when tablet offline + adds to p95), Decision (publish OrderPaid to RabbitMQ with retrying worker). Positive consequences given (lower latency, durability, smoothing peak). Missing required negative consequence, e.g., operational complexity, need for DLQ, at-least-once duplicates, eventual consistency for kitchen.",
+      "C7": "Headings used, terminology precise, IEEE citations for Bass and Nygard. Q2 exceeds 150-word limit (~190 words) so per rubric max 3 for communication."
+    }
+  }
+}

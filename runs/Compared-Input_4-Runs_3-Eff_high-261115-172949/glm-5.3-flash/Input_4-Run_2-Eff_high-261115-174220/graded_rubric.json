@@ -1,0 +1,236 @@
+{
+  "total": 29.0,
+  "total_max": 40.0,
+  "percent": 72.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are well justified from the scenario (900 lunch orders, 4.2 s p95, payment outage). Performance scenario is complete and measurable, but the availability response measure ('stay up most of the time') is not measurable, so Proficient.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "the p95 response time is under 1.5 s and no requests are dropped",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "Clear recommendation (modular monolith) with scenario-specific trade-offs (five-developer team, single-VM lunchtime load, 20-minute deployment downtime) and the downside explicitly acknowledged. The second argument is more justification than trade-off, so not the top of the range.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) and (b) are correct with working (0.99301, 5.0 h). Part (c) is conceptually wrong: the student reports only the paired payment availability (99.9975%) and omits recombination with the other three components; correct end-to-end is ≈99.80% and ≈1.5 h downtime. Exactly one part incorrect, so Proficient.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is correctly named and its states/mechanism explained well, and it is concretely applied to the 25-minute outage. However, no explicit drawback or tuning consideration is stated as such; the threshold example is embedded in the mechanism, not offered as a consideration.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "Students would have seen \"payment temporarily unavailable, please try again or pay at the counter\" instead of the whole app hanging for 25 minutes.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Both choices (availability for browsing, consistency for payment) are reasonable and justified, with concrete techniques (Redis TTL cache, idempotency keys). But CAP is used imprecisely: partition tolerance cannot be 'given up'; during a partition one must choose between C and A.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are all present and specific to CampusEats (synchronous tablet calls, 4.2 s p95, offline tablets). However, the consequences are one-sided: only benefits are listed, with no negative consequence such as eventual notification delay or added operational complexity.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Writing is clear, headings are used in order, and IEEE-style citations [1], [2] with a reference list are present. However, Question 2 clearly exceeds the 150-word limit (roughly 190 words), and Question 4 is borderline, so Proficient.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "A rewrite would freeze feature work for months without directly fixing either problem.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3 (c)",
+      "issue": "End-to-end availability incorrectly reported as 99.9975%; the paired payment availability (0.999975) must be multiplied by the other components: 0.99800125 × 0.999975 ≈ 99.80%, giving ≈1.5 h downtime, not 0.018 h."
+    },
+    {
+      "where": "Question 3 (c)",
+      "issue": "Downtime of 0.018 hours is not given to one decimal place as required."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP theorem misapplied: partition tolerance cannot be sacrificed; during a partition the choice is between consistency and availability."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure ('stay up most of the time') is not measurable."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence stated in the ADR."
+    },
+    {
+      "where": "Whole document",
+      "issue": "No assumptions explicitly stated, contrary to the task instruction."
+    }
+  ],
+  "overall": "A strong, well-written submission with scenario-specific justifications throughout. The main weaknesses are the conceptual error in Q3(c) end-to-end availability, an imprecise CAP explanation in Q5, a one-sided ADR, a non-measurable availability response measure, and a word-limit breach in Q2.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 9,
+    "quotes_found": 9,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You submitted a strong, well-written set of answers with scenario-specific justifications throughout, especially in Q2 and Q6. The main issues are a conceptual error in Q3(c) end-to-end availability, an imprecise CAP explanation in Q5, a one-sided ADR, a non-measurable availability response measure in Q1, and a word-limit breach in Q2. Fixing these would lift several criteria to the top rubric levels.",
+    "next_steps": [
+      "In Q3(c), multiply the paired payment availability (0.999975) by the other components (0.99800125 × 0.999975 ≈ 99.80%) and report downtime to one decimal place (≈1.5 h).",
+      "In Q5, correct your CAP explanation: partition tolerance cannot be sacrificed; during a partition you must choose between consistency and availability.",
+      "Add a negative consequence to your Q6 ADR, make the Q1 availability response measure measurable, and trim Q2 to under 150 words."
+    ],
+    "criteria": {
+      "C1": "You chose suitable attributes and justified them well from the scenario, with a complete, measurable performance scenario (p95 under 1.5 s, no dropped requests). To reach Excellent, make the availability response measure measurable too — 'stay up most of the time' is not; try a concrete target such as 99.9% monthly uptime.",
+      "C2": "Excellent work: a clear modular-monolith recommendation with scenario-specific trade-offs (five developers, single-VM lunchtime load, 20-minute deployment downtime) and the downside acknowledged. Your second argument reads more as justification than a trade-off; framing it as a genuine trade-off would secure the top of the range.",
+      "C3": "Parts (a) and (b) are correct with working shown. In (c) you reported only the paired payment availability (99.9975%) and omitted recombination with the other components; the correct end-to-end figure is ≈99.80%, giving ≈1.5 h downtime, not 0.018 h. Also report downtime to one decimal place as required. Fixing (c) alone would reach Excellent.",
+      "C4": "You named the Circuit Breaker correctly, explained its states well, and applied it concretely to the 25-minute outage. For the full 5 marks, state an explicit drawback or tuning consideration as such — for example, discussing how to choose the failure threshold or the risk of tripping on transient faults — rather than embedding it in the mechanism.",
+      "C5": "Both choices (availability for browsing, consistency for payments) are reasonable and well justified, with concrete techniques (Redis TTL cache, idempotency keys). However, CAP is used imprecisely: you wrote that you 'give up partition tolerance', but partition tolerance cannot be sacrificed — during a partition the choice is between consistency and availability. Correcting this would reach Excellent.",
+      "C6": "Context, Decision and Consequences are all present and specific to CampusEats (synchronous tablet calls, 4.2 s p95, offline tablets). To reach Excellent, add at least one negative consequence — for example, delayed order notifications to the outlet or added operational complexity from the asynchronous flow — since your consequences are currently one-sided.",
+      "C7": "Your writing is clear, headings are used in order, and IEEE-style citations [1], [2] with a reference list are present. However, Q2 exceeds the 150-word limit (roughly 190 words) and Q4 is borderline. Tightening every answer to within 150 words would secure the full 4 marks for communication."
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        }
+      ],
+      "reasoning": "Two attributes are chosen and tied to scenario facts (900 lunch orders, 4.2 s p95, payment slowdown). Both scenarios have all six parts, and both response measures are quantified and testable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The lunchtime slowness comes from a single virtual machine and is fixed by running several instances of the monolith behind a load balancer."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "The modular monolith is clearly recommended. Trade-offs are tied to the five-developer team, the single-VM slowness and the weekly downtime. The downside is acknowledged. The unstated assumption of eight services slightly weakens it."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975"
+        }
+      ],
+      "reasoning": "All three parts are correct on checking: (a) 99.30%, (b) 5.0 h, (c) 99.80% and 1.5 h. Working is shown at two decimal places. Component availabilities are not restated explicitly, which is a minor presentation gap."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data."
+        }
+      ],
+      "reasoning": "Circuit Breaker is an appropriate pattern. Closed, Open and Half-Open states are explained correctly and applied to the 25-minute outage. Tuning and fallback drawbacks are both given."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "For payments I choose consistency (CP): the order is rejected with a clear error rather than risk an inconsistent charge."
+        },
+        {
+          "where": "Question 5",
+          "quote": "This is the AP choice, with eventual consistency."
+        }
+      ],
+      "reasoning": "CAP is used correctly, with both choices justified and a concrete technique for each (cache with TTL, idempotency key). The idempotency key addresses retry safety more than partition-time consistency, so it is a slightly weak fit."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are all present and specific to CampusEats. Both positive and negative consequences are given, including at-least-once delivery and the stuck-queue risk."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "Drawback: nobody can pay while it is open, so a fallback is needed."
+        },
+        {
+          "where": "References",
+          "quote": "[2] M. T. Nygard, Release It! Design and Deploy Production-Ready Software, 2nd ed."
+        }
+      ],
+      "reasoning": "Headings, IEEE citations and reference list are correct and the terminology is precise. Several answers (Q2, Q4, Q6) sit at or slightly above 150 words by my count, and no assumptions section is provided."
+    },
+    {
+      "id": "R1",
+      "level": "",
+      "mark": 0,
+      "evidence": [],
+      "reasoning": ""
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Component availabilities (0.9995, 0.999, 0.9995, 0.995) are used without being stated as assumptions or sourced, so the reader cannot verify the inputs."
+    },
+    {
+      "where": "Question 2",
+      "issue": "The claim 'Five developers running eight or more services' assumes a service count that is not stated in the scenario or as an assumption."
+    },
+    {
+      "where": "Question 5",
+      "issue": "An idempotency key prevents duplicate charges on retry; it is not a mechanism that enforces consistency during a partition, so it is a weak technique for the CP choice."
+    },
+    {
+      "where": "Question 4",
+      "issue": "The claim that the breaker 'would have opened within seconds' is asserted without supporting data or stated assumptions."
+    }
+  ],
+  "overall": "Strong, technically accurate answers. Q3 calculations are correct to the required precision. Main deductions: no explicit assumptions section, several answers at or just over the 150-word limit, and a weak technique choice for the CP payment decision."
+}

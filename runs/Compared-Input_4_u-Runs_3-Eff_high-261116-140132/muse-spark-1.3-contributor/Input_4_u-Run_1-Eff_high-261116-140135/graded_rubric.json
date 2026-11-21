@@ -1,0 +1,236 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability justified from lunch peak, p95 and outage. Both scenarios list all six parts with measurable response measures including p95 thresholds, failure rates and recovery time.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "menu p95 stays under 2 s, under 0.1% of non-payment requests fail",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular monolith recommendation. Two scenario-specific trade-offs: 5-developer operational overhead and single-VM plus rolling-deployment fixes. Downside of shared fate and scaling explicitly accepted.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets)",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "Series multiplication, parallel payment calculation and downtime using 720 hours all correct. Results 99.30% 5.0h and 99.80% 1.5h to requested precision with working shown.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker correctly described with Closed Open Half-Open, applied to payment hang preserving browsing, plus tuning threshold and open-state drawback.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Too sensitive and it opens on a brief blip",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Menu AP vs order CP both justified, CAP partition trade-off stated correctly, concrete techniques Redis TTL and idempotency key with fail-fast CP behaviour named.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "show a slightly stale menu from a cache (Redis with a 60-second TTL)",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "ADR has specific Context on synchronous tablet loss and p95, Decision RabbitMQ worker retry, positive latency and offline benefits and negative ops at-least-once and paid-before-seen consequences.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ).",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "Headings Question 1 through Question 6 in order, all answers within 150 words, precise terminology, in-text [1][2] citations and IEEE reference list.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman,",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Source: students using the mobile app.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "Outstanding submission. All calculations correct, trade-offs scenario-specific, patterns and CAP correctly applied. Meets word, heading and IEEE requirements. No technical errors.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "Outstanding work — you achieved full marks across all questions. Your scenarios were measurable, trade-offs scenario-specific, calculations precise, and patterns well applied. Keep this precision and justification as you tackle larger design tasks.",
+    "next_steps": [
+      "Keep practising six-part scenarios with p95 measures to retain precision under time pressure.",
+      "Continue weighing operational cost for a 5-developer team when evaluating styles in future designs.",
+      "Maintain IEEE citation habit and 150-word conciseness in upcoming reports."
+    ],
+    "criteria": {
+      "C1": "You excellently justified performance and availability from the lunch peak in Question 1 with measurable p95 response time is under 1.5 s and no requests are dropped. You included all six parts for both scenarios. You are at Excellent – maintain this by keeping every response measure quantifiable.",
+      "C2": "You gave a clear modular monolith recommendation in Question 2 I recommend a modular monolith with two scenario-specific trade-offs around 5 developers and single-VM. You acknowledged scaling downside. You are at Excellent – keep linking trade-offs to team and load.",
+      "C3": "You showed correct working in Question 3 A = 0.9995 x 0.999 x 0.9995 x 0.995 = 0.99301 achieving 99.30% 5.0h and 99.80% 1.5h to requested precision. You handled series, parallel payment and 720-hour downtime perfectly. You are at Excellent – continue showing all steps and rounding.",
+      "C4": "You correctly explained Circuit Breaker Closed/Open/Half-Open in Question 4 When failures exceed a threshold the breaker moves to Open applied to payment hang. You noted tuning Too sensitive and it opens on a brief blip. You are at Excellent – keep adding drawback/tuning.",
+      "C5": "You justified menu AP vs order CP in Question 5 using CAP correctly with show a slightly stale menu from a cache Redis with a 60-second TTL and idempotency key. Both techniques were concrete. You are at Excellent – sustain this by pairing each CAP choice with a specific mechanism.",
+      "C6": "You built a specific ADR in Question 6 Publish an OrderPaid event to a durable message queue RabbitMQ with Context on tablet loss and both positive latency and negative queue is one more component for five developers. You are at Excellent – keep balancing positives with negatives.",
+      "C7": "You kept all answers within 150 words with Question 1-6 headings, precise terminology and IEEE citations like L. Bass, P. Clements, and R. Kazman. Your writing was clear throughout. You are at Excellent – maintain headings, limits and citation accuracy."
+    }
+  }
+}

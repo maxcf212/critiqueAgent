@@ -1,0 +1,223 @@
+{
+  "total": 37.0,
+  "total_max": 40.0,
+  "percent": 92.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are chosen and tied to scenario facts (900 lunch orders, 4.2 s p95, last month's payment slowdown). Both scenarios have all six parts and measurable response measures.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Availability scenario. Source: the external payment provider.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular monolith recommendation. Two scenario-specific trade-offs are given: operational overhead for five developers, and the single-VM slowness and weekly downtime. The downside is acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "I checked all three parts. (a) 99.30% is correct. (b) 5.0 h is correct. (c) 99.80% and 1.5 h are correct, with working shown and two-decimal percentages.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99798) × 720 = 0.00202 × 720 = 1.46, so 1.5 hours per month.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is named and its states are explained correctly. It is applied to the payment outage, and both a drawback (no payments while open) and a tuning consideration are given.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "Tuning consideration: the threshold must come from real latency data.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Both choices are justified and the CAP statement is essentially correct. However, idempotency keys address duplicate charges rather than consistency under partition, so the CP technique is weakly matched.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are all present and specific. Consequences include both positive (faster response, offline outlets recover) and negative (extra component, at-least-once duplicates, stuck-queue risk) points.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Writing is clear and headings are correct. IEEE citations and the reference list are correct. Question 1 is about 151 words by my count, one word over the limit, so it is not fully Excellent.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Availability scenario. Source: the external payment provider.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 5 (ii)",
+      "issue": "Idempotency keys prevent duplicate charges but do not provide consistency during a partition. A CP technique such as synchronous quorum writes or a serialised transaction would fit better."
+    },
+    {
+      "where": "Question 6 Context",
+      "issue": "Asserts that synchronous outlet calls add to the 4.2 s p95 without evidence or a stated assumption."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Component availabilities and the independence assumption are used without being stated as assumptions."
+    },
+    {
+      "where": "Whole document",
+      "issue": "No assumptions section is provided, although the brief requires assumptions to be stated."
+    }
+  ],
+  "overall": "Strong, mostly correct submission. Q3 calculations are fully correct and Q1, Q2, Q4 and Q6 are well argued. Weaknesses: no stated assumptions, a weak CP technique in Q5, and Q1 at about 151 words.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 8,
+    "quotes_found": 8,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You produced a strong submission. Your Question 3 availability calculations are fully correct, and Questions 1, 2, 4 and 6 are well argued and tied to the CampusEats scenario. Your main gaps are the missing assumptions section that the brief requires, a weakly matched consistency technique in Question 5, and Question 1 running slightly over 150 words. Addressing these would strengthen an already solid answer.",
+    "next_steps": [
+      "Add an explicit assumptions section, and state the component availabilities and the independence assumption used in Question 3 as assumptions.",
+      "In Question 5(ii), replace idempotency keys with a CP technique such as synchronous quorum writes or a serialised transaction, and explain why it keeps data consistent during a partition.",
+      "Trim Question 1 to 150 words or fewer, and check your reference list against the brief's requirements, since the marker recorded the references requirement as only partly met."
+    ],
+    "criteria": {
+      "C1": "You chose performance and availability and tied both to scenario facts, such as the 900 lunch orders, the 4.2 s p95 and last month's payment slowdown. Both scenarios have all six parts, and their response measures are measurable, such as a p95 under 1.5 s with no dropped requests. This is top-band work. Keep this level of scenario grounding in future answers.",
+      "C2": "Your modular monolith recommendation is clear and well justified. You linked it to the five-developer team's operational overhead and to the slowness and weekly downtime of the single VM. You also acknowledged the downside: modules cannot scale independently, and a bug can still crash the whole process. No change is needed for this criterion.",
+      "C3": "All three parts are correct, with working shown and percentages given to two decimal places. To strengthen the method, state the component availabilities and the independence assumption explicitly. The marker noted that they were used without being stated as assumptions.",
+      "C4": "You named the Circuit Breaker, explained its states correctly and applied it to the payment outage. You also gave a drawback, that no payments can be taken while the circuit is open, and a tuning consideration, that the threshold must come from real latency data. This is an excellent answer.",
+      "C5": "Both of your choices are justified, and your CAP statement is essentially correct. However, idempotency keys prevent duplicate charges but do not provide consistency during a partition, so the technique you named for the CP case is weakly matched. Name a technique that maintains consistency under partition, such as synchronous quorum writes or a serialised transaction, and explain why it fits.",
+      "C6": "Your decision record includes Context, Decision and Consequences, all specific to CampusEats. The consequences include positive points, such as faster response and offline outlets recovering, and negative points, such as the extra component, at-least-once duplicates and the risk of stuck queues. Your Context states that synchronous outlet calls add to the 4.2 s p95 without evidence, so present this as a stated assumption or support it with evidence.",
+      "C7": "Your writing is clear, your headings are correct and your IEEE citations are accurate. Question 1 is about 151 words, one over the 150-word limit, so trimming it would secure the top band. The marker recorded the references requirement as only partly met without saying why, so check your reference list against the brief's requirements."
+    }
+  }
+}

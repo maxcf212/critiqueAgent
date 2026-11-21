@@ -1,0 +1,76 @@
+{
+  "id": "chatcmpl-06984c99-c93b-4b69-9702-a9a095087104",
+  "object": "chat.completion",
+  "created": 1794794920,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"criteria\": [\n    {\n      \"id\": \"C1\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"1 Introduction\", \"quote\": \"The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution\"},\n        {\"where\": \"1 Introduction\", \"quote\": \"The operator is the Australian Institute of Marine Science (AIMS)\"},\n        {\"where\": \"1 Introduction\", \"quote\": \"One satellite is therefore used. This also simplifies communications, reduces cost\"}\n      ],\n      \"reasoning\": \"All four required items addressed in detail: primary mission, need (bleaching statistics, [1]-[3]), single-spacecraft justification, and operator/customers clearly identified. Well referenced with literature. Only minor point: rationale for one satellite could quantify revisit trade vs constellation, but Section 2.3 covers this.\"\n    },\n    {\n      \"id\": \"C2\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"2.2 Launch\", \"quote\": \"The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025\"},\n        {\"where\": \"2.3 Orbit\", \"quote\": \"cos i = −0.1355, so i = 97.79°\"},\n        {\"where\": \"2.4 Ground Control & Communications\", \"quote\": \"There are six passes each day, three in the evening and three in the morning\"},\n        {\"where\": \"2.5 Mission Duration & EOL\", \"quote\": \"With a 4 m² sail the satellite re-enters about two years after the end of the mission\"}\n      ],\n      \"reasoning\": \"All major requirements addressed: launch site/vehicle with justified trade table and azimuth calculation, orbit elements (Table 4) with correct J2 sun-synchronous derivation, explicit no-manoeuvre statement, STK access table for ground station, data budget, 5-year duration and drag-sail EOL. Hand calculations verified correct (decay, azimuth, spacing, data volume). STK screenshots and files provided. Link budget admittedly missing.\"\n    },\n    {\n      \"id\": \"C3\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\"where\": \"3 Conclusion\", \"quote\": \"The design has four limitations. First, Vega C has not yet flown\"},\n        {\"where\": \"3 Conclusion\", \"quote\": \"a 4 m² drag sail removes the satellite in about two years, compared with about 32 years without it\"}\n      ],\n      \"reasoning\": \"Conclusions are specific and quantitative, summarising orbit, coverage, communications and EOL results, and honestly identify four limitations with concrete next-phase actions. Well beyond generic.\"\n    },\n    {\n      \"id\": \"C4\",\n      \"level\": \"Accomplished\",\n      \"mark\": 8,\n      \"evidence\": [\n        {\"where\": \"Executive Summary\", \"quote\": \"This report presents the design of ZYZZsat\"},\n        {\"where\": \"Bibliography\", \"quote\": \"The Space Review, article 3887 on drag sails for de-orbiting satellites.\"}\n      ],\n      \"reasoning\": \"Clear logical structure with executive summary, numbered sections, consistently labelled figures/tables, and all in-text citations [1]-[15] matching the reference list. Writing is professional. Minor flaws: references [4] and [15] lack proper article titles/authors, and some figures (STK 3D views) are low-information content.\"\n    }\n  ],\n  \"requirements\": [\n    {\"id\": \"R1\", \"met\": \"yes\", \"where\": \"1 Introduction\"},\n    {\"id\": \"R2\", \"met\": \"yes\", \"where\": \"1 Introduction (Number of spacecraft)\"},\n    {\"id\": \"R3\", \"met\": \"yes\", \"where\": \"1 Introduction (Users)\"},\n    {\"id\": \"R4\", \"met\": \"yes\", \"where\": \"2.2 Launch\"},\n    {\"id\": \"R5\", \"met\": \"yes\", \"where\": \"2.3 Orbit, Table 4\"},\n    {\"id\": \"R6\", \"met\": \"yes\", \"where\": \"2.3 Orbit (Manoeuvres)\"},\n    {\"id\": \"R7\", \"met\": \"yes\", \"where\": \"2.4 Ground Control & Communications, Table 5\"},\n    {\"id\": \"R8\", \"met\": \"yes\", \"where\": \"2.5 Mission Duration & EOL\"},\n    {\"id\": \"R9\", \"met\": \"yes\", \"where\": \"2.3/2.4 (STK 11 plus hand calculations)\"},\n    {\"id\": \"R10\", \"met\": \"yes\", \"where\": \"Images 1-5; Appendix A lists STK files in ZYZZsat_STK.zip\"},\n    {\"id\": \"R11\", \"met\": \"yes\", \"where\": \"Whole report; Bibliography\"}\n  ],\n  \"technical_issues\": [\n    {\"where\": \"2.4 Ground Control & Communications\", \"issue\": \"Assumes S-band/X-band equipment can be added to the Mount Pleasant radio astronomy antenna; no link budget performed (acknowledged by student).\"},\n    {\"where\": \"2.2 Launch\", \"issue\": \"Vega C unflown at time of writing; fallback considered, but release altitude uncertainty propagates to orbit design (acknowledged).\"},\n    {\"where\": \"Bibliography\", \"issue\": \"References [4] and [15] incompletely specified (no article title/author).\"},\n    {\"where\": \"2.3 Orbit\", \"issue\": \"Eclipse duration of ~34 min stated without shown calculation, though plausible for 600 km SSO.\"}\n  ],\n  \"overall\": \"Excellent, comprehensive mission design report. All task requirements met with verified hand calculations, STK evidence and files, honest limitations, and professional presentation. Minor deductions for missing link budget, contingent launch vehicle, and two incomplete references.\"\n}\n```",
+        "refusal": null,
+        "reasoning": "Let me evaluate this submission against the rubric.\n\nC1 Introduction: mission concept, rationale, number of spacecraft, users. All addressed well with references. Accomplished: 8-9. The introduction is detailed, references literature [1]-[6]. Primary mission, why needed, one spacecraft with justification, users (operator AIMS, customers). Mark 9.\n\nC2 Mission design: launch site/vehicle with justification, orbit type/elements, manoeuvres, ground control, comms frequency, mission duration, EOL. STK screenshots (Images 1-5), access tables, hand calculations (J2, launch azimuth, decay). Very comprehensive. Some minor issues: eclipse duration claim ~34 min at 600 km SSO — eclipse duration for 600 km circular is about 35 min max, fine. Drag calculation: Δa = 2π(C_D A/m)ρa² — check: da per orbit = 2π C_D (A/m) ρ a². With ρ=1e-13, a=6.978e6 m, A/m=0.3/50=0.006, C_D=2.2: Δa = 2π×2.2×0.006×1e-13×(6.978e6)² = 2π×2.2×0.006×1e-13×4.87e13 = 2π×2.2×0.006×4.87 = 2π×0.0643 = 0.404 m. Correct. Decay rate 0.40 m/orbit × 14.9 orbits/day × 365 = 2.2 km/yr. Correct. With sail: A/m = 4.3/50 = 0.086, Δa = 0.404×(0.086/0.006)=5.8 m. Correct. Lifetime ≈ H/rate: 70 km / 2.2 km/yr = 32 yr; 70/31 = 2.26 yr. Correct.\n\nSun-sync inclination: cos i = -0.1355 → i = 97.79°. Check: standard value at 600 km is ~97.79°. Correct.\n\nLaunch azimuth: sin β = cos i / cos φ = cos 97.79°/cos 5.2° = -0.1355/0.9959 = -0.136, β = -7.8°. Correct.\n\nGround track spacing: 2π×6378×5801/86164 = 2π×6378×0.06733 = 2698 km. Correct.\n\nData budget: 60,000 km² × 40,000 pixels/km² (5m GSD → 40,000 pixels per km²? 1 km² / (5m×5m) = 1e6/25 = 40,000. Yes) × 4 bands × 12 bits = 60,000×40,000×48 bits = 1.152e11 bits = 115 Gbit. Correct.\n\nAccess table: 6 passes/day, mean 580.8 s. Plausible for Hobart at 42.8°S with 97.79° inclination. Fine.\n\nMinor issues: \"latitude is lower than 180° minus the inclination\" — should be inclination minus... actually for direct launch, latitude must be ≤ 180° − i for retrograde? For i=97.79, 180−i = 82.21°, and latitude 5.2° < 82.21°. That's correct actually: launch latitude must satisfy |φ| ≤ 180° − i for retrograde orbits. Fine.\n\nEclipse 34 min: at 600 km, orbital period 96.7 min, eclipse fraction... eclipse duration ~35.4 min max. 34 min plausible.\n\nRAAN 27.33° with descending node crossing at 08:45 LMST — plausible.\n\nAccomplished level: 9. Maybe 9. The design is comprehensive, accurate, persuasive, with STK screenshots, files, hand calcs, references. Mark 9.\n\nC3 Conclusion: detailed, specific, includes limitations and future work. Accomplished: 8-9. Mark 8 or 9. It's quite detailed and specific. 9.\n\nC4 Presentation: clear structure, executive summary, labelled figures/tables, references cited in text matching list. Check citations: [1]-[15] all cited in text? [1] yes, [2] yes, [3] yes, [4] yes, [5] yes, [6] yes, [7] yes, [8] yes, [9] yes, [10] yes, [11] yes, [12] yes, [13] yes, [14] yes, [15] yes. All cited. Writing quality high. Minor: some references vague (\"Nature, news article\", \"The Space Review, article 3887\" — incomplete titles). Mark 8.\n\nRequirements: R1 yes, R2 yes, R3 yes, R4 yes, R5 yes, R6 yes, R7 yes, R8 yes, R9 yes (STK), R10 yes (screenshots + files listed in Appendix A), R11 yes.\n\nTechnical issues: minor — link budget not done (acknowledged); Mount Pleasant assumption of adding transmitters; Vega C not flown (acknowledged); reference [4] and [15] incomplete. Also \"eclipse of about 34 minutes\" — fine. The claim \"sees six passes a day\" — access table shows 6/day, fine.\n\nOverall: strong submission, ~9/9/9/8 weighted: 0.1×9 + 0.6×9 + 0.1×9 + 0.2×8 = 0.9+5.4+0.9+1.6 = 8.8/10."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 10717,
+    "completion_tokens": 2611,
+    "total_tokens": 13328,
+    "reasoning_tokens": 1295,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1295,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 10496,
+    "prompt_tokens_details": {
+      "cached_tokens": 10496,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 221,
+    "cost": 0.0010678,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_0ec4e938-411e-411e-bda2-d90d0f85c6e0",
+  "x_nanogpt_pricing": {
+    "amount": 0.0010678,
+    "currency": "USD",
+    "cost": 0.0010678,
+    "inputTokens": 10717,
+    "outputTokens": 2611,
+    "cacheReadInputTokens": 10496,
+    "cacheCost": 0.00026240000000000004,
+    "requestId": "req_11c1b309-f181-4927-9234-d405b3286d2c",
+    "costUsd": 0.0010678,
+    "usdCost": 0.0010678,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "hit",
+      "readTokens": 10496
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 10496
+  }
+}

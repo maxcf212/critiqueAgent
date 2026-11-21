@@ -1,0 +1,148 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are justified well. The performance scenario is complete with a measurable response measure. However, the availability scenario's response measure ('the system should stay up most of the time') is vague and unmeasurable, placing this in Proficient."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "The student provides a clear recommendation (modular monolith) backed by two scenario-specific trade-offs: team size vs. operational overhead and addressing existing bottleneck causes without a rewrite. Architectural downsides are explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "Parts (a) and (b) are calculated correctly with working. In part (c), the parallel payment provider availability (99.9975%) is mistaken for the overall end-to-end order-placement availability, omitting the series calculation with the other components (should be ~99.80%, ~1.5 h downtime)."
+    },
+    {
+      "id": "C4",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the outage last month the breaker would have opened within seconds of the provider slowing down."
+        }
+      ],
+      "reasoning": "Circuit Breaker is an appropriate pattern and its operation (Closed, Open, Half-Open) is accurately explained and applied to the lunch outage. However, no drawbacks or tuning considerations (such as setting thresholds or timeout windows) are provided."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both choices are sensible and appropriate concrete techniques are identified (Redis cache and idempotency keys). However, the explanation of the CAP theorem invokes the flawed idea of choosing CA and 'giving up partition tolerance' during network partitions."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders at a steady rate."
+        }
+      ],
+      "reasoning": "The ADR contains Context, Decision, and Consequences structured specifically around the scenario. However, only positive consequences are detailed; no negative consequences or trade-offs (such as eventual consistency or operational queue management) are listed."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months."
+        }
+      ],
+      "reasoning": "Formatting is clear, headings are followed, and IEEE citations are correctly used. However, Question 2 exceeds the 150-word limit at approximately 181 words."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "The availability scenario response measure ('the system should stay up most of the time') is qualitative and cannot be objectively measured."
+    },
+    {
+      "where": "Question 3",
+      "issue": "In part (c), 99.9975% is only the availability of the redundant payment provider subsystem. The end-to-end availability requires multiplying by the remaining series components (0.9995 * 0.999 * 0.9995 = 0.9980), yielding 99.80% and ~1.5 hours of downtime."
+    },
+    {
+      "where": "Question 4",
+      "issue": "No drawback or tuning consideration for the Circuit Breaker pattern was included."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Under the CAP theorem, network partitions cannot simply be chosen away in a distributed system; one cannot choose CA over P when a partition occurs."
+    },
+    {
+      "where": "Question 6",
+      "issue": "The ADR lacks negative consequences (e.g., added architectural complexity, eventual consistency delays, broker maintenance overhead)."
+    }
+  ],
+  "overall": "The submission demonstrates good architectural understanding and strong scenario application in Q2. However, precision suffered across multiple questions: Q1 has an unmeasurable response measure, Q3 omits series components in part (c), Q4 omits drawbacks, Q5 misapplies the CAP theorem, Q6 omits negative consequences, and Q2 exceeds the word limit."
+}

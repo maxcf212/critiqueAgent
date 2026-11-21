@@ -1,0 +1,152 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS)"
+        }
+      ],
+      "reasoning": "Covers mission, rationale, single-spacecraft justification, operator and customers with supporting context and references. Rationale is well argued. Minor gaps: some claims in the rationale lack citation, and the user section is largely asserted rather than referenced."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "Daily data budget table: 50 Mbit/s × 2,000 s (34 minutes)"
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "the part of an overhead pass above 10° is 510 s of 771 s"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "with this node time it is in the Earth's shadow for about 34 minutes of each orbit"
+        }
+      ],
+      "reasoning": "Thorough design with strong hand calculations (inclination, decay, imaging geometry) and STK support. Technical errors reduce accuracy: six passes at 510 s give about 51 min, not 34 min, and 510/771 is about 66%, not 60%. A 34-minute eclipse is inconsistent with an 08:45 crossing time. The data budget also assumes one 1000 km strip per day without justification."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations."
+        },
+        {
+          "where": "3 Conclusion",
+          "quote": "a second satellite in the same orbit plane would halve it"
+        }
+      ],
+      "reasoning": "Conclusions are specific, tied to the quantitative results and lucidly list four limitations with next steps. Some figures restated (for example 3.5× margin) inherit the earlier downlink inconsistency."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "it has a 26 m and a 12 m antenna [13]"
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[13] J. E. J. Lovell et al., \"The AuScope geodetic VLBI array,\""
+        }
+      ],
+      "reasoning": "Well-structured with executive summary, labelled tables and figures, and an appendix of STK files. Citation [13] does not support the Mount Pleasant claims it is attached to. The name 'Z-axis/Y-axis Zeroed Zoning Satellite' is odd. Some sections are dense."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction, Number of spacecraft"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction, Users"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit, Table 4"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit, Manoeuvres"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "2.4 Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3 Orbit; Appendix A"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Figures 1-5; Appendix A"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "2.4 Ground Control & Communications; Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.4 Ground Control & Communications, Table 6",
+      "issue": "Six passes at 510 s each give about 51 min/day, not the 34 min (2,000 s) used for downlink capacity. The 510/771 fraction is also about 66%, not 60%."
+    },
+    {
+      "where": "2.3 Orbit / Table 1",
+      "issue": "A descending crossing at about 08:45 local mean solar time is inconsistent with a 34-minute eclipse per orbit; an eclipse of that length implies a near-noon-midnight orbit."
+    },
+    {
+      "where": "2.4 Ground Control & Communications, Table 6",
+      "issue": "The 115 Gbit/day raw volume assumes one 60 km × 1,000 km strip per day, which is not reconciled with about 15 orbits per day and the revisit analysis."
+    },
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "Reference [13] (AuScope VLBI array) does not support the claims about Mount Pleasant's antennas and status."
+    },
+    {
+      "where": "2.2 Launch",
+      "issue": "The stated condition that launch latitude must be less than 180° minus inclination is not a correct general requirement for direct insertion; it is unsupported."
+    }
+  ],
+  "overall": "A thorough, well-supported preliminary design that addresses all requirements with good hand calculations and STK evidence. Key weaknesses are internal inconsistencies in the downlink and eclipse analysis, a mismatched citation, and some unsupported design statements. Overall strong work, with clear improvement needed in numerical consistency and referencing."
+}

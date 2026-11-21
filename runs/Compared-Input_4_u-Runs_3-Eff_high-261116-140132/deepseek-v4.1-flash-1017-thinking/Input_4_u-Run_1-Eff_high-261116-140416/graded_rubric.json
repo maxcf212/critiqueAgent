@@ -1,0 +1,256 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are clearly justified from the scenario. Both quality attribute scenarios contain all six parts and use measurable response measures.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular monolith recommendation. Trade-offs are specific to team size, lunchtime load, single-VM slowness and weekly downtime. The downside is explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets) rather than a microservices rewrite",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The downside I accept is that modules cannot be scaled independently and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "All three parts are correct with working shown. Results are rounded to the requested precision: 99.30%, 5.0 hours, 99.80%, and 1.5 hours.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.03, so 5.0 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_new = 0.9995 × 0.999 × 0.9995 × 0.999975 = 0.99798",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is appropriate and correctly explained. It is applied to the slow payment provider outage, and both tuning considerations and a drawback are given.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Drawback: nobody can pay while it is open, so a fallback is needed.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Both choices are justified using CAP correctly. Concrete techniques are named: Redis cache with TTL for menu browsing and idempotency keys for payment consistency.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "Menu browsing: I would favour availability.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "For payments I choose consistency (CP): the order is rejected with a clear error",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "ADR has Context, Decision and Consequences, all specific to CampusEats. It includes both positive and negative consequences.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (positive): Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences (negative): The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "Required headings are used in order. Answers are within the 150-word limit, terminology is precise, and IEEE-style citations and reference list are present.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "## Question 1",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "Excellent submission: all six answers are complete, specific and within limits; Q3 calculations are correct to the requested precision. The only minor gap is that no explicit assumptions statement is included.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 18,
+    "quotes_found": 18,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "Excellent submission: all six answers are complete, specific and within limits, and your Q3 calculations are correct to the requested precision. You justify choices from the CampusEats scenario and acknowledge downsides. The only minor gap is that no explicit assumptions statement is included, and the references requirement was marked partial. Keep the same precision and scenario-specific reasoning.",
+    "next_steps": [
+      "Add a short explicit assumptions statement, for example independence of components in Q3 and traffic distribution in Q1, so your calculations and scenarios are unambiguous.",
+      "Tighten the references list: ensure every cited source has a complete IEEE-style entry, since R7 was marked partial.",
+      "Maintain the Excellent standard by keeping every quality-attribute scenario in six-part form with measurable response measures and every recommendation tied to at least two scenario-specific trade-offs plus an acknowledged downside."
+    ],
+    "criteria": {
+      "C1": "You chose performance and availability and justified them from the 900 lunchtime orders and the 4.2 s p95. Both six-part scenarios have measurable response measures: p95 under 1.5 s and under 0.1% non-payment failures. This is Excellent; keep every response measure measurable and tied to the scenario.",
+      "C2": "Your modular monolith recommendation is clear and tied to team size, lunchtime load, single-VM slowness and weekly downtime. You explicitly acknowledge the downside: modules cannot scale independently and one bug can crash the process. Excellent. Keep trade-offs scenario-specific and continue naming the accepted downside.",
+      "C3": "All three parts are correct with working shown: 99.30%, 5.0 hours, 99.80% and 1.5 hours. You rounded to the requested precision. Excellent. To maintain this, keep showing the series calculation and the downtime conversion explicitly.",
+      "C4": "You named Circuit Breaker, explained its mechanism, applied it to the slow payment provider outage, and gave tuning considerations plus a drawback: nobody can pay while it is open, so a fallback is needed. Excellent. Keep linking the pattern to the specific failure and stating the drawback.",
+      "C5": "You justified menu browsing as availability with a Redis cache and TTL, and payments as consistency with idempotency keys, using CAP correctly. Excellent. Continue naming a concrete technique for each choice and explaining the CAP trade-off precisely.",
+      "C6": "Your ADR has Context, Decision and Consequences specific to CampusEats, including positive and negative consequences: faster response, but an extra component for five developers to run and monitor. Excellent. Keep both consequence types and scenario-specific context.",
+      "C7": "You used the required headings in order, stayed within 150 words, used precise terminology, and included IEEE-style citations. Excellent. The references requirement was marked partial, so check every entry is complete and consistently formatted."
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "chatcmpl-d3e308ff-8a89-48cd-b23a-154e40d0397c",
+  "object": "chat.completion",
+  "created": 1794967126,
+  "model": "google/gemini-3.8-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"criteria\": [\n    {\"id\": \"C1\", \"level\": \"Adequate\", \"mark\": 6, \"evidence\": [{\"where\": \"Introduction\", \"quote\": \"A near-real-time relay to monitoring stations on the ground would allow marine and conservation scientists to more accurately predict and react\"}], \"reasoning\": \"The mission rationale, benefits to Australia (Great Barrier Reef monitoring), and use of a single satellite are clearly articulated. However, user identification is superficial.\"},\n    {\"id\": \"C2\", \"level\": \"Adequate\", \"mark\": 6, \"evidence\": [{\"where\": \"Orbit\", \"quote\": \"altitude of 600km requires a mean inclination of 87.7924° for the satellite to remain sun-synchronous.\"}], \"reasoning\": \"The student addresses launch, orbit, communications (STK access report), and passive deorbit via drag sail. However, there are major technical blunders: French Guiana latitude is listed as 45°N instead of ~5.2°N, and sun-synchronous inclination at 600 km is retrograde (~97.8°), but the student claims 87.79° despite their own plot correctly showing ~97.8°.\"},\n    {\"id\": \"C3\", \"level\": \"Adequate\", \"mark\": 5, \"evidence\": [{\"where\": \"Conclusion\", \"quote\": \"After analysis of each mission segment, a fully described satellite configuration has been constructed.\"}], \"reasoning\": \"The conclusion summarizes main elements (Vega E, sun-synchronous orbit, Mt Pleasant ground station) but is somewhat generic and reiterates errors without deeper synthesis.\"},\n    {\"id\": \"C4\", \"level\": \"Adequate\", \"mark\": 5, \"evidence\": [{\"where\": \"Bibliography\", \"quote\": \"https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online].\"}], \"reasoning\": \"The report includes an executive summary and standard headings, but relies on Wikipedia (explicitly prohibited in the brief) and has minor formatting/truncation issues (e.g. broken reference formatting).\"}\n  ],\n  \"requirements\": [\n    {\"id\": \"R1\", \"met\": \"yes\", \"where\": \"Introduction\"},\n    {\"id\": \"R2\", \"met\": \"yes\", \"where\": \"Introduction\"},\n    {\"id\": \"R3\", \"met\": \"partial\", \"where\": \"Introduction\"},\n    {\"id\": \"R4\", \"met\": \"yes\", \"where\": \"Launch\"},\n    {\"id\": \"R5\", \"met\": \"yes\", \"where\": \"Orbit\"},\n    {\"id\": \"R6\", \"met\": \"yes\", \"where\": \"Orbit\"},\n    {\"id\": \"R7\", \"met\": \"yes\", \"where\": \"Ground Control & Communications\"},\n    {\"id\": \"R8\", \"met\": \"yes\", \"where\": \"Mission Duration & EOL\"},\n    {\"id\": \"R9\", \"met\": \"yes\", \"where\": \"Ground Control & Communications\"},\n    {\"id\": \"R10\", \"met\": \"partial\", \"where\": \"Ground Control & Communications\"},\n    {\"id\": \"R11\", \"met\": \"partial\", \"where\": \"Bibliography\"}\n  ],\n  \"technical_issues\": [\n    {\"where\": \"Launch\", \"issue\": \"Stated Kourou latitude as 45.05° N; it is actually ~5.2° N.\"},\n    {\"where\": \"Orbit\", \"issue\": \"Stated SSO inclination at 600 km altitude is 87.79°, which is prograde; true SSO at 600 km is ~97.79° retrograde (which matches the student's own graph Image 3, showing a transcription error of 87.79°).\"},\n    {\"where\": \"Ground Control & Communications\", \"issue\": \"Claimed the mean access duration is almost 20 minutes, but the STK table explicitly states mean duration is 580.786 seconds (~9.7 minutes).\"}\n  ],\n  \"overall\": \"A solid concept leveraging fluid lensing for Great Barrier Reef observation. However, critical orbital mechanics errors (87.79° vs 97.79° inclination), incorrect geography, misreading STK summary statistics, and citing Wikipedia detract from an otherwise sound engineering effort.\"\n}\n```",
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 13887,
+    "completion_tokens": 977,
+    "total_tokens": 14864,
+    "reasoning_tokens": 0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 13887,
+    "cost": 0.014079000000000001,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_b4c10a7e-5b17-4d40-9757-fd942b43e939",
+  "x_nanogpt_pricing": {
+    "amount": 0.014079000000000001,
+    "currency": "USD",
+    "cost": 0.014079000000000001,
+    "inputTokens": 13887,
+    "outputTokens": 977,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_512c6daa-4bed-44b0-9199-0fed8224fdb1",
+    "costUsd": 0.014079000000000001,
+    "usdCost": 0.014079000000000001,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

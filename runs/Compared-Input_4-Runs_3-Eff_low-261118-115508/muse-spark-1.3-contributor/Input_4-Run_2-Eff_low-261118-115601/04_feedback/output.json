@@ -1,0 +1,17 @@
+{
+  "summary": "You showed strong scenario-specific reasoning, especially in Q2. To reach Excellent, tighten measurability, correct your availability chain in Q3c, fix CAP logic, and add trade-offs and concision.",
+  "next_steps": [
+    "Make your Q1 availability response measurable with a % / time bound and re-check all six parts.",
+    "Recalculate Q3c end-to-end as 0.99800124975*0.999975 for ~99.80% and ~1.5h, and correct your CAP statement that you cannot abandon partition tolerance.",
+    "Add a drawback/tuning note to Q4, a negative consequence to Q6, and cut Q2 to under 150 words."
+  ],
+  "criteria": {
+    "C1": "You chose suitable attributes and your performance scenario was complete and measurable. Your availability scenario used \"stay up most of the time\" which is vague. For Excellent you need a measurable response with threshold, percentage or time.",
+    "C2": "You gave an excellent recommendation in Question 2 with two scenario-specific trade-offs on 5-person overhead and single-VM downtime. You acknowledged the downside that a bug can crash the process. Keep this specificity.",
+    "C3": "You did well to show working for Q3a 99.30% and Q3b 5.0h correctly. Your Q3c reported payment-only 99.9975% and 0.018h. For Excellent you must include all series components for ~99.80% and ~1.5h.",
+    "C4": "You correctly named Circuit Breaker in Question 4 and explained Half-Open trial calls applied to the slow-provider outage. For Excellent you need an explicit drawback or tuning consideration beyond example thresholds.",
+    "C5": "You made reasonable choices in Question 5 with Redis TTL and idempotency key. You stated you give up partition tolerance for payments. For Excellent you must correct CAP: you tolerate partitions and choose between C vs A.",
+    "C6": "You included specific Context, Decision and Consequences in Question 6 and noted the queue smooths the lunch peak. For Excellent you need at least one negative consequence like complexity, ordering or failure handling.",
+    "C7": "Your writing was clear with headings and IEEE citations. Your Question 2 at ~182 words exceeds the 150-word limit. For Excellent keep every answer within 150 words with precise terminology and formatting."
+  }
+}

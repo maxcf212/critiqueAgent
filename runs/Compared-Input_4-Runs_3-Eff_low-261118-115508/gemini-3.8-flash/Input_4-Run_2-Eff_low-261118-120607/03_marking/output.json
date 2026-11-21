@@ -1,0 +1,136 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are well chosen, but the availability response measure ('up most of the time') is completely unmeasurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear recommendation (modular monolith) backed by specific trade-offs (small team, load VM issue, deployment process) with explicit downsides acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "In part (c), the student forgot to multiply the remaining three series components (0.9995 * 0.999 * 0.9995 = 0.998), substituting only A_pay into end-to-end availability."
+    },
+    {
+      "id": "C4",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the outage last month the breaker would have opened within seconds of the provider slowing down."
+        }
+      ],
+      "reasoning": "Circuit Breaker is well-chosen and thoroughly explained/applied, but the student fails to explicitly provide a drawback or tuning consideration."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Partitions are inevitable in distributed networks, so claiming to 'give up partition tolerance' (CA) during a network partition is a standard CAP misconception."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision, and positive consequences are clear, but there are no negative consequences (e.g. increased architectural complexity, eventual consistency lag)."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months."
+        }
+      ],
+      "reasoning": "Word limits in Question 2 (~198 words) exceed the 150-word ceiling."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "In part (c), total availability was set equal to A_pay alone rather than multiplying A_pay by the other three series components (0.9995 * 0.999 * 0.9995 * 0.999975 = 99.80%)."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Under CAP, networks cannot choose 'CA' during a partition; one must choose between CP and AP when a partition occurs."
+    }
+  ],
+  "overall": "A solid effort demonstrating good domain understanding. However, precision suffered in several areas: an unmeasurable response measure, an arithmetic/series error in Q3(c), missing drawbacks in Q4 and Q6, a standard CAP misinterpretation in Q5, and exceeding word limits in Q2."
+}

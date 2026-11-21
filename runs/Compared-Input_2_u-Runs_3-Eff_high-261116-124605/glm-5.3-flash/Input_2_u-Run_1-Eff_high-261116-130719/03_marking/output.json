@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS)... The customers are the Great Barrier Reef Marine Park Authority"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "One satellite is therefore used. This also simplifies communications, reduces cost"
+        }
+      ],
+      "reasoning": "All four required items (primary mission, rationale, spacecraft number, users) are addressed in detail with specific facts and literature references [1]-[6]. Rationale links bleaching detection gap to mission need. Only minor further depth on user needs analysis would raise it to 10."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "cos i = −(1.991 × 10⁻⁷) / (1.5 × 1.0826 × 10⁻³ × 0.8354 × 1.0831 × 10⁻³) = −0.1355, so i = 97.79°"
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "There are six passes each day, three in the evening and three in the morning (UTC), and the mean pass lasts 580.8 s"
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "With a 4 m² sail the satellite re-enters about two years after the end of the mission."
+        }
+      ],
+      "reasoning": "All major requirements addressed: launch site/vehicle with justified trade (Table 2), orbit type, elements (Table 4), hand-verified J2 sun-synchronous inclination, no-manoeuvre justification, STK access analysis, data budget, 5-year duration and drag-sail EOL. STK screenshots and appendix files provided. Hand calculations (decay, swath, azimuth) check out. Link budget explicitly deferred, a minor gap."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "A 600 km sun-synchronous orbit at 97.79° inclination gives the same morning lighting on every pass"
+        },
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations. First, Vega C has not yet flown"
+        }
+      ],
+      "reasoning": "Conclusions are specific and quantitative, drawn directly from the report's evidence, and honestly identify four limitations with mitigation paths (fallback launcher, unproven fluid lensing, missing link budget, coverage rate). Not generic."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report presents the design of ZYZZsat... a single Earth observation microsatellite for monitoring coral bleaching"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "Figure 2: Inclination required for a sun-synchronous orbit as a function of altitude."
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[11] D. A. Vallado, Fundamentals of Astrodynamics and Applications, 4th ed."
+        }
+      ],
+      "reasoning": "Clear structure with executive summary, numbered sections, consistently labelled and referenced figures/tables, IEEE-style citations [1]-[15] all matching in-text usage. Writing is precise and professional. Some references are loosely specified (e.g. 'Nature, news article', 'The Space Review, article 3887'), preventing a 10."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction (Number of spacecraft)"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction (Users)"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit, Table 4"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit (Manoeuvres)"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications, Table 5"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3/2.4 (STK 11) plus hand calculations"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Images 1-5; Appendix A lists STK files in ZYZZsat_STK.zip"
+    },
+    {
+      "id": "R11",
+      "met": "yes",
+      "where": "Whole report; Bibliography [1]-[15]"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "Link budget for the X-band downlink is not calculated (acknowledged by the student); the 50 Mbit/s rate and 3.5x margin are asserted without link closure."
+    },
+    {
+      "where": "2.5 Mission Duration & EOL",
+      "issue": "Decay calculation uses a single mean density and constant scale height; solar-cycle variability acknowledged but lifetime figures are order-of-magnitude only."
+    },
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "Access statistics derived from only two days of STK data; pass frequency claim generalised from a short sample."
+    },
+    {
+      "where": "2.2 Launch",
+      "issue": "Vega C flight record stated as of 2020; baseline relies on a vehicle not yet flown at time of writing (fallback provided, so acceptable)."
+    }
+  ],
+  "overall": "An excellent, comprehensive mission design report. All task requirements are met with verified hand calculations, STK evidence, honest limitations, and professional presentation. Minor gaps (link budget, short access sample, some vague references) keep it just below full marks."
+}

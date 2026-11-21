@@ -1,0 +1,214 @@
+{
+  "total": 23.0,
+  "total_max": 40.0,
+  "percent": 57.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Attributes justified from lunch peak and abandonment. Performance scenario complete and measurable. Availability scenario has six parts but response measure is vague and not measurable, preventing Excellent.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Modular monolith clearly recommended. Two scenario-specific trade-offs: 5-person team overhead and single-VM plus deployment downtime fixes. Downside of no independent scaling and process crash acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "(a) 99.30% correct. (b) method correct but 0.00699x720=5.0h not 3.5h. (c) incorrect: reports payment-only availability 99.9975% instead of series ~99.80% and wrong downtime. Two parts wrong.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "which reduces the downtime to 0.000025 × 720 = 0.018 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker appropriate and applied with fallback message. Mechanism reversed: Open described as closed-through and Closed as open-fail-fast. Tuning example given but core state explanation incorrect.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Both AP for menus and CP for payments reasonable. Menu technique Redis TTL given, payment technique missing. CAP misused: partition tolerance cannot be given up in distributed case. Fits Proficient.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision, Consequences present and specific to synchronous tablet call and p95. Multiple positives given but no negative consequence such as ops complexity or eventual consistency, so one-sided.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders at a steady rate.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Headings in order and IEEE style for [1], but [2] cited in Q4 has no reference-list entry. Q2 likely exceeds 150 words. Clear writing overall, so Proficient not Excellent.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*,",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "(b) downtime should be ~5.0h not 3.5h; (c) end-to-end should be ~99.80% and ~1.5h downtime, not payment-only 99.9975% and 0.018h; wrong precision."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit-breaker Open/Closed states swapped; Open should fail-fast, Closed should allow-through."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP statement incorrect: cannot sacrifice partition tolerance; must choose C or A during partition. No concrete consistency technique for orders."
+    }
+  ],
+  "overall": "Reasonable architecture judgement but marred by calculation errors, reversed breaker states, CAP error, and one-sided ADR without negative consequence.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You showed good architecture judgement across CampusEats, especially in Q2. To lift your marks, fix measurability, calculations, pattern mechanics, CAP reasoning, ADR balance and referencing precision detailed below.",
+    "next_steps": [
+      "Recalculate Q3(b) downtime and Q3(c) series availability to requested precision with full working shown.",
+      "Correct Q4 breaker states and Q5 CAP choice, adding a concrete consistency technique for payments.",
+      "Make Q1 availability measure measurable, add a negative consequence to Q6, and fix Q2 length and missing [2] reference."
+    ],
+    "criteria": {
+      "C1": "Well done in Q1: you justified choices from the lunch peak and abandonment and your performance scenario was complete and measurable. For Excellent, rewrite your availability response measure: you wrote \"stay up most of the time\" which is vague. Give a measurable target like % uptime or max downtime.",
+      "C2": "Excellent work in Q2: you clearly recommended a modular monolith with two scenario-specific trade-offs about the 5-person team and single-VM plus deployment downtime. You acknowledged the downside that \"a bug in one module can still crash the whole process.\" Keep this level of scenario linkage.",
+      "C3": "You got Q3(a) 99.30% correct in Q3, but Q3(b) should be ~5.0h not 3.5h and Q3(c) should be series ~99.80% and ~1.5h, not payment-only \"0.000025 × 720 = 0.018 hours\". For next level, correct both parts, show working and use requested precision.",
+      "C4": "Good choice of Circuit Breaker in Q4 with fallback message and tuning idea. However you wrote \"In the Open state calls pass through normally\" - states are reversed. Open should fail-fast, Closed allows through. For next level, fix this and explain mechanism correctly plus drawback/tuning.",
+      "C5": "You made reasonable AP for menus and CP for payments choices in Q5 with Redis TTL for menus. For Excellent you must fix CAP: you wrote \"for payments we choose consistency and availability and give up partition tolerance\" which is incorrect, and name a concrete consistency technique for orders.",
+      "C6": "Your Q6 ADR has specific Context, Decision and Consequences around the synchronous tablet call and p95, e.g. \"The queue also smooths the lunch peak\". For Excellent, add at least one negative consequence like ops complexity, latency or eventual consistency, not positives only.",
+      "C7": "Your headings were ordered and writing clear with IEEE [1] cited. For Excellent, keep every answer within 150 words - Q2 likely exceeds - and add the missing reference-list entry for [2] cited in Q4 with full IEEE style."
+    }
+  }
+}

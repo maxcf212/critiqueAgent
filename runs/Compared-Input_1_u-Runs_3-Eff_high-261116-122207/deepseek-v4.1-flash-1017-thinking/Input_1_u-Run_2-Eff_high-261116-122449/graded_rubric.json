@@ -1,0 +1,184 @@
+{
+  "total": 87.0,
+  "total_max": 100.0,
+  "percent": 87.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 36.0,
+      "max": 40.0,
+      "reasoning": "Clear goal, four quantified objectives, named users with needs explicitly mapped to objectives, and literature support [1]-[6]. Minor weaknesses: some sources are secondary/news items and the 10 m GSD is asserted rather than derived.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef, so that bleaching is detected within days",
+          "verified": true
+        },
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "The satellite would be operated by the Australian Institute of Marine Science (AIMS). Its customers are the Great Barrier Reef Marine Park Authority",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 27.0,
+      "max": 30.0,
+      "reasoning": "Gantt chart with task descriptions, risk/contingency table, and a source table. Plan is explicitly justified against the mission narrative and includes float and fallbacks. Slightly generic task descriptions in places.",
+      "evidence": [
+        {
+          "where": "Project Plan",
+          "quote": "The order follows the mission: the imaging requirements (objectives 1 and 2) fix the orbit altitude and local time",
+          "verified": true
+        },
+        {
+          "where": "Project Plan",
+          "quote": "Week 10 is float as well as editing time: no new design work is planned in it.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 8.0,
+      "max": 10.0,
+      "reasoning": "Hand calculations for a, T, orbits/day, inclination, track spacing and swath are correct and interpreted, identifying the key coverage trade. Limited to one orbit case; no link budget or coverage simulation results yet.",
+      "evidence": [
+        {
+          "where": "Preliminary Progress",
+          "quote": "Weekly coverage (objective 1) is therefore not guaranteed by one satellite at this altitude and resolution.",
+          "verified": true
+        },
+        {
+          "where": "Preliminary Progress",
+          "quote": "A first STK scenario with this orbit has been set up, and its period agrees with the hand calculation.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 16.0,
+      "max": 20.0,
+      "reasoning": "Logical structure, consistent headings, labelled figure and tables, in-text citations matching the reference list. Some references are weak (news article, ResearchGate entry without authors) and [6] does not really support the BoM claim.",
+      "evidence": [
+        {
+          "where": "Figure 1",
+          "quote": "Figure 1: Project Gantt chart, Weeks 2 to 10 (gold = completed, blue = planned, red lines = report deadlines).",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[7] J. R. Wertz, D. F. Everett, and J. J. Puschell, Eds., Space Mission Engineering: The New SMAD.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Project Plan (Launch Specifics, Orbit Specifics)"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan, first paragraph"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Figure 1"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Table 2"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Preliminary Progress, Table 3"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Preliminary Progress, Table 3",
+      "issue": "Inclination of 97.8° is stated without showing the J2 nodal precession calculation that produces it."
+    },
+    {
+      "where": "Preliminary Progress, Table 3",
+      "issue": "6000 pixels across-track is assumed without justification; the 60 km swath and hence the coverage conclusion depend on it."
+    },
+    {
+      "where": "Preliminary Progress, interpretation",
+      "issue": "Track spacing of 2,700 km is equatorial; at ~20°S latitude it is ~2,540 km, and the conclusion that weekly coverage fails is understated rather than overstated."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "'30 percent more acidic' is imprecise; ocean pH has fallen ~0.1 (≈30% rise in H+ concentration)."
+    },
+    {
+      "where": "Mission Concept & Rationale, objective 2",
+      "issue": "10 m GSD is to be 'refined against the method in [4]', but [4] is a news article, not the primary method paper, and no derivation is given."
+    },
+    {
+      "where": "References [6]",
+      "issue": "Cited to support BoM SST fusion, but the source is a general NOAA page that does not address this."
+    }
+  ],
+  "overall": "Strong, well-structured preliminary report: a well-motivated Australian reef-bleaching mission with quantified objectives, users, a justified Gantt plan with contingencies and sources, and correct hand calculations that expose the key coverage-versus-resolution trade. Weaknesses are secondary sourcing and some unjustified assumptions.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 8,
+    "quotes_found": 8,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "Your report presents a well-motivated reef-bleaching mission for Australia, with quantified objectives, named users, a justified Gantt plan including contingencies, and correct preliminary orbit calculations that expose the coverage-versus-resolution trade. To reach the top of the rubric, replace secondary sources with primary literature, derive rather than assert the 10 m GSD, show the J2 calculation behind 97.8°, and justify the 6000-pixel assumption.",
+    "next_steps": [
+      "In Preliminary Progress, show the J2 nodal precession calculation that produces the 97.8° inclination, and justify the 6000-pixel across-track detector assumption that drives the 60 km swath and your coverage conclusion; also correct the 2,700 km track spacing to about 2,540 km at 20°S so the weekly-coverage shortfall is stated accurately.",
+      "In Mission Concept & Rationale, replace the news article [4] with the primary method paper and derive the 10 m GSD explicitly against it; rephrase '30 percent more acidic' as a pH fall of about 0.1 (roughly a 30% rise in H+ concentration).",
+      "In the reference list, replace [6] (a general NOAA page) with a source that actually supports the BoM SST fusion claim, and add author details to the ResearchGate entry; in the Project Plan, sharpen the generic task descriptions and tie each information source to a specific task."
+    ],
+    "criteria": {
+      "C1": "A clear goal, four quantified objectives, and users (AIMS, GBRMPA) explicitly mapped to needs, supported by [1]–[6]. To secure the top band, replace secondary/news sources with primary literature, derive the 10 m GSD rather than asserting it, and correct the '30 percent more acidic' phrasing to a pH fall of about 0.1.",
+      "C2": "Your Gantt chart, risk/contingency table and source table form a robust plan, explicitly justified against the mission narrative (orbit altitude and local time fixed by imaging objectives), with Week 10 float. To strengthen further, make the generic task descriptions more specific and link each information source to the task it supports.",
+      "C3": "Correct hand calculations for semi-major axis, period, orbits/day, inclination, track spacing and swath, with the coverage-versus-resolution trade clearly identified and an STK period check. Next: show the J2 calculation behind 97.8°, justify the 6000-pixel assumption, correct track spacing at 20°S, and extend beyond one orbit case with a link budget or coverage simulation.",
+      "C4": "Logical structure, consistent headings, labelled Figure 1 and Tables 2–3, and in-text citations matching the reference list. To reach the top band, strengthen weak references: replace the news article and the author-less ResearchGate entry, and fix [6], which does not support the BoM SST fusion claim."
+    }
+  }
+}

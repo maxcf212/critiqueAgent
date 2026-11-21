@@ -1,0 +1,140 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Two relevant attributes justified from lunch-peak scenario. Performance scenario is six-part and measurable. Availability scenario has six parts but response measure is not measurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation. Two scenario-specific trade-offs: 5-person team vs overhead, single VM and deployment downtime fixes. Downside explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours"
+        }
+      ],
+      "reasoning": "Part (a) correct. Part (b) arithmetic wrong: 0.00699x720 is ~5.0h not 3.5h. Part (c) wrong: uses payment-only 99.9975% not series ~99.80% and downtime ~1.5h."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 1,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        }
+      ],
+      "reasoning": "Appropriate pattern chosen and applied, but open/closed states inverted, so mechanism explained incorrectly. No clear drawback or tuning trade-off stated."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both availability vs consistency choices reasonable. Menu technique named (Redis TTL). Payment technique missing and CAP misused; partition tolerance cannot be given up."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders"
+        }
+      ],
+      "reasoning": "Context, Decision, Consequences present and specific to outlet notification. Multiple positives given but no negative consequence, cost or complexity."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice,"
+        }
+      ],
+      "reasoning": "Clear writing with required headings, but [2] cited in Q4 missing from list, no assumptions stated, and Q2 likely exceeds 150-word limit."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "(b) 0.00699*720 = 5.03h not 3.5h; (c) end-to-end = 0.9995*0.999*0.9995*0.999975 ~99.80% with ~1.5h downtime, not 99.9975% and 0.018h"
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states reversed: Closed is normal operation, Open fails fast, Half-Open trials"
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP: partition tolerance is mandatory during partition; choice is between C and A, cannot sacrifice P"
+    }
+  ],
+  "overall": "Good architectural judgment for style and ADR, but undermined by availability calculation errors, inverted breaker states, and CAP error."
+}

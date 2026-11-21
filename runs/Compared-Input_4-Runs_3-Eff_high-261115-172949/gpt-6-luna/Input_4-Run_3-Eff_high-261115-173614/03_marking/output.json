@@ -1,0 +1,168 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are relevant and justified by the lunch-hour scenario. Both scenarios include the six parts, and the performance measure is measurable. The availability measure, “most of the time,” is not quantifiable, so the scenarios do not both meet the Excellent descriptor."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "The modular-monolith recommendation is clear and supported by scenario-specific trade-offs involving the five-person team, single-VM load issue, and deployment downtime. The student also acknowledges the downside of shared scaling and process failure."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours, or about one minute per month."
+        }
+      ],
+      "reasoning": "Parts (a) and (b) correctly calculate series availability and monthly downtime to the requested precision. In (c), the redundant payment availability is calculated correctly, but it is reported as end-to-end availability without multiplying by the other components. Thus exactly one part is incorrect."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open and calls fail immediately without waiting"
+        },
+        {
+          "where": "Question 4",
+          "quote": "In the outage last month the breaker would have opened within seconds of the provider slowing down."
+        }
+      ],
+      "reasoning": "The circuit breaker mechanism and states are explained correctly and applied to the slow-provider outage. The example failure threshold is a relevant tuning consideration."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "To be safe on retries, each order request carries an idempotency key so that a repeated request does not create a second charge."
+        },
+        {
+          "where": "Question 5",
+          "quote": "To be safe on retries, each order request carries an idempotency key so that a repeated request does not create a second charge."
+        }
+      ],
+      "reasoning": "The availability choice for browsing and consistency choice for payment are reasonable, and concrete techniques are named. However, the CAP explanation is incorrect: during a partition, a system cannot retain both consistency and availability; it must trade one off. This is a significant imprecision."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, decision, and consequences are present and specific to the scenario. Consequences list only benefits, with no negative consequence such as added queue operations or possible duplicate notifications on retry."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "The required headings and numbered citations with a reference list are used, and terminology is generally clear. Question 2 is approximately 181 words, exceeding the 150-word limit; this fits the Proficient descriptor."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "The availability response measure, “stay up most of the time,” is not measurable; provide a quantified availability or downtime target."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) gives redundant payment-provider availability rather than end-to-end order-placement availability. Multiplying the redundant payment availability by the other components gives approximately 99.80% availability and 1.5 hours of monthly downtime."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP does not permit choosing consistency and availability while giving up partition tolerance in a partition. Under partition, consistency and availability are the trade-off."
+    },
+    {
+      "where": "Question 6",
+      "issue": "The ADR gives no negative consequence. Retrying queue delivery until acknowledgement can also cause duplicate outlet notifications unless consumers handle duplicates."
+    },
+    {
+      "where": "Question 2",
+      "issue": "The answer exceeds the 150-word limit."
+    },
+    {
+      "where": null,
+      "issue": "No assumptions are explicitly stated, as required by the assignment."
+    }
+  ],
+  "overall": "29/40. The scenario-specific modular-monolith recommendation and circuit-breaker explanation are strong. Marks are lost for an unmeasurable availability target, incorrect end-to-end redundancy calculation, CAP misconception, one-sided ADR consequences, an unstated assumptions section, and the Question 2 word-limit breach."
+}

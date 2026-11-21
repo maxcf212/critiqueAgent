@@ -1,0 +1,17 @@
+{
+  "summary": "You scored 25/40. Q2 is excellent: a clear modular-monolith recommendation with scenario-specific trade-offs and an acknowledged downside. Q1, Q4, Q5 and Q6 are proficient; Q3 and communication need work. Focus next on correcting the availability arithmetic, circuit-breaker state semantics, CAP application, and adding a negative ADR consequence.",
+  "next_steps": [
+    "Re-work Q3(b) and Q3(c): recompute downtime as (1−availability)×720 and multiply all component availabilities for end-to-end availability; show each step.",
+    "Correct Q4's circuit-breaker states: Closed passes calls, Open fails fast; describe the threshold trip Closed→Open and add a tuning or drawback sentence. In Q5, state that partition tolerance is not optional and name a concrete payment consistency technique (e.g. idempotency keys or saga).",
+    "In Q6 add at least one negative consequence; trim Q1 and Q2 to ≤150 words, add missing reference [2] to the list in IEEE style, and state assumptions."
+  ],
+  "criteria": {
+    "C1": "You justified performance and availability from the lunch-hour scenario, and your performance scenario has all six parts with a measurable measure. To reach Excellent, make the availability response measure measurable (e.g. 99.9% monthly uptime) and justify availability explicitly from the scenario, not implicitly.",
+    "C2": "Excellent work: you recommended a modular monolith and tied trade-offs to the five-developer team, single-VM latency and deployment downtime, and you acknowledged the downside (no independent scaling, whole-process crashes). This is exactly the scenario-specific trade-off reasoning the top level requires; keep this pattern.",
+    "C3": "You showed working and got part (a) right (99.30%). In (b), 0.00699×720 is 5.03 h, not 3.5 h. In (c), 99.9975% is only the payment provider; end-to-end availability is 0.9995×0.999×0.9995×0.999975 ≈ 99.80%, about 1.5 h/month. To reach Proficient/Excellent, correct these two parts and keep showing each step.",
+    "C4": "You chose an appropriate pattern and applied it well to the outage, including the student-facing fallback message. However, your Open/Closed semantics are inverted: Closed should pass calls and Open should fail fast, with the threshold tripping Closed→Open. To reach Excellent, correct the states and add a drawback or tuning consideration (e.g. threshold choice, half-open probing).",
+    "C5": "Your choices are reasonable and your Redis TTL cache for menus is concrete. But CAP is misapplied: partition tolerance is not optional; during a partition you sacrifice C or A. You also name no concrete technique for payments. To reach Excellent, correct the CAP explanation and name a payment technique (e.g. idempotency keys, saga/2PC).",
+    "C6": "Your ADR has Context, Decision and Consequences and is specific to CampusEats. The consequences are entirely positive, though. To reach Excellent, add at least one negative consequence (e.g. eventual consistency, duplicate notifications, queue operations) alongside the positive response-time gain.",
+    "C7": "Your writing is clear and headings are used, but Q1 (~160) and Q2 (~185) exceed 150 words, reference [2] is cited in Q4 but missing from the list, and assumptions are not stated. To reach Proficient/Excellent, trim each answer to ≤150 words, complete the reference list in IEEE style, and state assumptions."
+  }
+}

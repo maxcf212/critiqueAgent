@@ -1,0 +1,180 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        }
+      ],
+      "reasoning": "Two relevant attributes chosen with justification from lunch peak scenario. First scenario has all six parts and measurable measure. Second scenario has six parts labelled but measure 'stay up most of the time' is not measurable, so one scenario fails measurability -> Proficient."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months"
+        },
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure"
+        },
+        {
+          "where": "Question 2",
+          "quote": "modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular monolith recommendation. Two trade-offs specific to CampusEats: team size 5 vs microservice overhead, and known problems (single VM latency, deployment downtime) not architectural. Downside explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 5.0 hours"
+        }
+      ],
+      "reasoning": "Working shown. (a) series multiplication correct to 99.30%. (b) downtime ~5.0h correct to one decimal. (c) payment active-active calc 0.999975 correct but end-to-end incorrectly uses only payment failure, giving 99.9975% and 0.018h instead of ~99.80% and ~1.5h. Exactly one part incorrect."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open"
+        },
+        {
+          "where": "Question 4",
+          "quote": "students would have seen \"payment temporarily unavailable\" instead of the whole app hanging"
+        }
+      ],
+      "reasoning": "Appropriate pattern named, closed/open/half-open mechanism explained correctly, applied to slow provider outage limiting thread blocking. Tuning consideration provided (50% threshold, 10s window, wait period)."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says a system can only provide two of consistency, availability and partition tolerance, so for payments we choose consistency and availability"
+        },
+        {
+          "where": "Question 5",
+          "quote": "show a slightly stale menu from a cache (for example Redis with a 60-second TTL)"
+        },
+        {
+          "where": "Question 5",
+          "quote": "each order request carries an idempotency key so that a repeated request does not create a second charge."
+        }
+      ],
+      "reasoning": "Both choices reasonable (menu AV availability, payment consistency) with concrete techniques. CAP theorem used incorrectly stating to give up partition tolerance, which is not an option; should be CP vs AP. One technique each named."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously"
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "ADR has specific Context, Decision, Consequences. Positive consequences explained (latency, offline resilience, smoothing) but no negative consequence (operational complexity, ordering, duplicate handling, schema evolution) => one-sided."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months. Instead the existing application should be restructured"
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed."
+        }
+      ],
+      "reasoning": "Headings used, IEEE citations correct, mostly clear. Q2 exceeds 150-word limit (approx 165 words) and no explicit assumptions statement, so one formatting requirement breach -> Proficient."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3(c)",
+      "issue": "End-to-end availability calculated as payment availability only: 99.9975% and 0.018h. Correct is A_other * A_pay = (0.9995*0.999*0.9995)*0.999975 ≈ 0.99798 = 99.80%, downtime ≈ (1-0.99798)*720 ≈ 1.5h."
+    }
+  ],
+  "overall": "Strong practical reasoning on style and resilience, but measurable criteria, CAP explanation, ADR negatives, and final availability aggregation need correction."
+}

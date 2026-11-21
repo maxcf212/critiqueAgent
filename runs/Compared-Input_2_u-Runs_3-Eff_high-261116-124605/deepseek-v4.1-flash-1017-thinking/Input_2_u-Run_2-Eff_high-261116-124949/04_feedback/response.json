@@ -1,0 +1,278 @@
+{
+  "id": "chatcmpl-81c57f02-f30c-489b-aaf7-00378699a64a",
+  "object": "chat.completion",
+  "created": 1794793887,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You present a strong, coherent ZYZZsat mission design: all required elements are addressed, STK evidence and hand calculations support the orbital, coverage, data-budget and decay work, and the report is well structured. The main gaps are the absent full X-band link budget and the assumed Mount Pleasant ground-station fit-out; launch dispersion and revisit claims are minor uncertainties.\",\"next_steps\":[\"Add a complete X-band link budget in Section 2.4 (EIRP, G/T, path loss, modulation/coding, Eb/N0 margin) and substantiate whether the Mount Pleasant 12 m antenna can support the assumed S/X-band fit-out, or propose a verified alternative.\",\"Replace the fixed 60% usable-contact-time assumption in Table 6 with elevation-dependent pass modelling and scheduling, and use it to quantify realistic data throughput and latency.\",\"Strengthen the launch and revisit arguments: justify Vega C/rideshare injection dispersion to 600 km and 97.79° without propulsion, and support the 'any reef within five days' claim with latitude, daylight and cloud coverage analysis.\"],\"criteria\":{\"C1\":\"In Section 1 you clearly state the primary mission, need, single-spacecraft rationale and AIMS operator/customers, with an Australia focus and references. To secure full marks within Accomplished, strengthen the evidence base with more scholarly/peer-reviewed sources and explicitly link each rationale point to a design requirement or performance driver.\",\"C2\":\"Sections 2.2–2.5 give a comprehensive design with STK screenshots/files and sound orbital and decay checks. For full marks, add a complete X-band link budget, substantiate the Mount Pleasant S/X-band fit-out, replace the fixed 60% contact-time assumption in Table 6 with elevation-dependent pass scheduling, and address Vega C/rideshare dispersion and the 'any reef within five days' revisit claim more rigorously.\",\"C3\":\"Your conclusion follows the evidence, summarises key performance values and identifies four limitations. To reach full marks, link each limitation explicitly to the affected design decision or requirement and quantify its impact where possible, so the reader can see priorities for future work.\",\"C4\":\"The report has a clear engineering structure, a concise executive summary, labelled figures/tables and citations that match the bibliography. For full marks, polish the remaining presentation/reference-quality issues—ensure all sources are appropriate and formatting is fully consistent throughout—so the document reads at a professional standard.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce JSON with summary (<=80 words), next_steps (3 strings), criteria object with C1-C4 feedback each <=70 words. Address student as \"you\". Be specific, cite sections/figures, name what they did well, state what next rubric level requires. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nWe need formative feedback. Marks are all 9/10 Accomplished. Next rubric level would be... they're already Accomplished; \"next rubric level\" could mean moving to full marks within Accomplished (10/10) or maintaining. We can phrase \"to move from 9 to 10\" or \"to strengthen within Accomplished\". The instruction says \"state what the next rubric level requires\" — since they're at Accomplished, next level is full Accomplished (10). We can say what full marks requires.\n\nNeed to be careful: don't invent. Use marking evidence and technical issues.\n\nSummary <=80 words: praise strong coherent design, all requirements met, STK evidence, accurate calcs; main gaps X-band link budget, assumed ground station fit-out, launch/revisit uncertainties minor. Address \"you\".\n\nNext steps: 3 actionable items. E.g., 1) Add full X-band link budget in 2.4 including EIRP, G/T, path loss, modulation/coding, Eb/N0 margin, and verify Mount Pleasant 12 m antenna can support S/X-band fit-out or propose alternative. 2) Replace fixed 60% contact-time assumption in Table 6 with elevation-dependent pass modelling/scheduling, and quantify data throughput. 3) Address launch/revisit uncertainties: justify Vega C/rideshare dispersion and propulsion-free injection to 600 km/97.79°, and strengthen \"any reef within five days\" with latitude/daylight/cloud coverage analysis. Could also mention references scholarly. But only 3 next steps.\n\nCriteria feedback <=70 words each.\n\nC1: You address mission, rationale, single-spacecraft justification, operator/customers in Section 1 with Australia focus and references. To reach full Accomplished, strengthen scholarly/peer-reviewed sourcing and tighten linkage between rationale and design requirements. (Don't say \"next level\" since already accomplished; say full marks.)\n\nC2: Comprehensive design across 2.2-2.5 with STK evidence and hand checks; orbital/decay calcs sound. To move from 9 to 10, add full X-band link budget, substantiate Mount Pleasant S/X-band fit-out, replace fixed 60% contact assumption with elevation-dependent pass scheduling, and address Vega C/rideshare dispersion and revisit claim rigour.\n\nC3: Conclusions follow evidence, summarise key performance, identify four limitations and next steps. To reach full marks, tie each limitation explicitly to a design decision/requirement and quantify impact where possible.\n\nC4: Clear structure, concise executive summary, labelled figures/tables, consistent citations matching bibliography. To reach full marks, polish minor presentation/reference-quality issues (e.g., ensure all sources are appropriate/scholarly and formatting fully consistent).\n\nNeed JSON only. Ensure word counts. Summary <=80 words. Let's draft.\n\nSummary: \"You present a strong, coherent ZYZZsat mission design: all required elements are addressed, STK evidence and hand calculations support the orbital, coverage, data-budget and decay work, and the report is well structured. The main gaps are the absent full X-band link budget and the assumed Mount Pleasant ground-station fit-out; launch dispersion and revisit claims are minor uncertainties.\" Count ~60 words. Good.\n\nNext steps strings.\n\nC1 <=70 words: \"In Section 1 you clearly state the primary mission, need, single-spacecraft rationale and AIMS operator/customers, with an Australia focus and references. To secure full marks within Accomplished, strengthen the evidence base with more scholarly/peer-reviewed sources and explicitly link each rationale point to a design requirement or performance driver.\" ~55 words.\n\nC2 <=70: \"Sections 2.2–2.5 give a comprehensive design with STK screenshots/files and sound orbital and decay checks. For full marks, add a complete X-band link budget, substantiate the Mount Pleasant S/X-band fit-out, replace the fixed 60% contact-time assumption in Table 6 with elevation-dependent pass scheduling, and address Vega C/rideshare dispersion and the 'any reef within five days' revisit claim more rigorously.\" ~60 words.\n\nC3: \"Your conclusion follows the evidence, summarises key performance values and identifies four limitations. To reach full marks, link each limitation explicitly to the affected design decision or requirement and quantify its impact where possible, so the reader can see priorities for future work.\" ~45.\n\nC4: \"The report has a clear engineering structure, a concise executive summary, labelled figures/tables and citations that match the bibliography. For full marks, polish the remaining presentation/reference-quality issues—ensure all sources are appropriate and formatting is fully consistent throughout—so the document reads at a professional standard.\" ~50.\n\nNeed criteria keys \"C1\" etc. JSON object only. Ensure no markdown. Use double quotes. No trailing commas.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to produce JSON with summary (<=80 words), next_steps (3 strings), criteria object with C1-C4 feedback each <=70 words. Address student",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " as \"you\". Be specific, cite sections/figures, name what they did well, state what next rubric level requires. Don't change marks. Don",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "'t comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nWe need formative feedback. Marks are all 9/10 Accomplished. Next rubric",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " level would be... they're already Accomplished; \"next rubric level\" could mean moving to full marks within Accomplished (10/10) or maintaining",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". We can phrase \"to move from 9 to 10\" or \"to strengthen within Accomplished\". The instruction says \"state what the next rubric",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " level requires\" — since they're at Accomplished, next level is full Accomplished (10). We can say what full marks requires.\n\nNeed to be",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " careful: don't invent. Use marking evidence and technical issues.\n\nSummary <=80 words: praise strong coherent design, all requirements met, STK evidence, accurate",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " calcs; main gaps X-band link budget, assumed ground station fit-out, launch/revisit uncertainties minor. Address \"you\".\n\nNext steps: 3 actionable",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " items. E.g., 1) Add full X-band link budget in 2.4 including EIRP, G/T, path loss, modulation/c",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "oding, Eb/N0 margin, and verify Mount Pleasant 12 m antenna can support S/X-band fit-out or propose alternative. 2) Replace fixed 60",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "% contact-time assumption in Table 6 with elevation-dependent pass modelling/scheduling, and quantify data throughput. 3) Address launch/revisit uncertainties: justify Vega C",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "/rideshare dispersion and propulsion-free injection to 600 km/97.79°, and strengthen \"any reef within five days\" with latitude/daylight/",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "cloud coverage analysis. Could also mention references scholarly. But only 3 next steps.\n\nCriteria feedback <=70 words each.\n\nC1: You address mission, rationale",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", single-spacecraft justification, operator/customers in Section 1 with Australia focus and references. To reach full Accomplished, strengthen scholarly/peer-reviewed sourcing and tighten",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " linkage between rationale and design requirements. (Don't say \"next level\" since already accomplished; say full marks.)\n\nC2: Comprehensive design across 2.2-2.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "5 with STK evidence and hand checks; orbital/decay calcs sound. To move from 9 to 10, add full X-band link budget,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " substantiate Mount Pleasant S/X-band fit-out, replace fixed 60% contact assumption with elevation-dependent pass scheduling, and address Vega C/rideshare dispersion and revisit",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " claim rigour.\n\nC3: Conclusions follow evidence, summarise key performance, identify four limitations and next steps. To reach full marks, tie each limitation explicitly",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " to a design decision/requirement and quantify impact where possible.\n\nC4: Clear structure, concise executive summary, labelled figures/tables, consistent citations matching bibliography. To reach",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " full marks, polish minor presentation/reference-quality issues (e.g., ensure all sources are appropriate/scholarly and formatting fully consistent).\n\nNeed JSON only. Ensure word",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " counts. Summary <=80 words. Let's draft.\n\nSummary: \"You present a strong, coherent ZYZZsat mission design: all required elements are addressed, ST",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "K evidence and hand calculations support the orbital, coverage, data-budget and decay work, and the report is well structured. The main gaps are the absent full",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " X-band link budget and the assumed Mount Pleasant ground-station fit-out; launch dispersion and revisit claims are minor uncertainties.\" Count ~60 words. Good.\n\nNext",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " steps strings.\n\nC1 <=70 words: \"In Section 1 you clearly state the primary mission, need, single-spacecraft rationale and AIMS operator/c",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ustomers, with an Australia focus and references. To secure full marks within Accomplished, strengthen the evidence base with more scholarly/peer-reviewed sources and explicitly",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " link each rationale point to a design requirement or performance driver.\" ~55 words.\n\nC2 <=70: \"Sections 2.2–2.5 give",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a comprehensive design with STK screenshots/files and sound orbital and decay checks. For full marks, add a complete X-band link budget, substantiate the Mount",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Pleasant S/X-band fit-out, replace the fixed 60% contact-time assumption in Table 6 with elevation-dependent pass scheduling, and address Vega C/ridesh",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "are dispersion and the 'any reef within five days' revisit claim more rigorously.\" ~60 words.\n\nC3: \"Your conclusion follows the evidence, summarises key",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " performance values and identifies four limitations. To reach full marks, link each limitation explicitly to the affected design decision or requirement and quantify its impact where possible, so the reader",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " can see priorities for future work.\" ~45.\n\nC4: \"The report has a clear engineering structure, a concise executive summary, labelled figures/tables and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " citations that match the bibliography. For full marks, polish the remaining presentation/reference-quality issues—ensure all sources are appropriate and formatting is fully consistent throughout—so",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the document reads at a professional standard.\" ~50.\n\nNeed criteria keys \"C1\" etc. JSON object only. Ensure no markdown. Use double quotes. No",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " trailing commas.",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 1024,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1089,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 2443,
+    "completion_tokens": 1606,
+    "total_tokens": 4049,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 1024,
+    "cost": 0.0011098008,
+    "currency": "USD",
+    "reasoning_tokens": 1089,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 1419
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_3282541b-6799-4431-ab77-164397e17b61",
+  "x_nanogpt_pricing": {
+    "amount": 0.0011098008,
+    "cost": 0.0011098008,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 2443,
+    "outputTokens": 1606,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 1024,
+    "cacheCost": 4.3007999999999995e-06
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 1024,
+    "writeTokens": 0
+  }
+}

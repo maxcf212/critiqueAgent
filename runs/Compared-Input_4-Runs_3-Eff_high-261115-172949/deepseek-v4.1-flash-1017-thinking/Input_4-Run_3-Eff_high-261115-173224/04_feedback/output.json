@@ -1,0 +1,17 @@
+{
+  "summary": "Total 30/40. You are strongest in Q2 and Q4: your modular-monolith trade-offs and circuit-breaker application are specific and well argued. Main losses are Q3(c) end-to-end availability, Q5 CAP misuse, Q1 non-measurable availability measure, Q6 missing negative consequence, and Q2 over the word limit. Address these to move Proficient criteria to Excellent.",
+  "next_steps": [
+    "Recompute Q3(c): multiply all four availabilities (0.9995×0.999×0.9995×0.999975) to get 99.80% and 1.5 h/month downtime; show each step.",
+    "Rewrite Q5 CAP: explain partition tolerance is not optional; justify payments as CP and menu browsing as AP, naming a concrete technique for each.",
+    "Tighten Q2 to 150 words, make Q1 availability response measure measurable (e.g. uptime % or downtime per month), and add a negative consequence to Q6."
+  ],
+  "criteria": {
+    "C1": "You chose performance and availability and your performance scenario is complete and measurable. The availability response measure 'stay up most of the time' is not measurable, and its justification is thin. For Excellent, make both scenarios six-part and both response measures measurable (e.g. uptime % or downtime per month), and justify why these two attributes matter most in CampusEats.",
+    "C2": "You clearly recommend a modular monolith and tie it to the five-developer team, single-VM load issue and deployment downtime, while acknowledging the downside. This is Excellent. To sustain it, keep every trade-off scenario-specific and the downside explicit; avoid generic textbook advantages.",
+    "C3": "Parts (a) and (b) are correct. In (c) you compute payment availability but do not combine it with the other components; end-to-end should be 0.9995×0.999×0.9995×0.999975 = 99.80%, downtime 1.5 h/month, not 99.9975%/0.018 h. For Excellent, show the full series calculation for all components to the requested precision.",
+    "C4": "You named circuit breaker, explained its states and threshold, and applied it to last month's outage. The tuning consideration satisfies Excellent. To make it even stronger, add an explicit drawback (e.g. false positives or added latency) alongside the tuning threshold.",
+    "C5": "Your choices and idempotency-key technique are reasonable, but CAP is misused: you cannot 'give up partition tolerance' during a partition. Payments should be CP and menu browsing AP. For Excellent, explain CAP correctly, justify both choices, and name a concrete technique for each case.",
+    "C6": "Context, Decision and Consequences are specific to CampusEats, but all consequences are positive. For Excellent, add at least one negative consequence, such as added complexity, eventual consistency, or handling outlets that are offline, while keeping the three sections specific.",
+    "C7": "Headings and IEEE-style references are present, but Question 2 is about 181 words, over the 150-word limit. For Excellent, keep every answer within 150 words and maintain precise terminology and citation formatting."
+  }
+}

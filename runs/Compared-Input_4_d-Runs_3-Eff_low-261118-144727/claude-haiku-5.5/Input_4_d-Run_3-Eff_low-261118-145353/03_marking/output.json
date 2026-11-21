@@ -1,0 +1,156 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are sensibly chosen and justified from the lunch-hour scenario. The performance scenario is complete and measurable (p95 under 1.5 s). The availability response measure ('stay up most of the time') is not measurable, so the scenarios fall short of Excellent."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The slow lunchtime responses come from running on a single virtual machine"
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation. Trade-offs are tied to the scenario: a five-developer team against eight to ten services, and the single-VM and deployment-downtime problems. The downside of independent scaling and shared-process failure is acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "Part (a) is correct at 99.30%. Part (b) is an arithmetic error: 0.00699 × 720 is about 5.0 hours, not 3.5. Part (c) is wrong because it ignores the other components and reports 99.9975% as the end-to-end figure rather than about 99.30%. Two parts are incorrect."
+    },
+    {
+      "id": "C4",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed"
+        }
+      ],
+      "reasoning": "Circuit Breaker is an appropriate pattern and is applied to the outage. However, the state names are swapped (Open and Closed), so the mechanism is partly incorrect. Tuning is mentioned (threshold, wait period) but no explicit drawback is given."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance"
+        }
+      ],
+      "reasoning": "Both choices are reasonable and a cache with TTL is named for browsing. The CAP reasoning is imprecise: partition tolerance cannot be given up in a distributed system, so the payment argument is wrong. No concrete technique is named for payment (for example idempotency keys or sagas)."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are all present and reasonably specific. The Consequences section lists only positive outcomes and no negative consequence (for example queue operations cost, ordering or duplicate-delivery issues, eventual notification delay)."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        }
+      ],
+      "reasoning": "Answers are within the word limit and headings are used in order. Citation has a problem: [2] is cited but absent from the reference list, which contains only one entry."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3(b)",
+      "issue": "0.00699 × 720 is about 5.03 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3(c)",
+      "issue": "End-to-end availability ignores the other components. The correct value is about 0.99301 × 0.999975 ≈ 99.30%, not 99.9975%."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states are misnamed. Failures should move the breaker to Open, not Closed, and Open should be the state that fails fast."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Stating that partition tolerance is given up is wrong for a distributed payment system. The payment answer should choose consistency over availability during a partition and name a technique such as idempotency keys or sagas."
+    },
+    {
+      "where": "Question 1",
+      "issue": "The availability response measure ('stay up most of the time') is not quantified, for example as a percentage or a p95 error rate."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [2] is cited in Question 4 but missing from the reference list. No assumptions are stated, for example that failures are independent."
+    }
+  ],
+  "overall": "Sound choices on the modular monolith and the performance attribute, but Question 3 has two incorrect parts (downtime arithmetic and end-to-end availability). The circuit breaker states are swapped, the CAP reasoning for payments is wrong, and reference [2] is missing. The ADR lacks a negative consequence and assumptions are not stated."
+}

@@ -1,0 +1,257 @@
+{
+  "total": 24.0,
+  "total_max": 40.0,
+  "percent": 60.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are well justified from the lunch-hour scenario. The performance scenario has all six parts with a measurable response measure, but the availability scenario's response measure ('stay up most of the time') is not measurable.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "Clear recommendation (modular monolith) with two scenario-specific trade-offs (five-developer team, root causes being single VM and deployment process) and the downside explicitly acknowledged. Not a full 6 because the second argument is root-cause analysis rather than a true trade-off.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "Part (a) is correct (0.99301 → 99.30%). Part (b) has an arithmetic slip: 0.00699 × 720 = 5.0 h, not 3.5 h. Part (c) is incorrect: 99.9975% is only the payment subsystem; end-to-end should be 0.99800125 × 0.999975 ≈ 99.80%, downtime ≈ 1.5 h. Two parts wrong, so Developing despite correct method.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is an appropriate pattern and is applied to the outage with a tuning threshold, but the mechanism is explained incorrectly: the states are reversed (Closed should pass calls normally, Open should fail fast, and Half-Open success should move to Closed, not Open).",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally. When failures exceed a threshold... the breaker moves to Closed and calls fail immediately",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Both choices (availability for browsing, consistency for payment) are reasonable and justified; a concrete technique (Redis TTL cache) is named for menu browsing but none for payments. The CAP use is incorrect: partition tolerance cannot be surrendered in a distributed system; during a partition one chooses C or A.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "for example Redis with a 60-second TTL",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are all present and specific to CampusEats (4.2 s p95, offline tablets, RabbitMQ). However, the consequences are entirely positive; no negative consequence (e.g., eventual notification delay, added infrastructure, duplicate handling) is given, so not Excellent.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Writing is clear and headings are used in order, but Question 2 exceeds 150 words (~185) and Question 4 is borderline. Citation [2] is used in Question 4 but is missing from the reference list, which contains only [1].",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "A rewrite would freeze feature work for months without directly fixing either problem.",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3 – (a) correct; (b) arithmetic error; (c) end-to-end availability not combined with other components"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4 – pattern named and applied but state machine explained incorrectly"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5 – CAP misapplied; no concrete technique for payments"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6 – all sections present but no negative consequence"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References – [2] cited in text but absent from reference list; assumptions only implicitly stated"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3 (b)",
+      "issue": "0.00699 × 720 = 5.0 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3 (c)",
+      "issue": "End-to-end availability must include the other three components: 0.99800125 × 0.999975 ≈ 99.80%, downtime ≈ 1.5 h/month; 99.9975% is payment-only. Also exceeds the two-decimal-place format."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states are reversed: Closed passes calls normally, Open fails fast, and Half-Open success transitions to Closed."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP theorem misstated: partition tolerance cannot be given up in a distributed system; the choice under partition is between consistency and availability."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence provided as required."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [2] is cited in Question 4 but missing from the reference list."
+    }
+  ],
+  "overall": "Well-structured answers with good scenario-specific reasoning in Q1, Q2 and Q6, but Q3 contains an arithmetic slip and an incorrect end-to-end calculation, Q4 reverses the circuit-breaker states, Q5 misapplies CAP, and the reference list is incomplete. 24/40.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 13,
+    "quotes_found": 12,
+    "found_rate": 0.923
+  },
+  "feedback": {
+    "summary": "You produced well-structured, scenario-specific answers, with strong work in Q1, Q2 and Q6. The main losses came from Q3 (an arithmetic slip and an end-to-end availability calculation that omitted the other components), Q4 (circuit-breaker states reversed), Q5 (CAP misapplied, no payment technique), and an incomplete reference list. Overall: 24/40.",
+    "next_steps": [
+      "Redo Q3(b) and (c): check 0.00699 × 720, then multiply the payment subsystem availability by the other three components to get end-to-end availability, and round to two decimal places.",
+      "Rewrite your Q4 state machine so Closed passes calls, Open fails fast, and a successful Half-Open probe returns the breaker to Closed.",
+      "Fix your CAP statement in Q5 (partition tolerance is unavoidable; you choose between consistency and availability during a partition) and name a concrete technique for payments.",
+      "Add reference [2] to your reference list and trim Q2 to within 150 words."
+    ],
+    "criteria": {
+      "C1": "Good choice of performance and availability, with the performance scenario fully six-part and a measurable p95 response measure. To reach Excellent, make the availability response measure measurable too — replace 'stay up most of the time' with a figure such as 'no more than X minutes of downtime per month'.",
+      "C2": "Excellent work: a clear modular-monolith recommendation with scenario-specific trade-offs (five-developer team, root causes in the single VM and deployment process) and the downside acknowledged. For a full 6, frame both arguments as genuine trade-offs rather than root-cause analysis.",
+      "C3": "Part (a) is correct (99.30%). Part (b) has an arithmetic slip: 0.00699 × 720 = 5.0 hours, not 3.5. Part (c) reports payment-only availability (99.9975%); end-to-end must include the other three components: 0.99800125 × 0.999975 ≈ 99.80%, about 1.5 hours of downtime. Show all working and use two decimal places.",
+      "C4": "Circuit Breaker is an appropriate pattern and you applied it to the outage with a tuning threshold, but the states are reversed: Closed passes calls normally, Open fails fast, and a successful Half-Open probe transitions to Closed. Correct the mechanism and keep your drawback/tuning discussion to reach Excellent.",
+      "C5": "Both choices (availability for browsing, consistency for payments) are reasonable, and the Redis TTL cache is a good concrete technique. However, CAP is misapplied: partition tolerance cannot be given up in a distributed system — during a partition you choose between consistency and availability. Also name a concrete technique for payments.",
+      "C6": "All three ADR sections are present and specific to CampusEats (4.2 s p95, offline tablets, RabbitMQ), which is good. To reach Excellent, add at least one negative consequence, such as delayed outlet notification, added infrastructure to operate, or the need to handle duplicate orders.",
+      "C7": "Your writing is clear and headings are used correctly, but Q2 exceeds the 150-word limit (~185 words) and Q4 is borderline. Reference [2] is cited in Q4 but missing from your reference list, which contains only [1]. Complete the list and state assumptions explicitly."
+    }
+  }
+}

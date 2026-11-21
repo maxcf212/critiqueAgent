@@ -1,0 +1,164 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "1 Introduction",
+          "quote": "The primary mission of ZYZZsat is to image the whole Great Barrier Reef in visible bands at 5 m resolution"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "One satellite is therefore used. This also simplifies communications, reduces cost"
+        },
+        {
+          "where": "1 Introduction",
+          "quote": "The operator is the Australian Institute of Marine Science (AIMS) ... The customers are the Great Barrier Reef Marine Park Authority"
+        }
+      ],
+      "reasoning": "All four required elements (primary mission, rationale/need, number of spacecraft with justification, operator and customers) are addressed in detail with literature support on bleaching monitoring and resolution limitations. Well argued and specific; minor reliance on non-scholarly sources (National Geographic) keeps it just below top."
+    },
+    {
+      "id": "C2",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "2.2 Launch",
+          "quote": "The baseline is an SSMS rideshare flight on Vega C from Kourou in early 2025"
+        },
+        {
+          "where": "2.3 Orbit",
+          "quote": "cos i = −(1.991 × 10⁻⁷) / (1.5 × 1.0826 × 10⁻³ × 0.8354 × 1.0831 × 10⁻³) = −0.1355, so i = 97.79°"
+        },
+        {
+          "where": "2.4 Ground Control & Communications",
+          "quote": "There are six passes each day, three in the evening and three in the morning (UTC), and the mean pass lasts 580.8 s"
+        },
+        {
+          "where": "2.5 Mission Duration & EOL",
+          "quote": "With a 4 m² sail the satellite re-enters about two years after the end of the mission"
+        }
+      ],
+      "reasoning": "Launch site/vehicle with trade and fallback, orbit type and full elements, manoeuvre rationale, ground station, contact frequency from STK access and data budget, duration and EOL disposal are all covered. Hand calculations (period, J2 SSO inclination, swath, track spacing, drag decay, data budget) check out numerically and are validated against STK. Gaps: no link budget, no power/mass budget, optics focal-length/volume feasibility unexamined."
+    },
+    {
+      "id": "C3",
+      "level": "Accomplished",
+      "mark": 9,
+      "evidence": [
+        {
+          "where": "3 Conclusion",
+          "quote": "The design has four limitations. First, Vega C has not yet flown, so the Falcon 9 rideshare service is kept as a fallback"
+        }
+      ],
+      "reasoning": "Conclusion is specific, quantitative and derived directly from the body (revisit, passes, margin, decay lifetime), and honestly enumerates limitations and next steps. Not generic."
+    },
+    {
+      "id": "C4",
+      "level": "Accomplished",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "The design is supported by STK simulations and by hand calculations of the orbit, coverage, data budget and orbital decay."
+        },
+        {
+          "where": "Figure 1",
+          "quote": "Figure 1: STK 3D view of the ZYZZsat orbit at two times 12 hours apart (generated in STK 11)."
+        },
+        {
+          "where": "Appendix A: STK files and settings",
+          "quote": "The following STK 11 files are submitted with this report in ZYZZsat_STK.zip."
+        }
+      ],
+      "reasoning": "Clear engineering structure, concise abstract, numbered sections, captioned figures/tables with sources, consistent IEEE-style citations matching the bibliography, and an appendix listing delivered STK files. Minor weaknesses: contents list without page numbers, a couple of weak web references and some unsupported factual claims (reef area), and no explicit page-limit note."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "1 Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "1 Introduction (Number of spacecraft)"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "1 Introduction (Users)"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "2.2 Launch / Table 2"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "2.3 Orbit / Table 4"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "2.3 Orbit (Manoeuvres)"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "2.4 Ground Control & Communications / Table 5"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "2.5 Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "2.3–2.5, Appendix A"
+    },
+    {
+      "id": "R10",
+      "met": "yes",
+      "where": "Figures 1–4, Table 5, Appendix A"
+    },
+    {
+      "id": "R11",
+      "met": "yes",
+      "where": "Contents, Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Table 1 / 2.3 Orbit",
+      "issue": "5 m GSD at 600 km implies a focal length of roughly 0.6–1.2 m (5–10 µm pixels); fitting this in a 0.6 m box requires folded optics and is not discussed, though the diffraction aperture check is correct."
+    },
+    {
+      "where": "2.4 Ground Control & Communications",
+      "issue": "No X-band link budget (antenna gain, EIRP, C/N0, modulation) to substantiate 50 Mbit/s to a 12 m dish; acknowledged by the author as further work."
+    },
+    {
+      "where": "2.4 / Table 5",
+      "issue": "STK access computed at 0° elevation with no constraint, then corrected approximately by hand to 10° (60% usable); an elevation constraint in STK would be more rigorous."
+    },
+    {
+      "where": "Table 3",
+      "issue": "Revisit estimate uses equatorial ground-track spacing and a nadir strip model; latitude-dependent spacing and roll-access geometry would change the ~5 day figure somewhat."
+    },
+    {
+      "where": "2.1 / 2.5",
+      "issue": "No mass or power budget (solar array size, battery capacity for the 34 min eclipse) to demonstrate the 50 kg bus closes."
+    },
+    {
+      "where": "Table 7",
+      "issue": "Air density at 600 km (1e-13 kg/m³) is highly variable with solar activity; the lifetime figures rest on a single value, though the uncertainty is acknowledged."
+    }
+  ],
+  "overall": "A strong, technically sound preliminary design: launch trade, verified J2 sun-synchronous orbit, STK access work, data budget and drag-sail EOL all check out numerically and are well evidenced. Main gaps are the missing link/power/mass budgets and the unexamined optics volume, but these are largely acknowledged. Roughly 88%."
+}

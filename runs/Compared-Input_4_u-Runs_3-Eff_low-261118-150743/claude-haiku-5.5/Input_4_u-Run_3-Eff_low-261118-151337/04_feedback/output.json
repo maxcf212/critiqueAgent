@@ -1,0 +1,17 @@
+{
+  "summary": "You produced strong, scenario-specific work overall. Your Question 3 availability calculations are fully correct, and your modular monolith recommendation and Circuit Breaker answer are well grounded in CampusEats details. The main areas to improve are the word limits, the missing assumptions statement, and the depth of your payment consistency reasoning. The estimated mark is 37 out of 40.",
+  "next_steps": [
+    "Trim Questions 1, 2 and 4 to 150 words or fewer, keeping the key trade-offs and response measures.",
+    "Add a short assumptions section, for example stating whether component failures are independent, and check that your Question 3 and Question 4 reasoning is consistent with it.",
+    "Strengthen Question 5 by discussing a stronger payment consistency mechanism, such as transactional or quorum writes, and explain when idempotency keys alone are not enough. Also check that every reference is complete."
+  ],
+  "criteria": {
+    "C1": "You chose two attributes that clearly matter most for CampusEats, performance and availability, and tied them to the 900 lunch orders and the 4.2 s p95 problem. Both scenarios are in complete six-part form, and each response measure is numeric and testable, such as a p95 under 1.5 s. This is excellent work.",
+    "C2": "Your modular monolith recommendation is clear and well justified by scenario-specific trade-offs, including your five-developer team and the operational cost of running many services. You also honestly acknowledge the downside: modules cannot scale independently and one bug can crash the whole process. Keep this level of specificity in future answers.",
+    "C3": "All three parts are correct, with working shown: 99.30%, 5.0 h, 99.80% and 1.5 h. Your method and precision are sound. Continue showing each intermediate step clearly, as this is what secures full credit.",
+    "C4": "You correctly named the Circuit Breaker and explained the Closed, Open and Half-Open states. You applied it to the 25-minute outage and included a tuning consideration and a drawback. Your claim that the breaker would have opened within seconds last month needs supporting data or stated assumptions, otherwise it reads as unsupported.",
+    "C5": "Your CAP reasoning is correct, including the point that partition tolerance is not optional, and your choices for menu browsing and payments are justified. Redis TTL caching and idempotency keys are appropriate techniques. For payments, idempotency keys alone are limited, so discuss a stronger consistency mechanism such as transactional or quorum writes.",
+    "C6": "Your decision record has clear Context, Decision and Consequences sections that are specific to CampusEats. You include both positive and negative consequences, such as the need to alert on a stuck queue and the operational burden for five developers. This is a strong decision record.",
+    "C7": "Your headings are correct and your writing is clear. Several answers, including Questions 1, 2 and 4, appear to exceed the 150-word limit, so trim them. The references requirement was only partly met, so check that every source is complete. Add the explicit assumptions statement the brief asks for."
+  }
+}

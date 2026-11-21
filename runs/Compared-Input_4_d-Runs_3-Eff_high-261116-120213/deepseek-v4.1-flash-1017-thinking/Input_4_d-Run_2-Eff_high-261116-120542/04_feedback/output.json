@@ -1,0 +1,17 @@
+{
+  "summary": "You scored 25/40. Your Q2 modular-monolith recommendation is excellent and Q1 justification is strong. The main losses are in Q3 calculations, Q4 circuit-breaker states, Q5 CAP use, Q6 consequences, and formatting/citations. Use the next steps to target the specific rubric gaps.",
+  "next_steps": [
+    "Recompute Q3(b) and Q3(c) showing each step: 0.00699 × 720 = 5.03 h, and multiply all component availabilities for end-to-end availability (~99.80%, ~1.46 h).",
+    "Correct Q4's circuit-breaker states (Closed normal, Open fails fast, Half-Open trial) and add a tuning or drawback sentence.",
+    "In Q5, state CAP as choosing C or A during a partition and name a concrete payment consistency technique; in Q6 add a negative consequence; trim Q2 to 150 words and add reference [2]."
+  ],
+  "criteria": {
+    "C1": "You chose performance and availability and justified both from the scenario. Your performance scenario is complete and measurable. To reach Excellent, make the availability response measure measurable—replace 'stay up most of the time' with a numeric target such as 99.9% monthly uptime—so both scenarios have all six parts and measurable measures.",
+    "C2": "Excellent: your modular-monolith recommendation is clearly tied to the five-person team, single VM, deployment downtime and rewrite risk, and you acknowledge the scaling downside. Keep this structure. No rubric action needed here; just watch the word limit noted under C7.",
+    "C3": "Part (a) is correct. In (b), 0.00699 × 720 = 5.03 hours, not 3.5. In (c), payment availability alone is not end-to-end; multiply all component availabilities to get about 99.80% and 1.46 hours downtime. Show each step to reach Excellent.",
+    "C4": "Circuit breaker is the right pattern and you apply it to the outage, but the states are reversed: Closed is normal, Open fails fast, Half-Open allows trial calls. Correct the state semantics and add a clear drawback or tuning consideration (e.g., threshold calibration) to move from Developing to Proficient/Excellent.",
+    "C5": "Your menu choice and cache technique are good. For payment, name a concrete consistency technique (e.g., transactional outbox or two-phase commit). CAP is misused: during a partition you cannot give up partition tolerance; you choose consistency or availability. Correct that framing and justify both choices to reach Excellent.",
+    "C6": "Context, Decision and Consequences are present and specific. To reach Excellent, add at least one negative consequence—for example, the outlet no longer gets synchronous order confirmation, or added complexity in handling asynchronous failures—so the consequences are balanced.",
+    "C7": "Writing is clear and headings are used. Q2 is about 181 words, over the 150-word limit, and [2] is cited in Q4 but missing from the reference list. Trim Q2 and add the missing IEEE-style reference to reach Excellent."
+  }
+}

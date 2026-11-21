@@ -1,0 +1,17 @@
+{
+  "summary": "You delivered a strong, well-targeted submission: Q1 attributes and six-part scenarios are measurable, Q2 trade-offs are scenario-specific with an acknowledged downside, Q3 arithmetic is correct, Q4–Q6 reasoning is precise, and C7 formatting/citations are clean. To strengthen future work, make assumptions explicit—especially independence in Q3 and the hypothetical service count in Q2.",
+  "next_steps": [
+    "In Q3, add one sentence before the multiplication: 'I assume component failures are independent and the two payment providers fail independently,' then show the same working.",
+    "In Q2, label 'eight or more services' as an assumption about a hypothetical microservices design, e.g. 'assuming a microservices split into eight or more services...'.",
+    "Keep the current discipline: every answer within 150 words, headings in order, and IEEE citations; for future ADRs, continue pairing positive and negative consequences as you did in Q6."
+  ],
+  "criteria": {
+    "C1": "Q1 is excellent: you chose performance and availability from concrete scenario facts (900 lunch orders, 4.2 s p95, payment outage) and both scenarios have all six parts with measurable response measures (p95 <1.5 s; menu p95 <2 s, <0.1% non-payment failures). To stay at this level, keep tying each part to a scenario fact.",
+    "C2": "Q2 is excellent: your modular-monolith recommendation is justified by team size, single-VM lunchtime load, and weekly downtime, and you explicitly accept the downside that modules cannot scale independently and one bug can crash the process. Next time, flag the 'eight or more services' figure as an assumption about a hypothetical microservices design.",
+    "C3": "Q3 is excellent: the series product 0.99301 (99.30%), 5.0 h downtime, and parallel payment 0.999975 giving 0.99798 (99.80%) and 1.5 h are all correct with working. To strengthen, state the independence assumption explicitly before multiplying; the arithmetic and precision already meet the Excellent descriptor.",
+    "C4": "Q4 is excellent: you name circuit breaker, explain Open-state fail-fast behaviour, apply it to the 25-minute hang, and give both a tuning consideration (threshold from real latency data) and a drawback (no payments while open, so fallback needed). Keep this pattern of mechanism + application + trade-off.",
+    "C5": "Q5 is excellent: AP for browsing with Redis 60-second TTL and CP for payments with idempotency keys are both justified from scenario risk; CAP is stated correctly and a concrete technique is named for each case. Continue linking each choice to the specific failure risk.",
+    "C6": "Q6 is excellent: Context, Decision and Consequences are all present and scenario-specific, with two positive and three negative consequences. The ADR clearly describes the synchronous tablet call and the RabbitMQ OrderPaid decision. Keep balancing positive and negative consequences in future ADRs.",
+    "C7": "C7 is excellent: every answer is within 150 words, terminology is precise, headings are in order, and IEEE-style citations/reference list are present. The only improvement is to add an explicit assumptions statement where relevant (Q3 independence, Q2 service count); this will make your reasoning fully transparent."
+  }
+}

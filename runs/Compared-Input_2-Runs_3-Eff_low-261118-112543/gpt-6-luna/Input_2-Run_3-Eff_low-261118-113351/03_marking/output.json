@@ -1,0 +1,164 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        },
+        {
+          "where": "Introduction",
+          "quote": "The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM)"
+        }
+      ],
+      "reasoning": "The report explains the coral-monitoring mission, its public and scientific value, and why one spacecraft is proposed. It identifies likely customers but does not clearly identify the spacecraft operator or establish a specific operating arrangement; the rationale and supporting references are also uneven."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle"
+        },
+        {
+          "where": "Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of $ 97.7924^{\\circ} $"
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "Systems Tool Kit 11 (STK) was used to calculate access periods as seen below:"
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "A span of five years is a sound estimate of the useful lifespan of the proposed satellite."
+        }
+      ],
+      "reasoning": "The report covers launch, an SSO orbit with several elements, STK access results, a ground facility, mission duration, and a passive drag-sail disposal concept. However, important choices are speculative or insufficiently justified, the orbital description has errors and omissions, and there is no clear validated coverage analysis or supplied software project file. Communication-rate claims are not reconciled with the access results."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A polar sun-synchronous orbit allows for consistent illumination of the oceans while maintaining a constant sun angle."
+        }
+      ],
+      "reasoning": "The conclusion recaps the major design choices and acknowledges launch uncertainty, but it mostly restates the proposal. It does not assess whether the evidence demonstrates mission performance or resolve key limitations such as revisit, imaging, and data-transfer capability."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report outlines the intended designs and procedures involved in the construction of a Earth observation satellite"
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        }
+      ],
+      "reasoning": "The report has a recognisable structure, an executive summary, labelled visual material, and a bibliography. Presentation is weakened by grammatical errors, inconsistent figure/table labelling and formatting, incomplete reference details, and use of Wikipedia despite the task explicitly disallowing it. Several claims and design decisions are not adequately cited."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Launch"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Orbit; Mission Duration & EOL"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Orbit; Ground Control & Communications"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Orbit",
+      "issue": "The report says RAAN's initial value indicates the launch facility location. RAAN defines the inertial orientation of the ascending node; it is not determined by the launch site's location alone."
+    },
+    {
+      "where": "Orbit",
+      "issue": "The report calls the orbit retrograde but later describes its paths as near-polar without giving a selected local solar time or node-time requirement. A sun-synchronous orbit provides a consistent local solar time, but does not by itself guarantee the claimed imaging illumination conditions."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "The claim that a near-polar orbit gives significant contact for the vast majority of passes is not established. Access depends on station latitude, geometry, elevation mask, and orbit; the listed access windows instead show intermittent contacts."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "The text claims an average contact duration of almost ten minutes, while the stated mean is 580.786 seconds, approximately 9.68 minutes. The table also has inconsistent access numbering and reports only a subset of the access periods."
+    },
+    {
+      "where": "Orbit",
+      "issue": "The 600 km altitude and 250 km reef width are not connected to a sensor field of view, ground sampling distance, or imaging performance calculation, so the proposed coverage and resolution trade is unsupported."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "The five-year lifetime is asserted without spacecraft reliability, power, propellant, or orbital-decay analysis. A drag sail is a plausible passive disposal concept, but its deployment and compliance with applicable disposal limits are not demonstrated."
+    },
+    {
+      "where": "Launch",
+      "issue": "Vega E is presented as a planned option for a 2025 launch despite being a future launcher in the report's timeframe; the proposed rideshare, orbit compatibility, and launch date are not confirmed."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "Reference [6] cites Wikipedia, which the assignment explicitly disallows; several other entries are incomplete and do not provide consistent author, title, date, or access information."
+    }
+  ],
+  "overall": "A coherent preliminary concept with useful STK access output and a reasonable single-satellite rationale, but key operational and orbital claims need correction or substantiation. The absent software files, uncertain launch plan, incomplete user definition, and weak sourcing limit confidence in the design."
+}

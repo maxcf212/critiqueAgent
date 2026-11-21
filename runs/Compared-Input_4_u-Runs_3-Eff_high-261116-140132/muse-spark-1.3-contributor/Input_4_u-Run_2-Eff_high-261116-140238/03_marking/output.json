@@ -1,0 +1,155 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s"
+        },
+        {
+          "where": "Question 1",
+          "quote": "menu p95 stays under 2 s, under 0.1% of non-payment requests fail"
+        }
+      ],
+      "reasoning": "Two relevant attributes chosen with scenario justification. Both scenarios contain all six parts with clear measurable response measures."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend a modular monolith (modules: orders, menu, payments, outlets)"
+        },
+        {
+          "where": "Question 2",
+          "quote": "modules cannot be scaled independently and a bug in one module can still crash"
+        }
+      ],
+      "reasoning": "Clear recommendation. Two scenario-specific trade-offs: team overhead and fixing single VM/rolling deploy issues. Downside acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Excellent",
+      "mark": 8,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "A_new = 0.9995 × 0.999 × 0.9995 × 0.999975 = 0.99798"
+        }
+      ],
+      "reasoning": "All three parts correct with working. Series multiplication, 720h downtime, parallel payment formula correct to required precision."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "Question 4",
+          "quote": "Too sensitive and it opens on a brief blip, rejecting payments that would have succeeded"
+        }
+      ],
+      "reasoning": "Appropriate pattern named, Closed/Open/Half-Open mechanism correct, applied to 25-min outage, tuning and drawback given."
+    },
+    {
+      "id": "C5",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "show a slightly stale menu from a cache (Redis with a 60-second TTL)"
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create"
+        }
+      ],
+      "reasoning": "AP for browsing, CP for payment justified. CAP correctly states partition requires C/A trade-off. Concrete techniques named for each."
+    },
+    {
+      "id": "C6",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "The queue is one more component for five developers to run and monitor."
+        }
+      ],
+      "reasoning": "Context, Decision, Consequences present and scenario-specific. Positive and negative consequences included."
+    },
+    {
+      "id": "C7",
+      "level": "Excellent",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Performance and availability matter most: 900 orders arrive in the lunch hour"
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed."
+        }
+      ],
+      "reasoning": "All answers within 150 words, headings in order, precise terminology, IEEE citations and reference list present."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "Outstanding submission. All calculations correct, scenarios complete and measurable, trade-offs scenario-specific, patterns correctly applied. Full marks subject to assumptions note."
+}

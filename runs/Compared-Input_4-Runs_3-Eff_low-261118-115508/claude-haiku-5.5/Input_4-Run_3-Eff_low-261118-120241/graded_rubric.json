@@ -1,0 +1,243 @@
+{
+  "total": 30.0,
+  "total_max": 40.0,
+  "percent": 75.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are well justified from the lunch-peak scenario. The performance scenario is complete and measurable. The availability response measure ('stay up most of the time') is not measurable, which places this in Proficient.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 6.0,
+      "points": 5.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation with scenario-specific trade-offs (five-person team, single-VM and deployment-downtime problems) and an acknowledged downside. Strong, though the trade-offs could be sharper on load profile.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "(a) 99.30% and (b) 5.0 h are correct. Part (c) is wrong: it gives payment-only availability 99.9975% as end-to-end, ignoring the other components. Correct end-to-end is about 99.80% and about 1.5 h/month. Downtime is also not given to one decimal place.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit breaker is correctly explained with states and threshold tuning, and applied to the slow-provider outage. Tuning considerations are present. The claim about 'the outage last month' is asserted without supporting detail.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "After a wait period the breaker goes Half-Open and lets a few trial calls through.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Both choices are reasonable and techniques are named (cache with TTL, idempotency keys). However, the CAP application is imprecise: partition tolerance cannot be given up in a distributed network, so the CAP explanation is incorrect.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are present and fairly specific. Consequences are entirely positive, with no negative consequence (e.g., added infrastructure, duplicate or ordering issues, queue failure risk), so it falls to the upper-middle of Proficient.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "Headings are used in order, answers are within limits, and IEEE-style references are provided and cited in text. Minor precision issues exist, such as the CAP wording and downtime precision in Q3.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3 (c)",
+      "issue": "End-to-end availability should combine the other components with the 99.9975% payment availability, giving about 99.80% and about 1.5 h/month. The answer reports payment-only availability as the system figure."
+    },
+    {
+      "where": "Question 3 (c)",
+      "issue": "Monthly downtime given as 0.018 hours rather than to one decimal place as required."
+    },
+    {
+      "where": "Question 5 (ii)",
+      "issue": "CAP is misapplied: partition tolerance is not optional in a distributed system, so the choice is between consistency and availability during a partition."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable."
+    },
+    {
+      "where": "Question 6",
+      "issue": "Consequences list only benefits; no negative consequence such as added broker operations, delivery ordering, or duplicate notifications."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Claims the breaker would have opened within seconds during last month's outage without supporting data or stated assumptions."
+    }
+  ],
+  "overall": "A solid submission with a clear modular-monolith recommendation and a correct circuit-breaker explanation. Key errors: the end-to-end availability in Q3(c) is wrong, the CAP reasoning in Q5 is misapplied, the availability measure is not measurable, and the ADR omits negative consequences. No explicit assumptions section.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": [
+      "C7"
+    ]
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 10,
+    "quotes_found": 10,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You produced a solid submission with a clear modular-monolith recommendation and an accurate circuit-breaker explanation. Your strongest work is in Questions 2 and 4. The main areas to fix are the end-to-end availability in Question 3(c), the CAP reasoning in Question 5(ii), the non-measurable availability target in Question 1, and the missing negative consequences in the Question 6 record.",
+    "next_steps": [
+      "In Question 3(c), combine the payment availability with the other components in series, then restate the monthly downtime to one decimal place.",
+      "In Question 5(ii), correct the CAP reasoning: partition tolerance must be assumed in a distributed system, so the real choice during a partition is between consistency and availability.",
+      "Add at least one negative consequence to your Question 6 ADR (for example, extra broker operations, message ordering, or duplicate notifications), and replace the unmeasurable availability target in Question 1 with a numeric measure."
+    ],
+    "criteria": {
+      "C1": "Your performance attribute is well justified from the lunch-peak scenario, and its six-part scenario is complete with a measurable response (p95 under 1.5 s, no dropped requests). The availability response measure, 'stay up most of the time', cannot be tested. To reach the next level, state a numeric target, such as a percentage uptime over a defined period, so both scenarios are fully measurable.",
+      "C2": "Your modular-monolith recommendation is clear and tied to the scenario, particularly the five-person team and the cost of running eight or ten services. You also acknowledge the downside that modules cannot scale independently. To strengthen it further, link one trade-off more explicitly to the load profile during lunch peaks.",
+      "C3": "Parts (a) and (b) are correct and your working is shown. In part (c), you used the payment-only availability of 99.9975% as the system figure. The end-to-end figure must combine all components in series, giving about 99.80% and about 1.5 h/month. Also give the downtime to one decimal place rather than 0.018 hours.",
+      "C4": "You name the circuit breaker pattern and explain its Closed, Open and Half-Open states correctly, with threshold and wait-period tuning. You apply it clearly to the slow-provider outage and mention tuning considerations. The claim that the breaker would have opened within seconds during last month's outage needs supporting data or stated assumptions.",
+      "C5": "Your choices are reasonable, and you name suitable techniques: caching with a TTL for the menu and idempotency keys for payments. The CAP explanation is imprecise, however. Partition tolerance cannot be given up in a distributed system, so reframe the choice as consistency versus availability during a partition.",
+      "C6": "Your Context, Decision and Consequences sections are all present and reasonably specific to CampusEats. The consequences, however, list only benefits. Add a negative consequence such as added broker operations, delivery ordering issues, or duplicate notifications, and explain how you would manage it.",
+      "C7": "Your answers stay within the word limits, the required headings are used in order, and your IEEE-style references are cited in the text. Tighten the precision of your CAP wording and the downtime figures in Question 3 to match the terminology the course expects."
+    }
+  }
+}

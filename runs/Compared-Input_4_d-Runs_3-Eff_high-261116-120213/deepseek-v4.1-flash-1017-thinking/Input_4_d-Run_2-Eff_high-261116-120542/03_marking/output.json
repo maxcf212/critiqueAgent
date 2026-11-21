@@ -1,0 +1,180 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The two most important quality attributes are performance and availability"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Attributes are well chosen and justified; performance scenario is complete and measurable. Availability scenario has six parts but its response measure is not measurable, so not Excellent."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently"
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation tied to five-person team, single VM, deployment downtime, and rewrite risk; downside acknowledged. Excellent."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "Part (a) correct. Part (b) arithmetic wrong: 0.00699×720=5.03h, not 3.5h. Part (c) treats payment availability as end-to-end and omits other components; correct end-to-end is about 99.80% and 1.46h downtime. Two parts incorrect."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        },
+        {
+          "where": "Question 4",
+          "quote": "the breaker moves to Closed and calls fail immediately"
+        }
+      ],
+      "reasoning": "Circuit breaker is appropriate and applied, but state semantics are reversed: Closed is normal, Open fails fast, Half-Open trials. No clear drawback/tuning consideration beyond threshold example. Explanation incorrect."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Menu choice and cache technique are good. Payment choice is reasonable but no concrete technique is named, and CAP is misused: partition tolerance cannot be given up during a partition; choose C or A."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision, Consequences present and specific. Consequences are all positive; no negative consequence, so Proficient not Excellent."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice"
+        }
+      ],
+      "reasoning": "Writing is clear and headings used, but Q2 is about 181 words (over 150), and [2] is cited without a reference-list entry. Minor citation/format issues."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (b) arithmetic error: 0.00699 × 720 = 5.03 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) uses payment availability as end-to-end availability; other components must also be multiplied, giving about 99.80% and 1.46 hours downtime, not 99.9975% and 0.018 hours."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states are reversed: Closed is normal, Open fails fast, Half-Open allows trial calls."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP theorem is misused: partition tolerance cannot be given up during a partition; the choice is C or A. No concrete payment consistency technique is named."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence is given in the ADR."
+    },
+    {
+      "where": "Question 2",
+      "issue": "Answer exceeds the 150-word limit (about 181 words)."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [2] is cited in Question 4 but missing from the reference list."
+    }
+  ],
+  "overall": "Total 25/40. Strong Q2 and Q1 justification, but Q3 has two calculation errors, Q4 reverses circuit-breaker states, Q5 misuses CAP and lacks a payment technique, Q6 lacks a negative consequence, and formatting/citation issues remain."
+}

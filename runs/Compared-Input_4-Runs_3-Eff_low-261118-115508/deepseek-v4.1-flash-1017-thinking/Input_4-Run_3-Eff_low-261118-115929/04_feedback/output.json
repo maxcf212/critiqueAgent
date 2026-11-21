@@ -1,0 +1,17 @@
+{
+  "summary": "You submitted a strong, well-argued response: Q2 and Q4 are excellent, and Q3(a)(b) are correct. The main losses are the Q3(c) chain calculation, CAP misuse in Q5, a non-measurable availability measure in Q1, a one-sided ADR in Q6, and over-length answers affecting Q7. Total 30/40.",
+  "next_steps": [
+    "Recalculate Q3(c) using the full four-component chain availability, then convert the resulting downtime to hours per month and show the working.",
+    "Rewrite the Q5 CAP statement so partition tolerance is not treated as optional, make the Q1 availability response measure measurable, and add at least one negative consequence to Q6.",
+    "Trim Q1, Q2 and Q4 to 150 words or fewer, and check that required headings and IEEE citations remain correct."
+  ],
+  "criteria": {
+    "C1": "You justified performance and availability from the CampusEats scenario, and your performance scenario has all six parts with a measurable p95 target. The availability scenario is complete but its response measure, “stay up most of the time,” is not measurable. For Excellent, give both scenarios measurable response measures, such as a monthly uptime percentage or maximum downtime.",
+    "C2": "Your modular monolith recommendation is clear and well linked to the scenario. You used two specific trade-offs: five developers versus operational overhead, and the known single-VM/deployment problems not being caused by the monolith. You also acknowledged the downside that modules cannot scale independently and one bug can crash the process. This meets the Excellent level.",
+    "C3": "Parts (a) and (b) are correct with working shown: 99.30% and 5.0 hours. In part (c) you correctly combined payment availability but then applied only the payment-provider downtime, 0.018 hours, ignoring the other three components. The correct result is about 99.80% and 1.5 hours per month. For Excellent, all three parts must be correct.",
+    "C4": "Circuit Breaker is named and its Closed/Open/Half-Open mechanism is explained correctly. You applied it concretely to the 25-minute outage with a student-facing fallback message, and you gave a tuning consideration using a failure threshold and window. This meets the Excellent level.",
+    "C5": "Your choices are reasonable and you named concrete techniques: a Redis TTL cache and an idempotency key. However, your CAP statement says payments “give up partition tolerance,” which is incorrect: partition tolerance is not optional, and during a partition you must sacrifice consistency or availability. For Excellent, correct the CAP explanation while keeping both justified choices and techniques.",
+    "C6": "Context, Decision and Consequences are all present and specific to the CampusEats scenario. However, your consequences are entirely positive, citing improved response time and lunch-peak smoothing. For Excellent, add at least one negative consequence, such as eventual consistency, duplicate notifications, or added operational complexity.",
+    "C7": "Your writing is clear and IEEE-style references are provided. However, at least Q1 and Q2, and arguably Q4, exceed the 150-word limit, which is more than a single over-length answer. For Proficient, keep at most one answer over the limit and resolve minor citation or formatting problems."
+  }
+}

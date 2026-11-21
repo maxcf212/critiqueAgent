@@ -1,0 +1,17 @@
+{
+  "summary": "You produced a strong, complete submission with scenario-specific architecture choices, correct availability calculations and a well-formed ADR. Your answers are clearly organised and supported by references. To strengthen the work further, state assumptions explicitly and refine the overload and payment-consistency details in Questions 1 and 5.",
+  "next_steps": [
+    "In Question 1, state any assumptions explicitly, including the independence assumption used in Question 3. Clarify what happens at peak load if the system cannot accept every order, such as queueing or returning a defined rejection response.",
+    "In Question 5, keep the idempotency key for preventing duplicate effects on retries, but explain how you would maintain or reconcile consistency between payment and order records; the key alone does not guarantee consistency across both.",
+    "Continue using the scenario-specific reasoning and concise structure shown in Questions 2, 4 and 6. For Question 4, retain the useful circuit-breaker tuning trade-off; for Question 6, keep showing both positive and negative consequences."
+  ],
+  "criteria": {
+    "C1": "In Question 1, you chose and justified relevant attributes, and both scenarios include the six parts with measurable responses. To make the performance scenario stronger, define overload handling instead of promising every order is accepted without qualification.",
+    "C2": "Your Question 2 recommendation is specific to the five-person team, current deployment problems and 12-month horizon. You compare trade-offs and acknowledge the downside of a modular monolith.",
+    "C3": "Your Question 3 calculations are correct, with working and requested precision. State the independence assumption explicitly, rather than leaving it implicit in the availability multiplication.",
+    "C4": "In Question 4, you accurately explain and apply the circuit breaker to the provider outage. Your discussion of threshold tuning and the risk of rejecting recoverable payments adds a useful practical consideration.",
+    "C5": "Your Question 5 choices are justified using CAP trade-offs, and you name concrete techniques. Clarify that an idempotency key prevents duplicate retry effects but does not by itself ensure consistency between payment and order records.",
+    "C6": "Your Question 6 ADR includes scenario-specific Context, Decision and Consequences, with positive and negative outcomes. The durable queue decision and its operational cost are clearly identified.",
+    "C7": "Your answers use the required headings, stay within the word limit, and include IEEE-style citations and references. The concise, organised presentation makes your reasoning easy to follow."
+  }
+}

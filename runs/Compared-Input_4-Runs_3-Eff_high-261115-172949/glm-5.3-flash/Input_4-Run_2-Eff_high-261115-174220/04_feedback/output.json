@@ -1,0 +1,17 @@
+{
+  "summary": "You submitted a strong, well-written set of answers with scenario-specific justifications throughout, especially in Q2 and Q6. The main issues are a conceptual error in Q3(c) end-to-end availability, an imprecise CAP explanation in Q5, a one-sided ADR, a non-measurable availability response measure in Q1, and a word-limit breach in Q2. Fixing these would lift several criteria to the top rubric levels.",
+  "next_steps": [
+    "In Q3(c), multiply the paired payment availability (0.999975) by the other components (0.99800125 × 0.999975 ≈ 99.80%) and report downtime to one decimal place (≈1.5 h).",
+    "In Q5, correct your CAP explanation: partition tolerance cannot be sacrificed; during a partition you must choose between consistency and availability.",
+    "Add a negative consequence to your Q6 ADR, make the Q1 availability response measure measurable, and trim Q2 to under 150 words."
+  ],
+  "criteria": {
+    "C1": "You chose suitable attributes and justified them well from the scenario, with a complete, measurable performance scenario (p95 under 1.5 s, no dropped requests). To reach Excellent, make the availability response measure measurable too — 'stay up most of the time' is not; try a concrete target such as 99.9% monthly uptime.",
+    "C2": "Excellent work: a clear modular-monolith recommendation with scenario-specific trade-offs (five developers, single-VM lunchtime load, 20-minute deployment downtime) and the downside acknowledged. Your second argument reads more as justification than a trade-off; framing it as a genuine trade-off would secure the top of the range.",
+    "C3": "Parts (a) and (b) are correct with working shown. In (c) you reported only the paired payment availability (99.9975%) and omitted recombination with the other components; the correct end-to-end figure is ≈99.80%, giving ≈1.5 h downtime, not 0.018 h. Also report downtime to one decimal place as required. Fixing (c) alone would reach Excellent.",
+    "C4": "You named the Circuit Breaker correctly, explained its states well, and applied it concretely to the 25-minute outage. For the full 5 marks, state an explicit drawback or tuning consideration as such — for example, discussing how to choose the failure threshold or the risk of tripping on transient faults — rather than embedding it in the mechanism.",
+    "C5": "Both choices (availability for browsing, consistency for payments) are reasonable and well justified, with concrete techniques (Redis TTL cache, idempotency keys). However, CAP is used imprecisely: you wrote that you 'give up partition tolerance', but partition tolerance cannot be sacrificed — during a partition the choice is between consistency and availability. Correcting this would reach Excellent.",
+    "C6": "Context, Decision and Consequences are all present and specific to CampusEats (synchronous tablet calls, 4.2 s p95, offline tablets). To reach Excellent, add at least one negative consequence — for example, delayed order notifications to the outlet or added operational complexity from the asynchronous flow — since your consequences are currently one-sided.",
+    "C7": "Your writing is clear, headings are used in order, and IEEE-style citations [1], [2] with a reference list are present. However, Q2 exceeds the 150-word limit (roughly 190 words) and Q4 is borderline. Tightening every answer to within 150 words would secure the full 4 marks for communication."
+  }
+}

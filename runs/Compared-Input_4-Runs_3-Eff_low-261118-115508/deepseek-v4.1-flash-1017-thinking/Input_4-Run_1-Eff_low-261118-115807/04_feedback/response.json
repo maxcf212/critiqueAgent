@@ -1,0 +1,437 @@
+{
+  "id": "chatcmpl-c82a4fd5-583f-4f2b-9de4-859cec02e222",
+  "object": "chat.completion",
+  "created": 1794963524,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You gave strong scenario-based answers, especially Q2’s modular-monolith recommendation with specific trade-offs and an acknowledged downside. Main fixes: Q3(c) end-to-end availability, Q5 CAP misuse, Q6 missing negative consequence, Q2 over the word limit, and missing measurable/tuning detail in Q1/Q4. These are targeted revisions rather than a rewrite.\",\"next_steps\":[\"Recompute Q3(c) end-to-end availability as the product of all relevant components (about 99.80%, about 1.5 hours/month downtime) and show the working to the requested precision.\",\"Revise Q5 so CAP is used correctly: partition tolerance cannot be given up; during a partition payments should favour consistency, and each case needs a concrete technique.\",\"Make Q1’s availability response measure measurable, add an explicit Circuit Breaker drawback/tuning consideration in Q4, add a negative consequence in Q6, and trim Q2 to 150 words.\"],\"criteria\":{\"C1\":\"You justified performance and availability well, and your performance scenario is measurable. To reach Excellent, make the availability response measure measurable too (Q1 currently says “stay up most of the time”) and ensure both scenarios have all six parts. Keep the scenario-specific justification.\",\"C2\":\"Excellent: your modular-monolith recommendation is clear and tied to team size, load profile and deployment problems, and you acknowledge the downside that modules cannot scale independently. Keep linking trade-offs to the CampusEats scenario. Note the 150-word limit is addressed under C7.\",\"C3\":\"You showed correct working for Q3(a) and (b). In Q3(c), you used payment availability as end-to-end availability; the correct end-to-end figure is about 99.80% with about 1.5 hours/month downtime. For Excellent, recompute the full chain, show working, and report to the requested precision.\",\"C4\":\"You correctly named and explained Circuit Breaker and applied it to the outlet-tablet outage, including a threshold example. To reach Excellent, add at least one explicit drawback or tuning consideration (for example, how you choose the failure threshold/window or what risk the breaker introduces).\",\"C5\":\"Your choices are reasonable and you name idempotency keys. However, Q5 misuses CAP: partition tolerance cannot simply be given up in a distributed system, and payments should favour consistency during a partition. For Excellent, correct the CAP explanation and name a suitable concrete technique for each case.\",\"C6\":\"Your ADR has specific Context, Decision and Consequences for the synchronous tablet call. To reach Excellent, add at least one negative consequence alongside the positive response-time consequence—state what becomes harder or what new risk you accept.\",\"C7\":\"Your writing is clear and IEEE-style references are present. Q2 exceeds the 150-word limit, so to reach Excellent keep every answer within 150 words, use precise terminology and required headings, and include the required assumptions in References.\"}}",
+        "refusal": null,
+        "reasoning": "We need to produce formative feedback JSON. Need address student as \"you\". Specific, supportive, actionable, cite sections/figures, name what did well, state next rubric level requires. Do not change marks. Do not comment on document-conversion artefacts. Do not make up explanations for reasoning given by marking agent unclear/incomplete. Schema: summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each. Need one JSON object only.\n\nWe need craft feedback for each criterion C1-C7. Use marking info. Need mention what they did well and what next level requires. For C1: Proficient 4/6. Well justified attributes, performance scenario measurable. Availability response measure \"stay up most of the time\" not measurable. Next Excellent requires both scenarios all six parts and both response measures measurable. Feedback <=70 words. Address you. Cite Q1. Supportive actionable.\n\nC2: Excellent 6/6. Clear modular-monolith recommendation, scenario-specific trade-offs team size/load/deployment, downside acknowledged. But Q2 exceeds word limit (C7). For C2 feedback can praise. Next level? Already Excellent. State maintain. Maybe mention word limit is C7 not C2. Need not change marks. For criteria feedback, if Excellent, say meets Excellent; keep. But actionable? Could say continue linking trade-offs to scenario. <=70.\n\nC3: Proficient 5/8. Parts a,b correct with working. Part c wrong: treats payment availability as end-to-end; correct ~99.80%, ~1.5 h/month downtime. Next Excellent requires all parts correct with working to requested precision. Feedback cite Q3. Need be careful not make up explanation; marking says part c uses payment availability as end-to-end availability; correct end-to-end about 99.80% with about 1.5 hours/month downtime. We can state that. Actionable: recompute end-to-end as product of all relevant components, show working, convert to downtime. <=70.\n\nC4: Proficient 4/5. Circuit Breaker correctly explained and applied to outage; no explicit drawback/tuning consideration. Next Excellent requires at least one drawback or tuning consideration. Cite Q4 threshold example. Actionable: add e.g. risk of false positives/tuning threshold/reset timeout? But don't make up? We can suggest \"state a drawback or tuning consideration (e.g., threshold/window choice)\"; that's generic but okay? Need not make up explanations. It's actionable. <=70.\n\nC5: Proficient 3/6. Both choices reasonable and techniques named (idempotency key). CAP misused: partition tolerance cannot be given up; payments should be CP during partition. Next Excellent requires CAP used correctly and suitable concrete technique for each case. Feedback cite Q5. Actionable: revise CAP explanation: in distributed system P is not optional; during partition choose C or A; for payments favour consistency. Ensure technique for each. <=70.\n\nC6: Proficient 4/5. Context, Decision, Consequences present and specific; consequences one-sided no negative. Next Excellent requires at least one positive and one negative consequence. Cite Q6. Actionable: add negative consequence e.g. added complexity/eventual consistency? Need not make up? We can say \"add a negative consequence (e.g., what becomes harder or what new risk you accept)\" generic. <=70.\n\nC7: Proficient 3/4. Writing clear, IEEE refs present; Q2 exceeds 150-word limit. Next Excellent requires every answer within 150 words, precise terminology, required headings, IEEE citations. Also references missing assumptions? Marking technical issue \"No assumptions are stated as required\" under References. C7 rubric doesn't mention assumptions, but requirement R7 partial. We can mention in C7? It says sources cited IEEE. The marking says references no assumptions stated as required. But C7 feedback should focus communication/format. Could mention \"also state required assumptions in References\" but that may be requirement not rubric? It is part of format? Need be careful. The schema criteria feedback for C7 <=70. We can mention Q2 word limit and references assumptions? The rubric C7 Excellent includes every answer within 150 words, terminology precise, headings, sources IEEE. It doesn't mention assumptions. But marking technical issue references no assumptions. Since feedback should be actionable and cite sections. We can include \"Also include the required assumptions in your References section\" as next step? But criterion C7? It might be okay as communication/format. But don't change marks. Need not overdo. Summary <=80 words: mention strengths and main errors. Next_steps array exactly 3 strings. Need choose top 3 actionable: (1) Fix Q3(c) end-to-end availability calculation and show working; (2) Revise Q5 CAP explanation and ensure CP for payments; (3) Add negative consequence to Q6 ADR and measurable availability response in Q1 / Q4 tuning? But only 3. Need include Q2 word limit? Hmm next_steps should be 3. We can combine? Need be specific. Maybe next_steps: \"Recompute Q3(c) end-to-end availability as the product of all relevant components (about 99.80%, about 1.5 hours/month downtime) and show working.\" \"Revise Q5: explain that partition tolerance cannot be given up; during a partition payments should favour consistency, and name a concrete technique for each case.\" \"Tighten Q2 to 150 words, add a measurable availability response measure in Q1, and add a negative consequence plus tuning/drawback in Q4/Q6.\" That's three but third combines multiple. Is that okay? It says next_steps array of str. Could be okay. But maybe better three distinct: Q3, Q5, Q6/Q1/Q4/Q2? Hmm.\n\nNeed ensure JSON valid. No markdown. Use exact criterion ids. Each feedback <=70 words. Summary <=80. Need count words roughly.\n\nLet's draft.\n\nSummary: \"You gave strong scenario-based answers, especially Q2’s modular-monolith recommendation with specific trade-offs and an acknowledged downside. Main fixes: Q3(c) end-to-end availability, Q5 CAP misuse, Q6 missing negative consequence, Q2 over word limit, and missing measurable/tuning detail in Q1/Q4. These are targeted revisions rather than a rewrite.\" Count ~50. Good.\n\nNext_steps:\n1. \"Recompute Q3(c) end-to-end availability as the product of all relevant components (about 99.80%, about 1.5 hours/month downtime) and show the working to the requested precision.\"\n2. \"Revise Q5 so CAP is used correctly: partition tolerance cannot be given up; during a partition payments should favour consistency, and each case needs a concrete technique.\"\n3. \"Make Q1’s availability response measure measurable, add an explicit Circuit Breaker drawback/tuning consideration in Q4, add a negative consequence in Q6, and trim Q2 to 150 words.\" This is long but okay. Maybe too many. But actionable.\n\nCriteria:\nC1: \"You justified performance and availability well, and your performance scenario is measurable. To reach Excellent, make the availability response measure measurable too (Q1 currently says “stay up most of the time”) and ensure both scenarios have all six parts. Keep the scenario-specific justification.\" <=70. Count ~45.\n\nC2: \"Excellent: your modular-monolith recommendation is clear and tied to team size, load profile and deployment problems, and you acknowledge the downside that modules cannot scale independently. Keep linking trade-offs to the CampusEats scenario. Note the 150-word limit is addressed under C7.\" <=50. Good.\n\nC3: \"You showed correct working for Q3(a) and (b). In Q3(c), you used payment availability as end-to-end availability; the correct end-to-end figure is about 99.80% with about 1.5 hours/month downtime. For Excellent, recompute the full chain, show working, and report to the requested precision.\" <=55.\n\nC4: \"You correctly named and explained Circuit Breaker and applied it to the outlet-tablet outage, including a threshold example. To reach Excellent, add at least one explicit drawback or tuning consideration (for example, how you choose the failure threshold/window or what risk the breaker introduces).\" <=50.\n\nC5: \"Your choices are reasonable and you name idempotency keys. However, Q5 misuses CAP: partition tolerance cannot simply be given up in a distributed system, and payments should favour consistency during a partition. For Excellent, correct the CAP explanation and name a suitable concrete technique for each case.\" <=55.\n\nC6: \"Your ADR has specific Context, Decision and Consequences for the synchronous tablet call. To reach Excellent, add at least one negative consequence alongside the positive response-time consequence—state what becomes harder or what new risk you accept.\" <=40.\n\nC7: \"Your writing is clear and IEEE-style references are present. Q2 exceeds the 150-word limit, so to reach Excellent keep every answer within 150 words, use precise terminology and required headings, and include the required assumptions in References.\" <=45. Is \"include required assumptions\" okay? It is from marking. Good.\n\nNeed ensure no markdown. JSON object only. Use double quotes. Need escape quotes? In C1 quote “stay up most of the time” uses curly quotes okay. JSON supports Unicode. Fine.\n\nNeed maybe mention \"Do not comment on document-conversion artefacts\" none.\n\nNeed \"Do not make up explanations for reasoning given by marking agent unclear/incomplete\" We are using marking. Good.\n\nNeed \"Do not change marks\" no marks in feedback? We don't include marks. Good.\n\nNeed \"Address student as you\" yes.\n\nNeed \"cite their sections/figures\" we cite Q1 etc. No figures. Good.\n\nNeed \"state what next rubric level requires\" yes.\n\nNeed \"name what they did well\" yes.\n\nNeed \"Be specific, supportive and actionable\" yes.\n\nNeed one JSON object only. Final should be JSON. Ensure no trailing commas. Let's produce.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to produce formative feedback JSON. Need address student as \"you\". Specific, supportive, actionable, cite sections/figures, name what did well, state next",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " rubric level requires. Do not change marks. Do not comment on document-conversion artefacts. Do not make up explanations for reasoning given by marking agent unclear/incomplete. Schema:",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to feedback <=70 words each. Need one JSON object only.\n\nWe need craft feedback for each criterion C1-C7. Use marking info. Need mention what they did well and what next level requires. For C1: Pro",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "ficient 4/6. Well justified attributes, performance scenario measurable. Availability response measure \"stay up most of the time\" not measurable. Next Excellent requires both",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " scenarios all six parts and both response measures measurable. Feedback <=70 words. Address you. Cite Q1. Supportive actionable.\n\nC2: Excellent 6/6. Clear",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " modular-monolith recommendation, scenario-specific trade-offs team size/load/deployment, downside acknowledged. But Q2 exceeds word limit (C7). For C2",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " feedback can praise. Next level? Already Excellent. State maintain. Maybe mention word limit is C7 not C2. Need not change marks. For criteria feedback",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", if Excellent, say meets Excellent; keep. But actionable? Could say continue linking trade-offs to scenario. <=70.\n\nC3: Proficient 5/8.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Parts a,b correct with working. Part c wrong: treats payment availability as end-to-end; correct ~99.80%, ~1.5 h/month downtime. Next",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Excellent requires all parts correct with working to requested precision. Feedback cite Q3. Need be careful not make up explanation; marking says part c uses payment availability as end-to-end",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " availability; correct end-to-end about 99.80% with about 1.5 hours/month downtime. We can state that. Actionable: recompute end-to-end",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " as product of all relevant components, show working, convert to downtime. <=70.\n\nC4: Proficient 4/5. Circuit Breaker correctly explained",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and applied to outage; no explicit drawback/tuning consideration. Next Excellent requires at least one drawback or tuning consideration. Cite Q4 threshold example. Actionable: add e",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".g. risk of false positives/tuning threshold/reset timeout? But don't make up? We can suggest \"state a drawback or tuning consideration (e.g.,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " threshold/window choice)\"; that's generic but okay? Need not make up explanations. It's actionable. <=70.\n\nC5: Proficient 3/6.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Both choices reasonable and techniques named (idempotency key). CAP misused: partition tolerance cannot be given up; payments should be CP during partition. Next",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Excellent requires CAP used correctly and suitable concrete technique for each case. Feedback cite Q5. Actionable: revise CAP explanation: in distributed system P is not optional; during",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " partition choose C or A; for payments favour consistency. Ensure technique for each. <=70.\n\nC6: Proficient 4/5. Context, Decision, Consequences present and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " specific; consequences one-sided no negative. Next Excellent requires at least one positive and one negative consequence. Cite Q6. Actionable: add negative consequence e.g. added",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " complexity/eventual consistency? Need not make up? We can say \"add a negative consequence (e.g., what becomes harder or what new risk you accept",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ")\" generic. <=70.\n\nC7: Proficient 3/4. Writing clear, IEEE refs present; Q2 exceeds 150-word limit. Next Excellent requires",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " every answer within 150 words, precise terminology, required headings, IEEE citations. Also references missing assumptions? Marking technical issue \"No assumptions are stated as required\"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " under References. C7 rubric doesn't mention assumptions, but requirement R7 partial. We can mention in C7? It says sources cited IEEE. The marking says",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " references no assumptions stated as required. But C7 feedback should focus communication/format. Could mention \"also state required assumptions in References\" but that may be requirement",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " not rubric? It is part of format? Need be careful. The schema criteria feedback for C7 <=70. We can mention Q2 word limit and references",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " assumptions? The rubric C7 Excellent includes every answer within 150 words, terminology precise, headings, sources IEEE. It doesn't mention assumptions. But marking technical",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " issue references no assumptions. Since feedback should be actionable and cite sections. We can include \"Also include the required assumptions in your References section\" as next step?",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " But criterion C7? It might be okay as communication/format. But don't change marks. Need not overdo. Summary <=80 words: mention strengths",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and main errors. Next_steps array exactly 3 strings. Need choose top 3 actionable: (1) Fix Q3(c) end-to-end availability",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " calculation and show working; (2) Revise Q5 CAP explanation and ensure CP for payments; (3) Add negative consequence to Q6 ADR and measurable",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " availability response in Q1 / Q4 tuning? But only 3. Need include Q2 word limit? Hmm next_steps should be 3. We can combine",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "? Need be specific. Maybe next_steps: \"Recompute Q3(c) end-to-end availability as the product of all relevant components (about 99",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".80%, about 1.5 hours/month downtime) and show working.\" \"Revise Q5: explain that partition tolerance cannot be given up; during",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a partition payments should favour consistency, and name a concrete technique for each case.\" \"Tighten Q2 to 150 words, add a measurable availability response measure",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " in Q1, and add a negative consequence plus tuning/drawback in Q4/Q6.\" That's three but third combines multiple. Is that okay? It says",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " next_steps array of str. Could be okay. But maybe better three distinct: Q3, Q5, Q6/Q1/Q4/Q2?",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Hmm.\n\nNeed ensure JSON valid. No markdown. Use exact criterion ids. Each feedback <=70 words. Summary <=80. Need count words roughly.\n\nLet's draft.\n\nSummary: \"You gave strong scenario-based answers, especially Q2’s modular-monolith recommendation with specific trade-offs and an acknowledged downside. Main fixes",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": Q3(c) end-to-end availability, Q5 CAP misuse, Q6 missing negative consequence, Q2 over word limit, and missing measurable/tuning detail in Q1/Q",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "4. These are targeted revisions rather than a rewrite.\" Count ~50. Good.\n\nNext_steps:\n1. \"Recompute Q3(c) end-to-end availability as the product",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " of all relevant components (about 99.80%, about 1.5 hours/month downtime) and show the working to the requested precision.\"\n2. \"Revise Q5 so",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " CAP is used correctly: partition tolerance cannot be given up; during a partition payments should favour consistency, and each case needs a concrete technique.\"\n3. \"Make",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Q1’s availability response measure measurable, add an explicit Circuit Breaker drawback/tuning consideration in Q4, add a negative consequence in Q6, and trim Q",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "2 to 150 words.\" This is long but okay. Maybe too many. But actionable.\n\nCriteria:\nC1: \"You justified performance and availability well,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " and your performance scenario is measurable. To reach Excellent, make the availability response measure measurable too (Q1 currently says “stay up most of the time”) and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ensure both scenarios have all six parts. Keep the scenario-specific justification.\" <=70. Count ~45.\n\nC2: \"Excellent: your modular-monolith recommendation is clear and tied",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " to team size, load profile and deployment problems, and you acknowledge the downside that modules cannot scale independently. Keep linking trade-offs to the CampusEats scenario. Note the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 150-word limit is addressed under C7.\" <=50. Good.\n\nC3: \"You showed correct working for Q3(a) and (b). In",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Q3(c), you used payment availability as end-to-end availability; the correct end-to-end figure is about 99.80% with about 1.5 hours",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "/month downtime. For Excellent, recompute the full chain, show working, and report to the requested precision.\" <=55.\n\nC4: \"You correctly named and",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " explained Circuit Breaker and applied it to the outlet-tablet outage, including a threshold example. To reach Excellent, add at least one explicit drawback or tuning consideration (",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "for example, how you choose the failure threshold/window or what risk the breaker introduces).\" <=50.\n\nC5: \"Your choices are reasonable and you",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " name idempotency keys. However, Q5 misuses CAP: partition tolerance cannot simply be given up in a distributed system, and payments should favour consistency",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " during a partition. For Excellent, correct the CAP explanation and name a suitable concrete technique for each case.\" <=55.\n\nC6: \"Your ADR has specific",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Context, Decision and Consequences for the synchronous tablet call. To reach Excellent, add at least one negative consequence alongside the positive response-time consequence—state what becomes harder or what",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " new risk you accept.\" <=40.\n\nC7: \"Your writing is clear and IEEE-style references are present. Q2 exceeds the 150-word limit, so to",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " reach Excellent keep every answer within 150 words, use precise terminology and required headings, and include the required assumptions in References.\" <=45. Is \"include required assumptions\"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " okay? It is from marking. Good.\n\nNeed ensure no markdown. JSON object only. Use double quotes. Need escape quotes? In C1 quote “stay",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " up most of the time” uses curly quotes okay. JSON supports Unicode. Fine.\n\nNeed maybe mention \"Do not comment on document-conversion artefacts\" none.\n\nNeed \"",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "Do not make up explanations for reasoning given by marking agent unclear/incomplete\" We are using marking. Good.\n\nNeed \"Do not change marks\" no marks in",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " feedback? We don't include marks. Good.\n\nNeed \"Address student as you\" yes.\n\nNeed \"cite their sections/figures\" we cite Q1 etc",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". No figures. Good.\n\nNeed \"state what next rubric level requires\" yes.\n\nNeed \"name what they did well\" yes.\n\nNeed \"Be specific,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " supportive and actionable\" yes.\n\nNeed one JSON object only. Final should be JSON. Ensure no trailing commas. Let's produce.",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2131,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 2544,
+    "completion_tokens": 2750,
+    "total_tokens": 5294,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cost": 0.0019043999999999997,
+    "currency": "USD",
+    "reasoning_tokens": 2131,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 2544
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_93483cc2-d732-4934-8880-26081c59e62b",
+  "x_nanogpt_pricing": {
+    "amount": 0.0019043999999999997,
+    "cost": 0.0019043999999999997,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 2544,
+    "outputTokens": 2750,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0
+  }
+}

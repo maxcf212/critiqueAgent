@@ -1,0 +1,61 @@
+{
+  "id": "chatcmpl-238d1eaa-3c33-4e63-8a76-4e3e356add76",
+  "object": "chat.completion",
+  "created": 1794561299,
+  "model": "meta/muse-spark-1.3-contributor",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"name\":\"Q1 Quality attributes\",\"level\":\"Proficient\",\"mark\":3,\"max\":6,\"feedback\":\"Two relevant attributes (performance, availability) chosen with scenario-based justification. Performance scenario has six parts and measurable measure (p95 <1.5s). Availability scenario has six parts but response measure 'stay up most of the time' is not measurable. Source/stimulus/artefact/environment/response are present but second measure fails rubric requirement.\"},{\"name\":\"Q2 Architectural style\",\"level\":\"Excellent\",\"mark\":6,\"max\":6,\"feedback\":\"Clear recommendation to keep modular monolith, not full microservices. Two specific trade-offs: (1) team size 5 vs operational overhead of 8-10 services pipelines/monitoring, (2) known problems are single VM and deployment process fixable by horizontal scaling and rolling deployments. Downside acknowledged (no independent scale, process-wide crash). Specific to CampusEats.\"},{\"name\":\"Q3 Availability calculation\",\"level\":\"Proficient\",\"mark\":5,\"max\":8,\"feedback\":\"(a) correct method 0.9995*0.999*0.9995*0.995 = 0.99301 -> 99.30%. (b) correct 720h*(1-A) ~5.0h to one decimal. (c) payment availability 1-(0.005)^2=0.999975 correct, but new overall availability incorrectly reported as 99.9975% using payment only. Correct overall = 0.9995*0.999*0.9995*0.999975 ≈ 99.80% and downtime ≈ 1.5h. Arithmetic slip in final step.\"},{\"name\":\"Q4 Resilience pattern\",\"level\":\"Excellent\",\"mark\":5,\"max\":5,\"feedback\":\"Circuit Breaker correctly named. Mechanism explained (Closed/Open/Half-Open, failure threshold, fast-fail to avoid thread pool exhaustion). Applied well to Problem 2 – would isolate payment provider slowness and keep menu browsing working. Tuning consideration given (50% in 10s threshold, wait period). Could explicitly list drawback (need to choose timeout/threshold, stale fallback UX) but meets requirement for tuning.\"},{\"name\":\"Q5 Consistency and availability\",\"level\":\"Proficient\",\"mark\":3,\"max\":6,\"feedback\":\"(i) menu browsing – favour availability with concrete technique Redis cache 60s TTL and rationale about stale read tolerable – correct and good CAP use (eventual consistency). (ii) placing/paying – favour consistency correct, but CAP explanation is incorrect: 'choose consistency and availability and give up partition tolerance' – in distributed systems partition tolerance must be assumed. Technique given (idempotency key) does not provide consistency across replica/partition; should name strong consistency, single-writer, transactional outbox, or synchronous payment ledger. One technique misaligned.\"},{\"name\":\"Q6 Architecture decision record\",\"level\":\"Proficient\",\"mark\":3,\"max\":5,\"feedback\":\"ADR has Context (sync tablet call, lost orders, p95 impact), Decision (RabbitMQ durable OrderPaid event + retrying worker), Positive consequences (decoupling, offline tablet recovery, peak smoothing). Specific to Problem 4. Negative consequence missing – e.g., operational complexity of broker, need for idempotent consumers, eventual notification latency, ordering/deduplication – required for Excellent.\"},{\"name\":\"Communication and format\",\"level\":\"Proficient\",\"mark\":3,\"max\":4,\"feedback\":\"Headings used, precise terminology, IEEE citations present. Q2 exceeds 150-word limit (~180 words in submission). All other answers within limit. Minor citation formatting okay.\"}],\"total\":28,\"total_max\":40,\"summary\":\"Solid application of concepts: good attribute choice and modular monolith justification with scenario trade-offs, correct series availability and circuit breaker. Main gaps are unmeasurable availability measure, incorrect overall availability in Q3c, CAP misstatement in Q5ii and idempotency-key not a consistency technique, ADR lacking negative consequence, and Q2 over word limit.\",\"next_steps\":[\"Rewrite availability scenario measure to be measurable, e.g., '99.9% of browse requests succeed during payment-provider degraded mode' or 'system in degraded mode within 5s'.\",\"Recalculate Q3c as A_total = A_gateway*A_order*A_db*A_pay-new ≈ 99.80% and downtime ≈ (1-A_total)*720 ≈ 1.5h to 1 decimal place.\",\"Fix CAP explanation: during partition you must choose between C and A (P is mandatory); for payments choose C, for menu choose A. Replace idempotency key with strong consistency technique such as single DB transaction for order+payment state or synchronous confirmation before acknowledging.\",\"Add at least one explicit negative consequence to ADR-007 such as broker operating cost, monitoring, retry poison messages, need for idempotent/replay handling.\",\"Trim Q2 to <=150 words by removing generic sentences.\"]}",
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3256,
+    "completion_tokens": 2348,
+    "total_tokens": 5604,
+    "reasoning_tokens": 1314,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1314,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 3256,
+    "cost": 0.0007952,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_b6812dc7-131f-4b2e-a09e-13562e64b64d",
+  "x_nanogpt_pricing": {
+    "amount": 0.0007952,
+    "currency": "USD",
+    "cost": 0.0007952,
+    "inputTokens": 3256,
+    "outputTokens": 2348,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_8ea3fec2-3ed5-4975-9032-2fdf16c8be00",
+    "costUsd": 0.0007952,
+    "usdCost": 0.0007952,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

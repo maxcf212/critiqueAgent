@@ -1,0 +1,221 @@
+{
+  "total": 40.0,
+  "total_max": 40.0,
+  "percent": 100.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability justified from lunch peak and outage. Both scenarios list all six parts with quantitative measurable response measures.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Modular monolith recommended. Two scenario-specific trade-offs: scaling vs 5-person overhead, rewrite cost vs VM and downtime fixes. Downside acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Five developers running eight or more services would spend more time on infrastructure than on features.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 8.0,
+      "scale": 8.0,
+      "points": 8.0,
+      "max": 8.0,
+      "reasoning": "All three parts correct with working. Series multiplication, parallel payment formula, 720h downtime correct to required precision.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A_new = 0.9995 × 0.999 × 0.9995 × 0.999975 = 0.99798",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker named, Closed/Open/Half-Open explained correctly, applied to 25-min hang, with threshold tuning and fallback drawback.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold the breaker moves to Open and calls fail immediately",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Too sensitive and it opens on a brief blip, rejecting payments that would have succeeded",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "AP for browsing and CP for payment justified. CAP partition trade-off stated correctly. Concrete techniques given for each case.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "show a slightly stale menu from a cache (Redis with a 60-second TTL) than an error page",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "Each order request carries an idempotency key, so a retry does not create a second charge.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 5.0,
+      "scale": 5.0,
+      "points": 5.0,
+      "max": 5.0,
+      "reasoning": "ADR has specific Context, Decision, positive and negative Consequences tied to synchronous tablet call and p95.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ).",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "The queue is one more component for five developers to run and monitor.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 4.0,
+      "scale": 4.0,
+      "points": 4.0,
+      "max": 4.0,
+      "reasoning": "Headings Q1-Q6 in order, concise precise writing within limits, IEEE in-text citations and reference list present.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The scenarios use the six-part form from [1].",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "M. T. Nygard, Release It! Design and Deploy Production-Ready Software, 2nd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [],
+  "overall": "Strong complete submission. All calculations correct, patterns and trade-offs scenario-specific, ADR and CAP reasoning sound.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 11,
+    "quotes_found": 11,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You delivered a strong, complete response across all six questions. Your calculations, patterns, trade-offs and ADR were scenario-specific and precise, and your writing met format requirements. Excellent work — focus now on sustaining this standard.",
+    "next_steps": [
+      "Keep grounding each architectural choice in CampusEats specifics like lunch peak, team size, and outage.",
+      "Keep adding measurable response measures and concrete tuning details to show precision.",
+      "Keep using precise terminology, headings and IEEE citations to sustain clear communication."
+    ],
+    "criteria": {
+      "C1": "You did well in Question 1 choosing performance and availability with six-part measurable scenarios like p95 under 1.5 s. To stay Excellent, keep justifying from scenario and keeping measures measurable.",
+      "C2": "You did well in Question 2 recommending modular monolith with team-size trade-off about five developers. To stay Excellent, keep giving two scenario-specific trade-offs and acknowledging downside.",
+      "C3": "You did well in Question 3 showing working to get A_new = 0.99798 and correct downtime. To stay Excellent, keep showing method and requested precision for all parts.",
+      "C4": "You did well in Question 4 explaining Closed/Open/Half-Open and tuning sensitivity. To stay Excellent, keep applying pattern to outage with drawback.",
+      "C5": "You did well in Question 5 choosing AP browsing with Redis cache and CP payment with idempotency key. To stay Excellent, keep using CAP correctly with concrete techniques.",
+      "C6": "You did well in Question 6 with specific Context, OrderPaid via RabbitMQ Decision, and positive/negative Consequences. To stay Excellent, keep all three specific.",
+      "C7": "You did well using Q1-Q6 headings, concise writing and IEEE citations like [1] and Nygard. To stay Excellent, keep within limits with precise terms and citations."
+    }
+  }
+}

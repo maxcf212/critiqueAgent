@@ -1,0 +1,207 @@
+{
+  "total": 43.0,
+  "total_max": 100.0,
+  "percent": 43.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Introduction: mission concept and rationale. Include the following required information: What is the spacecraft's primary mission? Why is the mission needed? How many spacecraft are used and why? Who are the users (operator and customers)?",
+      "weight": 10.0,
+      "level": "Adequate",
+      "mark": 6.0,
+      "scale": 10.0,
+      "points": 6.0,
+      "max": 10.0,
+      "reasoning": "Primary mission, rationale and single-spacecraft choice are clearly argued with some sources. Users are only implied: the operator and customers are not explicitly identified in the introduction, and the referencing is URL-only. Detail is good, but the users requirement is weakly covered.",
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "Coral reefs, specifically the Great Barrier Reef, would immensely benefit from dedicated satellite monitoring.",
+          "verified": true
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required.",
+          "verified": true
+        },
+        {
+          "where": "Introduction",
+          "quote": "would allow marine and conservation scientists to more accurately predict",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Main body: mission design. Present a summary of the mission design using software and/or hand calculations as appropriate. Include relevant screenshots and software files in the main body of the report and/or appendix. Include the following information: Where will it launch from, and using which launch vehicle? Why did you choose this option? What type of orbit will you use? What are its characteristics and orbital elements? Will you need to perform any orbital maneuvers? Which ground control facilities will you use? How often will your spacecraft be able to communicate with ground control? How long will the mission last, and what are your plans for EOL?",
+      "weight": 60.0,
+      "level": "Adequate",
+      "mark": 4.0,
+      "scale": 10.0,
+      "points": 24.0,
+      "max": 60.0,
+      "reasoning": "Most required items are addressed and STK access data and ground tracks are shown. However, the inclination of 87.79 deg is wrong for a 600 km sun-synchronous orbit (about 97.8 deg, as the student's own plot shows), contradicting the retrograde claim. Kourou's latitude is wrong, the RAAN rationale is incorrect, and promised perturbation calculations are absent. Launch vehicle choice is inconsistent.",
+      "evidence": [
+        {
+          "where": "Orbit",
+          "quote": "Specifically, an altitude of 600km requires a mean inclination of",
+          "verified": true
+        },
+        {
+          "where": "Orbit",
+          "quote": "The orbit is near-polar and retrograde, meaning the satellite will pass over almost the entire Earth",
+          "verified": true
+        },
+        {
+          "where": "Launch",
+          "quote": "it is situated very close to the equator, with a latitude of",
+          "verified": true
+        },
+        {
+          "where": "Orbit",
+          "quote": "The initial value indicates the location of the launch facility.",
+          "verified": true
+        },
+        {
+          "where": "Executive Summary",
+          "quote": "including Systems Tool Kit (STK) simulations, perturbation calculations, launch mission alternatives evaluation",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Conclusion",
+      "weight": 10.0,
+      "level": "Adequate",
+      "mark": 5.0,
+      "scale": 10.0,
+      "points": 5.0,
+      "max": 10.0,
+      "reasoning": "The conclusion summarises the segments and identifies the Vega E launch risk. It largely restates the design rather than drawing specific conclusions from the evidence, and it does not reflect the errors in orbit and access results.",
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "Thus, launch may need to be adjusted if the rocket is still not constructed by the proposed date.",
+          "verified": true
+        },
+        {
+          "where": "Conclusion",
+          "quote": "A polar sun-synchronous orbit allows for consistent illumination of the oceans",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Adequate",
+      "mark": 4.0,
+      "scale": 10.0,
+      "points": 8.0,
+      "max": 20.0,
+      "reasoning": "Headings, a contents list and a numbered executive summary give structure. Sentences are garbled, and tables and figures are largely unnumbered or uncaptioned. Citations [49]-[74] are not in the bibliography, Wikipedia is cited despite the brief, and some references are truncated. Several typos appear.",
+      "evidence": [
+        {
+          "where": "End-of-life section",
+          "quote": "It acts like a regular sail, utilising a large surface area to",
+          "verified": true
+        },
+        {
+          "where": "Bibliography",
+          "quote": "https://en.wikipedia.org/wiki/2021_in_spaceflight",
+          "verified": true
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[10 d.",
+          "verified": true
+        },
+        {
+          "where": "Access table",
+          "quote": "Feb 2025 11:23:57.461",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [],
+  "technical_issues": [
+    {
+      "where": "Orbit",
+      "issue": "Inclination of 87.79 deg is incorrect for a 600 km sun-synchronous orbit (about 97.8 deg retrograde). This contradicts the retrograde claim and the student's own Figure 3."
+    },
+    {
+      "where": "Launch",
+      "issue": "Kourou latitude is stated as 45.05 deg N; it is about 5.2 deg N, and the equatorial-launch argument depends on it."
+    },
+    {
+      "where": "Orbit",
+      "issue": "RAAN of 27.33 deg is said to indicate the launch facility location. RAAN is set by launch time and is not a site indicator; the value is unjustified."
+    },
+    {
+      "where": "Ground Control",
+      "issue": "Text states that polar latitudes maximise pass frequency, then selects Tasmania (about 43 deg S) without quantitative access comparison."
+    },
+    {
+      "where": "Ground Control",
+      "issue": "Text says average contact is almost twenty minutes, but the table mean of 580.786 s is about 9.7 minutes. The text also refers to fifteen accesses while listing fourteen with a duplicated label 13."
+    },
+    {
+      "where": "Ground Control",
+      "issue": "Text says the satellite is constantly in sunlight on the descending track; a 600 km SSO has eclipse seasons."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Five-year lifetime and EOL choice are asserted without decay or drag analysis. The drag sail sentence is truncated and the final EOL strategy is not stated."
+    },
+    {
+      "where": "Launch",
+      "issue": "Piggyback on a rideshare is proposed, but the satellite is then assigned to Vega E, with an unresolved schedule against the 2024 first-launch claim and the 2025 STK epoch."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "Wikipedia is cited as a source despite the brief, and table citations [49]-[74] are missing from the list."
+    }
+  ],
+  "overall": "The report covers most required segments with STK evidence, but a fundamental orbit error (inclination), wrong launch-site latitude, unsupported RAAN rationale, and missing perturbation calculations weaken the design. Access statistics are misreported, EOL is unfinished, and citations and presentation are inconsistent.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [
+      "R1",
+      "R10",
+      "R11",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R8",
+      "R9"
+    ],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You have a clear primary mission for monitoring the Great Barrier Reef, and a sound single-satellite argument supported by STK access results and ground tracks. The main concerns are technical: the 87.79° inclination does not match a 600 km sun-synchronous orbit, the Kourou latitude and RAAN rationale are incorrect, and access statistics do not match your table. Correcting these, along with the EOL and referencing gaps, would strengthen the report considerably.",
+    "next_steps": [
+      "Recheck the orbit and launch-site parameters: recompute the inclination for a 600 km sun-synchronous orbit (about 97.8°), correct the Kourou latitude, remove the RAAN site rationale, and add the perturbation calculations you promised to support the design.",
+      "Reconcile your access statistics with the STK output (mean contact time, pass count, eclipse seasons), justify the ground station choice quantitatively, resolve the rideshare versus Vega E schedule, and state a complete EOL strategy with decay or drag analysis.",
+      "Complete the bibliography for all in-text citations, replace Wikipedia with authoritative sources, number and caption every figure and table, rewrite garbled sentences, and proofread for typos."
+    ],
+    "criteria": {
+      "C1": "Your primary mission, the reason it is needed and the single-spacecraft choice are clearly argued, with some sources. To reach the next level, explicitly name the operator and the customers, such as the reef scientists and conservation managers who will use the data, rather than leaving them implied. Also replace URL-only citations with full referencing.",
+      "C2": "Your STK access data and ground tracks provide good evidence. However, 87.79° is not the inclination for a 600 km sun-synchronous orbit (about 97.8° retrograde), which contradicts your retrograde claim and Figure 3. Kourou is about 5.2° N, not 45.05° N, and RAAN does not indicate a launch site. Promised perturbation calculations are absent and the launch vehicle choice is inconsistent. Resolving these to a high standard would reach Accomplished.",
+      "C3": "You identify the Vega E launch-schedule risk and summarise the segments. However, the conclusion largely restates the design rather than drawing specific conclusions from your evidence, and it does not reflect the orbit and access errors. To reach Accomplished, state what your STK results show, such as contact frequency and eclipse seasons, and what they mean for the mission's viability.",
+      "C4": "Your report has clear headings, a contents list and a numbered executive summary, giving it a logical structure. Several sentences are garbled, and tables and figures are largely unnumbered or uncaptioned, making context hard to follow. Bibliography entries for [49]-[74] are missing, Wikipedia is cited despite the brief, and some references are incomplete. Proofread for typos and apply consistent figure and table labelling."
+    }
+  }
+}

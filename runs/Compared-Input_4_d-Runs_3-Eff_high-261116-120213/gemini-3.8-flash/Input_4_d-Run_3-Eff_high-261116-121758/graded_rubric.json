@@ -1,0 +1,230 @@
+{
+  "total": 25.0,
+  "total_max": 40.0,
+  "percent": 62.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Suitable attributes are selected and justified. The performance scenario is fully specified with measurable metrics. However, the availability scenario's response measure is vague and unmeasurable, lacking clear downtime, MTTR, or degraded-availability percentages.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "The recommendation for a modular monolith is clearly argued with two solid trade-offs tailored to CampusEats: small team operational overhead and resolving root issues via horizontal scaling and deployment changes. Downsides are explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "Part (a) is correct. Part (b) contains an arithmetic error (0.00699 × 720 is 5.0 hours, not 3.5). Part (c) incorrectly takes the redundant payment provider availability as the entire order placement availability, neglecting the upstream components in series.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "While Circuit Breaker is an appropriate pattern, the explanation fundamentally inverts the state transitions: normal operation is Closed and tripped is Open. Additionally, no tuning considerations or drawbacks (such as fallback handling or setting sensitive thresholds) are discussed.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally. When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Both trade-off choices are sound, but the CAP theorem explanation relies on the misconception that partition tolerance can be sacrificed during a partition. Furthermore, a concrete technique is given for menu browsing (Redis cache) but omitted for order payment.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision, and Consequences are clearly articulated and specific to CampusEats. However, the consequences section only lists positive outcomes and fails to note any negative consequences or architectural trade-offs, such as broker management or duplicate deliveries.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves. Outlets that are briefly offline still receive their orders",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Writing is generally clear and structured under the required headings. However, Question 2 significantly exceeds the 150-word limit (179 words), citation [2] is referenced in Question 4 but omitted from the reference list, and state terminology is inverted in Question 4.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months. Instead the existing application should be restructured into a modular monolith",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure ('most of the time') is subjective and not measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (b) calculation 0.00699 * 720 equals 5.03 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) fails to combine redundant payment availability with other components to calculate end-to-end availability (~99.80%)."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker operational states are inverted (described Open as normal and Closed as tripped)."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Partition tolerance cannot be 'given up' in distributed systems; no concrete implementation technique was named for payments."
+    },
+    {
+      "where": "Question 6",
+      "issue": "ADR consequences omit negative trade-offs (e.g., broker operational overhead, eventual consistency)."
+    },
+    {
+      "where": "References",
+      "issue": "Citation [2] appears in text but is missing from the reference list."
+    }
+  ],
+  "overall": "The submission shows sound architectural intuition in Question 2 and parts of Questions 1, 5, and 6. However, it suffers from calculation and series composition errors in Question 3, inverted circuit breaker states in Question 4, missing technical details, and word count/referencing omissions.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You demonstrated strong architectural reasoning in Question 2, effectively tailoring your modular monolith recommendation to CampusEats. Questions 1, 5, and 6 also showed solid situational understanding. To reach higher bands across all areas, focus on precise calculation modeling for composite systems, ensure resilience pattern state mechanics are accurate, verify all response measures are quantifiable, and always balance design decisions with explicit negative consequences.",
+    "next_steps": [
+      "In Question 3, review availability calculations for composite systems: compute parallel redundancy first, then multiply upstream series components to determine end-to-end availability.",
+      "Review the state lifecycle of resilience patterns like the Circuit Breaker in Question 4, ensuring you distinguish normal operating states (Closed) from tripped states (Open).",
+      "Audit your ADRs and scenarios in Questions 1 and 6 to ensure quality attribute response measures are numerically measurable and consequences include negative trade-offs."
+    ],
+    "criteria": {
+      "C1": "You chose well-justified attributes, and your performance scenario was well-defined. However, your availability response measure ('stay up most of the time') was unmeasurable. To reach Excellent, ensure both response measures specify concrete, quantifiable metrics, such as a target MTTR, percentage uptime (e.g., 99.9%), or maximum allowed minutes of downtime.",
+      "C2": "You achieved an Excellent mark here. Your recommendation for a modular monolith was strongly argued using realistic CampusEats trade-offs, particularly team size and operational overhead, and you appropriately acknowledged its downsides. Keep applying this level of context-specific justification to all design questions.",
+      "C3": "You calculated part (a) accurately. To reach Proficient or Excellent, ensure arithmetic in part (b) is checked (0.00699 × 720 = 5.03 hours) and correctly model system topology in part (c) by chaining the parallel payment availability in series with the upstream order-placement components.",
+      "C4": "Circuit Breaker was an appropriate pattern choice. To reach Proficient or Excellent, ensure the operational states are correctly described: Closed represents normal traffic flow, while Open trips to block calls. Additionally, discuss practical tuning considerations or drawbacks, such as timeout thresholds and fallback responses.",
+      "C5": "Your choices and the Redis caching technique for menu browsing were sound. To reach Excellent, address CAP theorem mechanics accurately—network partitions cannot be 'given up' in distributed systems—and provide a concrete implementation technique for payment consistency, such as two-phase commit or a saga pattern.",
+      "C6": "Your Context, Decision, and positive Consequences were clearly articulated and relevant to the scenario. To reach Excellent, avoid one-sided consequences by explicitly documenting negative trade-offs, such as message broker operational overhead, eventual consistency delays, or handling duplicate order events.",
+      "C7": "Your response was well-structured with clear headings. To achieve Excellent, ensure all answers stay strictly within the 150-word limit (Question 2 reached 179 words), verify that every in-text citation (such as [2]) appears in your reference list, and maintain precise terminology throughout."
+    }
+  }
+}

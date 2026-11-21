@@ -1,0 +1,168 @@
+{
+  "total": 95.0,
+  "total_max": 100.0,
+  "percent": 95.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Adequate",
+      "mark": 10.0,
+      "scale": 10.0,
+      "points": 40.0,
+      "max": 40.0,
+      "reasoning": "Clear mission purpose, users and rationale with references. However, goals lack quantitative requirements (resolution, revisit, latency) and contain exaggerated bleaching statistics, limiting completeness.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "A near-real-time relay to monitoring stations on the ground would allow marine and conservation scientists to more accurately predict and react to coral bleaching events.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Adequate",
+      "mark": 10.0,
+      "scale": 10.0,
+      "points": 30.0,
+      "max": 30.0,
+      "reasoning": "Detailed Gantt chart and task descriptions demonstrate feasibility. Missing explicit contingency provisions and a dedicated list of planned information sources, so not fully Accomplished.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "Project work will be divided into weeks via a Gantt Chart. Detailed task descriptions can be found on the next page.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Adequate",
+      "mark": 5.0,
+      "scale": 10.0,
+      "points": 5.0,
+      "max": 10.0,
+      "reasoning": "Minor work completed: STK tutorials 1–4 and background research. No actual technical results or simulations presented; orbit choice is stated but technically incorrect.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "My current choice is a geostationary orbit at an altitude of 600 km",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Adequate",
+      "mark": 10.0,
+      "scale": 10.0,
+      "points": 20.0,
+      "max": 20.0,
+      "reasoning": "Well-structured and readable with clear headings and labelled Gantt chart. References are URL-only, not properly formatted citations, and some informal phrasing reduces professionalism.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Coral reefs harbour some of the most diverse species of life on the planet",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "partial",
+      "where": "Project Plan & Preliminary Progress — Orbit Specifics"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan & Preliminary Progress — STK Design & Simulations"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Image 1"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Mission Concept & Rationale footnotes"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Project Plan & Preliminary Progress"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Project Plan & Preliminary Progress — Orbit Specifics",
+      "issue": "States geostationary orbit at 600 km altitude; GEO is ~35,786 km, 600 km is LEO and cannot remain fixed over the reef."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "Claims 2016 bleaching killed 60% and 2017 another 50% of GBR coral; actual mortality estimates are substantially lower (~20–30% per event)."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "'Oceans have become 30 percent more acidic' is imprecise; pH has dropped ~0.1, representing ~30% increase in hydrogen ion concentration."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "No quantitative mission requirements (spatial resolution, revisit time, spectral bands, data latency) are specified."
+    },
+    {
+      "where": "Project Plan & Preliminary Progress",
+      "issue": "Gantt chart shows background research as both completed (gold) and ongoing (blue) in overlapping weeks; editing scheduled weeks 9–10 but text says weeks 7–8 reserved for review."
+    }
+  ],
+  "overall": "A clear, well-structured preliminary report with a strong mission rationale and detailed Gantt plan. However, it contains a major orbit error (GEO at 600 km), exaggerated bleaching statistics, lacks quantitative mission requirements, contingency planning, and a proper reference list. Preliminary technical results are minimal.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [
+      "C1",
+      "C2",
+      "C4"
+    ],
+    "level_mismatch": [
+      "C1",
+      "C2",
+      "C4"
+    ]
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 4,
+    "quotes_found": 4,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You present a clear, well-structured report with a strong mission rationale, identified users and a detailed Gantt plan. Key improvements: correct the orbit error (GEO at 600 km is LEO; GEO is ~35,786 km), replace exaggerated bleaching/acidification statistics with cited figures, add quantitative mission requirements, include contingency planning and a proper reference list, and present preliminary technical results with interpretation.",
+    "next_steps": [
+      "Correct the orbit statement in 'Project Plan & Preliminary Progress — Orbit Specifics': 600 km is LEO, not GEO (~35,786 km). Justify your orbit choice against revisit time and spatial resolution needs.",
+      "Add a quantitative requirements table in 'Mission Concept & Rationale' (spatial resolution, revisit time, spectral bands, data latency) and replace the 60%/50% bleaching and '30% more acidic' claims with accurate, cited figures.",
+      "Strengthen 'Project Plan & Preliminary Progress': add explicit contingency provisions and a dedicated information-sources list, fix Gantt inconsistencies (background research overlap; editing weeks 9–10 vs review weeks 7–8), and include preliminary STK simulation outputs with brief interpretation. Format references as proper citations, not URL-only."
+    ],
+    "criteria": {
+      "C1": "You clearly identify users and the mission need, with a good rationale and references. To reach Accomplished, add quantitative mission requirements (resolution, revisit, spectral bands, latency) and correct the bleaching (60%/50%) and acidification claims with accurate, cited figures.",
+      "C2": "Your Gantt chart and task descriptions demonstrate feasibility. For Accomplished, include explicit contingency provisions and a dedicated list of planned information sources, and align the Gantt with the text (background research overlap; editing weeks 9–10 vs review weeks 7–8).",
+      "C3": "You completed STK tutorials 1–4 and background research, but no technical results are presented. To reach Accomplished, include preliminary simulation outputs (e.g., orbit/coverage) with brief interpretation, and correct the GEO altitude error (600 km is LEO; GEO ~35,786 km).",
+      "C4": "Your report is well-structured and readable, with clear headings and a labelled Gantt chart. For Accomplished, format references as proper citations (not URL-only), ensure in-text citations match the reference list, and tighten informal phrasing."
+    }
+  }
+}

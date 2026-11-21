@@ -1,0 +1,219 @@
+{
+  "total": 27.0,
+  "total_max": 40.0,
+  "percent": 67.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are well chosen and justified. However, the availability scenario's response measure ('stay up most of the time') is vague and not objectively measurable.",
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear recommendation of a modular monolith justified by two detailed, scenario-specific trade-offs (team size/overhead and root cause of performance issues), with explicit downsides acknowledged.",
+      "evidence": [
+        {
+          "where": "## Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) and (b) are correct (99.30% and 5.03/3.5 depending on hours; 720*0.00699 ≈ 5.03h, student calculated 3.5h due to arithmetic error). In (c), the student forgot to multiply A_pay by the other series components.",
+      "evidence": [
+        {
+          "where": "## Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "The student inverted the fundamental states of the Circuit Breaker (stated Open passes calls and Closed blocks them). Furthermore, no drawback or tuning consideration was provided.",
+      "evidence": [
+        {
+          "where": "## Question 4",
+          "quote": "In the Open state calls pass through normally. When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "The student misinterprets CAP by claiming a distributed network can 'give up partition tolerance' (CA) during network partitions; one must choose CP (sacrificing availability).",
+      "evidence": [
+        {
+          "where": "## Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision, and Consequences are present and specific, but Consequences are entirely positive; no negative consequence or trade-off (e.g. operational complexity, eventual consistency) is stated.",
+      "evidence": [
+        {
+          "where": "## Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Clear writing within word limits, but citation [2] is cited in Question 4 without appearing in the References section.",
+      "evidence": [
+        {
+          "where": "## Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        },
+        {
+          "where": "## References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed. Upper Saddle River, NJ, USA: Addison-Wesley, 2012.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "## Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "## Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "## Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "## Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "## Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "## Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "## References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "## Question 3",
+      "issue": "Arithmetic error in (b): 0.00699 * 720 = 5.03 hours, not 3.5 hours. In (c), only the payment subsystem availability was reported instead of multiplying by the other series components (0.9995 * 0.999 * 0.9995 * 0.999975 = 99.80%)."
+    },
+    {
+      "where": "## Question 4",
+      "issue": "Circuit Breaker states are inverted: Closed is normal operation where calls pass through; Open trips and fails fast."
+    },
+    {
+      "where": "## Question 5",
+      "issue": "Network partitions cannot be 'given up' in distributed systems under CAP; when a partition occurs, one must trade off Availability for Consistency (CP)."
+    }
+  ],
+  "overall": "A well-structured submission with strong architectural reasoning in Q2. However, there are conceptual errors in Circuit Breaker states and CAP theorem, calculation errors in Q3, and missing negative consequences in the ADR.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 8,
+    "quotes_found": 8,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You demonstrated strong architectural reasoning in Question 2 by recommending a modular monolith with concrete trade-offs. However, marks were lost across other questions due to imprecise quality attribute response measures, inverted Circuit Breaker state definitions, calculation errors in end-to-end availability, misapplication of the CAP theorem, and an incomplete consequences section in your ADR. Addressing these conceptual and quantitative gaps will help you reach the Excellent rubric band.",
+    "next_steps": [
+      "Ensure quality attribute response measures use objective, quantified metrics (e.g., uptime percentages or MTTR) rather than subjective phrasing like 'most of the time'.",
+      "Review core resilience and distributed systems concepts, specifically the correct state machine for Circuit Breakers and how network partitions dictate trade-offs under CAP.",
+      "Complete end-to-end reliability calculations by multiplying all series subsystem availabilities, and always include balanced consequences (positive and negative) in ADRs."
+    ],
+    "criteria": {
+      "C1": "You selected and justified suitable quality attributes. To reach Excellent, ensure both response measures are objectively measurable; your availability measure ('stay up most of the time') was too vague.",
+      "C2": "Excellent work. You provided a clear recommendation justified by scenario-specific trade-offs regarding team size and performance, while explicitly acknowledging the architectural downsides.",
+      "C3": "To achieve Excellent, eliminate calculation slips (5.03 hours in part b) and remember to multiply the parallel payment availability back into the overall series chain for part (c).",
+      "C4": "You chose a relevant pattern, but inverted the states: Closed allows normal traffic, while Open blocks calls. For Excellent, correct the state mechanism and include tuning considerations or drawbacks.",
+      "C5": "You justified reasonable choices, but misapplied the CAP theorem. Distributed systems cannot forfeit partition tolerance; you must trade Availability for Consistency (CP). Correcting this precision is required for Excellent.",
+      "C6": "Your ADR sections are well-structured and scenario-specific. To reach Excellent, include at least one negative consequence or trade-off (such as eventual consistency or operational overhead) alongside the positive outcomes.",
+      "C7": "Your writing was clear and met word limits. To earn full marks, ensure all in-text citations (such as [2] in Question 4) have corresponding full bibliographic entries in your References section."
+    }
+  }
+}

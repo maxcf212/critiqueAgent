@@ -1,0 +1,261 @@
+{
+  "total": 30.0,
+  "total_max": 40.0,
+  "percent": 75.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are well justified from the lunch-peak data and the performance scenario is complete and measurable. The availability scenario has all six parts but its response measure ('stay up most of the time') is not measurable, so it falls short of Excellent.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear recommendation (modular monolith) with two scenario-specific trade-offs: five-developer team versus per-service operational overhead, and the known problems traced to a single VM and the deployment process rather than the monolith. The downside is explicitly acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 5.0,
+      "scale": 8.0,
+      "points": 5.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) and (b) are correct with working (99.30%, 5.0 h). In (c) the combined payment availability 0.999975 is computed correctly, but the student then reports it as the whole-system availability instead of re-multiplying by the other three components; correct answer is 99.80% and 1.5 h. One part incorrect.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is named and its closed/open/half-open mechanism is explained correctly and applied convincingly to the 25-minute hang. A threshold value is mentioned, but no drawback or genuine tuning consideration (e.g. threshold calibration, false trips) is discussed, so it is not Excellent.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open and calls fail immediately without waiting",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "Students would have seen \"payment temporarily unavailable, please try again or pay at the counter\" instead of the whole app hanging for 25 minutes.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Both choices are sensible and concrete techniques are named (Redis TTL cache, idempotency key). However the CAP application is wrong: partition tolerance cannot be 'given up' in a partition; the correct framing is choosing consistency over availability during a partition.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "each order request carries an idempotency key so that a repeated request does not create a second charge",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are all present and specific to CampusEats. The consequences are entirely positive (latency, offline outlets, peak smoothing); no negative consequence such as duplicate delivery, ordering guarantees or added operational complexity is given.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        },
+        {
+          "where": "Question 6",
+          "quote": "If a tablet is offline the order is lost, and during the lunch peak these calls add to the 4.2 s p95 response time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Writing is clear, headings are used in order and IEEE-style citations with a reference list are present. Question 2 is roughly 180 words, exceeding the 150-word limit; the other answers are within it.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "Second, the known problems are not caused by the monolith itself.",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3(c)",
+      "issue": "Final availability wrongly reported as 99.9975% (the payment-only figure); should re-multiply by the other three components giving 99.80% and ~1.5 h downtime."
+    },
+    {
+      "where": "Question 5(ii)",
+      "issue": "CAP misapplied: partition tolerance cannot be traded away; in a partition one must sacrifice consistency or availability."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable; also the response describes degraded browsing rather than the payment-dependent order flow."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence given, so the ADR consequences are one-sided."
+    },
+    {
+      "where": "Question 2",
+      "issue": "Answer exceeds the 150-word limit (~180 words)."
+    },
+    {
+      "where": "Whole submission",
+      "issue": "No explicit assumptions section despite the brief requiring assumptions to be stated."
+    }
+  ],
+  "overall": "Strong, well-structured answers with good scenario grounding and correct Q3(a)/(b). Main losses: Q3(c) fails to recombine availabilities, CAP misapplied in Q5, Q1 availability measure unmeasurable, Q6 lacks a negative consequence, and Q2 exceeds the word limit. Total 30/40.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You have a strong, well-structured submission with clear scenario grounding and correct Q3(a)/(b). Your main losses are Q3(c) recombination, CAP misapplication in Q5, an unmeasurable Q1 availability measure, one-sided Q6 consequences, Q2 over the word limit, and no explicit assumptions section. Current total 30/40.",
+    "next_steps": [
+      "In Q3(c), after computing payment availability 0.999975, recombine it with the other three components (0.9995 × 0.999 × 0.9995 × 0.999975) and report 99.80% with ~1.5 h downtime; show the multiplication explicitly.",
+      "In Q5(ii), reframe CAP: partition tolerance is not optional; during a partition choose consistency or availability. State which you sacrifice for payments and browsing, and keep your Redis TTL and idempotency-key techniques.",
+      "Revise Q1's availability response measure to a measurable target tied to payment-dependent ordering, add a negative consequence to Q6, trim Q2 to ≤150 words, and add a short assumptions section."
+    ],
+    "criteria": {
+      "C1": "Your performance scenario is complete and measurable, and you justify performance/availability from lunch-peak data. To reach Excellent, make the availability response measure measurable and tie it to the payment-dependent order flow rather than degraded browsing; 'stay up most of the time' in Q1 is not measurable.",
+      "C2": "Your modular-monolith recommendation is clear and well grounded: you use the five-developer team, per-service overhead, and known single-VM/deployment problems, and you acknowledge the downside. This is Excellent. For format, trim Q2 to the 150-word limit so the communication criterion is not affected.",
+      "C3": "Q3(a) and (b) are correct with working (99.30%, 5.0 h). In Q3(c) you correctly compute payment availability 0.999975 but report it as whole-system availability; re-multiply by the other three components to get 99.80% and ~1.5 h downtime. That one incorrect part keeps this at Proficient; correcting it would meet Excellent.",
+      "C4": "You name Circuit Breaker, explain closed/open/half-open correctly, and apply it convincingly to the 25-minute hang with a threshold example. To reach Excellent, add a drawback or genuine tuning consideration, such as threshold calibration, false trips, or fallback behaviour, in Q4.",
+      "C5": "Your choices and techniques (Redis TTL cache, idempotency key) are sensible. However, Q5(ii) misapplies CAP: partition tolerance cannot be given up; during a partition you choose consistency or availability. Correct that framing and state the sacrifice for payments versus browsing to reach Excellent.",
+      "C6": "Your ADR has Context, Decision and Consequences specific to CampusEats. The consequences are one-sided: you list latency, offline outlets and peak smoothing but no negative consequence. Add one, such as duplicate delivery, ordering guarantees, or added operational complexity, to meet Excellent.",
+      "C7": "Writing is clear, headings are in order, and IEEE-style citations/reference list are present. Q2 is ~180 words, over the 150-word limit; trim it. Also add an explicit assumptions section, as the brief requires assumptions to be stated, to strengthen format compliance."
+    }
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "total": 25.0,
+  "total_max": 40.0,
+  "percent": 62.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are well justified and the performance scenario is measurable. The availability scenario has all six parts but its response measure is vague, so it is not measurable.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation with two scenario-specific trade-offs (team size/ops overhead, known problems not caused by monolith) and an acknowledged downside.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "Part (a) is correct, but (b) should be 5.0 hours and (c) should multiply all components, giving about 99.80% and 1.5 hours. Two parts are wrong.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker is named and applied, but the Open/Closed states are reversed: Open should fail fast and Closed should pass calls. The outage application is therefore also wrong.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "the breaker would have closed within seconds of the provider slowing down.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Both choices are reasonable and menu caching is a concrete technique. However, CAP is misused (partition tolerance cannot be given up) and no concrete payment technique is named.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are present and specific, but the consequences are one-sided: only positive outcomes are listed, with no negative consequence.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Writing is clear and headings are used, but Q2 is about 182 words (over 150) and reference [2] is cited without a corresponding entry in the reference list.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure.",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed. Upper Saddle River, NJ, USA: Addison-Wesley, 2012.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Part (b): 0.00699 × 720 = 5.03 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c): new availability must multiply all components; result is about 99.80% and 1.5 hours downtime, not 99.9975% and 0.018 hours."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit Breaker states reversed: Open should fail fast, Closed should pass calls; 'closed within seconds' should be 'opened'."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP misuse: cannot give up partition tolerance in a distributed system; during partition choose CP or AP. No concrete payment technique named."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence in ADR."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure is not measurable."
+    },
+    {
+      "where": "Question 2",
+      "issue": "Answer exceeds 150-word limit (about 182 words)."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [2] is cited but missing from reference list."
+    },
+    {
+      "where": "Question 1",
+      "issue": "No explicit assumptions section despite task requirement."
+    }
+  ],
+  "overall": "Strong Q2 and clear structure, but Q3 has two calculation errors, Q4 reverses circuit-breaker states, Q5 misuses CAP and omits a payment technique, Q6 lacks a negative consequence, Q1 has a non-measurable measure, Q2 exceeds 150 words, and [2] is missing from references.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 11,
+    "quotes_found": 11,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You have a clear structure and a strong Q2 recommendation. Q1 and Q6 are close to the next level, but Q3 has two calculation errors, Q4 reverses circuit-breaker states, Q5 misuses CAP and omits a payment technique, and Q2 exceeds the word limit. Reference [2] is also missing from your list.",
+    "next_steps": [
+      "Re-work Q3(b) and Q3(c): show 0.00699 × 720 = 5.03 hours for (b), and for (c) multiply all component availabilities before converting to downtime (about 99.80%, 1.5 hours).",
+      "Correct Q4's circuit-breaker states (Open = fail fast, Closed = pass calls) and Q5's CAP use: in a partition choose CP or AP, and name a concrete payment technique such as idempotency keys or a transactional outbox.",
+      "Tighten Q2 to 150 words, make Q1's availability response measure measurable (e.g., 99.9% monthly uptime), add a negative consequence to Q6's ADR, and add reference [2] to the list."
+    ],
+    "criteria": {
+      "C1": "Q1: You justify performance and availability well, and your performance scenario is measurable. To reach Excellent, make the availability response measure measurable (e.g., 99.9% monthly uptime) and include the required explicit assumptions section; both scenarios then need all six parts with measurable measures.",
+      "C2": "Q2: Excellent. Your modular-monolith recommendation is clear and grounded in the scenario: five developers, ops overhead, and known problems not caused by the monolith. You also acknowledge the downside (no independent scaling, whole-process crash risk). Keep this level by staying within 150 words in future answers.",
+      "C3": "Q3: Part (a) is correct, but (b) should be 0.00699 × 720 = 5.03 hours, not 3.5. For (c), multiply all component availabilities before converting to downtime; that gives about 99.80% and 1.5 hours, not 99.9975% and 0.018 hours. Show each step to reach Excellent.",
+      "C4": "Q4: You name Circuit Breaker and apply it to the outage, but the Open/Closed states are reversed. Open should fail fast; Closed should pass calls. Correct that mechanism and explain how the breaker would open as the provider slows, then add a drawback or tuning consideration to reach Excellent.",
+      "C5": "Q5: Your choices are reasonable and menu caching is concrete. However, CAP is misused: you cannot give up partition tolerance in a distributed system; during a partition you choose CP or AP. Name a concrete payment technique (e.g., idempotency keys or transactional outbox) and justify both choices to reach Excellent.",
+      "C6": "Q6: Context, Decision and Consequences are present and specific. To reach Excellent, add at least one negative consequence to balance the positive ones—for example, the added complexity or a new failure mode from decoupling order placement from the outlet.",
+      "C7": "C7: Writing is clear and headings are used. Q2 is about 182 words, over the 150-word limit, and reference [2] is cited but missing from your reference list. Trim Q2 and add the missing IEEE-style entry to reach Excellent."
+    }
+  }
+}

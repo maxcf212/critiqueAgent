@@ -1,0 +1,269 @@
+{
+  "total": 25.0,
+  "total_max": 40.0,
+  "percent": 62.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are well justified from the lunch peak and abandonment. The performance scenario has all six parts and a measurable p95 target. The availability scenario has six parts but its response measure is not measurable, so it is not Excellent.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The two most important quality attributes are performance and availability",
+          "verified": true
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation. Trade-offs are scenario-specific: five developers versus operational overhead, and single-VM/deployment causes of known problems. The downside is acknowledged: no independent scaling and whole-process crash risk.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "Part (a) is correct. Part (b) has an arithmetic error: 0.00699×720≈5.03 h, not 3.5 h. Part (c) computes payment availability correctly but then treats it as end-to-end availability; the other components must still multiply, giving about 99.80% and about 1.46 h downtime.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "Circuit breaker is appropriate and applied to the outage, but the state semantics are reversed: Closed is normal and Open fails fast. 'Opens again' should be 'closes again'. No clear drawback or tuning consideration is given beyond a threshold example.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally.",
+          "verified": true
+        },
+        {
+          "where": "Question 4",
+          "quote": "the breaker moves to Closed and calls fail immediately",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "The menu choice and Redis cache technique are good. The payment choice is reasonable, but CAP is misused: partition tolerance is not optional; favouring consistency during a partition sacrifices availability. No concrete payment technique is named.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says a system can only provide two of consistency, availability and partition tolerance",
+          "verified": true
+        },
+        {
+          "where": "Question 5",
+          "quote": "for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision and Consequences are specific and present. The consequences are all positive; no negative consequence is given, so it is Proficient rather than Excellent.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Headings and IEEE-style [1] are present, but Question 2 is about 181 words (over 150), [2] is cited without a reference entry, and no assumptions are stated. Writing is otherwise clear.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2]",
+          "verified": true
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable."
+    },
+    {
+      "where": "Question 2",
+      "issue": "Answer is about 181 words, exceeding the 150-word limit."
+    },
+    {
+      "where": "Question 3(b)",
+      "issue": "0.00699 × 720 = 5.03 hours, not 3.5 hours."
+    },
+    {
+      "where": "Question 3(c)",
+      "issue": "New end-to-end availability must multiply all components; 99.9975% is only payment availability. Correct end-to-end is about 99.80%, downtime about 1.46 h."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker Open/Closed states are reversed; Open should fail fast, Closed should pass calls."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP misuse: partition tolerance cannot be given up; in a partition choose C or A. Payment technique missing."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence in the ADR."
+    },
+    {
+      "where": "References",
+      "issue": "[2] is cited in Question 4 but absent from the reference list; assumptions are not stated."
+    }
+  ],
+  "overall": "Total 25/40. Strong Q2 and mostly good Q1/Q6, but Q3 has two wrong parts, Q4 reverses circuit-breaker states, Q5 misuses CAP and omits a payment technique, Q6 lacks a negative consequence, and Q2 exceeds the word limit with a missing reference.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 14,
+    "quotes_found": 14,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You scored 25/40. Q2 is excellent and Q1/Q6 are strong. Q3 has two wrong parts, Q4 reverses circuit-breaker states, Q5 misuses CAP and omits a payment technique, Q6 lacks a negative consequence, and Q2 exceeds the word limit with a missing reference. Address these specific fixes to move up the rubric.",
+    "next_steps": [
+      "Re-work Q3: correct 0.00699×720 to about 5.03 h and multiply all component availabilities for end-to-end availability (about 99.80%, about 1.46 h downtime).",
+      "Fix Q4 circuit-breaker semantics (Open = fail fast, Closed = pass calls) and add a drawback or tuning consideration; in Q5 explain CAP correctly (partition tolerance is not optional) and name a concrete payment technique.",
+      "In Q6 add a negative consequence; in Q2 trim to 150 words or fewer; add reference [2] and state your assumptions."
+    ],
+    "criteria": {
+      "C1": "You chose performance and availability well, justified from the lunch peak and abandonment. Your performance scenario has all six parts and a measurable p95 target. Your availability scenario has six parts, but 'stay up most of the time' is not measurable. To reach Excellent, make both response measures measurable, for example 99.9% monthly uptime.",
+      "C2": "Excellent work. Your modular-monolith recommendation is clear, with scenario-specific trade-offs: five developers versus operational overhead, and single-VM/deployment causes of known problems. You acknowledge the downside: no independent scaling and whole-process crash risk. Keep this level of specificity.",
+      "C3": "Part (a) is correct. Part (b) has an arithmetic slip: 0.00699×720 is about 5.03 h, not 3.5 h. Part (c) computes payment availability correctly but treats it as end-to-end; multiply all components to get about 99.80% and about 1.46 h downtime. To reach Proficient, correct both parts and show working.",
+      "C4": "Circuit breaker is appropriate and applied to the outage, but the state semantics are reversed: Open should fail fast and Closed should pass calls. 'Opens again' should be 'closes again'. No clear drawback or tuning consideration is given beyond a threshold example. To reach Proficient, correct the mechanism explanation; for Excellent, add a drawback or tuning consideration.",
+      "C5": "Your menu choice and Redis cache technique are good. The payment choice is reasonable, but CAP is misused: partition tolerance is not optional; during a partition you choose consistency or availability. No concrete payment technique is named. To reach Excellent, explain CAP correctly and name a concrete payment technique, such as idempotency keys or a transactional outbox.",
+      "C6": "Context, Decision and Consequences are specific and present. Your consequences are all positive; no negative consequence is given. To reach Excellent, add at least one negative consequence, such as added complexity, operational overhead, or eventual consistency.",
+      "C7": "Headings and IEEE-style [1] are present, and writing is clear. Q2 is about 181 words, over the 150-word limit; [2] is cited in Q4 but missing from the reference list; assumptions are not stated. To reach Excellent, keep every answer within 150 words, add the missing reference entry, and state assumptions."
+    }
+  }
+}

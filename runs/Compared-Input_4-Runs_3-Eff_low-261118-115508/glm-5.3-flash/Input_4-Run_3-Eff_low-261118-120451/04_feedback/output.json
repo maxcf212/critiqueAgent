@@ -1,0 +1,18 @@
+{
+  "summary": "A strong submission overall. Q2 was excellent with scenario-specific trade-offs, and Q1, Q3, Q4, Q5 and Q6 all showed sound method. To lift marks: make the availability response measure measurable, include the non-payment components in Q3(c), apply CAP correctly in Q5, add a negative consequence to the ADR, and keep every answer within 150 words.",
+  "next_steps": [
+    "In Q3(c), multiply the payment-pair availability (0.999975) by the other three components (0.9995×0.999×0.9995) to get the end-to-end availability (~99.80%, ~1.5 h downtime) rather than reporting the payment pair alone.",
+    "In Q5, reframe the CAP argument: partition tolerance cannot be given up; during a partition you must choose between consistency and availability, so justify each choice as C or A under partition.",
+    "In Q6, add at least one negative consequence (e.g. delayed outlet notification, duplicate-order handling, extra infrastructure) to balance the ADR.",
+    "Trim Q2 and Q4 to 150 words each, stating any assumptions explicitly, and make the Q1 availability response measure measurable (e.g. '99.5% uptime measured monthly')."
+  ],
+  "criteria": {
+    "C1": "You chose suitable attributes (performance and availability) with good scenario-based justification, and your performance scenario was fully six-part and measurable. To reach Excellent, both response measures must be measurable: 'stay up most of the time' is not. Replace it with a quantified target, e.g. '99.5% availability measured monthly', and keep the six-part structure for both scenarios.",
+    "C2": "Excellent work. Your modular monolith recommendation was clearly justified with two trade-offs tied to the scenario — the five-developer team size and the root causes of the known problems — and you acknowledged the downside (no independent scaling, one bug can crash the process). This meets the Excellent standard; just watch the 150-word limit (see C7).",
+    "C3": "Parts (a) and (b) were correct with working shown (99.30%, 5.0 h). Part (c) reported only the payment-pair availability (99.9975%) and dropped the other three components. The end-to-end availability is 0.9980010×0.999975 ≈ 99.80%, about 1.5 h downtime per month. Your method is sound — show the full product in part (c) to reach Excellent.",
+    "C4": "You named the circuit breaker correctly, explained its states and thresholds well, and applied it convincingly to the outage with a realistic user-facing message. The missing element for full marks is an explicit drawback or tuning consideration — e.g. false trips on slow (rather than failed) calls, or how to choose the failure threshold and timeout values.",
+    "C5": "Both choices were reasonable and you named concrete techniques (Redis TTL cache; idempotency keys), which is good. However, CAP was misapplied: 'giving up partition tolerance' is not an option — partitions will happen, so the real choice during a partition is between consistency and availability. Restate each choice as C-over-A or A-over-C under partition to reach Excellent.",
+    "C6": "Your ADR had all three sections, scenario-specific context and a clear decision, and the positive consequence (faster order placement) was well stated. What held it at Proficient was the one-sided consequences: add at least one negative consequence, such as eventual outlet notification, duplicate-order handling, or extra infrastructure cost.",
+    "C7": "Your headings, ordering and IEEE citations were correct, but Q2 (~200 words) and Q4 (~160 words) exceeded the 150-word limit and no assumptions were stated. Practise writing tight, prioritised answers: state assumptions in one line, cut generic textbook material, and count words before submitting to reach the Excellent level."
+  }
+}

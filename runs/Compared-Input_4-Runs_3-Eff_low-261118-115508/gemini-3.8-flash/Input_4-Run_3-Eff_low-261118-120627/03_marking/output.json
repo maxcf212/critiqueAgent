@@ -1,0 +1,140 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are well chosen, but the availability response measure ('stay up most of the time') is completely unmeasurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear recommendation (modular monolith) justified by two detailed scenario-specific trade-offs (team size, VM scaling/deployment issues), with explicit downsides acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "Parts (a) and (b) are correct. In (c), the student forgot to multiply the remaining three components by the new payment availability (0.9995 * 0.999 * 0.9995 * 0.999975 = 99.80%), treating A_pay as the entire system availability."
+    },
+    {
+      "id": "C4",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the outage last month the breaker would have opened within seconds of the provider slowing down."
+        }
+      ],
+      "reasoning": "The circuit breaker pattern is well explained and applied to the scenario, but no drawback or tuning consideration (e.g. threshold tuning, fallback UX) is explicitly discussed."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Choices and concrete techniques are sound, but the CAP explanation is flawed: network partitions cannot be chosen away in distributed networks ('give up partition tolerance' is a misconception)."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision, and Consequences are present and specific, but Consequences only lists positive effects; no negative consequence (e.g., added architectural complexity, eventual consistency/delayed confirmation) is included."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months."
+        }
+      ],
+      "reasoning": "Question 2 exceeds the 150-word limit (approx. 200 words). Headings, precision, and IEEE citations are otherwise well handled."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure ('stay up most of the time') is vague and unquantified."
+    },
+    {
+      "where": "Question 3",
+      "issue": "In part (c), total system availability was equated directly to the redundant payment subsystem availability (0.999975) instead of multiplying by the other three components."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Misinterprets CAP theorem by claiming one can choose 'CA' over 'P' in a distributed network scenario where partitions are inevitable."
+    }
+  ],
+  "overall": "A solid, well-written submission demonstrating good architectural understanding. Lost marks due to a calculation error in Q3(c), a non-measurable response measure in Q1, an imprecise CAP explanation in Q5, missing drawbacks in Q4/Q6, and exceeding the word limit in Q2."
+}

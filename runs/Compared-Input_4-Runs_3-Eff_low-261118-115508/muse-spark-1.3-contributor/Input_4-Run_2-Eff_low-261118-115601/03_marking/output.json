@@ -1,0 +1,144 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Suitable attributes with justification. Performance scenario complete and measurable. Availability scenario has six parts but response measure is vague and not measurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular monolith recommendation. Two scenario-specific trade-offs on 5-person overhead and single-VM plus deployment downtime. Downside acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "Parts (a) 99.30% and (b) 5.0h correct with working. Part (c) reports payment-only availability, omits other three components; correct is ~99.80% and ~1.5h."
+    },
+    {
+      "id": "C4",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "After a wait period the breaker goes Half-Open and lets a few trial calls through."
+        }
+      ],
+      "reasoning": "Appropriate Circuit Breaker correctly explained and applied to slow-provider outage. No explicit drawback or tuning trade-off discussed, only example thresholds."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both choices reasonable with techniques (Redis TTL, idempotency key). CAP used incorrectly: partition tolerance cannot be given up during partition."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders at a steady rate."
+        }
+      ],
+      "reasoning": "Context, Decision, Consequences present and specific. Multiple positives given but no negative consequence such as complexity or eventual consistency."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months."
+        }
+      ],
+      "reasoning": "Clear writing with headings and IEEE citations. Question 2 exceeds 150-word limit at ~182 words."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Part (c) omits series components: correct end-to-end is 0.99800124975*0.999975=99.80% and ~1.5h downtime, not 99.9975% and 0.018h."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP statement incorrect: cannot choose C+A and abandon partition tolerance; partition must be tolerated, choice is C vs A."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure not measurable; no time, percentage or threshold."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence of queue (e.g., operational complexity, ordering, failure handling) stated."
+    }
+  ],
+  "overall": "Solid scenario-specific reasoning with correct series method for (a)-(b) but flawed (c), CAP error, vague availability measure, and missing ADR downside."
+}

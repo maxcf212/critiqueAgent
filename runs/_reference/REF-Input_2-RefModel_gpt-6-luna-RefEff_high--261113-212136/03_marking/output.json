@@ -1,0 +1,180 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "The spacecraft is intended to image and send data to ground stations for collation and analysis."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required. This also just allows for simplicity in communications, reduces cost, and requires less time to build and launch."
+        },
+        {
+          "where": "Introduction",
+          "quote": "The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM) for research and/or education."
+        }
+      ],
+      "reasoning": "The report explains the reef-monitoring purpose, environmental rationale, and reasons for using one spacecraft. It identifies likely science and government customers and Australian ground facilities, but does not clearly name the spacecraft operator or establish customer roles in detail."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle – launched from the Guiana Space Centre Spaceport."
+        },
+        {
+          "where": "Orbit",
+          "quote": "Specifically, an altitude of 600km requires a mean inclination of $ 97.7924^{\\circ} $ for the satellite to remain sun-synchronous."
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "Systems Tool Kit 11 (STK) was used to calculate access periods as seen below:"
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "A span of five years is a sound estimate of the useful lifespan of the proposed satellite."
+        },
+        {
+          "where": "Image 1",
+          "quote": ""
+        },
+        {
+          "where": "Image 4",
+          "quote": ""
+        }
+      ],
+      "reasoning": "The report addresses launch, orbit and elements, manoeuvres, ground access, duration, EOL, and includes STK outputs and screenshots. However, key design claims are inadequately substantiated: imaging performance and revisit are not established, ground-station capability is assumed, and sunlight and EOL manoeuvre reasoning contain inconsistencies."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A polar sun-synchronous orbit allows for consistent illumination of the oceans while maintaining a constant sun angle."
+        },
+        {
+          "where": "Conclusion",
+          "quote": "The Mt Pleasant Radio Observatory is well-located to receive data from this orbit type constantly and for long durations."
+        }
+      ],
+      "reasoning": "The conclusion recaps the principal design choices and their intended benefit, and notes a launch-vehicle uncertainty. It is appropriate but mostly summarizes earlier claims rather than drawing detailed conclusions from the evidence or acknowledging important limitations."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Contents",
+          "quote": "Executive Summary ..... 2"
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "The first fifteen access periods are listed above."
+        }
+      ],
+      "reasoning": "The report has a recognizable engineering structure, executive summary, and useful figures and data. Writing and formatting are uneven, figures and tables are not consistently numbered and titled, and the reference list is incomplete and inconsistent; it also cites Wikipedia, which the task disallows."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Launch"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Orbit; Mission Duration & EOL"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Ground Control & Communications; Images 1–5"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Orbit",
+      "issue": "The report treats RAAN as indicating the launch facility location. RAAN specifies the inertial orientation of the orbital plane; the launch site constrains achievable planes but does not determine RAAN by itself."
+    },
+    {
+      "where": "Orbit; Ground Control & Communications",
+      "issue": "Sun-synchronous motion maintains approximately consistent local solar time, not continuous sunlight. A 600 km orbit will generally experience eclipses; the claim that the descending track is constantly sunlit is unsupported without specifying a dawn-dusk orbit."
+    },
+    {
+      "where": "Orbit",
+      "issue": "The report selects 600 km and asserts daily reef-section imaging, but provides no payload field of view, ground sample distance, swath, pointing limits, or revisit/coverage analysis to demonstrate that capability."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Mount Pleasant Radio Observatory is selected as a control station based on its radio telescopes, but the report does not establish that it has spacecraft TT&C equipment, compatible frequencies, or operational support for this satellite."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "The report calls EOL disposal an orbital manoeuvre, then states the spacecraft has no thrusters and proposes a passive drag sail. It gives no drag-sail sizing or decay-time analysis to show disposal within an acceptable period."
+    },
+    {
+      "where": "Launch",
+      "issue": "The launch discussion relies on a general equatorial-launch advantage without evaluating the implications of launching into a retrograde, approximately 98-degree orbit or substantiating Vega E payload and schedule compatibility."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "The access results cover only a short simulation interval and do not state the access elevation constraint or demonstrate data-rate/link-budget adequacy; the conclusion that contact is sufficient is therefore unsupported."
+    }
+  ],
+  "overall": "The report presents a coherent preliminary concept with STK evidence and covers most required mission elements. Its strongest deficiencies are unsupported payload and coverage assumptions, mistaken sunlight and orbital-plane explanations, uncertain ground-station capability, and an unquantified passive EOL plan. Referencing and presentation also need improvement."
+}

@@ -1,0 +1,149 @@
+{
+  "total": 59.0,
+  "total_max": 100.0,
+  "percent": 59.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Adequate",
+      "mark": 6.0,
+      "scale": 10.0,
+      "points": 24.0,
+      "max": 40.0,
+      "reasoning": "Clear purpose, users (marine/conservation scientists) and need, with four literature citations. However, no explicit mission objectives/requirements (payload, resolution, coverage, lifetime), and the orbit concept contains a fundamental error, so not fully accomplished.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "A near-real-time relay to monitoring stations on the ground would allow marine and conservation scientists to more accurately predict and react to coral bleaching events.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Adequate",
+      "mark": 6.0,
+      "scale": 10.0,
+      "points": 18.0,
+      "max": 30.0,
+      "reasoning": "Detailed Gantt chart with week-by-week tasks tied to mission stages (launch, orbit, ground, comms, end-of-life). Lacks contingency/variations provision and no dedicated list of planned information sources; sources only appear as concept footnotes.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "Project work will be divided into weeks via a Gantt Chart. Detailed task descriptions can be found on the next page.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Adequate",
+      "mark": 5.0,
+      "scale": 10.0,
+      "points": 5.0,
+      "max": 10.0,
+      "reasoning": "Evidence of progress: mission concept drafted, background research on Asner's imaging approach, STK tutorials completed. However, no preliminary technical results (orbit parameters, coverage calcs, simulations) are presented or interpreted.",
+      "evidence": [
+        {
+          "where": "Project Plan & Preliminary Progress",
+          "quote": "completed STK tutorials 1, 2, 3 & 4",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Adequate",
+      "mark": 6.0,
+      "scale": 10.0,
+      "points": 12.0,
+      "max": 20.0,
+      "reasoning": "Well-written, logical structure with headings, clear labelled Gantt chart. But references are footnote URLs with no reference list, and the report is brief (~2 pages) with limited figures/tables, so not at the accomplished professional level.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "¹ https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-acidification",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "partial",
+      "where": "Project Plan & Preliminary Progress — Launch/Orbit Specifics tasks relate to space segment, but 'geostationary orbit at an altitude of 600 km' is technically wrong"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan & Preliminary Progress — 'STK Design' and 'STK Simulations' tasks; STK tutorials completed"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Image 1 — Gantt chart with weekly schedule and task descriptions"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Mission Concept & Rationale — four source URLs cited, but no list of planned information sources"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Project Plan & Preliminary Progress — research and STK tutorials done, but no preliminary technical results shown"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Project Plan & Preliminary Progress (Orbit Specifics)",
+      "issue": "States 'geostationary orbit at an altitude of 600 km, which keeps the satellite fixed above the reef' — geostationary orbit requires ~35,786 km altitude; 600 km is LEO and cannot remain fixed over the reef. Also, GEO would give poor resolution for reef imaging."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "Concept conflates an imaging satellite (Asner-style seafloor colour detection) with a near-real-time communications relay; payload/mission architecture is not defined."
+    }
+  ],
+  "overall": "Well-motivated Australian reef-monitoring mission with clear users, a detailed Gantt-chart plan and STK selected. Weakened by a fundamental orbit error (GEO at 600 km), no explicit requirements or source list, and limited preliminary technical results.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 4,
+    "quotes_found": 4,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You presented a well-motivated reef-monitoring mission with clearly identified users, a detailed week-by-week Gantt chart, and evidence of STK tutorial progress. To reach the accomplished level, you need explicit mission objectives and requirements, a corrected orbit concept, contingency planning, a dedicated source list, and preliminary technical results with interpretation.",
+    "next_steps": [
+      "Correct the orbit error: a geostationary orbit requires ~35,786 km altitude; 600 km is LEO and cannot keep the satellite fixed above the reef. Reconsider orbit choice against imaging resolution and coverage needs.",
+      "Define explicit mission objectives and requirements (payload type, resolution, coverage, revisit rate, lifetime) and clarify whether the mission is imaging, communications relay, or both.",
+      "Add contingency provisions to your Gantt chart and a dedicated list of planned information sources and software, replacing footnote URLs with a proper reference list.",
+      "Include preliminary technical results — e.g. orbit parameters, coverage or link-budget calculations, or initial STK simulation outputs — with brief interpretation."
+    ],
+    "criteria": {
+      "C1": "Your concept clearly states purpose, users (marine and conservation scientists) and need, supported by four literature citations. To reach Accomplished, add explicit mission goals, objectives and requirements (payload, resolution, coverage, lifetime), resolve the imaging-vs-relay architecture ambiguity, and correct the orbit description.",
+      "C2": "Your Gantt chart with weekly tasks tied to mission stages is detailed and feasible. To reach Accomplished, add provision for variations and contingencies, explain why the plan is structured this way in the mission context, and include a dedicated list of planned information sources.",
+      "C3": "You show genuine progress: concept drafted, background research on Asner's imaging approach, and STK tutorials 1–4 completed. To reach Accomplished, present a preliminary set of technical results (e.g. orbit parameters, coverage or simulation outputs) with brief description and interpretation.",
+      "C4": "Your report is well-written with a logical structure, clear headings and a labelled Gantt chart. To reach Accomplished, replace footnote URLs with a proper reference list matching in-text citations, and expand the report with more figures and tables presented consistently."
+    }
+  }
+}

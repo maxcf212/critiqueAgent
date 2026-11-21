@@ -1,0 +1,168 @@
+{
+  "total": 89.0,
+  "total_max": 100.0,
+  "percent": 89.0,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Mission concept and rationale — What will it do, who are the users, why is it needed?",
+      "weight": 40.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 36.0,
+      "max": 40.0,
+      "reasoning": "Clear goal, four quantified objectives, users (AIMS, GBRMPA, CSIRO, BoM) tied to needs, and literature cited [1]-[6]. Objectives explicitly traced to user needs. Minor gap: no explicit requirements table/verification, but essentially complete.",
+      "evidence": [
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef",
+          "verified": true
+        },
+        {
+          "where": "Mission Concept & Rationale",
+          "quote": "Its customers are the Great Barrier Reef Marine Park Authority, which needs up-to-date bleaching maps",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Project plan — How you plan to complete the assignment, including either a Gantt chart or a timetable and information sources you plan to use",
+      "weight": 30.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 27.0,
+      "max": 30.0,
+      "reasoning": "Gantt chart with task descriptions, explicit logic linking plan order to mission (orbit before comms), contingencies/risk table, float, and a planned-sources table (Table 2) including SMAD and lecture notes. Robust and mission-aligned.",
+      "evidence": [
+        {
+          "where": "Project Plan",
+          "quote": "Project work is divided into weeks in the Gantt chart in Figure 1",
+          "verified": true
+        },
+        {
+          "where": "Project Plan",
+          "quote": "The main risks and the planned responses are listed in Table 1.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Preliminary progress — Technical content and evidence of sufficient work done to date",
+      "weight": 10.0,
+      "level": "Accomplished",
+      "mark": 8.0,
+      "scale": 10.0,
+      "points": 8.0,
+      "max": 10.0,
+      "reasoning": "Hand calculations verified correct (a=6978 km, T=5801 s, 14.9 orbits/day, i≈97.8° SSO, 24.2° track shift). Results interpreted against objectives, swath trade identified, STK tutorials done and scenario set up. On track.",
+      "evidence": [
+        {
+          "where": "Preliminary Progress",
+          "quote": "T = 2π√(a³/μ) | 5,801 s = 96.7 min",
+          "verified": true
+        },
+        {
+          "where": "Preliminary Progress",
+          "quote": "Weekly coverage (objective 1) is therefore not guaranteed by one satellite at this altitude and resolution.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Report presentation",
+      "weight": 20.0,
+      "level": "Accomplished",
+      "mark": 9.0,
+      "scale": 10.0,
+      "points": 18.0,
+      "max": 20.0,
+      "reasoning": "Logical structure, clear writing, labelled figures/tables, consistent IEEE-style citations matching the reference list, colour legend explained. Very professional presentation.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] NOAA, \"Ocean acidification,\" 2020. [Online].",
+          "verified": true
+        },
+        {
+          "where": "Project Plan",
+          "quote": "Figure 1: Project Gantt chart, Weeks 2 to 10 (gold = completed, blue = planned, red lines = report deadlines).",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Mission Concept & Rationale"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Preliminary Progress — orbit hand calculations, launch/orbit tasks in plan"
+    },
+    {
+      "id": "R3",
+      "met": "yes",
+      "where": "Project Plan — 'The design will be completed in STK'"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Project Plan — Figure 1 Gantt chart"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Project Plan — Table 2 planned information sources"
+    },
+    {
+      "id": "R6",
+      "met": "yes",
+      "where": "Preliminary Progress — Table 3 calculations and STK setup"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Preliminary Progress",
+      "issue": "Ground-track shift quoted at the equator is fine, but the reef sits at ~18-20°S where track spacing is smaller; the coverage conclusion is conservative but could note latitude dependence."
+    },
+    {
+      "where": "Mission Concept & Rationale",
+      "issue": "10 m GSD at 600 km implies a demanding telescope/aperture; feasibility not yet addressed (acceptable at this stage)."
+    }
+  ],
+  "overall": "Excellent preliminary report: well-justified Australian reef-monitoring mission, quantified objectives, robust Gantt plan with contingencies, correct hand calculations with interpretation, and polished presentation. Minor refinements to coverage analysis would strengthen it.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 8,
+    "quotes_found": 8,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "An excellent preliminary report. Your reef-monitoring mission concept is well justified with quantified objectives tied to named users, your Gantt plan is robust with contingencies, and your orbit hand calculations are correct and interpreted against your objectives. Presentation is professional. To reach the very top of the rubric, address latitude dependence in your coverage analysis and add a requirements table.",
+    "next_steps": [
+      "In Preliminary Progress, note that your 24.2° equatorial track shift overstates spacing at the reef's latitude (~18–20°S), where ground-track spacing is smaller — discuss how this changes your weekly-coverage conclusion and consider computing spacing at 18°S.",
+      "Add a table of mission requirements (derived from your four objectives) with a brief note on how each will be verified, to close the gap between objectives and requirements in C1.",
+      "Briefly flag the feasibility of 10 m GSD at 600 km (aperture/telescope sizing) as a design question to resolve in the full assignment, so the swath trade is framed early."
+    ],
+    "criteria": {
+      "C1": "Accomplished (9/10). Your mission goal is clear, your four objectives are quantified, and users (GBRMPA, AIMS, CSIRO, BoM) are explicitly tied to their needs, supported by references [1]–[6]. To fully reach the top of the Accomplished band, add an explicit requirements table with verification approach linking objectives to mission requirements.",
+      "C2": "Accomplished (9/10). Your Gantt chart (Figure 1) is well structured with task logic tied to the mission (orbit before comms), a risk/contingency table (Table 1), float, and a planned-sources table (Table 2) including SMAD and lecture notes. This is a robust, mission-aligned plan; little is missing at this level.",
+      "C3": "Accomplished (8/10). Your hand calculations (a=6978 km, T=5801 s, 14.9 orbits/day, i≈97.8° SSO, 24.2° track shift) are correct and interpreted against your objectives, with a swath trade identified and STK setup completed. Strengthen the coverage analysis by accounting for latitude dependence at the reef, and note the aperture implications of 10 m GSD at 600 km.",
+      "C4": "Accomplished (9/10). Your report has a logical structure, clear writing, labelled figures and tables with explained legends, and consistent IEEE-style citations matching the reference list. Presentation is professional; maintain this standard in the full report."
+    }
+  }
+}

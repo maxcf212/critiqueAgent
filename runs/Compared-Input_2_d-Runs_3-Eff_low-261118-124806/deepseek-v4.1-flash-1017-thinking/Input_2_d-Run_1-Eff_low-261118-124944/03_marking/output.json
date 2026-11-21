@@ -1,0 +1,156 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "The satellite, nicknamed ZYZZsat (Z-axis/Y-axis Zeroed Zoning Satellite), is operated and accessed from Australia ground facilities"
+        },
+        {
+          "where": "Introduction",
+          "quote": "only one satellite is required."
+        }
+      ],
+      "reasoning": "Mission, rationale and single-spacecraft choice are detailed with references. Users are only partly identified: Australian facilities and scientists are implied, but operator and customers are not explicitly named. Therefore Adequate-high rather than Accomplished."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Orbit",
+          "quote": "an altitude of 600km requires a mean inclination of $ 87.7924^{\\circ} $ for the satellite to remain sun-synchronous."
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "average contact duration of almost twenty minutes was achieved"
+        },
+        {
+          "where": "Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle – launched from the Guiana Space Centre Spaceport."
+        }
+      ],
+      "reasoning": "Launch, orbit, ground station, duration and EOL are covered with STK screenshots and an access table. However, the SSO inclination is wrong/inconsistent with the plotted value, Kourou latitude is badly misstated, mean contact time is misreported, EOL/manoeuvre logic contradicts itself, and software files are not evidenced. Adequate but error-prone."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "A specific launch vehicle – the Vega E – has been selected although it has not been built yet."
+        }
+      ],
+      "reasoning": "The conclusion summarises launch, orbit and ground-station choices from the report, but it is somewhat generic and omits meaningful conclusions on duration and EOL. It also depends on an unbuilt launch vehicle with only a brief fallback comment."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Bibliography",
+          "quote": "https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        },
+        {
+          "where": "Image 1",
+          "quote": "STK 3D view of orbit: 12 hours apart"
+        }
+      ],
+      "reasoning": "Structure, headings and executive summary are clear, but figures/tables are inconsistently numbered or captioned, bibliography entries are mostly bare URLs without proper metadata, Wikipedia is used despite being unacceptable, and citation formatting is weak. Presentation is readable but not professional."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Executive Summary; Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Executive Summary; Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Launch"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Orbit; Mission Duration & EOL"
+    },
+    {
+      "id": "R7",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Orbit; Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Image 1; Image 4; Ground Control & Communications"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Launch",
+      "issue": "Kourou latitude is stated as 45.05°N; actual latitude is about 5.2°N, affecting launch/inclination reasoning."
+    },
+    {
+      "where": "Orbit",
+      "issue": "Inclination 87.79° is prograde and not sun-synchronous at 600 km; the plotted SSO value is near 97.8°, so the orbital element table is internally inconsistent."
+    },
+    {
+      "where": "Launch; Orbit",
+      "issue": "A direct launch from Kourou at ~5°N into a ~97.8° retrograde SSO requires significant plane change/dogleg; this feasibility and cost are not assessed."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "Mean access duration in the STK table is 580.786 s (about 9.7 min), not 'almost twenty minutes'; maximum is about 12.8 min."
+    },
+    {
+      "where": "Orbit",
+      "issue": "RAAN initial value 27.33° is said to indicate the launch facility, but no launch time/geometry calculation supports this."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "Text says the only manoeuvre occurs at EOL, then says the satellite has no thrusters and uses a passive drag sail; this is contradictory and the drag-sail description is incomplete."
+    },
+    {
+      "where": "Bibliography",
+      "issue": "References are largely bare URLs without titles/authors/access dates, and Wikipedia is cited despite being explicitly unacceptable."
+    }
+  ],
+  "overall": "Adequately structured and covers most required mission elements, but critical orbit, launch and contact calculations are inconsistent or wrong; user/operator details are incomplete, files are not evidenced, and referencing is weak. Marks sit in the Adequate band."
+}

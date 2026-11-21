@@ -1,0 +1,200 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "The two most important quality attributes are performance and availability, because the business depends on the lunch hour"
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Both attributes are relevant and justified, and the performance scenario has a measurable target. The availability measure is not measurable, so the scenarios do not fully meet the Excellent descriptor. The stated average of 150 requests per minute is also incorrect: 900 per hour is 15 per minute."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The 20-minute weekly downtime is a deployment process problem and can be removed with rolling deployments."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "The modular-monolith recommendation is clear and grounded in team size, the single-VM performance problem, and deployment downtime. It gives relevant trade-offs and acknowledges the downside of shared scaling and process failure."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301"
+        },
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "Part (a) is correctly calculated and the working is shown. Part (b) has an arithmetic error: downtime is about 5.0 hours, not 3.5. Part (c) calculates payment-only availability but does not combine it with the other required components; end-to-end availability is about 99.80% and monthly downtime about 1.5 hours."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 1,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        },
+        {
+          "where": "Question 4",
+          "quote": "the breaker moves to Closed and calls fail immediately without waiting"
+        }
+      ],
+      "reasoning": "A circuit breaker is appropriate and its intended containment benefit is identified, but the state behavior is reversed: Closed normally permits calls, while Open short-circuits them. The explanation therefore does not correctly describe the pattern. No drawback or explicit tuning consideration is discussed."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "it is better to show a slightly stale menu from a cache (for example Redis with a 60-second TTL)"
+        },
+        {
+          "where": "Question 5",
+          "quote": "The CAP theorem says a system can only provide two of consistency, availability and partition tolerance, so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "The availability choice for browsing and consistency preference for payment are reasonable, and a concrete cache technique is given for browsing. CAP is misapplied: during a partition, a system must tolerate the partition and choose between consistency and availability. No concrete technique is named for payment."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Context: After an order is paid, the application calls the outlet's tablet synchronously and waits for the reply."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Decision: Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, decision, and consequences are present and specific to CampusEats. The consequences describe several benefits, but no negative consequence is included, so the ADR is one-sided."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed."
+        }
+      ],
+      "reasoning": "The required headings and order are used, the answers are clear, and the responses appear within the word limit. Numeric citations are used, but reference [2] is missing from the reference list. No explicit assumptions are stated."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "900 orders per hour is 15 orders per minute, not 150. The availability response measure, “most of the time,” is not measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "The part (b) downtime arithmetic is wrong: (1 − 0.99301) × 720 is about 5.0 hours, not 3.5."
+    },
+    {
+      "where": "Question 3",
+      "issue": "Part (c) reports payment-provider availability as end-to-end availability. Multiplying by the other required components gives about 99.80% end-to-end availability and 1.5 hours of monthly downtime."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit-breaker states are inverted: Closed normally allows calls, Open short-circuits them, and Half-Open permits trial calls."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP does not allow a system to give up partition tolerance while a network partition is occurring; the consistency-versus-availability choice applies during that partition."
+    },
+    {
+      "where": "Question 6",
+      "issue": "The ADR lists only positive consequences; it omits a negative consequence such as queue operations, delayed delivery, or duplicate notifications requiring idempotent handling."
+    },
+    {
+      "where": "References",
+      "issue": "Reference [2] is cited in Question 4 but has no corresponding reference-list entry."
+    }
+  ],
+  "overall": "22/40. The modular-monolith recommendation is well tailored to the scenario. The main deductions are for incorrect availability arithmetic and end-to-end aggregation, reversed circuit-breaker behavior, incorrect CAP treatment, an unmeasurable availability response measure, and incomplete ADR consequences and references."
+}

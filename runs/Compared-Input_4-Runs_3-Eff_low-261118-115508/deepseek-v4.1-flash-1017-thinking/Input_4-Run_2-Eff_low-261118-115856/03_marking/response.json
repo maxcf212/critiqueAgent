@@ -1,0 +1,650 @@
+{
+  "id": "chatcmpl-d853092b-3d0b-49de-b742-9a05c91bd910",
+  "object": "chat.completion",
+  "created": 1794963541,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"id\":\"C1\",\"level\":\"Proficient\",\"mark\":4,\"evidence\":[{\"where\":\"Question 1\",\"quote\":\"Response measure: the system should stay up most of the time.\"},{\"where\":\"Question 1\",\"quote\":\"Response measure: the p95 response time is under 1.5 s and no requests are dropped.\"}],\"reasoning\":\"Performance and availability are well justified from the lunch-peak data and the performance scenario is complete and measurable. The availability scenario has all six parts but its response measure ('stay up most of the time') is not measurable, so it falls short of Excellent.\"},{\"id\":\"C2\",\"level\":\"Excellent\",\"mark\":6,\"evidence\":[{\"where\":\"Question 2\",\"quote\":\"With five developers, running eight or ten services would mean more time spent on infrastructure than on features.\"},{\"where\":\"Question 2\",\"quote\":\"The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.\"}],\"reasoning\":\"Clear recommendation (modular monolith) with two scenario-specific trade-offs: five-developer team versus per-service operational overhead, and the known problems traced to a single VM and the deployment process rather than the monolith. The downside is explicitly acknowledged.\"},{\"id\":\"C3\",\"level\":\"Proficient\",\"mark\":5,\"evidence\":[{\"where\":\"Question 3\",\"quote\":\"So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours\"},{\"where\":\"Question 3\",\"quote\":\"A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301\"}],\"reasoning\":\"Parts (a) and (b) are correct with working (99.30%, 5.0 h). In (c) the combined payment availability 0.999975 is computed correctly, but the student then reports it as the whole-system availability instead of re-multiplying by the other three components; correct answer is 99.80% and 1.5 h. One part incorrect.\"},{\"id\":\"C4\",\"level\":\"Proficient\",\"mark\":4,\"evidence\":[{\"where\":\"Question 4\",\"quote\":\"When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open and calls fail immediately without waiting\"},{\"where\":\"Question 4\",\"quote\":\"Students would have seen \\\"payment temporarily unavailable, please try again or pay at the counter\\\" instead of the whole app hanging for 25 minutes.\"}],\"reasoning\":\"Circuit Breaker is named and its closed/open/half-open mechanism is explained correctly and applied convincingly to the 25-minute hang. A threshold value is mentioned, but no drawback or genuine tuning consideration (e.g. threshold calibration, false trips) is discussed, so it is not Excellent.\"},{\"id\":\"C5\",\"level\":\"Proficient\",\"mark\":4,\"evidence\":[{\"where\":\"Question 5\",\"quote\":\"for payments we choose consistency and availability and give up partition tolerance\"},{\"where\":\"Question 5\",\"quote\":\"each order request carries an idempotency key so that a repeated request does not create a second charge\"}],\"reasoning\":\"Both choices are sensible and concrete techniques are named (Redis TTL cache, idempotency key). However the CAP application is wrong: partition tolerance cannot be 'given up' in a partition; the correct framing is choosing consistency over availability during a partition.\"},{\"id\":\"C6\",\"level\":\"Proficient\",\"mark\":4,\"evidence\":[{\"where\":\"Question 6\",\"quote\":\"Consequences: Placing an order no longer waits for the outlet, so the response time improves.\"},{\"where\":\"Question 6\",\"quote\":\"If a tablet is offline the order is lost, and during the lunch peak these calls add to the 4.2 s p95 response time.\"}],\"reasoning\":\"Context, Decision and Consequences are all present and specific to CampusEats. The consequences are entirely positive (latency, offline outlets, peak smoothing); no negative consequence such as duplicate delivery, ordering guarantees or added operational complexity is given.\"},{\"id\":\"C7\",\"level\":\"Proficient\",\"mark\":3,\"evidence\":[{\"where\":\"Question 2\",\"quote\":\"Second, the known problems are not caused by the monolith itself.\"},{\"where\":\"References\",\"quote\":\"[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed.\"}],\"reasoning\":\"Writing is clear, headings are used in order and IEEE-style citations with a reference list are present. Question 2 is roughly 180 words, exceeding the 150-word limit; the other answers are within it.\"}],\"requirements\":[{\"id\":\"R1\",\"met\":\"partial\",\"where\":\"Question 1\"},{\"id\":\"R2\",\"met\":\"yes\",\"where\":\"Question 2\"},{\"id\":\"R3\",\"met\":\"partial\",\"where\":\"Question 3\"},{\"id\":\"R4\",\"met\":\"partial\",\"where\":\"Question 4\"},{\"id\":\"R5\",\"met\":\"partial\",\"where\":\"Question 5\"},{\"id\":\"R6\",\"met\":\"partial\",\"where\":\"Question 6\"},{\"id\":\"R7\",\"met\":\"partial\",\"where\":\"References\"}],\"technical_issues\":[{\"where\":\"Question 3(c)\",\"issue\":\"Final availability wrongly reported as 99.9975% (the payment-only figure); should re-multiply by the other three components giving 99.80% and ~1.5 h downtime.\"},{\"where\":\"Question 5(ii)\",\"issue\":\"CAP misapplied: partition tolerance cannot be traded away; in a partition one must sacrifice consistency or availability.\"},{\"where\":\"Question 1\",\"issue\":\"Availability response measure 'stay up most of the time' is not measurable; also the response describes degraded browsing rather than the payment-dependent order flow.\"},{\"where\":\"Question 6\",\"issue\":\"No negative consequence given, so the ADR consequences are one-sided.\"},{\"where\":\"Question 2\",\"issue\":\"Answer exceeds the 150-word limit (~180 words).\"},{\"where\":\"Whole submission\",\"issue\":\"No explicit assumptions section despite the brief requiring assumptions to be stated.\"}],\"overall\":\"Strong, well-structured answers with good scenario grounding and correct Q3(a)/(b). Main losses: Q3(c) fails to recombine availabilities, CAP misapplied in Q5, Q1 availability measure unmeasurable, Q6 lacks a negative consequence, and Q2 exceeds the word limit. Total 30/40.\"}",
+        "refusal": null,
+        "reasoning": "We need to mark each criterion. Let's compute technical correctness.\n\nQ3: (a) 0.9995 × 0.999 × 0.9995 × 0.995. Compute: 0.9995*0.999 = 0.9985005. ×0.9995 = 0.99800125... let's compute: 0.9985005*0.9995 = 0.9985005 - 0.00049925 = 0.99800125. ×0.995 = 0.99301124... 0.99800125*0.995 = 0.99301124. So 0.99301 → 99.30%. Correct.\n\n(b) (1-0.99301124)*720 = 0.00698876*720 = 5.0319 hours → 5.0 hours. Correct.\n\n(c) A_pay = 1-(0.005)^2 = 1-0.000025 = 0.999975. New A = 0.9995*0.999*0.9995*0.999975 = 0.99800125*0.999975 = 0.99800125 - 0.00002495 = 0.9979763. Hmm, that's 99.7976%, not 99.9975%. The student wrote \"the new availability of placing an order is 99.9975%\" — that's wrong; they just took payment availability as the whole system availability. Correct answer: 99.80% (99.7976%), downtime = 0.0020237*720 = 1.457 hours ≈ 1.5 hours. So part (c) is incorrect. So C3: method correct throughout but one part incorrect → Proficient 5-6. Actually the method for (c) is partially right (computing A_pay correctly) but then failing to multiply by other components. That's one part incorrect. Proficient: 5 or 6. Given the error is substantive in (c) but (a) and (b) correct with working, I'd give 5.\n\nQ1: Two attributes: performance and availability, justified with scenario data. Performance scenario has all six parts and measurable response measure (p95 < 1.5s, no dropped requests). Availability scenario: response measure \"the system should stay up most of the time\" — not measurable. So one scenario has non-measurable response measure → Proficient (3-4). Also availability scenario response \"students can still browse menus\" is a bit off (degraded functionality) but fine. Mark 4.\n\nQ2: Recommendation modular monolith, two trade-offs specific to scenario (team size 5 devs, single VM scaling, deployment downtime), downside acknowledged (modules can't scale independently, bug crashes process). Excellent 5-6. Mark 6? It's strong. Give 6.\n\nQ4: Circuit breaker named, mechanism explained correctly (closed/open/half-open), applied to outage, drawback/tuning consideration? They give threshold example (50% of calls in 10s) — that's a tuning consideration arguably. But no explicit drawback. Hmm. \"at least one drawback or tuning consideration is given\" — the threshold example is a tuning parameter but not really discussed as a consideration. It's borderline. I'd say Proficient 4: pattern named and explained correctly, applied to outage, but no explicit drawback/tuning consideration discussed. Actually the threshold \"for example 50% of calls in 10 seconds\" is a tuning parameter mention. Hmm. Excellent requires \"at least one drawback or tuning consideration is given.\" A tuning parameter value given without discussion... I'd lean Proficient 4. Let's give 4.\n\nQ5: Menu browsing: availability, justified, technique Redis cache with TTL. Order: consistency, idempotency key. But CAP explanation is wrong: \"for payments we choose consistency and availability and give up partition tolerance\" — in a partition you must choose; you can't give up partition tolerance. That's an incorrect CAP application. So Proficient (3-4): both choices reasonable, techniques named, CAP explained incorrectly. Mark 4.\n\nQ6: ADR with Context, Decision, Consequences. Consequences are all positive — no negative consequence. So Proficient 3-4. Mark 4? Context is specific. Consequences one-sided. Give 4.\n\nC7: Word limits: Q1 ~150? Let's count Q1: roughly 160 words? Let's estimate. Q1 text: \"The two most important quality attributes are performance and availability, because the business depends on the lunch hour: 900 orders arrive between 12:00 and 13:00 and the current p95 of 4.2 s for placing an order makes students abandon their orders. The scenarios below use the six-part form from [1].\" ~55 words. Performance scenario ~55 words. Availability scenario ~50 words. Total ~160. Slightly over 150. Q2: ~200 words? Let's count Q2: paragraph1 ~30, para2 ~55, para3 ~60, last ~25 → ~170. Over. Q4: ~150? Q4 para1 ~110, para2 ~40 → ~150. Q5 ~150. Q6 ~130. So several answers exceed 150 words → Developing 1-2 for word limit? Rubric: \"Several answers exceed the word limit, or the writing is hard to follow, or sources are not cited\" → Developing. But writing is clear, citations present in IEEE style, headings used. Hmm. Q2 clearly exceeds (~180). Q1 ~160. Q4 maybe ~150. So \"one answer exceeds\" → Proficient 3; \"several\" → Developing 2. I'd say two answers exceed (Q1, Q2) — borderline. Let me count more carefully.\n\nQ1 word count:\n\"The two most important quality attributes are performance and availability, because the business depends on the lunch hour: 900 orders arrive between 12:00 and 13:00 and the current p95 of 4.2 s for placing an order makes students abandon their orders.\" = count: The(1) two2 most3 important4 quality5 attributes6 are7 performance8 and9 availability10 because11 the12 business13 depends14 on15 the16 lunch17 hour18 90019 orders20 arrive21 between22 12:0023 and24 13:0025 and26 the27 current28 p9529 of30 4.231 s32 for33 placing34 an35 order36 makes37 students38 abandon39 their40 orders41. \"The scenarios below use the six-part form from [1].\" = 10 → 51.\nPerformance scenario: \"Performance scenario. Source: students using the mobile app. Stimulus: 900 order requests arrive within one hour (about 15 per minute on average). Artefact: the order placement endpoint. Environment: a normal weekday lunch peak. Response: every order is accepted and confirmed. Response measure: the p95 response time is under 1.5 s and no requests are dropped.\" Count: Performance1 scenario2 Source3 students4 using5 the6 mobile7 app8 Stimulus9 90010 order11 requests12 arrive13 within14 one15 hour16 about17 1518 per19 minute20 on21 average22 Artefact23 the24 order25 placement26 endpoint27 Environment28 a29 normal30 weekday31 lunch32 peak33 Response34 every35 order36 is37 accepted38 and39 confirmed40 Response41 measure42 the43 p9544 response45 time46 is47 under48 1.549 s50 and51 no52 requests53 are54 dropped55. → 55. Total 106.\nAvailability: \"Availability scenario. Source: the external payment provider. Stimulus: it becomes slow or stops responding. Artefact: the order service. Environment: the lunch peak. Response: the system keeps working and students can still browse menus. Response measure: the system should stay up most of the time.\" Count: Availability1 scenario2 Source3 the4 external5 payment6 provider7 Stimulus8 it9 becomes10 slow11 or12 stops13 responding14 Artefact15 the16 order17 service18 Environment19 the20 lunch21 peak22 Response23 the24 system25 keeps26 working27 and28 students29 can30 still31 browse32 menus33 Response34 measure35 the36 system37 should38 stay39 up40 most41 of42 the43 time44. → 44. Total 150. Exactly 150 — within limit.\n\nQ2: \"I recommend against a full microservices rewrite for the next 12 months. Instead the existing application should be restructured into a modular monolith with clear internal modules (orders, menu, payments, outlets).\" = I1 recommend2 against3 a4 full5 microservices6 rewrite7 for8 the9 next10 1211 months12 Instead13 the14 existing15 application16 should17 be18 restructured19 into20 a21 modular22 monolith23 with24 clear25 internal26 modules27 orders28 menu29 payments30 outlets31 → 31.\nPara2: \"First, team size versus operational overhead. Microservices let each service scale and deploy independently, but every service needs its own pipeline, monitoring and on-call knowledge. With five developers, running eight or ten services would mean more time spent on infrastructure than on features. A modular monolith keeps one deployable unit and one database while still enforcing module boundaries.\" Count: First1 team2 size3 versus4 operational5 overhead6 Microservices7 let8 each9 service10 scale11 and12 deploy13 independently14 but15 every16 service17 needs18 its19 own20 pipeline21 monitoring22 and23 on-call24 knowledge25 With26 five27 developers28 running29 eight30 or31 ten32 services33 would34 mean35 more36 time37 spent38 on39 infrastructure40 than41 on42 features43 A44 modular45 monolith46 keeps47 one48 deployable49 unit50 and51 one52 database53 while54 still55 enforcing56 module57 boundaries58 → 58. Total 89.\nPara3: \"Second, the known problems are not caused by the monolith itself. The slow lunchtime responses come from running on a single virtual machine, which can be fixed by running two or more instances of the monolith behind a load balancer. The 20-minute weekly downtime is a deployment process problem and can be removed with rolling deployments. A rewrite would freeze feature work for months without directly fixing either problem.\" Count: Second1 the2 known3 problems4 are5 not6 caused7 by8 the9 monolith10 itself11 The12 slow13 lunchtime14 responses15 come16 from17 running18 on19 a20 single21 virtual22 machine23 which24 can25 be26 fixed27 by28 running29 two30 or31 more32 instances33 of34 the35 monolith36 behind37 a38 load39 balancer40 The41 20-minute42 weekly43 downtime44 is45 a46 deployment47 process48 problem49 and50 can51 be52 removed53 with54 rolling55 deployments56 A57 rewrite58 would59 freeze60 feature61 work62 for63 months64 without65 directly66 fixing67 either68 problem69 → 69. Total 158.\nPara4: \"The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.\" = 24. Total 182. Exceeds 150.\n\nQ4: para1: \"The Circuit Breaker pattern [2] would have contained the failure. Calls from the order service to the payment provider are wrapped in a breaker that counts failures and timeouts. In the Closed state calls pass through normally. When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Open and calls fail immediately without waiting, so request threads are not blocked and the rest of the application (menu browsing, order history) keeps responding. After a wait period the breaker goes Half-Open and lets a few trial calls through. If they succeed it closes again, otherwise it reopens.\" Count roughly: The1 Circuit2 Breaker3 pattern4 [2]5 would6 have7 contained8 the9 failure10 Calls11 from12 the13 order14 service15 to16 the17 payment18 provider19 are20 wrapped21 in22 a23 breaker24 that25 counts26 failures27 and28 timeouts29 In30 the31 Closed32 state33 calls34 pass35 through36 normally37 When38 failures39 exceed40 a41 threshold42 for43 example44 5045%46 of47 calls48 in49 1050 seconds51 the52 breaker53 moves54 to55 Open56 and57 calls58 fail59 immediately60 without61 waiting62 so63 request64 threads65 are66 not67 blocked68 and69 the70 rest71 of72 the73 application74 menu75 browsing76 order77 history78 keeps79 responding80 After81 a82 wait83 period84 the85 breaker86 goes87 Half-Open88 and89 lets90 a91 few92 trial93 calls94 through95 If96 they97 succeed98 it99 closes100 again101 otherwise102 it103 reopens104 → 104.\nPara2: \"In the outage last month the breaker would have opened within seconds of the provider slowing down. Students would have seen \"payment temporarily unavailable, please try again or pay at the counter\" instead of the whole app hanging for 25 minutes.\" ≈ 42. Total ~146. Within limit.\n\nQ5: (i) \"Menu browsing: I would favour availability. If a partition separates an application server from the database, it is better to show a slightly stale menu from a cache (for example Redis with a 60-second TTL) than an error page. The worst case is that a student sees an item that sold out a minute ago, which the outlet can handle by rejecting that order. This is eventual consistency.\" ≈ 68. (ii) \"Placing and paying for an order: I would favour consistency, because charging a student twice or accepting an order without a payment is unacceptable. The CAP theorem says a system can only provide two of consistency, availability and partition tolerance, so for payments we choose consistency and availability and give up partition tolerance. To be safe on retries, each order request carries an idempotency key so that a repeated request does not create a second charge.\" ≈ 75. Total ~143. Within.\n\nQ6: ~130. Within.\n\nSo only Q2 exceeds (182). That's \"one answer exceeds the word limit\" → Proficient 3. Citations IEEE style present, headings used. So C7 = 3.\n\nR7: assumptions stated? The submission doesn't explicitly state assumptions. Q3 assumes 30-day month (given). No explicit assumptions section. Partial.\n\nNow marks:\nC1: 4\nC2: 6\nC3: 5\nC4: 4\nC5: 4\nC6: 4\nC7: 3\nTotal = 30/40.\n\nLet me double check C2 excellent: \"justified by at least two trade-offs that are specific to the scenario (team size, load profile, known problems). The downside of the recommendation is acknowledged.\" Yes — team size, single VM scaling, deployment downtime, downside acknowledged. 6.\n\nC6: consequences all positive → Proficient 4. Could argue 3. Context specific, decision specific. 4.\n\nC5: 4.\n\nC1: 4.\n\nTechnical issues: Q3(c) wrong final availability; Q5 CAP misuse; Q1 availability response measure not measurable; Q6 no negative consequence; Q2 over word limit.\n\nOverall summary.",
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "We",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " need to mark each criterion. Let's compute technical correctness.\n\nQ3: (a) 0.9995 × 0.999 × 0.9995",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " × 0.995. Compute: 0.9995*0.999 = 0.9985005. ×0.9995 = 0.998",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "00125... let's compute: 0.9985005*0.9995 = 0.9985005 - 0.00049925 = 0.998",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "00125. ×0.995 = 0.99301124... 0.99800125*0.995 = 0.99301124. So 0.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "99301 → 99.30%. Correct.\n\n(b) (1-0.99301124)*720 = 0.00698876*720 = 5.031",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "9 hours → 5.0 hours. Correct.\n\n(c) A_pay = 1-(0.005)^2 = 1-0.000025 =",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 0.999975. New A = 0.9995*0.999*0.9995*0.999975 = 0.99800125*0",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".999975 = 0.99800125 - 0.00002495 = 0.9979763. Hmm, that's 99",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ".7976%, not 99.9975%. The student wrote \"the new availability of placing an order is 99.9975%\" — that's",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " wrong; they just took payment availability as the whole system availability. Correct answer: 99.80% (99.7976%), downtime = 0.002023",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "7*720 = 1.457 hours ≈ 1.5 hours. So part (c) is incorrect. So C3: method correct throughout but",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " one part incorrect → Proficient 5-6. Actually the method for (c) is partially right (computing A_pay correctly) but then failing",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " to multiply by other components. That's one part incorrect. Proficient: 5 or 6. Given the error is substantive in (c) but (",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "a) and (b) correct with working, I'd give 5.\n\nQ1: Two attributes: performance and availability, justified with scenario data. Performance",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " scenario has all six parts and measurable response measure (p95 < 1.5s, no dropped requests). Availability scenario: response measure \"the system should stay up most of",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the time\" — not measurable. So one scenario has non-measurable response measure → Proficient (3-4). Also availability scenario response \"students can still browse menus",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\" is a bit off (degraded functionality) but fine. Mark 4.\n\nQ2: Recommendation modular monolith, two trade-offs specific to scenario (team size",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 5 devs, single VM scaling, deployment downtime), downside acknowledged (modules can't scale independently, bug crashes process). Excellent 5-6. Mark 6?",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " It's strong. Give 6.\n\nQ4: Circuit breaker named, mechanism explained correctly (closed/open/half-open), applied to outage, drawback/tuning consideration",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "? They give threshold example (50% of calls in 10s) — that's a tuning consideration arguably. But no explicit drawback. Hmm. \"at",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " least one drawback or tuning consideration is given\" — the threshold example is a tuning parameter but not really discussed as a consideration. It's borderline. I'd say",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Proficient 4: pattern named and explained correctly, applied to outage, but no explicit drawback/tuning consideration discussed. Actually the threshold \"for example 50% of calls in ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "10 seconds\" is a tuning parameter mention. Hmm. Excellent requires \"at least one drawback or tuning consideration is given.\" A tuning parameter value given without discussion...",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " I'd lean Proficient 4. Let's give 4.\n\nQ5: Menu browsing: availability, justified, technique Redis cache with TTL. Order",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ": consistency, idempotency key. But CAP explanation is wrong: \"for payments we choose consistency and availability and give up partition tolerance\" — in a partition you",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " must choose; you can't give up partition tolerance. That's an incorrect CAP application. So Proficient (3-4): both choices reasonable, techniques named, CAP",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " explained incorrectly. Mark 4.\n\nQ6: ADR with Context, Decision, Consequences. Consequences are all positive — no negative consequence. So Proficient ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "3-4. Mark 4? Context is specific. Consequences one-sided. Give 4.\n\nC7: Word limits: Q1 ~150? Let's count Q",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "1: roughly 160 words? Let's estimate. Q1 text: \"The two most important quality attributes are performance and availability, because the business depends on the lunch",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " hour: 900 orders arrive between 12:00 and 13:00 and the current p95 of 4.2 s for placing an order makes students",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " abandon their orders. The scenarios below use the six-part form from [1].\" ~55 words. Performance scenario ~55 words. Availability scenario ~50 words. Total ~160",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Slightly over 150. Q2: ~200 words? Let's count Q2: paragraph1 ~30, para2 ~55, para3 ~60",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", last ~25 → ~170. Over. Q4: ~150? Q4 para1 ~110, para2 ~40 → ~150. Q5",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " ~150. Q6 ~130. So several answers exceed 150 words → Developing 1-2 for word limit? Rubric: \"Several answers exceed",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the word limit, or the writing is hard to follow, or sources are not cited\" → Developing. But writing is clear, citations present in IEEE style,",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " headings used. Hmm. Q2 clearly exceeds (~180). Q1 ~160. Q4 maybe ~150. So \"one answer exceeds\" → Proficient ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "3; \"several\" → Developing 2. I'd say two answers exceed (Q1, Q2) — borderline. Let me count more carefully.\n\nQ1 word",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " count:\n\"The two most important quality attributes are performance and availability, because the business depends on the lunch hour: 900 orders arrive between 12:00 and ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "13:00 and the current p95 of 4.2 s for placing an order makes students abandon their orders.\" = count: The(1) two2 most3",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " important4 quality5 attributes6 are7 performance8 and9 availability10 because11 the12 business13 depends14 on15 the16 lunch17 hour18 90019",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " orders20 arrive21 between22 12:0023 and24 13:0025 and26 the27 current28 p9529 of30 4.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "231 s32 for33 placing34 an35 order36 makes37 students38 abandon39 their40 orders41. \"The scenarios below use the six-part form from [",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "1].\" = 10 → 51.\nPerformance scenario: \"Performance scenario. Source: students using the mobile app. Stimulus: 900 order requests arrive within one hour (",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "about 15 per minute on average). Artefact: the order placement endpoint. Environment: a normal weekday lunch peak. Response: every order is accepted and confirmed.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " Response measure: the p95 response time is under 1.5 s and no requests are dropped.\" Count: Performance1 scenario2 Source3 students4 using5 the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "6 mobile7 app8 Stimulus9 90010 order11 requests12 arrive13 within14 one15 hour16 about17 1518 per19 minute20 on",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "21 average22 Artefact23 the24 order25 placement26 endpoint27 Environment28 a29 normal30 weekday31 lunch32 peak33 Response34 every35 order36 is37 accepted",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "38 and39 confirmed40 Response41 measure42 the43 p9544 response45 time46 is47 under48 1.549 s50 and51 no52 requests53 are54",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " dropped55. → 55. Total 106.\nAvailability: \"Availability scenario. Source: the external payment provider. Stimulus: it becomes slow or stops responding",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Artefact: the order service. Environment: the lunch peak. Response: the system keeps working and students can still browse menus. Response measure: the system should",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " stay up most of the time.\" Count: Availability1 scenario2 Source3 the4 external5 payment6 provider7 Stimulus8 it9 becomes10 slow11 or12 stops13",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " responding14 Artefact15 the16 order17 service18 Environment19 the20 lunch21 peak22 Response23 the24 system25 keeps26 working27 and28 students29 can30 still",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "31 browse32 menus33 Response34 measure35 the36 system37 should38 stay39 up40 most41 of42 the43 time44. → 44. Total 150",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Exactly 150 — within limit.\n\nQ2: \"I recommend against a full microservices rewrite for the next 12 months. Instead the existing application should be restructured",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " into a modular monolith with clear internal modules (orders, menu, payments, outlets).\" = I1 recommend2 against3 a4 full5 microservices6 rewrite7 for8",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the9 next10 1211 months12 Instead13 the14 existing15 application16 should17 be18 restructured19 into20 a21 modular22 monolith23 with",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "24 clear25 internal26 modules27 orders28 menu29 payments30 outlets31 → 31.\nPara2: \"First, team size versus operational overhead. Microservices let",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " each service scale and deploy independently, but every service needs its own pipeline, monitoring and on-call knowledge. With five developers, running eight or ten services would mean",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " more time spent on infrastructure than on features. A modular monolith keeps one deployable unit and one database while still enforcing module boundaries.\" Count: First1 team2 size",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "3 versus4 operational5 overhead6 Microservices7 let8 each9 service10 scale11 and12 deploy13 independently14 but15 every16 service17 needs18 its19 own",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "20 pipeline21 monitoring22 and23 on-call24 knowledge25 With26 five27 developers28 running29 eight30 or31 ten32 services33 would34 mean35 more36 time",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "37 spent38 on39 infrastructure40 than41 on42 features43 A44 modular45 monolith46 keeps47 one48 deployable49 unit50 and51 one52 database53 while",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "54 still55 enforcing56 module57 boundaries58 → 58. Total 89.\nPara3: \"Second, the known problems are not caused by the monolith itself.",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " The slow lunchtime responses come from running on a single virtual machine, which can be fixed by running two or more instances of the monolith behind a load balancer. The ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "20-minute weekly downtime is a deployment process problem and can be removed with rolling deployments. A rewrite would freeze feature work for months without directly fixing either problem.\" Count: Second1 the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "2 known3 problems4 are5 not6 caused7 by8 the9 monolith10 itself11 The12 slow13 lunchtime14 responses15 come16 from17 running18 on",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "19 a20 single21 virtual22 machine23 which24 can25 be26 fixed27 by28 running29 two30 or31 more32 instances33 of34 the35 monolith36",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " behind37 a38 load39 balancer40 The41 20-minute42 weekly43 downtime44 is45 a46 deployment47 process48 problem49 and50 can51 be52 removed",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "53 with54 rolling55 deployments56 A57 rewrite58 would59 freeze60 feature61 work62 for63 months64 without65 directly66 fixing67 either68 problem69 → 69",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ". Total 158.\nPara4: \"The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.\" =",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " 24. Total 182. Exceeds 150.\n\nQ4: para1: \"The Circuit Breaker pattern [2] would have contained the failure. Calls from",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " the order service to the payment provider are wrapped in a breaker that counts failures and timeouts. In the Closed state calls pass through normally. When failures exceed a threshold (for",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " example 50% of calls in 10 seconds) the breaker moves to Open and calls fail immediately without waiting, so request threads are not blocked and the rest",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " of the application (menu browsing, order history) keeps responding. After a wait period the breaker goes Half-Open and lets a few trial calls through. If",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " they succeed it closes again, otherwise it reopens.\" Count roughly: The1 Circuit2 Breaker3 pattern4 [2]5 would6 have7 contained8 the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "9 failure10 Calls11 from12 the13 order14 service15 to16 the17 payment18 provider19 are20 wrapped21 in22 a23 breaker24 that25 counts",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "26 failures27 and28 timeouts29 In30 the31 Closed32 state33 calls34 pass35 through36 normally37 When38 failures39 exceed40 a41 threshold",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "42 for43 example44 5045%46 of47 calls48 in49 1050 seconds51 the52 breaker53 moves54 to55 Open56 and57 calls",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "58 fail59 immediately60 without61 waiting62 so63 request64 threads65 are66 not67 blocked68 and69 the70 rest71 of72 the73 application74 menu",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "75 browsing76 order77 history78 keeps79 responding80 After81 a82 wait83 period84 the85 breaker86 goes87 Half-Open88 and89 lets",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "90 a91 few92 trial93 calls94 through95 If96 they97 succeed98 it99 closes100 again101 otherwise102 it103 reopens104 → ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "104.\nPara2: \"In the outage last month the breaker would have opened within seconds of the provider slowing down. Students would have seen \"payment temporarily unavailable, please",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " try again or pay at the counter\" instead of the whole app hanging for 25 minutes.\" ≈ 42. Total ~146. Within limit.\n\nQ5: (",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "i) \"Menu browsing: I would favour availability. If a partition separates an application server from the database, it is better to show a slightly stale menu from a",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " cache (for example Redis with a 60-second TTL) than an error page. The worst case is that a student sees an item that sold out a",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " minute ago, which the outlet can handle by rejecting that order. This is eventual consistency.\" ≈ 68. (ii) \"Placing and paying for an order: I",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " would favour consistency, because charging a student twice or accepting an order without a payment is unacceptable. The CAP theorem says a system can only provide two of consistency, availability and partition tolerance",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ", so for payments we choose consistency and availability and give up partition tolerance. To be safe on retries, each order request carries an idempotency key so that",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " a repeated request does not create a second charge.\" ≈ 75. Total ~143. Within.\n\nQ6: ~130. Within.\n\nSo only Q2 exceeds (",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "182). That's \"one answer exceeds the word limit\" → Proficient 3. Citations IEEE style present, headings used. So C7 = 3.\n\nR",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "7: assumptions stated? The submission doesn't explicitly state assumptions. Q3 assumes 30-day month (given). No explicit assumptions section. Partial.\n\nNow marks",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": ":\nC1: 4\nC2: 6\nC3: 5\nC4: 4\nC5: 4\nC6: 4",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "\nC7: 3\nTotal = 30/40.\n\nLet me double check C2 excellent: \"justified by at least two trade-offs that are specific to the",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " scenario (team size, load profile, known problems). The downside of the recommendation is acknowledged.\" Yes — team size, single VM scaling, deployment downtime, downside acknowledged. ",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": "6.\n\nC6: consequences all positive → Proficient 4. Could argue 3. Context specific, decision specific. 4.\n\nC5: 4.\n\nC1: 4.\n\nTechnical issues: Q3(c) wrong final availability; Q5 CAP misuse; Q1 availability response measure not measurable; Q6 no",
+            "format": "unknown",
+            "index": 0
+          },
+          {
+            "type": "reasoning.text",
+            "text": " negative consequence; Q2 over word limit.\n\nOverall summary.",
+            "format": "unknown",
+            "index": 0
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens_details": {
+      "cached_tokens": 3357,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3296,
+      "image_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens": 3358,
+    "completion_tokens": 4674,
+    "total_tokens": 8032,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 3357,
+    "cost": 0.0028185994,
+    "currency": "USD",
+    "reasoning_tokens": 3296,
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 1
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_fad13564-ad80-4a63-be2a-659f567ec275",
+  "x_nanogpt_pricing": {
+    "amount": 0.0028185994,
+    "cost": 0.0028185994,
+    "currency": "USD",
+    "paymentSource": "USD",
+    "inputTokens": 3358,
+    "outputTokens": 4674,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 3357,
+    "cacheCost": 1.40994e-05
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 3357,
+    "writeTokens": 0
+  }
+}

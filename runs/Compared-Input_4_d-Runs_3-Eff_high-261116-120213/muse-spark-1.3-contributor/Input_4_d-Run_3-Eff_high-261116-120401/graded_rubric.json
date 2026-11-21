@@ -1,0 +1,232 @@
+{
+  "total": 23.0,
+  "total_max": 40.0,
+  "percent": 57.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Two relevant attributes chosen with lunch-peak justification. Performance scenario measurable. Availability scenario has six parts but response measure is vague and unmeasurable, preventing Excellent.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation. Two scenario-specific trade-offs: 5-person team overhead and single-VM plus deployment downtime fixes. Downside of no independent scaling and process crash acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features.",
+          "verified": true
+        },
+        {
+          "where": "Question 2",
+          "quote": "a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "(a) 99.30% correct. (b) method correct but 0.00699x720 is 5.0h not 3.5h. (c) uses payment-only 99.9975% as end-to-end; correct is ~99.80% and ~1.5h. Two parts wrong.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.",
+          "verified": true
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker appropriate and applied to outage with threshold example. Mechanism reversed: Open described as normal and Closed as fail-fast, opposite of correct states. No clear drawback stated.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Both choices reasonable: availability with Redis 60-second TTL for menus, consistency for payments. CAP misused; partition tolerance cannot be sacrificed. No concrete technique named for payment case.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context and Decision specific to CampusEats with RabbitMQ and OrderPaid event. Consequences present but only positive: latency, offline delivery, smoothing. No negative consequence stated.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Outlets that are briefly offline still receive their orders when they reconnect.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Headings in order and clear writing. Question 2 exceeds 150 words (~181). [2] cited in text but missing from reference list, so IEEE citations incomplete.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman,",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "(b) 0.00699*720=5.03h not 3.5h; (c) end-to-end ~99.80% ~1.5h, not 99.9975% 0.018h"
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit Breaker states inverted: Closed is normal, Open is fail-fast"
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP: cannot choose C+A and give up P; must choose C vs A under partition"
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure unmeasurable"
+    },
+    {
+      "where": "References",
+      "issue": "[2] cited but absent from reference list; no assumptions stated"
+    }
+  ],
+  "overall": "Solid modular-monolith case but availability calculations, breaker states and CAP contain material errors. Total 23/40.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 9,
+    "quotes_found": 9,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You argued your modular-monolith well, but your availability calculations, breaker states and CAP explanation need correction. Tighten your measurable scenarios, add your ADR negative consequence, and fix word count and references to reach higher levels.",
+    "next_steps": [
+      "Rewrite your Q1 availability response measure to be measurable with numbers, then recalculate Q3 (b) as 0.00699x720=~5.03h and Q3 (c) end-to-end as ~99.80% ~1.5h with working shown.",
+      "Correct your Q4 Circuit Breaker states to Closed is normal and Open is fail-fast, add one drawback or tuning consideration, and fix your Q5 CAP to choose consistency versus availability under partition with a concrete technique for payments.",
+      "Add at least one negative consequence to your Q6 RabbitMQ ADR, bring your Q2 answer within 150 words, complete your IEEE list so [2] appears, and state assumptions."
+    ],
+    "criteria": {
+      "C1": "You chose two relevant attributes with good lunch-peak justification and your performance scenario is measurable. In Question 1 your availability response “the system should stay up most of the time.” is vague and unmeasurable. For Excellent, rewrite it with a measurable response measure covering all six parts.",
+      "C2": "You gave a clear modular-monolith recommendation in Question 2 with two scenario-specific trade-offs: five-developer overhead “With five developers, running eight or ten services would mean more time spent on infrastructure than on features.” and deployment fixes, plus you acknowledged “a bug in one module can still crash the whole process.” Excellent work — keep this specificity.",
+      "C3": "You showed correct series method and part (a) 99.30% in Question 3. However “Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.” should be ~5.03h, and “So the new availability of placing an order is 99.9975%” uses payment-only, not end-to-end ~99.80% ~1.5h. For higher level, recalculate (b) and (c) with working to requested precision.",
+      "C4": "You chose an appropriate Circuit Breaker for the outage with a threshold example in Question 4. But “In the Open state calls pass through normally.” inverts states — Closed is normal, Open is fail-fast. For higher level, correct Open/Closed/Half-Open behaviour and add one drawback or tuning consideration like timeouts or fallback.",
+      "C5": "You made reasonable choices in Question 5 — availability with Redis 60-second TTL for menus and consistency for payments. However “so for payments we choose consistency and availability and give up partition tolerance.” misuses CAP; you must choose C vs A under partition. For Excellent, fix CAP and name a concrete technique for payments.",
+      "C6": "Your Question 6 Context and Decision are specific with RabbitMQ and OrderPaid event, and positives like “Outlets that are briefly offline still receive their orders when they reconnect.” are clear. For Excellent, keep those and add at least one negative consequence such as operational complexity or eventual-consistency handling.",
+      "C7": "Your writing is clear with required headings in order. In Question 2 you exceed 150 words (~181) and [2] is cited but absent, with “[1] L. Bass, P. Clements, and R. Kazman,” showing incomplete IEEE list. For Excellent, keep every answer within 150 words, list all sources, and state assumptions."
+    }
+  }
+}

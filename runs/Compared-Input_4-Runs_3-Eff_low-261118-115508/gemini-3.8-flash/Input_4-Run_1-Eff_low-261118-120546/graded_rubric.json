@@ -1,0 +1,210 @@
+{
+  "total": 27.0,
+  "total_max": 40.0,
+  "percent": 67.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 6.0,
+      "points": 4.0,
+      "max": 6.0,
+      "reasoning": "Performance and availability are well chosen and justified. However, the availability scenario's response measure ('stay up most of the time') is vague and not quantitatively measurable.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Recommends a modular monolith with clear trade-offs specific to CampusEats (team size/overhead, single VM vs scaling, deployment issues) and explicitly acknowledges downside.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 4.0,
+      "scale": 8.0,
+      "points": 4.0,
+      "max": 8.0,
+      "reasoning": "Parts (a) and (b) are correct. In part (c), the student forgot to multiply the remaining three series components with the new payment subsystem availability, falsely equating payment subsystem availability to end-to-end availability.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 4.0,
+      "scale": 5.0,
+      "points": 4.0,
+      "max": 5.0,
+      "reasoning": "Identifies Circuit Breaker, explains states accurately and applies it to the outage. However, it fails to state a distinct drawback or tuning consideration (e.g. threshold tuning, fallback handling).",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the outage last month the breaker would have opened within seconds of the provider slowing down.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Choices and concrete techniques are sound, but the explanation of CAP theorem claims one can choose CA and give up partition tolerance in a distributed network scenario, which is a classic misunderstanding of CAP.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context, Decision, and Consequences are scenario-specific. However, the consequences section only lists positive consequences; no negative consequence or operational cost is identified.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves. Outlets that are briefly offline still receive their orders",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Structure and IEEE citations are followed well. However, Question 2 is approximately 188 words, exceeding the 150-word limit.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "First, team size versus operational overhead.",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "yes",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "Question 2"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "In part (c), total availability was calculated using only the parallel payment block (0.999975) rather than multiplying by the other three series components (0.9995 * 0.999 * 0.9995 * 0.999975 = 0.99798 / 99.80%)."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Stating that a distributed system can 'choose consistency and availability and give up partition tolerance' under network partitions misapplies the CAP theorem."
+    }
+  ],
+  "overall": "The submission demonstrates good foundational understanding of architecture trade-offs and patterns. Marks were lost due to a conceptual error in the Q3(c) series-parallel availability calculation, a flawed CAP explanation in Q5, an unmeasurable response measure in Q1, and missing negative consequences in the ADR.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You demonstrated a strong grasp of architectural trade-offs, particularly in your modular monolith recommendation. However, marks were lost due to an incomplete end-to-end availability calculation in Question 3, a misconception regarding CAP theorem trade-offs in Question 5, an unmeasurable scenario metric in Question 1, one-sided ADR consequences in Question 6, and exceeding the word limit in Question 2.",
+    "next_steps": [
+      "Revisit availability mathematics to ensure subsystem calculations (parallel blocks) are integrated back into the overall end-to-end series formula.",
+      "Clarify your understanding of the CAP theorem: in distributed systems where network partitions are inevitable, trade-offs must be made between consistency and availability (CP vs AP).",
+      "Ensure all Architecture Decision Records (ADRs) present a balanced view by explicitly documenting negative trade-offs and operational overheads alongside benefits."
+    ],
+    "criteria": {
+      "C1": "You selected and justified relevant quality attributes well. However, the availability scenario's response measure ('stay up most of the time') was vague. To reach Excellent, ensure both scenarios include fully quantifiable, measurable response metrics (e.g., uptime percentages or maximum allowable downtime).",
+      "C2": "Excellent work. You provided a clear, scenario-tailored recommendation for a modular monolith, supported by concrete trade-offs around team size and operational overhead, while clearly acknowledging its architectural downsides.",
+      "C3": "Parts (a) and (b) were completed correctly. In part (c), you calculated the parallel payment block correctly but omitted multiplying it by the remaining series components to find total system availability. Showing full end-to-end working for all parts is required for Excellent.",
+      "C4": "You correctly identified the Circuit Breaker pattern, explained its states, and linked it well to the outage scenario. To reach Excellent, include specific tuning considerations (such as failure rate thresholds or timeout durations) or trade-offs/drawbacks.",
+      "C5": "Your chosen techniques were concrete and suitable. However, stating that a distributed system can choose CA and abandon partition tolerance misapplies CAP. To reach Excellent, correctly frame the theorem around choosing between consistency (CP) or availability (AP) during inevitable network partitions.",
+      "C6": "Context and Decision were well-articulated and relevant to the scenario. However, your Consequences section only listed positive impacts. To reach Excellent, include at least one negative consequence or trade-off (such as eventual consistency lag or broker operational overhead).",
+      "C7": "Your response was well-structured with precise terminology and IEEE referencing. To achieve Excellent, strictly adhere to the 150-word constraint across all sections, as Question 2 exceeded this limit."
+    }
+  }
+}

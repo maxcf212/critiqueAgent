@@ -1,0 +1,17 @@
+{
+  "summary": "You produced a solid submission with a clear modular-monolith recommendation and an accurate circuit-breaker explanation. Your strongest work is in Questions 2 and 4. The main areas to fix are the end-to-end availability in Question 3(c), the CAP reasoning in Question 5(ii), the non-measurable availability target in Question 1, and the missing negative consequences in the Question 6 record.",
+  "next_steps": [
+    "In Question 3(c), combine the payment availability with the other components in series, then restate the monthly downtime to one decimal place.",
+    "In Question 5(ii), correct the CAP reasoning: partition tolerance must be assumed in a distributed system, so the real choice during a partition is between consistency and availability.",
+    "Add at least one negative consequence to your Question 6 ADR (for example, extra broker operations, message ordering, or duplicate notifications), and replace the unmeasurable availability target in Question 1 with a numeric measure."
+  ],
+  "criteria": {
+    "C1": "Your performance attribute is well justified from the lunch-peak scenario, and its six-part scenario is complete with a measurable response (p95 under 1.5 s, no dropped requests). The availability response measure, 'stay up most of the time', cannot be tested. To reach the next level, state a numeric target, such as a percentage uptime over a defined period, so both scenarios are fully measurable.",
+    "C2": "Your modular-monolith recommendation is clear and tied to the scenario, particularly the five-person team and the cost of running eight or ten services. You also acknowledge the downside that modules cannot scale independently. To strengthen it further, link one trade-off more explicitly to the load profile during lunch peaks.",
+    "C3": "Parts (a) and (b) are correct and your working is shown. In part (c), you used the payment-only availability of 99.9975% as the system figure. The end-to-end figure must combine all components in series, giving about 99.80% and about 1.5 h/month. Also give the downtime to one decimal place rather than 0.018 hours.",
+    "C4": "You name the circuit breaker pattern and explain its Closed, Open and Half-Open states correctly, with threshold and wait-period tuning. You apply it clearly to the slow-provider outage and mention tuning considerations. The claim that the breaker would have opened within seconds during last month's outage needs supporting data or stated assumptions.",
+    "C5": "Your choices are reasonable, and you name suitable techniques: caching with a TTL for the menu and idempotency keys for payments. The CAP explanation is imprecise, however. Partition tolerance cannot be given up in a distributed system, so reframe the choice as consistency versus availability during a partition.",
+    "C6": "Your Context, Decision and Consequences sections are all present and reasonably specific to CampusEats. The consequences, however, list only benefits. Add a negative consequence such as added broker operations, delivery ordering issues, or duplicate notifications, and explain how you would manage it.",
+    "C7": "Your answers stay within the word limits, the required headings are used in order, and your IEEE-style references are cited in the text. Tighten the precision of your CAP wording and the downtime figures in Question 3 to match the terminology the course expects."
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the p95 response time is under 1.5 s and no requests are dropped."
+        },
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Suitable attributes with scenario justification. Performance scenario complete and measurable. Availability scenario has six parts but response measure is vague and unmeasurable, matching Proficient."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation. Two scenario-specific trade-offs: 5-person team overhead and single-VM plus deployment downtime fixes. Downside explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%,"
+        }
+      ],
+      "reasoning": "(a) 99.30% correct. (b) method correct but 0.00699x720 is 5.0h not 3.5h. (c) uses payment-only 99.9975% not end-to-end ~99.80% and wrong downtime. Two parts wrong."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        },
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds)"
+        }
+      ],
+      "reasoning": "Circuit Breaker appropriate and applied to outage, but Open/Closed reversed throughout, so mechanism incorrect. Threshold example given but no explicit drawback or tuning trade-off."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "show a slightly stale menu from a cache (for example Redis with a 60-second TTL)"
+        },
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both AP for browsing and CP for payments are reasonable. Browsing technique named, payment technique missing. CAP misused: cannot choose C+A over P during partition."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Publish an \"OrderPaid\" event to a durable message queue (RabbitMQ)."
+        },
+        {
+          "where": "Question 6",
+          "quote": "Outlets that are briefly offline still receive their orders when they reconnect."
+        }
+      ],
+      "reasoning": "Context and Decision specific to synchronous tablet call and lunch peak. Multiple positives given but no negative consequence such as complexity or consistency lag, so one-sided."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice,"
+        }
+      ],
+      "reasoning": "Headings in order and IEEE-style [1]. Q2 ~180 words exceeds 150. [2] cited but missing from references, imprecise breaker terminology."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'most of the time' is not measurable."
+    },
+    {
+      "where": "Question 3",
+      "issue": "(b) 5.03h not 3.5h; (c) end-to-end ~99.80% ~1.5h not 99.9975% 0.018h; wrong precision."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Open/Closed states reversed; Half-Open recovery reversed."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP error: cannot forgo partition tolerance; no concrete technique for orders."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence stated."
+    },
+    {
+      "where": "References",
+      "issue": "[2] cited but not listed; no assumptions stated."
+    }
+  ],
+  "overall": "Strong Q2 but availability calculations, CAP, breaker states and ADR negatives need correction. Total 23/40 with communication penalties for length and citations."
+}

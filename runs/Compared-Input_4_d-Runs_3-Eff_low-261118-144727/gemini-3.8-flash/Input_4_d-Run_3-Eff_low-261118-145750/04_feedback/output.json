@@ -1,0 +1,17 @@
+{
+  "summary": "You demonstrated solid architectural reasoning, particularly in Question 2 where your modular monolith recommendation and trade-offs were excellent. Across several technical sections, marks were lost due to minor calculation omissions, inverted definitions, or incomplete trade-off analyses. Focusing on precision in formal models like CAP, exact state definitions in resilience patterns, and balanced evaluations in your ADRs will help you reach top-tier marks.",
+  "next_steps": [
+    "Ensure all quality attribute response measures are quantified with objective metrics (e.g., specific uptime percentages or allowable downtime hours) rather than qualitative descriptions.",
+    "Review core distributed systems concepts to ensure accurate application of standard models, specifically CAP theorem trade-offs and Circuit Breaker states.",
+    "Audit your citations and reference lists before submission to verify that every in-text citation key (e.g., [2]) matches an entry in your bibliography."
+  ],
+  "criteria": {
+    "C1": "You selected appropriate attributes and justified them well. However, your availability response measure ('stay up most of the time') was not measurable. To reach Excellent, specify a concrete, quantified threshold (such as 99.9% uptime or under 5 minutes downtime during peak hours).",
+    "C2": "Excellent work. You provided a clear, context-appropriate recommendation for a modular monolith, effectively linking it to team size and deployment constraints, while explicitly addressing its architectural downsides.",
+    "C3": "Parts (a) and (b) were executed correctly with clear working. For part (c), you calculated the redundant payment subsystem (0.999975) but forgot to multiply it across the remaining series components (0.9995 * 0.999 * 0.9995 * 0.999975 = 0.99798) to determine overall end-to-end availability.",
+    "C4": "You correctly identified the Circuit Breaker pattern, but inverted the states: normal operation is 'Closed', whereas the tripped failure state is 'Open'. To achieve Excellent, ensure the operational states are correctly defined and discuss operational drawbacks or tuning considerations (e.g., threshold sensitivity or fallback complexity).",
+    "C5": "You selected reasonable consistency choices and suitable techniques (Redis caching, ACID transactions). However, claiming to choose CA over P misinterprets CAP in distributed networks; partitions cannot be chosen away, making this a CP trade-off. Correctly applying CAP trade-offs is required for Excellent.",
+    "C6": "Your ADR sections were clearly structured and tied to the scenario. However, your consequences were entirely positive. To reach Excellent, present a balanced view by explicitly documenting negative trade-offs or operational overheads introduced by the decision (such as managing a RabbitMQ broker).",
+    "C7": "Your response maintained precise terminology, adhered to required headings, and stayed within the word limits. To secure full marks in Excellent, ensure every cited source—such as reference [2] in Question 4—is fully listed in your IEEE reference section."
+  }
+}

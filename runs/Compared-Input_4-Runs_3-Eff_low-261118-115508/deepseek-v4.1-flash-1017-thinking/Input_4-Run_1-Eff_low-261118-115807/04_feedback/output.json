@@ -1,0 +1,17 @@
+{
+  "summary": "You gave strong scenario-based answers, especially Q2’s modular-monolith recommendation with specific trade-offs and an acknowledged downside. Main fixes: Q3(c) end-to-end availability, Q5 CAP misuse, Q6 missing negative consequence, Q2 over the word limit, and missing measurable/tuning detail in Q1/Q4. These are targeted revisions rather than a rewrite.",
+  "next_steps": [
+    "Recompute Q3(c) end-to-end availability as the product of all relevant components (about 99.80%, about 1.5 hours/month downtime) and show the working to the requested precision.",
+    "Revise Q5 so CAP is used correctly: partition tolerance cannot be given up; during a partition payments should favour consistency, and each case needs a concrete technique.",
+    "Make Q1’s availability response measure measurable, add an explicit Circuit Breaker drawback/tuning consideration in Q4, add a negative consequence in Q6, and trim Q2 to 150 words."
+  ],
+  "criteria": {
+    "C1": "You justified performance and availability well, and your performance scenario is measurable. To reach Excellent, make the availability response measure measurable too (Q1 currently says “stay up most of the time”) and ensure both scenarios have all six parts. Keep the scenario-specific justification.",
+    "C2": "Excellent: your modular-monolith recommendation is clear and tied to team size, load profile and deployment problems, and you acknowledge the downside that modules cannot scale independently. Keep linking trade-offs to the CampusEats scenario. Note the 150-word limit is addressed under C7.",
+    "C3": "You showed correct working for Q3(a) and (b). In Q3(c), you used payment availability as end-to-end availability; the correct end-to-end figure is about 99.80% with about 1.5 hours/month downtime. For Excellent, recompute the full chain, show working, and report to the requested precision.",
+    "C4": "You correctly named and explained Circuit Breaker and applied it to the outlet-tablet outage, including a threshold example. To reach Excellent, add at least one explicit drawback or tuning consideration (for example, how you choose the failure threshold/window or what risk the breaker introduces).",
+    "C5": "Your choices are reasonable and you name idempotency keys. However, Q5 misuses CAP: partition tolerance cannot simply be given up in a distributed system, and payments should favour consistency during a partition. For Excellent, correct the CAP explanation and name a suitable concrete technique for each case.",
+    "C6": "Your ADR has specific Context, Decision and Consequences for the synchronous tablet call. To reach Excellent, add at least one negative consequence alongside the positive response-time consequence—state what becomes harder or what new risk you accept.",
+    "C7": "Your writing is clear and IEEE-style references are present. Q2 exceeds the 150-word limit, so to reach Excellent keep every answer within 150 words, use precise terminology and required headings, and include the required assumptions in References."
+  }
+}

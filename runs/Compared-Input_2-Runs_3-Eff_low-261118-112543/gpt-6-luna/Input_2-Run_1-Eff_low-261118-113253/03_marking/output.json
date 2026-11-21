@@ -1,0 +1,164 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Accomplished",
+      "mark": 7,
+      "evidence": [
+        {
+          "where": "Introduction",
+          "quote": "The spacecraft is intended to image and send data to ground stations for collation and analysis."
+        },
+        {
+          "where": "Introduction",
+          "quote": "Thus, only one satellite is required."
+        },
+        {
+          "where": "Introduction",
+          "quote": "The proposed satellite would likely be used by governmental and science agencies (e.g. CSIRO, BOM) for research and/or education."
+        }
+      ],
+      "reasoning": "The report explains the reef-monitoring mission and its public and scientific rationale, justifies using one spacecraft, and identifies likely users and funding sources. The concept is relevant to Australia and reasonably detailed. However, the operator is not clearly distinguished from customers, and mission need and user roles would benefit from stronger specificity and better-supported references."
+    },
+    {
+      "id": "C2",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Launch",
+          "quote": "The proposed satellite will thus use the Vega E rocket as a launch vehicle – launched from the Guiana Space Centre Spaceport."
+        },
+        {
+          "where": "Orbit",
+          "quote": "Specifically, an altitude of 600km requires a mean inclination of $ 97.7924^{\\circ} $ for the satellite to remain sun-synchronous."
+        },
+        {
+          "where": "Ground Control & Communications",
+          "quote": "An average contact duration of almost ten minutes was achieved"
+        },
+        {
+          "where": "Mission Duration & EOL",
+          "quote": "A span of five years is a sound estimate of the useful lifespan of the proposed satellite."
+        }
+      ],
+      "reasoning": "The report presents STK-derived orbit views and access results, orbit elements, a launch option, a ground facility, mission duration, and an EOL concept. Important design aspects remain weak or inaccurate: the launch choice is speculative, no STK project files are provided, imaging coverage and resolution are not quantified, and the proposed passive drag-sail deorbit is not analysed. Some operational claims are inconsistent with SSO geometry."
+    },
+    {
+      "id": "C3",
+      "level": "Adequate",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Conclusion",
+          "quote": "After analysis of each mission segment, a fully described satellite configuration has been constructed."
+        }
+      ],
+      "reasoning": "The conclusion summarizes the selected launch, orbit, and ground station and acknowledges uncertainty around Vega E. It is relevant but mostly recaps the proposal rather than drawing detailed conclusions from the analysis; it also does not address important limitations such as imaging performance, contact assumptions, or EOL feasibility."
+    },
+    {
+      "id": "C4",
+      "level": "Adequate",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Executive Summary",
+          "quote": "This report outlines the intended designs and procedures involved in the construction of a Earth observation satellite"
+        },
+        {
+          "where": "Bibliography",
+          "quote": "[6] https://en.wikipedia.org/wiki/2021_in_spaceflight. [Online]."
+        }
+      ],
+      "reasoning": "The report has a recognizable structure, executive summary, figures, tables, and bibliography. However, several figures and tables lack consistent numbering and captions; the writing contains grammatical and editing errors; and references are incomplete and inconsistently formatted. It cites Wikipedia despite the task explicitly disallowing it, and the bibliography does not provide proper bibliographic details."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Introduction"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Introduction"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Launch"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Orbit"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Orbit; Mission Duration & EOL"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R8",
+      "met": "yes",
+      "where": "Mission Duration & EOL"
+    },
+    {
+      "id": "R9",
+      "met": "yes",
+      "where": "Ground Control & Communications"
+    },
+    {
+      "id": "R10",
+      "met": "partial",
+      "where": "Orbit; Ground Control & Communications"
+    },
+    {
+      "id": "R11",
+      "met": "partial",
+      "where": "Bibliography"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Orbit",
+      "issue": "A sun-synchronous orbit does not provide a constant supply of sunlight to the spacecraft; it experiences eclipses depending on orbital geometry and season."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "The claim that the selected Tasmanian station provides near-polar access frequency is overstated. At about 42°S it is not close to a pole, and access frequency depends on station latitude, orbit geometry, antenna elevation mask, and the analysed time span."
+    },
+    {
+      "where": "Ground Control & Communications",
+      "issue": "The claim that imaging occurs on the descending part because it is constantly in sunlight is not generally valid. SSO local solar time and ascending/descending illumination must be specified; either branch may be sunlit depending on the orbit."
+    },
+    {
+      "where": "Orbit",
+      "issue": "The orbital-element table does not fully define the initial spacecraft state: for a circular orbit, argument of perigee and true anomaly are undefined, but argument of latitude alone is insufficient without a reference epoch and the remaining element values such as RAAN and inclination."
+    },
+    {
+      "where": "Launch",
+      "issue": "The report presents Vega E as the selected launch vehicle despite describing it as not yet built, and does not establish that its payload interface, launch date, injection orbit, or rideshare availability suit this mission."
+    },
+    {
+      "where": "Mission Duration & EOL",
+      "issue": "A drag sail can increase atmospheric drag but does not itself guarantee a safe disposal time or complete demise. The report gives no sail area, spacecraft ballistic coefficient, decay-time estimate, or assessment against applicable debris-mitigation limits."
+    },
+    {
+      "where": "Orbit",
+      "issue": "The stated 250 km reef width and 600 km altitude are not connected to sensor swath, ground sampling distance, or revisit/coverage calculations, so the claimed imaging capability is unsubstantiated."
+    }
+  ],
+  "overall": "The report proposes a relevant Australian reef-monitoring mission and makes useful use of STK screenshots and access analysis. Its orbit and mission outline are promising, but launch feasibility, imaging performance, communications assumptions, and disposal feasibility are not adequately demonstrated. Presentation and referencing also need improvement; no STK project files are included."
+}

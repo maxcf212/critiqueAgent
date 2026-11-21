@@ -1,0 +1,17 @@
+{
+  "summary": "You show solid architectural reasoning, especially on style and resilience. Q2 and your writing meet Excellent. Marks were lost on measurable response measures in Q1, the end-to-end calc in Q3(c), CAP phrasing in Q5, and missing negatives/drawbacks in Q4 and Q6. Tightening those will lift you to Excellent across the board.",
+  "next_steps": [
+    "Rewrite Q1 availability response measure with a numeric target e.g., 99.9% uptime over rolling 30 days or <0.1% failed orders.",
+    "Recalculate Q3(c) as App * DB * App * combined-payment and show 0-month downtime ~1.5h to fix the single-part error.",
+    "For Q5 state partition tolerance is unavoidable and choose C over A for payments; for Q4/Q6 add one drawback or tuning trade-off e.g., threshold tuning and operational complexity."
+  ],
+  "criteria": {
+    "C1": "You chose two relevant attributes and your performance scenario in Question 1 with 'p95 <1.5s and no requests dropped' is complete and measurable. To reach Excellent, make your availability measure measurable too, replacing 'stay up most of the time' with e.g., 99.9% uptime.",
+    "C2": "Excellent work in Question 2. You clearly recommend modular monolith with two CampusEats-specific trade-offs for your 5-dev team and acknowledge the downside that modules share a process and cannot scale independently. This meets Excellent.",
+    "C3": "Your working for Q3(a) 99.30% and Q3(b) 5.0h is correct and to precision. For Excellent, fix Q3(c): end-to-end is not payment-only 99.9975%/0.018h. You need App*DB*App*combined-pay ~99.80% and ~1.5h/month, as flagged.",
+    "C4": "Good call in Question 4 naming Circuit Breaker and explaining Closed/Open/Half-Open and applying it so students see 'payment temporarily unavailable'. For Excellent, add one drawback or tuning consideration like failure threshold, timeout, or fallback handling.",
+    "C5": "You made reasonable choices in Question 5 - stale menu via Redis cache and idempotency key for payments. For Excellent, correct your CAP explanation: you cannot give up partition tolerance as you wrote for payments. When partitioned you must choose between C and A.",
+    "C6": "Your ADR in Question 6 has specific Context, Decision to publish OrderPaid to RabbitMQ, and positive Consequences for latency. For Excellent, add at least one negative consequence, e.g., operational complexity or eventual consistency and duplicate handling.",
+    "C7": "Excellent communication: all answers within 150 words, clear headings, precise terminology, and IEEE citations like [1] and [2] with reference list. Keep this structure; no changes needed."
+  }
+}

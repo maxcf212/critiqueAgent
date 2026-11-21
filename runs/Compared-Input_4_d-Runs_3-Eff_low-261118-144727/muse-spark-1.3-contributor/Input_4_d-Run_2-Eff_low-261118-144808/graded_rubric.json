@@ -1,0 +1,214 @@
+{
+  "total": 23.0,
+  "total_max": 40.0,
+  "percent": 57.5,
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "Q1 Quality attributes",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Suitable attributes with scenario justification. Performance scenario complete and measurable. Availability measure is vague and not measurable, fitting Proficient one missing measure.",
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Q2 Architectural style",
+      "weight": null,
+      "level": "Excellent",
+      "mark": 6.0,
+      "scale": 6.0,
+      "points": 6.0,
+      "max": 6.0,
+      "reasoning": "Clear modular-monolith recommendation with two scenario-specific trade-offs team size overhead and single-VM plus deployment causes, plus explicit downside acknowledged.",
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "modules cannot be scaled independently, and a bug in one module can still crash the whole process.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Q3 Availability calculation",
+      "weight": null,
+      "level": "Developing",
+      "mark": 3.0,
+      "scale": 8.0,
+      "points": 3.0,
+      "max": 8.0,
+      "reasoning": "(a) 99.30% correct. (b) arithmetic wrong: 0.00699x720 is 5.0h not 3.5h. (c) 99.9975% is payment-only, end-to-end should be ~99.80% ~1.5h. Two parts incorrect.",
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Q4 Resilience pattern",
+      "weight": null,
+      "level": "Developing",
+      "mark": 2.0,
+      "scale": 5.0,
+      "points": 2.0,
+      "max": 5.0,
+      "reasoning": "Circuit Breaker appropriate and applied to outage, but open/closed states reversed, half-open transition reversed. No explicit drawback, only threshold example. Explanation incorrect.",
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Q5 Consistency and availability",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 6.0,
+      "points": 3.0,
+      "max": 6.0,
+      "reasoning": "Both choices reasonable with Redis TTL for browsing. CAP misused: cannot give up partition tolerance. No concrete technique named for payment consistency.",
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Q6 Architecture decision record",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 5.0,
+      "points": 3.0,
+      "max": 5.0,
+      "reasoning": "Context Decision Consequences present and specific, with multiple positives but no negative consequence such as eventual consistency or operational complexity.",
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Outlets that are briefly offline still receive their orders when they reconnect.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "Communication and format",
+      "weight": null,
+      "level": "Proficient",
+      "mark": 3.0,
+      "scale": 4.0,
+      "points": 3.0,
+      "max": 4.0,
+      "reasoning": "Clear writing with headings, but Q2 exceeds 150 words and [2] cited in text has no reference entry, plus IEEE list incomplete.",
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice,",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "(b) 0.00699*720=5.0h not 3.5h; (c) end-to-end is 0.9995*0.999*0.9995*0.999975≈99.80% ~1.5h, not 99.9975% ~0.018h; wrong precision."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Breaker states reversed: Closed is normal pass-through, Open is fail-fast; Half-Open on success closes, not opens."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP: during partition must choose C or A; cannot弃 partition tolerance; payment technique missing."
+    }
+  ],
+  "overall": "Modular monolith and Q3(a) strong, but availability math, breaker states, CAP and ADR negatives need correction.",
+  "flags": {
+    "missing_criteria": [],
+    "unknown_criteria": [],
+    "clamped": [],
+    "level_mismatch": []
+  },
+  "quote_check": {
+    "status": "ok",
+    "quotes_total": 7,
+    "quotes_found": 7,
+    "found_rate": 1.0
+  },
+  "feedback": {
+    "summary": "You made a strong start with your modular-monolith choice in Question 2 and Q3(a). To move higher, make your measures measurable, fix availability maths, correct breaker and CAP ideas, and balance your ADR.",
+    "next_steps": [
+      "Rewrite your Question 1 availability response measure with a number and time window, then recheck all six parts.",
+      "Recalculate Q3(b)-(c) downtime and end-to-end availability showing working to requested precision.",
+      "Correct breaker states, CAP choice during partition, and add payment technique plus ADR negative."
+    ],
+    "criteria": {
+      "C1": "You chose suitable attributes with scenario justification and your Question 1 performance scenario was complete. Your availability measure “stay up most of the time” is not measurable. For Excellent you need all six parts and measurable response measures.",
+      "C2": "You did excellent work in Question 2 recommending modular monolith with two scenario-specific trade-offs on team size and single-VM deployment. You acknowledged downside that modules cannot scale independently and a bug can crash the process. Keep this specificity.",
+      "C3": "You got Q3(a) 99.30% correct with working. Your Q3(b) states 0.00699x720 as 3.5h and Q3(c) gives 99.9975% ~0.018h. For next level check arithmetic, include payment-to-outlet chain ~99.80% ~1.5h, and use requested precision.",
+      "C4": "You appropriately named Circuit Breaker for the outage in Question 4, but you reversed states: “Open state calls pass through normally”. For next level explain Closed/Open/Half-Open correctly and add one drawback or tuning consideration.",
+      "C5": "You made reasonable choices in Question 5 and named Redis TTL for browsing. You wrote you “give up partition tolerance” for payments and missed a payment technique. For Excellent use CAP correctly during partition and name a concrete technique for each case.",
+      "C6": "You wrote clear Context, Decision and Consequences specific to outlets reconnecting in Question 6. You listed positives only. For Excellent keep specificity and add at least one negative consequence like eventual consistency or operational complexity.",
+      "C7": "Your writing is clear with headings and IEEE entry [1]. Your Q2 exceeds 150 words and in-text [2] has no reference entry. For Excellent keep every answer within 150 words and complete IEEE citations."
+    }
+  }
+}

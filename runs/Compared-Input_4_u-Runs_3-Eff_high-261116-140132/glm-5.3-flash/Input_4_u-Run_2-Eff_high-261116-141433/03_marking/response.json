@@ -1,0 +1,77 @@
+{
+  "id": "chatcmpl-2693edc2-7a19-473c-ae62-74a87c70eccb",
+  "object": "chat.completion",
+  "created": 1794798876,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"criteria\": [\n    {\n      \"id\": \"C1\",\n      \"level\": \"Excellent\",\n      \"mark\": 6,\n      \"evidence\": [\n        {\n          \"where\": \"Question 1\",\n          \"quote\": \"Response measure: the p95 response time is under 1.5 s and no requests are dropped.\"\n        },\n        {\n          \"where\": \"Question 1\",\n          \"quote\": \"Response measure: menu p95 stays under 2 s, under 0.1% of non-payment requests fail\"\n        }\n      ],\n      \"reasoning\": \"Performance and availability are well justified from scenario facts (900 orders/hour, 4.2 s p95, payment outage). Both scenarios have all six labelled parts with measurable response measures.\"\n    },\n    {\n      \"id\": \"C2\",\n      \"level\": \"Excellent\",\n      \"mark\": 6,\n      \"evidence\": [\n        {\n          \"where\": \"Question 2\",\n          \"quote\": \"Five developers running eight or more services would spend more time on infrastructure than on features.\"\n        },\n        {\n          \"where\": \"Question 2\",\n          \"quote\": \"The downside I accept is that modules cannot be scaled independently\"\n        }\n      ],\n      \"reasoning\": \"Clear modular monolith recommendation with two scenario-specific trade-offs (team size, single-VM lunchtime slowness, 20-minute downtime) and an explicit downside acknowledged.\"\n    },\n    {\n      \"id\": \"C3\",\n      \"level\": \"Excellent\",\n      \"mark\": 8,\n      \"evidence\": [\n        {\n          \"where\": \"Question 3\",\n          \"quote\": \"A = 0.9995 × 0.999 × 0.9995 × 0.995 = 0.99301\"\n        },\n        {\n          \"where\": \"Question 3\",\n          \"quote\": \"A_pay = 1 − (1 − 0.995)² = 1 − 0.000025 = 0.999975\"\n        }\n      ],\n      \"reasoning\": \"All three parts verified correct: series product 0.99301 (99.30%), downtime 5.0 h, parallel payment pair 0.999975 giving 99.80% and 1.5 h. Working shown, precision as requested.\"\n    },\n    {\n      \"id\": \"C4\",\n      \"level\": \"Excellent\",\n      \"mark\": 5,\n      \"evidence\": [\n        {\n          \"where\": \"Question 4\",\n          \"quote\": \"When failures exceed a threshold the breaker moves to Open and calls fail immediately\"\n        },\n        {\n          \"where\": \"Question 4\",\n          \"quote\": \"Drawback: nobody can pay while it is open, so a fallback is needed.\"\n        }\n      ],\n      \"reasoning\": \"Circuit Breaker correctly named and its Closed/Open/Half-Open mechanism explained, applied to the 25-minute payment outage, with both a tuning consideration and a drawback given.\"\n    },\n    {\n      \"id\": \"C5\",\n      \"level\": \"Excellent\",\n      \"mark\": 6,\n      \"evidence\": [\n        {\n          \"where\": \"Question 5\",\n          \"quote\": \"during a partition a system must give up either consistency or availability\"\n        },\n        {\n          \"where\": \"Question 5\",\n          \"quote\": \"Each order request carries an idempotency key, so a retry does not create a second charge.\"\n        }\n      ],\n      \"reasoning\": \"AP for menu browsing (Redis cache with TTL) and CP for payments (idempotency keys), both justified; CAP theorem used correctly, noting partition tolerance is not optional.\"\n    },\n    {\n      \"id\": \"C6\",\n      \"level\": \"Excellent\",\n      \"mark\": 5,\n      \"evidence\": [\n        {\n          \"where\": \"Question 6\",\n          \"quote\": \"If a tablet is offline the order is lost, and these calls add to the 4.2 s p95.\"\n        },\n        {\n          \"where\": \"Question 6\",\n          \"quote\": \"Delivery is at-least-once, so the tablet must ignore duplicate order IDs.\"\n        }\n      ],\n      \"reasoning\": \"ADR has scenario-specific Context, a clear Decision (durable queue with retrying worker), and both positive and negative consequences including duplicate delivery and operational burden.\"\n    },\n    {\n      \"id\": \"C7\",\n      \"level\": \"Excellent\",\n      \"mark\": 4,\n      \"evidence\": [\n        {\n          \"where\": \"References\",\n          \"quote\": \"L. Bass, P. Clements, and R. Kazman, *Software Architecture in Practice*, 3rd ed.\"\n        }\n      ],\n      \"reasoning\": \"All answers appear within 150 words, headings Question 1–6 used in order, terminology precise, IEEE-style citations and reference list present.\"\n    }\n  ],\n  \"requirements\": [\n    {\n      \"id\": \"R1\",\n      \"met\": \"yes\",\n      \"where\": \"Question 1\"\n    },\n    {\n      \"id\": \"R2\",\n      \"met\": \"yes\",\n      \"where\": \"Question 2\"\n    },\n    {\n      \"id\": \"R3\",\n      \"met\": \"yes\",\n      \"where\": \"Question 3\"\n    },\n    {\n      \"id\": \"R4\",\n      \"met\": \"yes\",\n      \"where\": \"Question 4\"\n    },\n    {\n      \"id\": \"R5\",\n      \"met\": \"yes\",\n      \"where\": \"Question 5\"\n    },\n    {\n      \"id\": \"R6\",\n      \"met\": \"yes\",\n      \"where\": \"Question 6\"\n    },\n    {\n      \"id\": \"R7\",\n      \"met\": \"partial\",\n      \"where\": \"Question 3 / References\"\n    }\n  ],\n  \"technical_issues\": [\n    {\n      \"where\": \"Whole document\",\n      \"issue\": \"No explicit assumptions statement; independence of component failures in Q3 is implied by the calculation but never stated as an assumption, contrary to the task instruction.\"\n    },\n    {\n      \"where\": \"Question 1\",\n      \"issue\": \"Availability scenario response measure bundles three measures; still measurable but slightly over-specified for a single six-part scenario.\"\n    }\n  ],\n  \"overall\": \"An excellent submission: correct availability mathematics with working, well-justified quality-attribute scenarios, scenario-specific trade-offs, a correctly explained circuit breaker, sound CAP reasoning, and a complete ADR. Only minor gap is an explicit assumptions statement.\"\n}\n```",
+        "refusal": null,
+        "reasoning": "Let me check Q3 calculations.\n\n(a) 0.9995 × 0.999 × 0.9995 × 0.995. Compute: 0.9995×0.999 = 0.9985005. ×0.9995 = 0.9985005×0.9995 = 0.9985005 - 0.9985005×0.0005 = 0.9985005 - 0.00049925 = 0.99800125. ×0.995 = 0.99800125×0.995 = 0.99800125 - 0.00499000625 = 0.99301124. So 0.99301, 99.30%. Correct.\n\n(b) (1−0.99301)×720 = 0.00699×720 = 5.0328 → 5.0 hours. Correct.\n\n(c) 1−(0.005)² = 1−0.000025 = 0.999975. Series: 0.99800125 × 0.999975 = 0.99800125 − 0.99800125×0.000025 = 0.99800125 − 0.00002495 = 0.9979763. So 99.80% (99.7976 → 99.80). Downtime: (1−0.9979763)×720 = 0.0020237×720 = 1.457 → 1.5 hours. Correct.\n\nPrecision: availability to two decimal places — 99.30%, 99.80%. Downtime one decimal — 5.0, 1.5. All correct.\n\nQ1: two attributes (performance, availability), justified, six-part scenarios with measurable measures. Excellent. 5-6. Both scenarios complete. Mark 6? The response measures are measurable. I'd give 6.\n\nQ2: modular monolith, two trade-offs specific to scenario, downside acknowledged. Excellent, 5-6. Give 6? Trade-offs are specific (team size 5 devs, lunchtime slowness, 20-min downtime). Downside acknowledged. Give 6.\n\nQ3: all correct with working. Excellent 7-8. Give 8.\n\nQ4: circuit breaker, mechanism correct, applied to outage, drawback and tuning. Excellent 5.\n\nQ5: both choices justified, CAP used correctly, techniques: Redis cache for AP, idempotency key for CP. Idempotency key is a concrete technique. Excellent 5-6. Give 6? CAP explanation correct. Give 6.\n\nQ6: ADR with context, decision, consequences positive and negative. Excellent 5.\n\nC7: word limits — each answer ≤150 words? Q1 ~150? Let me estimate. Q1: roughly 150 words. Count roughly: \"Performance and availability matter most...\" paragraph ~45 words; performance scenario ~55; availability scenario ~50. Total ~150. Q2 ~140. Q4 ~140. Q5 ~140. Q6 ~130. Headings used, IEEE citations present. Q1 might slightly exceed 150 but hard to verify. Give 4 or 3. Let me count Q1 more carefully.\n\n\"Performance and availability matter most: 900 orders arrive in the lunch hour, the 4.2 s p95 makes students abandon their orders, and last month's payment slowdown took the whole application down. The scenarios use the six-part form from [1].\" ≈ 40 words.\n\nPerformance scenario: \"Source: students using the mobile app. Stimulus: 900 order requests arrive within one hour (about 15 per minute on average). Artefact: the order placement endpoint. Environment: a normal weekday lunch peak. Response: every order is accepted and confirmed. Response measure: the p95 response time is under 1.5 s and no requests are dropped.\" ≈ 55 words.\n\nAvailability scenario: ≈ 55 words. Total ≈ 150. Borderline. I'll give 4.\n\nTotal: 6+6+8+5+6+5+4 = 40. Hmm, that's perfect. Maybe be slightly conservative: Q1 give 5? The scenarios are complete and measurable. 6 seems fine. Q2 give 5? Trade-offs specific, downside acknowledged — 6 fine. Maybe give 5 for Q2 to be safe? The rubric excellent is 5-6. I'll give 6 for Q1, 5 for Q2 (trade-offs good but slightly generic \"operational overhead\" framing? No, it's tied to 5 devs and 8 services). I'll give 6.\n\nActually let me be a bit measured: Q1: 6, Q2: 6, Q3: 8, Q4: 5, Q5: 5 (idempotency key is a technique; CAP correct — could be 6; give 6). Hmm. Q5: techniques named for each: Redis cache (AP), idempotency key (CP). Both justified. 6.\n\nTotal 40. That's fine if deserved. Maybe Q1 5 since justification is brief but adequate... The rubric says excellent 5-6. I'll give 5 for Q1 (justification solid but concise), 6 for Q2? Actually both are strong. I'll settle: C1=6, C2=6, C3=8, C4=5, C5=6, C6=5, C7=4 → 40. Alternatively C1=5, C5=5 → 38. I'll go with mostly full marks but give C1=5 (justification is good; both scenarios complete — actually deserves 6). Fine, 6.\n\nLet me just be honest: this is a strong submission. Give 6,6,8,5,6,5,4 = 40.\n\nHmm, C7: check word counts. Q4: count roughly. \"The Circuit Breaker pattern [2] would have contained the failure...\" ~140 words. OK. Q5 ~145. Q6 ~135. Q2 ~145. All within limit. References IEEE style. Give 4.\n\nRequirements: R1-R7 all met. R7: assumptions — did they state assumptions? Q3 assumes independent failures (stated \"independent failures\" per task). \"State any assumptions\" — the student says \"independent\" implicitly. Not explicitly an assumptions section. Partial? The task says \"State any assumptions.\" The student doesn't have explicit assumption statements, though Q3 mentions independence. I'll mark R7 partial? R7 combines assumptions + citations. Citations done; assumptions not explicitly stated. Mark partial. Actually the scenario presumably gave component availabilities; the student assumed independence as given. I'll mark R7 as partial with note.\n\nTechnical issues: none major. Maybe note Q1 availability scenario response measure mixes multiple measures but fine."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3407,
+    "completion_tokens": 2933,
+    "total_tokens": 6340,
+    "reasoning_tokens": 1518,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1518,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 3328,
+    "prompt_tokens_details": {
+      "cached_tokens": 3328,
+      "created_cache_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 79,
+    "cost": 0.0009709999999999999,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_a3f3648c-f78d-4e1c-bbe8-e8a5ef97c927",
+  "x_nanogpt_pricing": {
+    "amount": 0.0009709999999999999,
+    "currency": "USD",
+    "cost": 0.0009709999999999999,
+    "inputTokens": 3407,
+    "outputTokens": 2933,
+    "cacheReadInputTokens": 3328,
+    "cacheCost": 8.32e-05,
+    "requestId": "req_9211b10d-415f-4da5-a271-3741f600a26a",
+    "costUsd": 0.0009709999999999999,
+    "usdCost": 0.0009709999999999999,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "hit",
+      "readTokens": 3328
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "hit",
+    "readTokens": 3328
+  }
+}

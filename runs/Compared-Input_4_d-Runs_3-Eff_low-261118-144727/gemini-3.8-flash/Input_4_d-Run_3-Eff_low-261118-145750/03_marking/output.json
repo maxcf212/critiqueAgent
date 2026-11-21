@@ -1,0 +1,140 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Suitable attributes are chosen with justification. However, the availability scenario's response measure ('stay up most of the time') is vague and not measurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently, and a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "A clear modular monolith recommendation is strongly justified using scenario specifics (team size, load profile, VM deployment), and downsides are explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "Parts (a) and (b) are correct. In part (c), the student mistakenly treated the payment subsystem's availability (99.9975%) as the entire system's availability, omitting the remaining series components."
+    },
+    {
+      "id": "C4",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally. When failures exceed a threshold (for example 50% of calls in 10 seconds) the breaker moves to Closed"
+        }
+      ],
+      "reasoning": "The student inverted the standard Circuit Breaker states (confusing Closed and Open), and did not discuss any drawback or tuning consideration."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both choices are reasonable and concrete techniques are named (Redis caching, ACID transactions). However, claiming to 'give up partition tolerance' during network partitions misapplies the CAP theorem (networks cannot forfeit partitions; it is a CP choice)."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision, and Consequences are present and specific, but the consequences are one-sided (no negative consequence or trade-off of introducing RabbitMQ is stated)."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman, Software Architecture in Practice, 3rd ed."
+        }
+      ],
+      "reasoning": "Headings are followed and word limits are respected. However, citation [2] is referenced in Question 4 but omitted from the reference list."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "In part (c), total availability was equated to the redundant payment component availability (0.999975) instead of multiplying across all series components (0.9995 * 0.999 * 0.9995 * 0.999975 = 0.99798)."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Inverted Circuit Breaker states: normal operation is 'Closed' and failure-tripped state is 'Open'."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Misinterpreted CAP theorem by claiming to choose CA over P in a distributed system during a network partition."
+    }
+  ],
+  "overall": "A solid effort with strong architectural reasoning in Q2. Points were lost for an unmeasurable scenario measure, an arithmetic omission in Q3(c), inverted circuit breaker states, CAP misinterpretation, missing ADR negative consequences, and missing reference [2]."
+}

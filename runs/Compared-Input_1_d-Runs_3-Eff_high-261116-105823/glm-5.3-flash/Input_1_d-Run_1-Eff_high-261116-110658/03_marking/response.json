@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-6e595625-a891-4bd6-9ae3-a554e97981a2",
+  "object": "chat.completion",
+  "created": 1794787625,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"criteria\":[{\"id\":\"C1\",\"level\":\"Adequate\",\"mark\":6,\"evidence\":[{\"where\":\"Mission Concept & Rationale\",\"quote\":\"A near-real-time relay to monitoring stations on the ground would allow marine and conservation scientists to more accurately predict and react to coral bleaching events.\"}],\"reasoning\":\"Clear purpose, users (marine/conservation scientists) and need, with four literature citations. However, no explicit mission objectives/requirements (payload, resolution, coverage, lifetime), and the orbit concept contains a fundamental error, so not fully accomplished.\"},{\"id\":\"C2\",\"level\":\"Adequate\",\"mark\":6,\"evidence\":[{\"where\":\"Project Plan & Preliminary Progress\",\"quote\":\"Project work will be divided into weeks via a Gantt Chart. Detailed task descriptions can be found on the next page.\"}],\"reasoning\":\"Detailed Gantt chart with week-by-week tasks tied to mission stages (launch, orbit, ground, comms, end-of-life). Lacks contingency/variations provision and no dedicated list of planned information sources; sources only appear as concept footnotes.\"},{\"id\":\"C3\",\"level\":\"Adequate\",\"mark\":5,\"evidence\":[{\"where\":\"Project Plan & Preliminary Progress\",\"quote\":\"completed STK tutorials 1, 2, 3 & 4\"}],\"reasoning\":\"Evidence of progress: mission concept drafted, background research on Asner's imaging approach, STK tutorials completed. However, no preliminary technical results (orbit parameters, coverage calcs, simulations) are presented or interpreted.\"},{\"id\":\"C4\",\"level\":\"Adequate\",\"mark\":6,\"evidence\":[{\"where\":\"Mission Concept & Rationale\",\"quote\":\"¹ https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-acidification\"}],\"reasoning\":\"Well-written, logical structure with headings, clear labelled Gantt chart. But references are footnote URLs with no reference list, and the report is brief (~2 pages) with limited figures/tables, so not at the accomplished professional level.\"}],\"requirements\":[{\"id\":\"R1\",\"met\":\"yes\",\"where\":\"Mission Concept & Rationale\"},{\"id\":\"R2\",\"met\":\"partial\",\"where\":\"Project Plan & Preliminary Progress — Launch/Orbit Specifics tasks relate to space segment, but 'geostationary orbit at an altitude of 600 km' is technically wrong\"},{\"id\":\"R3\",\"met\":\"yes\",\"where\":\"Project Plan & Preliminary Progress — 'STK Design' and 'STK Simulations' tasks; STK tutorials completed\"},{\"id\":\"R4\",\"met\":\"yes\",\"where\":\"Image 1 — Gantt chart with weekly schedule and task descriptions\"},{\"id\":\"R5\",\"met\":\"partial\",\"where\":\"Mission Concept & Rationale — four source URLs cited, but no list of planned information sources\"},{\"id\":\"R6\",\"met\":\"partial\",\"where\":\"Project Plan & Preliminary Progress — research and STK tutorials done, but no preliminary technical results shown\"}],\"technical_issues\":[{\"where\":\"Project Plan & Preliminary Progress (Orbit Specifics)\",\"issue\":\"States 'geostationary orbit at an altitude of 600 km, which keeps the satellite fixed above the reef' — geostationary orbit requires ~35,786 km altitude; 600 km is LEO and cannot remain fixed over the reef. Also, GEO would give poor resolution for reef imaging.\"},{\"where\":\"Mission Concept & Rationale\",\"issue\":\"Concept conflates an imaging satellite (Asner-style seafloor colour detection) with a near-real-time communications relay; payload/mission architecture is not defined.\"}],\"overall\":\"Well-motivated Australian reef-monitoring mission with clear users, a detailed Gantt-chart plan and STK selected. Weakened by a fundamental orbit error (GEO at 600 km), no explicit requirements or source list, and limited preliminary technical results.\"}",
+        "refusal": null,
+        "reasoning": "Let me evaluate.\n\nC1: Mission concept and rationale. The student describes coral reef monitoring satellite for Great Barrier Reef, users (marine/conservation scientists), need, references. Good but lacks specific mission goals/objectives/requirements (no explicit requirements, no orbit details correct — actually there's an error: \"geostationary orbit at an altitude of 600 km\" — geostationary is 35,786 km; 600 km is LEO. That's a technical error). C1: Accomplished or Adequate? Clear description of mission purpose, users, need, with references. But mission requirements not explicitly stated (no requirements list, no orbit/payload specifics). I'd say Adequate, maybe 6. Actually the description is quite good with literature references. But lacks objectives/requirements specifics. Adequate 6.\n\nC2: Project plan with Gantt chart, task descriptions, information sources? The plan is detailed with Gantt chart and task breakdown. Contingencies? Not much provision for variations/contingencies. References to information sources: URLs cited in mission section; planned sources not explicitly listed beyond that. R5 requires list of information sources — the student cites four URLs in the concept section but doesn't have a dedicated \"planned information sources\" list. Partial. C2: Adequate, 6? Plan is robust-ish, fits narrative, but no contingency provision and no explicit source list. I'd give 6 (Adequate) or 7. The plan is quite detailed and tied to mission. Lack of contingencies and no explicit information source list → Adequate 6.\n\nC3: Preliminary progress: completed STK tutorials 1-4, research on Asner's system, mission concept done. Some work but no technical results/numbers. Adequate, 5.\n\nC4: Presentation: clear structure, headings, well-written, Gantt chart labelled, references as footnotes URLs (not a reference list matching in-text). References cited as superscript numbers with URLs but no reference list. Mostly fine. Adequate to Accomplished. Writing is good, structure clear. Reference style is unusual (footnote URLs, no reference list). I'd say Adequate 6 or Accomplished 7. Given no reference list and short length, Adequate 6? The document is well-written and clear. I'll give 7? The rubric Accomplished requires references in text match reference list — they don't have a list. So Adequate 6.\n\nRequirements:\nR1: yes — mission concept benefits Australia, users, rationale. Met (Mission Concept section).\nR2: partial — plan mentions launch specifics, orbit specifics, but orbit statement is technically wrong (GEO at 600 km). Plan relates to space segment though. Partial or yes? It does relate plan to space segment applying launch/orbits. Met but with technical error. I'd say yes with technical issue noted, or partial due to error. The requirement is about relating plan to space segment — it does. Mark \"yes\" but note technical issue. Hmm, the GEO/600km error is significant misunderstanding of orbits. I'll say partial.\nR3: software selected — STK chosen (\"STK Design\", \"STK simulations\", \"completed STK tutorials\"). Met.\nR4: Gantt chart provided. Met.\nR5: information sources — only four URLs cited in concept; no planned sources list. Partial.\nR6: preliminary technical content — STK tutorials completed, research; limited technical results. Partial.\n\nTechnical issues: \"geostationary orbit at an altitude of 600 km, which keeps the satellite fixed above the reef\" — GEO requires ~35,786 km altitude; 600 km is LEO and cannot be fixed. Also \"Oceans have become 30 percent more acidic\" — actually surface ocean acidity increased ~30% since industrial revolution, that's fine. \"bleaching killed 60 percent... 2017 another 50 percent\" — roughly matches reports. Also near-real-time relay from a monitoring satellite — concept mixes imaging satellite and relay; minor.\n\nOverall: solid concept and plan, but orbit error and missing source list/technical results."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4068,
+    "completion_tokens": 1666,
+    "total_tokens": 5734,
+    "reasoning_tokens": 867,
+    "completion_tokens_details": {
+      "reasoning_tokens": 867,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 4068,
+    "cost": 0.0009065999999999998,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_fdfd8905-8200-46d6-912e-3dd495363e20",
+  "x_nanogpt_pricing": {
+    "amount": 0.0009065999999999998,
+    "currency": "USD",
+    "cost": 0.0009065999999999998,
+    "inputTokens": 4068,
+    "outputTokens": 1666,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_851c7aef-899e-411d-a0b7-dd066539b933",
+    "costUsd": 0.0009065999999999998,
+    "usdCost": 0.0009065999999999998,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

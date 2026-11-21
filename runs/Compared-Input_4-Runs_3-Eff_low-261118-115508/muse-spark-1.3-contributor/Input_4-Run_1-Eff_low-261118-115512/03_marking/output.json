@@ -1,0 +1,144 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance scenario is six-part with measurable p95. Availability scenario has six parts but response measure is vague and unmeasurable, matching Proficient descriptor."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "a bug in one module can still crash the whole process."
+        }
+      ],
+      "reasoning": "Modular monolith clearly recommended with two scenario-specific trade-offs team size and single-VM plus deployment downtime, downside acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Proficient",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "(a) series product 99.30% and (b) 5.0h correct with working. (c) parallel payment 0.999975 correct but failed to multiply by other components, so end-to-end and downtime wrong. One part incorrect."
+    },
+    {
+      "id": "C4",
+      "level": "Excellent",
+      "mark": 5,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "When failures exceed a threshold (for example 50% of calls in 10 seconds)"
+        }
+      ],
+      "reasoning": "Circuit Breaker correctly explained with Closed/Open/Half-Open, applied to 25-min outage, tuning threshold and timeout given."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both choices reasonable with concrete techniques Redis TTL and idempotency key, but CAP misused partitions cannot be given up, must choose C or A."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "The queue also smooths the lunch peak because the workers process orders at a steady rate."
+        }
+      ],
+      "reasoning": "Context and Decision specific to OrderPaid RabbitMQ, but Consequences list only positives, no negative consequence like ops complexity or consistency delay."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months."
+        }
+      ],
+      "reasoning": "Headings and IEEE references present and writing clear, but Question 2 exceeds 150-word limit at ~180 words."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "yes",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": null
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3",
+      "issue": "Part (c) omits series components: correct end-to-end is ~0.99798 = 99.80% and ~1.5h downtime, not 99.9975% and 0.018h."
+    },
+    {
+      "where": "Question 5",
+      "issue": "CAP error: cannot choose C+A and abandon P during partition; partition tolerance is mandatory."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure 'stay up most of the time' is not measurable; needs %/time bound."
+    },
+    {
+      "where": "Question 6",
+      "issue": "No negative consequence stated for queue introduction."
+    }
+  ],
+  "overall": "Solid scenario-grounded answers with correct series math and patterns, weakened by Q3c recombination error, CAP misunderstanding, and one-sided ADR."
+}

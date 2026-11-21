@@ -1,0 +1,62 @@
+{
+  "id": "chatcmpl-e58f75a6-462c-4857-9b0e-f94796b67824",
+  "object": "chat.completion",
+  "created": 1794792804,
+  "model": "z-ai/glm-5.3-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"criteria\": [\n    {\n      \"id\": \"C1\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\n          \"where\": \"Mission Concept & Rationale\",\n          \"quote\": \"Give reef managers direct, repeatable observations of coral colour over the whole Great Barrier Reef\"\n        },\n        {\n          \"where\": \"Mission Concept & Rationale\",\n          \"quote\": \"Its customers are the Great Barrier Reef Marine Park Authority, which needs up-to-date bleaching maps\"\n        }\n      ],\n      \"reasoning\": \"Clear goal, four quantified objectives/requirements, explicit users (AIMS, GBRMPA, CSIRO, BoM) with needs traced to objectives, and 11 literature references. Only minor gap: no discussion of why a new satellite beats existing missions.\"\n    },\n    {\n      \"id\": \"C2\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\n          \"where\": \"Project Plan\",\n          \"quote\": \"Project work is divided into weeks in the Gantt chart in Figure 1\"\n        },\n        {\n          \"where\": \"Project Plan\",\n          \"quote\": \"The main risks and the planned responses are listed in Table 1\"\n        }\n      ],\n      \"reasoning\": \"Gantt chart with task descriptions, explicit rationale linking task order to mission logic (orbit before comms), four contingencies with triggers/responses, and a planned-sources table. Robust and mission-integrated; only slightly generic task descriptions.\"\n    },\n    {\n      \"id\": \"C3\",\n      \"level\": \"Accomplished\",\n      \"mark\": 8,\n      \"evidence\": [\n        {\n          \"where\": \"Preliminary Progress\",\n          \"quote\": \"T = 2π√(a³/μ) | 5,801 s = 96.7 min\"\n        },\n        {\n          \"where\": \"Preliminary Progress\",\n          \"quote\": \"Weekly coverage (objective 1) is therefore not guaranteed by one satellite at this altitude and resolution\"\n        }\n      ],\n      \"reasoning\": \"Correct hand calculations (period, sun-sync inclination ~97.8°, ground-track shift) with interpretation of the swath–revisit trade, plus completed STK tutorials and a first scenario. Good progress, though results are still first-pass.\"\n    },\n    {\n      \"id\": \"C4\",\n      \"level\": \"Accomplished\",\n      \"mark\": 9,\n      \"evidence\": [\n        {\n          \"where\": \"Figure 1\",\n          \"quote\": \"Project Gantt chart, Weeks 2 to 10 (gold = completed, blue = planned, red lines = report deadlines)\"\n        },\n        {\n          \"where\": \"References\",\n          \"quote\": \"[7] J. R. Wertz, D. F. Everett, and J. J. Puschell, Eds., Space Mission Engineering: The New SMAD\"\n        }\n      ],\n      \"reasoning\": \"Logical structure, consistent IEEE-style citations matching the reference list, labelled figures/tables with captions, professional tone and clean grammar. Minor: some reference entries lack titles, and figure/table numbering within sections is fine but captions could be more self-contained.\"\n    }\n  ],\n  \"requirements\": [\n    {\n      \"id\": \"R1\",\n      \"met\": \"yes\",\n      \"where\": \"Mission Concept & Rationale\"\n    },\n    {\n      \"id\": \"R2\",\n      \"met\": \"yes\",\n      \"where\": \"Project Plan / Preliminary Progress — orbit, launch, ground segment tasks tied to course material and preliminary orbit calculations\"\n    },\n    {\n      \"id\": \"R3\",\n      \"met\": \"yes\",\n      \"where\": \"Project Plan — 'The design will be completed in STK (Systems Tool Kit), accessed remotely through the MECH lab 204 licence'\"\n    },\n    {\n      \"id\": \"R4\",\n      \"met\": \"yes\",\n      \"where\": \"Figure 1 Gantt chart with weekly tasks and deadlines\"\n    },\n    {\n      \"id\": \"R5\",\n      \"met\": \"yes\",\n      \"where\": \"Table 2: Planned information sources\"\n    },\n    {\n      \"id\": \"R6\",\n      \"met\": \"yes\",\n      \"where\": \"Preliminary Progress — Table 3 hand calculations and completed STK tutorials\"\n    }\n  ],\n  \"technical_issues\": [\n    {\n      \"where\": \"Preliminary Progress, Table 3\",\n      \"issue\": \"10 m GSD from a 600 km orbit implies a very demanding optical payload (~6000-pixel swath assumption); payload feasibility is not yet addressed, though flagged as a trade.\"\n    },\n    {\n      \"where\": \"Preliminary Progress\",\n      \"issue\": \"Sun-synchronous 600 km orbit gives ~14.9 orbits/day but equatorial cross-track spacing of ~2700 km means weekly reef coverage claim needs constellation or off-nadir options; student correctly identifies this.\"\n    },\n    {\n      \"where\": \"Mission Concept & Rationale\",\n      \"issue\": \"Statement 'Oceans have become 30 percent more acidic' is a simplification (≈30% rise in H+ concentration from ~0.1 pH drop); acceptable but imprecise wording.\"\n    }\n  ],\n  \"overall\": \"A strong, well-organised preliminary report: clear reef-monitoring mission with quantified objectives and identified users, a robust Gantt plan with contingencies and sources, and correct first-pass orbit calculations with honest interpretation of the coverage trade. Minor refinements to payload feasibility and reference completeness would perfect it.\"\n}\n```",
+        "refusal": null,
+        "reasoning": "Let me evaluate against the rubric.\n\nC1: Mission concept and rationale. Very strong: goals, objectives, requirements, users (AIMS, GBRMPA, CSIRO, BoM), literature references. Accomplished, 9-10. Give 9.\n\nC2: Project plan. Gantt chart, task descriptions, contingencies, information sources, fits mission narrative. Accomplished, 9.\n\nC3: Preliminary progress. Hand calculations for orbit, STK tutorials complete, interpretation of swath trade. Good preliminary results with interpretation. Accomplished, 8-9. Give 8.\n\nC4: Presentation. Well structured, clear headings, figures/tables labelled, references match. Minor issues: \"MECH lab 204\" — fine. Writing is good. Accomplished, 9.\n\nCheck technical correctness: Period calc: a=6978, a³=3.397e11, /398600 = 852,300, sqrt=923.2, ×2π=5800 s. Correct. Orbits/day 14.9. Sun-sync inclination at 600 km ~97.8°, correct. Ground track shift: 360×5801/86164 = 24.24°, correct. Swath 60 km assumption of 6000 pixels — plausible assumption stated. Interpretation correct.\n\nRequirements:\nR1: yes — mission concept section.\nR2: partial/yes — plan relates to space segment (orbit, launch, ground control); orbit work planned. The plan applies course material (launch, orbits). Yes.\nR3: yes — STK selected, MECH lab licence.\nR4: yes — Gantt chart Figure 1.\nR5: yes — Table 2.\nR6: yes — Table 3 hand calcs, STK tutorials.\n\nTechnical issues: minor — 10 m GSD from 600 km requires demanding optics (not addressed but that's later stages); \"Oceans have become 30 percent more acidic\" — actually ~30% increase in acidity is correct (pH drop 0.1 = 30% H+ increase). Fine. Weekly coverage issue acknowledged. Maybe note that 10 m resolution at 600 km is challenging but that's design work later.\n\nOverall: strong submission."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5822,
+    "completion_tokens": 1691,
+    "total_tokens": 7513,
+    "reasoning_tokens": 482,
+    "completion_tokens_details": {
+      "reasoning_tokens": 482,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "cache_creation_input_tokens": 0,
+    "input_tokens": 5822,
+    "cost": 0.0010895000000000002,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_5ac8a780-7caa-4059-a566-8c7659e15c02",
+  "x_nanogpt_pricing": {
+    "amount": 0.0010895000000000002,
+    "currency": "USD",
+    "cost": 0.0010895000000000002,
+    "inputTokens": 5822,
+    "outputTokens": 1691,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0,
+    "requestId": "req_c11e424b-d2cd-4ac7-9f7e-21c4a09f49b3",
+    "costUsd": 0.0010895000000000002,
+    "usdCost": 0.0010895000000000002,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  }
+}

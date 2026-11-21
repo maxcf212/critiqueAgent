@@ -1,0 +1,172 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are well justified from the lunch-hour scenario. Both scenarios have six parts, but the availability response measure ('stay up most of the time') is not measurable, so this is Proficient rather than Excellent."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        },
+        {
+          "where": "Question 2",
+          "quote": "The trade-off I accept is that modules cannot be scaled independently"
+        }
+      ],
+      "reasoning": "Clear modular-monolith recommendation with scenario-specific trade-offs (five-developer team, single-VM and deployment-downtime problems). The downside is explicitly acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 3(b)",
+          "quote": "Downtime = (1 − 0.99301) × 720 = 0.00699 × 720 = 3.5 hours per month."
+        },
+        {
+          "where": "Question 3(c)",
+          "quote": "So the new availability of placing an order is 99.9975%"
+        }
+      ],
+      "reasoning": "Part (a) is correct (99.30%). Part (b) is wrong: 0.00699 × 720 ≈ 5.0 h, not 3.5 h. Part (c) is wrong: it reports payment availability as end-to-end order availability, ignoring the 99.30% chain, giving about 99.30% and roughly 5.1 h/month. Two parts are incorrect."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "In the Open state calls pass through normally."
+        },
+        {
+          "where": "Question 4",
+          "quote": "the breaker moves to Closed and calls fail immediately"
+        }
+      ],
+      "reasoning": "Circuit breaker is an appropriate pattern with a tuning consideration. However the state mechanism is wrong: Closed passes calls through, Open fails fast, and the text reverses them. Half-Open success is also described as reopening the breaker. The explanation is incorrect."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        },
+        {
+          "where": "Question 5",
+          "quote": "(for example Redis with a 60-second TTL)"
+        }
+      ],
+      "reasoning": "Choices are reasoned, and a concrete technique is named for menu browsing. The CAP explanation is imprecise: partition tolerance cannot be given up in a distributed system. No concrete technique is named for the payment/order case."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context, Decision and Consequences are all present and scenario-specific. Consequences are entirely positive; no negative consequence (e.g., added complexity, eventual delivery, queue failure handling) is given."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "Question 4",
+          "quote": "The Circuit Breaker pattern [2] would have contained the failure."
+        },
+        {
+          "where": "References",
+          "quote": "[1] L. Bass, P. Clements, and R. Kazman"
+        }
+      ],
+      "reasoning": "Word limits and headings are met and the writing is clear. Citation [2] is used but absent from the reference list, which is a citation problem."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "Question 3(b)",
+      "issue": "Downtime 0.00699 × 720 is about 5.0 h, not 3.5 h."
+    },
+    {
+      "where": "Question 3(c)",
+      "issue": "End-to-end availability ignores the 99.30% order chain and is reported as 99.9975%; correct value is about 99.30% with roughly 5.1 h/month downtime."
+    },
+    {
+      "where": "Question 4",
+      "issue": "Circuit breaker states are wrong: Closed passes calls, Open fails fast, Half-Open success should close the breaker."
+    },
+    {
+      "where": "Question 5",
+      "issue": "Claiming to give up partition tolerance is incorrect; in distributed systems partitions must be tolerated, so the choice is between C and A during a partition."
+    },
+    {
+      "where": "Question 1",
+      "issue": "Availability response measure is not measurable."
+    },
+    {
+      "where": "Assumptions",
+      "issue": "No explicit assumptions stated, as required by R7."
+    }
+  ],
+  "overall": "Good structure and a sound architecture recommendation, but Question 3 has two incorrect parts, the circuit breaker mechanism and CAP explanation contain errors, and the ADR lacks negative consequences. Availability measure is not measurable, reference [2] is missing, and no assumptions are stated."
+}

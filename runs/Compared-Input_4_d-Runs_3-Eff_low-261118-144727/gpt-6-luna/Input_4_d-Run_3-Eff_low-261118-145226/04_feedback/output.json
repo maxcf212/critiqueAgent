@@ -1,0 +1,17 @@
+{
+  "summary": "You make a strong, scenario-specific case for a modular monolith in Question 2, including team-size and operational trade-offs. To reach higher rubric levels, make both Question 1 scenarios measurable and correct the availability, circuit-breaker, and CAP reasoning. Your ADR and references also need completing.",
+  "next_steps": [
+    "In Question 1, keep the measurable p95 performance target and define availability with a quantified order-placement target over a stated period. Ensure each scenario includes all six parts and explains why the attribute matters.",
+    "In Questions 3–5, show the availability calculations carefully, including all required components in part (c). Correct the circuit-breaker states in Question 4 and explain the consistency–availability trade-off during a partition in Question 5; name a concrete payment technique.",
+    "In Question 6, add a specific negative consequence of the queue decision. Check every citation against the reference list, state assumptions where relevant, and keep each answer within 150 words."
+  ],
+  "criteria": {
+    "C1": "Question 1 links performance and availability to the lunch-hour scenario, and the p95 target is measurable. However, “most of the time” is not measurable, and the availability scenario focuses on browsing rather than order placement. Quantify the target and complete all six scenario parts.",
+    "C2": "Your Question 2 recommendation of a modular monolith is clear and specific to the five-person team and existing performance and deployment problems. You discuss relevant trade-offs and acknowledge that modules cannot be scaled independently; this meets the top rubric level.",
+    "C3": "In Question 3, your series-availability method and product are essentially correct. Recheck part (b): the downtime is about 5.03 hours per month. In part (c), multiply the redundant payment availability by the other required component availabilities; the resulting end-to-end downtime is about 1.46 hours per month.",
+    "C4": "You chose an appropriate pattern and gave a threshold and recovery trial in Question 4, but the states are reversed. Closed permits calls, Open fails fast, and Half-Open allows trial calls. Apply this sequence to the payment-provider outage and add a drawback or tuning consideration.",
+    "C5": "Your Question 5 menu choice includes a concrete cache technique and stale-data trade-off. For payments, CAP requires a consistency–availability trade-off during a partition; you cannot give up partition tolerance during that partition. Name a concrete technique for the payment choice.",
+    "C6": "Your Question 6 includes scenario-specific Context, Decision, and Consequences, including benefits of publishing an OrderPaid event. Add at least one negative consequence, such as duplicate-delivery or queue/worker operational concerns, to meet the top rubric level.",
+    "C7": "Your writing is generally clear and uses question headings. Question 1 appears to exceed the 150-word limit, and reference [2], cited in Question 4, is missing from the reference list. Check word limits, complete the references, and state assumptions."
+  }
+}

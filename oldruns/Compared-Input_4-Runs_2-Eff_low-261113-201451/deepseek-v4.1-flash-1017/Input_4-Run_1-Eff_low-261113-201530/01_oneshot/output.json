@@ -1,0 +1,64 @@
+{
+  "criteria": [
+    {
+      "name": "Q1 Quality attributes",
+      "level": "Proficient",
+      "mark": 4,
+      "max": 6,
+      "feedback": "Performance and availability are well chosen and clearly justified from the scenario (lunch-peak load, 4.2 s p95, abandonment). The performance scenario has all six parts and a measurable response measure (p95 < 1.5 s, no dropped requests). The availability scenario is complete in structure but its response measure — 'the system should stay up most of the time' — is not measurable, which is an explicit requirement of the task. Replace it with something like 'menu browsing remains available and order placement fails gracefully with a retry message for 99.9% of requests during the 25-minute provider slowdown'."
+    },
+    {
+      "name": "Q2 Architectural style",
+      "level": "Excellent",
+      "mark": 6,
+      "max": 6,
+      "feedback": "Clear, decisive recommendation (modular monolith for the next 12 months) with two trade-offs that are genuinely scenario-specific: five developers versus per-service operational overhead, and the observation that the known problems (single VM, 20-minute deployment outage) are not caused by the monolith and would not be fixed by a rewrite. The downside of the recommendation is explicitly acknowledged (no independent scaling, one module can crash the process). Strong answer."
+    },
+    {
+      "name": "Q3 Availability calculation",
+      "level": "Proficient",
+      "mark": 6,
+      "max": 8,
+      "feedback": "(a) and (b) are correct with working shown: 0.9995 × 0.999 × 0.9995 × 0.995 = 99.30%, and (1 − 0.99301) × 720 = 5.0 hours. (c) computes the combined payment availability correctly (1 − 0.005² = 0.999975) but then applies it incorrectly: the new end-to-end availability is 0.9995 × 0.999 × 0.9995 × 0.999975 = 99.80%, and downtime is (1 − 0.99798) × 720 ≈ 1.5 hours per month, not 0.018 hours. The 0.018-hour figure only accounts for the payment component and ignores the other three components' downtime."
+    },
+    {
+      "name": "Q4 Resilience pattern",
+      "level": "Proficient",
+      "mark": 4,
+      "max": 5,
+      "feedback": "Circuit Breaker is the right pattern and the mechanism (Closed/Open/Half-Open, failure threshold, fail-fast so request threads are not exhausted) is explained correctly and applied convincingly to the 25-minute provider slowdown, including a sensible user-facing fallback. However, no drawback or tuning consideration is actually stated — the 50%/10 s threshold is given as an example but not discussed as a tuning decision. Add a sentence on, e.g., choosing thresholds to avoid tripping on transient blips, the need for a fallback path, or the risk of a half-open storm when the provider recovers."
+    },
+    {
+      "name": "Q5 Consistency and availability",
+      "level": "Proficient",
+      "mark": 4,
+      "max": 6,
+      "feedback": "Both choices are reasonable and both techniques are concrete and appropriate (Redis cache with 60 s TTL for menus; idempotency keys for payments). The CAP explanation for the payment case is, however, incorrect: you cannot 'give up partition tolerance' in a distributed system — P is not optional, so under a partition you must choose C or A. Reword as: 'when a partition occurs we choose consistency over availability, so payment requests fail rather than risk a double charge or an unpaid order'."
+    },
+    {
+      "name": "Q6 Architecture decision record",
+      "level": "Proficient",
+      "mark": 4,
+      "max": 5,
+      "feedback": "Context, Decision and Consequences are all present and specific to CampusEats (synchronous tablet call, lost orders, contribution to the 4.2 s p95, RabbitMQ, retrying worker). The consequences are one-sided, though: all three are positive. The rubric requires at least one negative consequence — for example added operational complexity of running a broker, duplicate or out-of-order notifications requiring idempotent consumers, or eventual delivery meaning an outlet may see an order late."
+    },
+    {
+      "name": "Communication and format",
+      "level": "Proficient",
+      "mark": 3,
+      "max": 4,
+      "feedback": "Writing is clear and precise, headings are used in order, and the two IEEE-style references are correctly formatted and cited in text. Question 2 exceeds the 150-word limit (roughly 175 words) and Question 1 is at or just over the limit, so the word-limit requirement is not fully met. Trim Q2 by moving the deployment/load-balancer detail into a shorter clause."
+    }
+  ],
+  "total": 31,
+  "total_max": 40,
+  "summary": "A strong submission overall. Q2 is excellent, and Q3(a)/(b) and the circuit-breaker explanation are solid. The main losses come from four recurring issues: a non-measurable response measure in the Q1 availability scenario, an incorrect end-to-end availability in Q3(c) (the combined payment availability was not multiplied back through the other three components), an incorrect CAP statement in Q5(ii), a one-sided set of consequences in the ADR, and no explicit drawback or tuning consideration in Q4. Formatting and referencing are good apart from the Q2 word-limit overrun.",
+  "next_steps": [
+    "Recompute Q3(c): multiply the improved payment availability back through the gateway, order service and database (0.9995 × 0.999 × 0.9995 × 0.999975 ≈ 99.80%, ≈ 1.5 hours downtime per month).",
+    "Make the Q1 availability response measure measurable, e.g. a percentage of requests served or a maximum degraded-mode duration during a provider slowdown.",
+    "Correct the CAP wording in Q5(ii): partition tolerance is not optional; under a partition you choose consistency over availability.",
+    "Add at least one negative consequence to the ADR in Q6 (broker operational overhead, duplicate/out-of-order delivery, or delayed outlet notification).",
+    "Add an explicit drawback or tuning consideration to Q4 (threshold selection, fallback behaviour, half-open recovery).",
+    "Cut Question 2 to 150 words or fewer."
+  ]
+}

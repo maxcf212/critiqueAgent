@@ -1,0 +1,17 @@
+{
+  "summary": "You produced a strong, accurate submission. Your Question 3 availability calculations are correct, and your answers are closely tied to the CampusEats scenario. Your trade-offs in Question 2 and your Architecture Decision Record in Question 6 are clear and specific. The main gap is the absence of an explicit assumptions statement, which R7 requires and which would have made two of your claims easier to verify.",
+  "next_steps": [
+    "Add a short, explicit assumptions section. State that the planned split is eight or more services, and that the component failures and the two payment providers fail independently in your Question 3 calculation.",
+    "In Question 3, state the independence assumption before you multiply the availabilities, so the reader can see why the series calculation is valid.",
+    "Check that every in-text citation matches an entry in your References list, and that all entries follow IEEE style, so R7 is fully met."
+  ],
+  "criteria": {
+    "C1": "You chose performance and availability and justified them with scenario facts: 900 lunchtime orders and the 4.2 s p95 response time. Both scenarios have all six parts, and each response measure is measurable (p95 under 1.5 s, under 0.1% failures, one-minute recovery). This is an excellent answer.",
+    "C2": "You recommended a modular monolith and linked it to the scenario through team size and the lunchtime slowness and weekly downtime of the single VM. You also acknowledged the downside: modules cannot be scaled independently and a bug can crash the whole process. The one weakness is the unstated assumption behind 'eight or more services', which should be an explicit assumption.",
+    "C3": "All three parts (a), (b) and (c) are correct, and your working is shown to the requested precision. Your use of series multiplication and conversion to monthly downtime is clear. The independence assumption behind the multiplication is not stated explicitly, and stating it would make the answer complete.",
+    "C4": "You correctly explained the Circuit Breaker's states and applied it to the slow payment outage. You also gave a tuning consideration (the threshold should come from real latency data) and a drawback (nobody can pay while it is open, so a fallback is needed). This is an excellent answer.",
+    "C5": "You justified both your consistency and availability choices. You applied CAP correctly, treating partition tolerance as mandatory, and named concrete techniques: a Redis TTL cache and idempotency keys. This is an excellent answer.",
+    "C6": "Your Architecture Decision Record has Context, Decision and Consequences, all specific to CampusEats. It includes both positive and negative consequences, such as the extra queue component for five developers to run and monitor. This is an excellent answer.",
+    "C7": "Your headings are in order, your answers are within the word limits, your terminology is precise, and your references follow IEEE style. The missing explicit assumptions statement is a content gap against R7, not a format deduction, but adding it would fully meet the requirement."
+  }
+}

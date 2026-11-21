@@ -1,0 +1,80 @@
+{
+  "id": "chatcmpl-d00aaf5b-767d-4a3d-b5cc-db2981cb74bf",
+  "object": "chat.completion",
+  "created": 1794722052,
+  "model": "deepseek/deepseek-v4.1-flash-1017:thinking",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"You have a strong mission concept and clear report structure, with STK screenshots and coverage of all major design areas. The main gaps are technical substantiation: launch vehicle availability and mass check, RAAN/LTAN and orbital calculations, link budget, EOL sizing, and reference quality. Addressing these will make your design more accurate and persuasive.\",\"next_steps\":[\"Resolve the launch and orbit inconsistencies: confirm Vega E availability/date or choose an operational vehicle, include a mass/capability check and contingency, correct the RAAN explanation, and add orbital period, velocity and LTAN with a hand calculation for the 97.79° SSO.\",\"Strengthen the design evidence: add a link budget/data rate, justify the 'constant sunlight' claim via LTAN, extend the access summary beyond ~3 days, and size the drag sail with deorbit time and 25-year compliance; include your STK/software files.\",\"Tighten presentation and referencing: number and caption all figures/tables, proofread for spelling/grammar, replace Wikipedia with credible sources, and make in-text citations match a consistently formatted reference list.\"],\"criteria\":{\"C1\":\"Your Introduction clearly frames GBR coral-reef monitoring via fluid lensing, explains the need, justifies a single satellite, and identifies users such as CSIRO/BOM. To strengthen within Accomplished, explicitly name the operator and support broad claims with targeted literature. You are at the lower end of this band; sharper ownership and referencing will make the rationale more persuasive.\",\"C2\":\"You cover launch, orbit, ground control, communications, duration and EOL with STK screenshots, but support is thin. Resolve the Vega E availability contradiction and add a mass/capability check; correct the RAAN rationale and give period/velocity/LTAN with a hand calculation; remove the resolution contradiction; add a link budget, extend access beyond ~3 days, and size the drag sail with deorbit time. Accomplished requires comprehensive, accurate, persuasive evidence including software files.\",\"C3\":\"Your Conclusion restates the design and acknowledges Vega E uncertainty, but it is brief and generic. To reach Accomplished, draw specific evidence-based conclusions on launch choice, communications access, mission duration and EOL, and state how the design meets the mission need. Link each conclusion back to results in the main body rather than summarising only.\",\"C4\":\"Your report has clear headings and an executive summary, but figures/tables are unnumbered, spelling/grammar slips remain, and references are URL-only and include Wikipedia. To reach Accomplished, use a consistent engineering-report format, number and caption all figures/tables, proofread, and provide a properly formatted reference list with matching in-text citations from credible sources.\"}}",
+        "refusal": null,
+        "reasoning": "We need to write formative feedback as JSON. Address student as \"you\". Be specific, supportive, actionable. Cite sections/figures. Name what they did well, state what next rubric level requires. Don't change marks. Don't comment on conversion artefacts. Don't make up explanations for unclear reasoning.\n\nSchema: summary <=80 words, next_steps array of 3 strings, criteria object mapping criterion id to string <=70 words each.\n\nNeed to produce one JSON object only.\n\nWe need craft feedback. Marks: C1 7, C2 5, C3 5, C4 5. Need mention next rubric level requirements. For C1 at 7 Accomplished lower bound; next level? Already Accomplished. But can say to strengthen within Accomplished? The instruction: \"state what the next rubric level requires.\" For C1 already Accomplished, maybe next level is not applicable; but can say to secure higher within Accomplished? Hmm. We should not change marks. For C1, it's Accomplished at 7; next rubric level doesn't exist above. Could say \"To move from 7 toward the top of Accomplished...\" But \"next rubric level\" for C1 is already Accomplished. Maybe phrase: \"You are at the lower end of Accomplished; to strengthen within this band...\" That's okay. For C2/C3/C4 at Adequate 5, next level is Accomplished (7-10). Need state what Accomplished requires.\n\nNeed include specific evidence: Introduction quotes? We can cite sections. C1: mission concept GBR coral reef fluid lensing, need, single satellite, users. Operator only implied. Next: explicitly identify operator and customers, add literature. C2: launch Vega E inconsistency, no mass/capability check, RAAN rationale, no period/velocity/LTAN, resolution statement, EOL no thrusters vs manoeuvre, drag sail unsized, no link budget, access only ~3 days, no software files. Next Accomplished requires comprehensive accurate persuasive with quality evidence: software files, hand calcs, references, resolve contradictions. C3: conclusion brief generic; next requires detailed evidence-based conclusions on comms, duration, EOL, launch. C4: structure clear, exec summary; figures/tables unnumbered, spelling/grammar, URL-only refs incl Wikipedia; next requires professional formatting, consistent numbering, proper citations, reference list matching.\n\nNeed summary <=80 words. Include overall supportive. Maybe: \"You have a strong mission concept and clear report structure, with STK screenshots and coverage of all major design areas. The main gaps are technical substantiation: launch vehicle availability and mass check, RAAN/LTAN and orbital calculations, link budget, EOL sizing, and reference quality. Addressing these will make your design more accurate and persuasive.\" Count words ~55. Good.\n\nNext_steps 3 strings. Need actionable. Could be:\n1. \"Resolve the launch and orbit inconsistencies: confirm Vega E availability/date or choose an operational vehicle, include a mass/capability check and contingency, and correct the RAAN explanation; add orbital period, velocity and LTAN with a hand calculation for the 97.79° SSO.\"\n2. \"Strengthen the space segment and operations evidence: add a link budget/data rate, justify the 'constant sunlight' claim via LTAN, extend the access summary beyond ~3 days, and size the drag sail with deorbit time and 25-year compliance; include STK/software files.\"\n3. \"Tighten presentation and referencing: number and caption all figures/tables, proofread for spelling/grammar, replace Wikipedia with credible sources, and make in-text citations match a consistently formatted reference list.\"\n\nNeed criteria strings <=70 words each. Let's craft.\n\nC1: \"Your Introduction clearly frames GBR coral-reef monitoring via fluid lensing, explains the need, justifies a single satellite, and identifies users such as CSIRO/BOM. To strengthen within Accomplished, explicitly name the operator and support broad claims with targeted literature. You are at the lower end of this band; sharper ownership and referencing will make the rationale more persuasive.\" Count ~60. Good.\n\nC2: \"You cover launch, orbit, ground control, communications, duration and EOL with STK screenshots, but support is thin. Resolve the Vega E availability contradiction and add a mass/capability check; correct the RAAN rationale and give period/velocity/LTAN with a hand calculation; remove the resolution contradiction; add a link budget, extend access beyond ~3 days, and size the drag sail with deorbit time. Accomplished requires comprehensive, accurate, persuasive evidence including software files and references.\" Count ~75? Need <=70. Let's count. \"You cover launch, orbit, ground control, communications, duration and EOL with STK screenshots, but support is thin.\" 18? Let's count words: You(1) cover2 launch3 orbit4 ground5 control6 communications7 duration8 and9 EOL10 with11 STK12 screenshots13 but14 support15 is16 thin17. Resolve18 the19 Vega20 E21 availability22 contradiction23 and24 add25 a26 mass/capability27 check28; correct29 the30 RAAN31 rationale32 and33 give34 period/velocity/LTAN35 with36 a37 hand38 calculation39; remove40 the41 resolution42 contradiction43; add44 a45 link46 budget47, extend48 access49 beyond50 ~3 51 days52, and53 size54 the55 drag56 sail57 with58 deorbit59 time60. Accomplished61 requires62 comprehensive63, accurate64, persuasive65 evidence66 including67 software68 files69 and70 references71. 71 words. Slight over. Need <=70. Remove \"and references\" -> 69? \"including software files.\" Let's adjust: \"Accomplished requires comprehensive, accurate, persuasive evidence including software files.\" That's 9 words? comprehensive1 accurate2 persuasive3 evidence4 including5 software6 files7. Total 60+7=67. Good. But need mention references? Could omit. Let's craft final C2 <=70.\n\nC3: \"Your Conclusion restates the design and acknowledges Vega E uncertainty, but it is brief and generic. To reach Accomplished, draw specific evidence-based conclusions on launch choice, communications access, mission duration and EOL, and state how the design meets the mission need. Link each conclusion back to results in the main body rather than summarising only.\" Count ~55. Good.\n\nC4: \"Your report has clear headings and an executive summary, but figures/tables are unnumbered, spelling/grammar slips remain, and references are URL-only and include Wikipedia. To reach Accomplished, use a consistent engineering-report format, number and caption all figures/tables, proofread, and provide a properly formatted reference list with matching in-text citations from credible sources.\" Count ~55. Good.\n\nNeed ensure JSON valid. No markdown. Use double quotes. Need escape? No special. Use \"~3 days\" okay. Use \"97.79°\" maybe degree symbol okay. JSON supports Unicode. Fine.\n\nNeed maybe mention \"you\" in summary? Summary can address student? It says address student as \"you\". Ensure criteria use \"you\". Summary maybe \"You have...\" Good.\n\nNeed not comment on document-conversion artefacts. Fine.\n\nNeed not make up explanations. We cite marking evidence. Good.\n\nNeed \"next rubric level requires\" for C1? Since Accomplished, maybe \"within Accomplished\" not next. But instruction says state next rubric level. For C1, next level doesn't exist; we can say \"You are at the lower end of Accomplished; to secure a higher mark within this band...\" That's acceptable. For C2/C3/C4, explicitly \"To reach Accomplished...\" Good.\n\nNeed maybe include \"C1\" etc. JSON object with criteria keys \"C1\" etc.\n\nLet's produce final JSON. Ensure summary <=80 words. Count summary: \"You have a strong mission concept and clear report structure, with STK screenshots and coverage of all major design areas. The main gaps are technical substantiation: launch vehicle availability and mass check, RAAN/LTAN and orbital calculations, link budget, EOL sizing, and reference quality. Addressing these will make your design more accurate and persuasive.\" Count: You1 have2 a3 strong4 mission5 concept6 and7 clear8 report9 structure10 with11 STK12 screenshots13 and14 coverage15 of16 all17 major18 design19 areas20. The21 main22 gaps23 are24 technical25 substantiation26: launch27 vehicle28 availability29 and30 mass31 check32, RAAN/LTAN33 and34 orbital35 calculations36, link37 budget38, EOL39 sizing40, and41 reference42 quality43. Addressing44 these45 will46 make47 your48 design49 more50 accurate51 and52 persuasive53. Good.\n\nNext steps strings maybe long but okay. Need 3. Good.\n\nNeed ensure no prose outside JSON. Final only JSON."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2461,
+    "completion_tokens": 2496,
+    "total_tokens": 4957,
+    "reasoning_tokens": 1918,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1918,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "cache_creation_input_tokens": 2432,
+    "cache_read_input_tokens": 0,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 2432,
+      "audio_tokens": 0
+    },
+    "citation_tokens": 0,
+    "num_search_queries": 0,
+    "input_tokens": 29,
+    "cost": 0.0017437,
+    "currency": "USD"
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_78deef08-5560-4fcc-a7c5-b32a785af9db",
+  "x_nanogpt_pricing": {
+    "amount": 0.0017437,
+    "currency": "USD",
+    "cost": 0.0017437,
+    "inputTokens": 2461,
+    "outputTokens": 2496,
+    "cacheCreationInputTokens": 2432,
+    "cacheReadInputTokens": 0,
+    "cacheCost": 0.0002432,
+    "requestId": "req_f73db795-02a5-4082-9adb-2f112b31be15",
+    "costUsd": 0.0017437,
+    "usdCost": 0.0017437,
+    "paymentSource": "USD",
+    "billedToTeam": false,
+    "billedTeamId": null,
+    "billedTeamName": null,
+    "promptCacheOutcome": {
+      "requested": false,
+      "enabledForDispatch": false,
+      "supported": true,
+      "status": "write_only",
+      "readTokens": 0,
+      "writeTokens": 2432
+    },
+    "usageSource": "provider",
+    "cacheUsageReported": true
+  },
+  "x_nanogpt_cache": {
+    "requested": false,
+    "enabledForDispatch": false,
+    "supported": true,
+    "status": "write_only",
+    "readTokens": 0,
+    "writeTokens": 2432
+  }
+}

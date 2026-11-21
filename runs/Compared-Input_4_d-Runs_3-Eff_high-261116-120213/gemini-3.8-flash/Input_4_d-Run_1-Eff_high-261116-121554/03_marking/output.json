@@ -1,0 +1,164 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "## Question 1",
+          "quote": "Response measure: the system should stay up most of the time."
+        }
+      ],
+      "reasoning": "Performance and availability are appropriate and justified from the scenario. The performance scenario is complete with a measurable metric. However, the availability scenario's response measure ('stay up most of the time') is qualitative and non-measurable."
+    },
+    {
+      "id": "C2",
+      "level": "Excellent",
+      "mark": 6,
+      "evidence": [
+        {
+          "where": "## Question 2",
+          "quote": "With five developers, running eight or ten services would mean more time spent on infrastructure than on features."
+        }
+      ],
+      "reasoning": "A modular monolith is clearly recommended and justified using scenario-specific trade-offs: team size (5 developers) versus operational overhead, and addressing single-VM and deployment downtime. Trade-offs and downsides (shared failure domain, lack of independent scaling) are acknowledged."
+    },
+    {
+      "id": "C3",
+      "level": "Developing",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "## Question 3",
+          "quote": "So the new availability of placing an order is 99.9975%, which reduces the downtime to 0.000025 × 720 = 0.018 hours"
+        }
+      ],
+      "reasoning": "Part (a) is correct (99.30%). In part (b), an arithmetic error occurs: 0.00699 × 720 equals 5.03 hours, not 3.5. In part (c), the student omitted the other series components, equating overall availability solely to the parallel payment provider availability."
+    },
+    {
+      "id": "C4",
+      "level": "Developing",
+      "mark": 2,
+      "evidence": [
+        {
+          "where": "## Question 4",
+          "quote": "In the Open state calls pass through normally."
+        }
+      ],
+      "reasoning": "Although the Circuit Breaker is an appropriate pattern and applied to the outage, the explanation inverts the state machine (stating calls pass through when Open and fail fast when Closed). Furthermore, no drawback or tuning consideration is provided."
+    },
+    {
+      "id": "C5",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "## Question 5",
+          "quote": "so for payments we choose consistency and availability and give up partition tolerance."
+        }
+      ],
+      "reasoning": "Both trade-off choices are sound, and Redis caching is properly suggested for menu browsing. However, no concrete technique is given for order placement/payment, and CAP is misconstrued by stating partition tolerance can be traded off during a network partition."
+    },
+    {
+      "id": "C6",
+      "level": "Proficient",
+      "mark": 4,
+      "evidence": [
+        {
+          "where": "## Question 6",
+          "quote": "Consequences: Placing an order no longer waits for the outlet, so the response time improves."
+        }
+      ],
+      "reasoning": "Context and Decision are clear, well reasoned, and specific to the scenario. However, the Consequences section is strictly one-sided, omitting any negative consequences or architectural trade-offs (such as message broker maintenance or eventual consistency handling)."
+    },
+    {
+      "id": "C7",
+      "level": "Proficient",
+      "mark": 3,
+      "evidence": [
+        {
+          "where": "## Question 2",
+          "quote": "I recommend against a full microservices rewrite for the next 12 months."
+        }
+      ],
+      "reasoning": "The submission uses required headings and clear language. However, Question 2 exceeds the 150-word limit (~188 words), and citation [2] referenced in Question 4 is missing from the reference list."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "met": "partial",
+      "where": "## Question 1"
+    },
+    {
+      "id": "R2",
+      "met": "yes",
+      "where": "## Question 2"
+    },
+    {
+      "id": "R3",
+      "met": "partial",
+      "where": "## Question 3"
+    },
+    {
+      "id": "R4",
+      "met": "partial",
+      "where": "## Question 4"
+    },
+    {
+      "id": "R5",
+      "met": "partial",
+      "where": "## Question 5"
+    },
+    {
+      "id": "R6",
+      "met": "partial",
+      "where": "## Question 6"
+    },
+    {
+      "id": "R7",
+      "met": "partial",
+      "where": "## References"
+    }
+  ],
+  "technical_issues": [
+    {
+      "where": "## Question 1",
+      "issue": "The response measure for the availability scenario ('stay up most of the time') is qualitative and not measurable."
+    },
+    {
+      "where": "## Question 3",
+      "issue": "Arithmetic calculation error in part (b): 0.00699 × 720 hours equals 5.03 hours, not 3.5 hours."
+    },
+    {
+      "where": "## Question 3",
+      "issue": "In part (c), end-to-end order placement availability was calculated using only the payment subsystem (99.9975%), omitting the other three series components."
+    },
+    {
+      "where": "## Question 4",
+      "issue": "Circuit breaker states are inverted: normal requests pass through when Closed, and requests fail immediately when Open."
+    },
+    {
+      "where": "## Question 4",
+      "issue": "No drawback or tuning consideration is stated for the Circuit Breaker pattern."
+    },
+    {
+      "where": "## Question 5",
+      "issue": "The CAP theorem explanation incorrectly states that partition tolerance can be sacrificed to achieve consistency and availability during a network partition."
+    },
+    {
+      "where": "## Question 5",
+      "issue": "No concrete technique is proposed for placing and paying for an order."
+    },
+    {
+      "where": "## Question 6",
+      "issue": "The ADR lists only positive consequences; negative consequences or operational trade-offs are omitted."
+    },
+    {
+      "where": "## References",
+      "issue": "Citation [2] is referenced in Question 4 but omitted from the reference list."
+    }
+  ],
+  "overall": "The submission demonstrates strong architectural rationale in Question 2 and good ADR formatting in Question 6. However, marks were lost due to calculation errors in Question 3, inverted circuit breaker states in Question 4, an incomplete CAP response in Question 5, and minor formatting/word-count infractions."
+}

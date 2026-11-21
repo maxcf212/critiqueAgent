@@ -1,0 +1,17 @@
+{
+  "summary": "You have a strong, well-structured submission with clear scenario grounding and correct Q3(a)/(b). Your main losses are Q3(c) recombination, CAP misapplication in Q5, an unmeasurable Q1 availability measure, one-sided Q6 consequences, Q2 over the word limit, and no explicit assumptions section. Current total 30/40.",
+  "next_steps": [
+    "In Q3(c), after computing payment availability 0.999975, recombine it with the other three components (0.9995 × 0.999 × 0.9995 × 0.999975) and report 99.80% with ~1.5 h downtime; show the multiplication explicitly.",
+    "In Q5(ii), reframe CAP: partition tolerance is not optional; during a partition choose consistency or availability. State which you sacrifice for payments and browsing, and keep your Redis TTL and idempotency-key techniques.",
+    "Revise Q1's availability response measure to a measurable target tied to payment-dependent ordering, add a negative consequence to Q6, trim Q2 to ≤150 words, and add a short assumptions section."
+  ],
+  "criteria": {
+    "C1": "Your performance scenario is complete and measurable, and you justify performance/availability from lunch-peak data. To reach Excellent, make the availability response measure measurable and tie it to the payment-dependent order flow rather than degraded browsing; 'stay up most of the time' in Q1 is not measurable.",
+    "C2": "Your modular-monolith recommendation is clear and well grounded: you use the five-developer team, per-service overhead, and known single-VM/deployment problems, and you acknowledge the downside. This is Excellent. For format, trim Q2 to the 150-word limit so the communication criterion is not affected.",
+    "C3": "Q3(a) and (b) are correct with working (99.30%, 5.0 h). In Q3(c) you correctly compute payment availability 0.999975 but report it as whole-system availability; re-multiply by the other three components to get 99.80% and ~1.5 h downtime. That one incorrect part keeps this at Proficient; correcting it would meet Excellent.",
+    "C4": "You name Circuit Breaker, explain closed/open/half-open correctly, and apply it convincingly to the 25-minute hang with a threshold example. To reach Excellent, add a drawback or genuine tuning consideration, such as threshold calibration, false trips, or fallback behaviour, in Q4.",
+    "C5": "Your choices and techniques (Redis TTL cache, idempotency key) are sensible. However, Q5(ii) misapplies CAP: partition tolerance cannot be given up; during a partition you choose consistency or availability. Correct that framing and state the sacrifice for payments versus browsing to reach Excellent.",
+    "C6": "Your ADR has Context, Decision and Consequences specific to CampusEats. The consequences are one-sided: you list latency, offline outlets and peak smoothing but no negative consequence. Add one, such as duplicate delivery, ordering guarantees, or added operational complexity, to meet Excellent.",
+    "C7": "Writing is clear, headings are in order, and IEEE-style citations/reference list are present. Q2 is ~180 words, over the 150-word limit; trim it. Also add an explicit assumptions section, as the brief requires assumptions to be stated, to strengthen format compliance."
+  }
+}
