@@ -1,3 +1,5 @@
+# Note: This repository is only public so that it can be used as a reference for my honours thesis submission. It is not intended for public use.
+
 # CritiqueAgentv3 (ver OCT. 2026)
 
 Marks student submissions against a rubric using LLMs through the NanoGPT API. There are two methods: a multi-agent pipeline and a single-prompt baseline.
